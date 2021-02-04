@@ -8,6 +8,7 @@ import styling from "./styling"
 
 // Import all of our Text Options requirements.
 import TypographyControl from "../../components/typography"
+import ResponsiveTabs from '../../components/responsive-tabs';
 
 // Import Web font loader for google fonts.
 import WebfontLoader from "../../components/typography/fontloader"
@@ -37,16 +38,25 @@ const {
 	Button,
 } = wp.components
 
-const { withSelect } = wp.data
+const { withSelect, withDispatch  } = wp.data
 
 const { Component, Fragment } = wp.element
+
+const { compose } = wp.compose
 
 class UAGBAdvancedHeading extends Component {
 
 	constructor() {
 		super( ...arguments )
 
+		this.state = {
+			selectedDevice: 'Desktop',
+			fontSizePlaceholder: '17',
+		};
+
 		this.splitBlock = this.splitBlock.bind( this )
+		this.getDeviceType = this.getDeviceType.bind( this );
+		this.setDeviceType = this.setDeviceType.bind( this );
 	}
 
 	componentDidMount() {
@@ -71,6 +81,25 @@ class UAGBAdvancedHeading extends Component {
 
 		if( null !== element && undefined !== element ) {
 			element.innerHTML = styling( this.props )
+		}
+	}
+
+	getDeviceType() {
+		let deviceType = this.props.deviceType ? this.props.deviceType : this.state.selectedDevice;
+
+		// if ( ! generateBlocksInfo.syncResponsivePreviews ) {
+			deviceType = this.state.selectedDevice;
+		// }
+		
+		return deviceType;
+	}
+
+	setDeviceType( deviceType ) {
+		if ( this.props.deviceType ) {
+			this.props.setDeviceType( deviceType );
+			this.setState( { selectedDevice: deviceType } );
+		} else {
+			this.setState( { selectedDevice: deviceType } );
 		}
 	}
 
@@ -197,7 +226,7 @@ class UAGBAdvancedHeading extends Component {
 				</WebfontLoader>
 			)
 		}
-
+		
 		return (
 			<Fragment>
 				<BlockControls key='controls'>
@@ -207,6 +236,12 @@ class UAGBAdvancedHeading extends Component {
 					/>
 				</BlockControls>
 				<InspectorControls>
+				<ResponsiveTabs { ...this.props }
+						selectedDevice={ this.getDeviceType() }
+						onClick={ ( device ) => {
+							this.setDeviceType( device );
+						} }
+					/>
 					<PanelBody title={ __( "Advanced Heading" ) }>
 						<h2>{ __( "Heading" ) }</h2>
 						<SelectControl
@@ -395,10 +430,34 @@ class UAGBAdvancedHeading extends Component {
 		)
 	}
 }
+export default compose( [
+	withDispatch( ( dispatch ) => ( {
+		setDeviceType( type ) {
+			const {
+				__experimentalSetPreviewDeviceType: setPreviewDeviceType,
+			} = dispatch( 'core/edit-post' );
 
-export default withSelect( ( select, props ) => {
+			if ( ! setPreviewDeviceType ) {
+				return;
+			}
+
+			setPreviewDeviceType( type );
+		},
+	} ) ),
+	withSelect( ( select, props ) => {
 	const { attributes } = props
-	return {
-		anchor: attributes.headingId
+	const {
+		__experimentalGetPreviewDeviceType: getPreviewDeviceType,
+	} = select( 'core/edit-post' );
+
+	if ( ! getPreviewDeviceType ) {
+		return {
+			deviceType: null,
+		};
 	}
-} )( UAGBAdvancedHeading )
+	return {
+		anchor: attributes.headingId,
+		deviceType: getPreviewDeviceType(),
+	}
+	} ),
+] )( UAGBAdvancedHeading )
