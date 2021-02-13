@@ -304,8 +304,7 @@ const attributes = {
 	},
 	timeInYears: {
 		type: "number",		
-	},
-	
+	},	
 }
 
 export default attributes

@@ -376,29 +376,9 @@ class UAGBHowTo extends Component {
 
 			return (
 				<PanelBody title={ __( "General" ) } initialOpen={ true } >
-							<h2>{ __( "Image" ) }</h2>
-							<MediaUpload
-								title={ __( "Select Image" ) }
-								onSelect={ ( value ) => setAttributes( { mainimage: value } ) }
-								allowedTypes={ [ "image" ] }
-								value={ mainimage }
-								render={ ( { open } ) => (
-									<Button isDefault onClick={ open }>
-										{ ! mainimage.url ? __( "Select Image" ) : __( "Replace image" ) }
-									</Button>
-								) }
-							/>
-							{ mainimage.url &&
-								<Button
-									className="uagb-rm-btn"
-									onClick={ () => setAttributes( { mainimage: '' } ) }
-									isLink isDestructive>
-									{ __( "Remove Image" ) }
-								</Button>
-							}
 							{ mainimage.url &&
 								<SelectControl
-									label={ __( "Size" ) }
+									label={ __( "Image Size" ) }
 									options={ imageSizeOptions }
 									value={ imgSize }
 									onChange={ ( value ) => setAttributes( { imgSize: value } ) }
@@ -768,7 +748,30 @@ class UAGBHowTo extends Component {
 						unstableOnSplit={ this.splitBlock }
 						onRemove={ () => onReplace( [] ) }
 					/>
-					<div className="uagb-howto__source-wrap">{image_icon_html}</div>
+					<MediaUpload
+						title={ __( "Select Image" ) }
+						onSelect={ ( value ) => setAttributes( { mainimage: value } ) }
+						allowedTypes={ [ "image" ] }
+						value={ mainimage }
+						render={ ( { open } ) => (
+							<Button isDefault onClick={ open }>
+								{ ! mainimage.url ? __( "Select Image" ) : __( "Replace image" ) }
+							</Button>
+						) }
+					/>
+					{ mainimage.url &&
+						<Button
+							className="uagb-rm-btn"
+							onClick={ () => setAttributes( { mainimage: '' } ) }
+							isLink isDestructive>
+							{ __( "Remove Image" ) }
+						</Button>
+					}
+					{mainimage.url !== "" && (
+						<div className="uagb-howto__source-wrap">
+							{image_icon_html}
+						</div>
+					) } 
 					<span className="uagb-howto__time-wrap">
 					{ showTotaltime &&
 						<RichText
