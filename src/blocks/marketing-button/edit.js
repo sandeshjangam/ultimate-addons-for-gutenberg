@@ -73,6 +73,12 @@ class UAGBMarketingButtonEdit extends Component {
 		$style.setAttribute( "id", "uagb-style-marketing-btn-" + this.props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
 
+		var element = document.getElementById( "uagb-style-marketing-btn-" + this.props.clientId.substr( 0, 8 ) )
+
+		if( null !== element && undefined !== element ) {
+			element.innerHTML = styling( this.props )
+		}
+
 	}
 	
 

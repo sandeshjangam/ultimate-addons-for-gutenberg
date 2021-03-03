@@ -69,6 +69,12 @@ class UAGBSectionEdit extends Component {
 		const $style = document.createElement( "style" )
 		$style.setAttribute( "id", "uagb-section-style-" + this.props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
+
+		var element = document.getElementById( "uagb-section-style-" + this.props.clientId.substr( 0, 8 ) )
+
+		if( null !== element && undefined !== element ) {
+			element.innerHTML = styling( this.props )
+		}
 	}
 
 	/*
