@@ -168,7 +168,7 @@ The awesome React FontIconPicker is developed by [Alessandro Benoit](http://code
 == Changelog ==
 
 = 1.22.0 =
-* Fix: Styling not applying when used as a reusable block for section/marketting button.
+* Fix: Styling not applying when used as a reusable block for column/section/marketting button.
 
 = 1.21.0 =
 * New: Tabs Block. [Read More](https://ultimategutenberg.com/tabs/)
