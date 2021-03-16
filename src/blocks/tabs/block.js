@@ -27,6 +27,19 @@ registerBlockType( "uagb/tabs", {
 	supports: {
 		anchor: true,
 	},
+	example:{
+		innerBlocks: [
+			{
+				name: 'uagb/tabs-child',
+				innerBlocks: [
+					{
+						name: 'uagb/tabs-child',
+						attributes: { tabHeaders: [__('Tab 1' , 'ultimate-addons-for-gutenberg' ),__('Tab 2','ultimate-addons-for-gutenberg'),__('Tab 3','ultimate-addons-for-gutenberg')] },
+					},
+				],
+			},
+		],
+	},
 	attributes,
 	edit,
 	save

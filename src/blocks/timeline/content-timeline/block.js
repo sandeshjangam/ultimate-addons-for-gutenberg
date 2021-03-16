@@ -78,9 +78,6 @@ registerBlockType( "uagb/content-timeline", {
 	supports: {
 		anchor: true,
 	},
-	attributes,
-	edit,
-	save,
 	example: {
 		innerBlocks: [
 			{
@@ -130,6 +127,9 @@ registerBlockType( "uagb/content-timeline", {
 			},
 		],
 	},
+	attributes,
+	edit,
+	save,
 	deprecated,
 } )
 addFilter(

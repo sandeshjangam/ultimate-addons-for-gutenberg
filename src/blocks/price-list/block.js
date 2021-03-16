@@ -73,7 +73,6 @@ registerBlockType( "uagb/restaurant-menu", {
 	attributes,
 	edit,
 	save,
-	example: {},
 	deprecated,
 } )
 addFilter(

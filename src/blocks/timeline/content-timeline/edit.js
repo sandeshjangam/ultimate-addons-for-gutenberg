@@ -724,36 +724,43 @@ class UAGBcontentTimeline extends Component {
 
 	componentDidUpdate(){
 
-		select('core/block-editor').getBlocksByClientId(this.props.clientId)[0].innerBlocks.forEach(function (block,key) {
-			let align_class = ""
-			if( "left" == block.attributes.timelinAlignment ){
-				align_class = "uagb-timeline__widget uagb-timeline__left"
-			}else if( "right" == block.attributes.timelinAlignment ){
-				align_class = "uagb-timeline__widget uagb-timeline__right"
-			}else if( "center" == block.attributes.timelinAlignment ){
-				if( key % 2 == "0" ){
-					align_class = "uagb-timeline__widget uagb-timeline__right"
-				}else{
-					align_class = "uagb-timeline__widget uagb-timeline__left"
-				}  
-			} 
+		const selectInnerBlocks = select('core/block-editor').getBlocksByClientId(this.props.clientId)[0]
 
-			let day_align_class = ""
-			if( "left" == block.attributes.timelinAlignment ){
-				day_align_class = "uagb-timeline__day-new uagb-timeline__day-left"
-			}else if( "right" == block.attributes.timelinAlignment ){
-				day_align_class = "uagb-timeline__day-new uagb-timeline__day-right"
-			}else if( "center" == block.attributes.timelinAlignment ){
-				if( key % 2 == "0" ){
-					day_align_class = "uagb-timeline__day-new uagb-timeline__day-right"
-				}else{
+		
+		if( selectInnerBlocks ){
+		
+			selectInnerBlocks.innerBlocks.forEach(function (block,key) {
+				let align_class = ""
+				if( "left" == block.attributes.timelinAlignment ){
+					align_class = "uagb-timeline__widget uagb-timeline__left"
+				}else if( "right" == block.attributes.timelinAlignment ){
+					align_class = "uagb-timeline__widget uagb-timeline__right"
+				}else if( "center" == block.attributes.timelinAlignment ){
+					if( key % 2 == "0" ){
+						align_class = "uagb-timeline__widget uagb-timeline__right"
+					}else{
+						align_class = "uagb-timeline__widget uagb-timeline__left"
+					}  
+				} 
+
+				let day_align_class = ""
+				if( "left" == block.attributes.timelinAlignment ){
 					day_align_class = "uagb-timeline__day-new uagb-timeline__day-left"
+				}else if( "right" == block.attributes.timelinAlignment ){
+					day_align_class = "uagb-timeline__day-new uagb-timeline__day-right"
+				}else if( "center" == block.attributes.timelinAlignment ){
+					if( key % 2 == "0" ){
+						day_align_class = "uagb-timeline__day-new uagb-timeline__day-right"
+					}else{
+						day_align_class = "uagb-timeline__day-new uagb-timeline__day-left"
+					}
 				}
-			}
-			
-			dispatch('core/block-editor').updateBlockAttributes(block.clientId, ({ content_class: align_class }))
-			dispatch('core/block-editor').updateBlockAttributes(block.clientId, ({ dayalign_class: day_align_class }))
+				
+				dispatch('core/block-editor').updateBlockAttributes(block.clientId, ({ content_class: align_class }))
+				dispatch('core/block-editor').updateBlockAttributes(block.clientId, ({ dayalign_class: day_align_class }))
 		  })
+
+		}
 		  const getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
 		  getChildBlocks.forEach((ctChild, key) => {
 			ctChild.attributes.headingTag = this.props.attributes.headingTag;
