@@ -72,6 +72,7 @@ export const renderPostLayout = (
 
 		return (
 			<Suspense
+				key={index}
 				fallback={ <div className="wc-block-placeholder" /> }
 			>
 				<LayoutComponent

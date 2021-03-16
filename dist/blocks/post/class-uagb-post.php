@@ -423,6 +423,7 @@ if ( ! class_exists( 'UAGB_Post' ) ) {
 				),
 				'linkBox'                 => array(
 					'type' => 'boolean',
+					'default' => false,
 				),
 				'bgOverlayColor'          => array(
 					'type'    => 'string',
