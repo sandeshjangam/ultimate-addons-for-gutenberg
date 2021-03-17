@@ -265,15 +265,6 @@ class UAGBRatingEdit extends Component {
 		} = this.props;
 
 		if (
-			block_id === ""
-		) {
-			setAttributes({
-				
-				block_id: this.props.clientId.substr( 0, 8 ),
-			});
-		}
-
-		if (
 			items &&
 			items !== JSON.stringify(parts) &&
 			parts.length === 1 &&

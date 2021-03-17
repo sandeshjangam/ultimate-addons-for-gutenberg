@@ -21,7 +21,6 @@ const {
 } = wp.element
 
 const {
-	BlockAlignmentToolbar,
 	InspectorControls,
 	InnerBlocks
 } = wp.blockEditor
@@ -30,7 +29,6 @@ const {
 	PanelBody,
 	SelectControl,
 	RangeControl,
-	BaseControl
 } = wp.components
 
 const ALLOWED_BLOCKS = [ "uagb/buttons-child" ]
@@ -111,21 +109,17 @@ class UAGBMultiButtonEdit extends Component {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( "General", 'ultimate-addons-for-gutenberg' ) } initialOpen={ true }>
-						<BaseControl>
-							<BaseControl.VisualLabel>
-								{ __( 'Alignment', 'ultimate-addons-for-gutenberg' ) }
-							</BaseControl.VisualLabel>
-							<BlockAlignmentToolbar
-								value={ align }
-								onChange={ ( value ) =>
-									setAttributes( {
-										align: value,
-									} )
-								}
-								controls={ [ 'left', 'center', 'right', 'full' ] }
-								isCollapsed={ false }
-							/>
-						</BaseControl>
+						<SelectControl
+							label={ __( 'Alignment', 'ultimate-addons-for-gutenberg' ) }
+							value={ align }
+							options={ [
+								{ value: "left", label: __( "Left", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "center", label: __( "Center", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "right", label: __( "Right", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "full", label: __( "Full", 'ultimate-addons-for-gutenberg' ) },
+							] }
+							onChange={ ( value ) => setAttributes( { align: value } ) }
+						/>
 						<h2>{ __( "Spacing", 'ultimate-addons-for-gutenberg' ) }</h2>
 						<RangeControl
 							label={ __( "Gap Between Buttons", 'ultimate-addons-for-gutenberg' ) }

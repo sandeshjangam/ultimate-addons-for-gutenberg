@@ -309,17 +309,16 @@ class UAGBTabsEdit extends Component {
 							} ) }
 							onChange={ (value) => setAttributes( { tabActiveFrontend: parseInt(value) } ) }
 						/>
-						<h2>{ __( "Alignment"  , 'ultimate-addons-for-gutenberg') }</h2>
-						<BlockAlignmentToolbar
+						<SelectControl
+							label={ __( 'Alignment', 'ultimate-addons-for-gutenberg' ) }
 							value={ titleAlign }
-							onChange={ ( value ) =>
-								setAttributes( {
-									titleAlign: value,
-								} )
-							}
-							controls={ [ 'left', 'center', 'right' ] }
-							isCollapsed={ false }
-					/>		
+							options={ [
+								{ value: "left", label: __( "Left", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "center", label: __( "Center", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "right", label: __( "Right", 'ultimate-addons-for-gutenberg' ) },
+							] }
+							onChange={ ( value ) => setAttributes( { titleAlign: value } ) }
+						/>	
 					<ToggleControl
 						label={ __( "Enable Icon"  , 'ultimate-addons-for-gutenberg') }
 						checked={ showIcon }
