@@ -9,11 +9,13 @@ import UAGB_Block_Icons from "../../../dist/blocks/uagb-controls/block-icons"
 import BoxShadowControl from "../../components/box-shadow"
 import GradientSettings from "../../components/gradient-settings"
 
+
 const { __ } = wp.i18n
 
 const {
 	Component,
 	Fragment,
+	useEffect,
 } = wp.element
 
 const {
@@ -38,176 +40,125 @@ const {
 	TabPanel
 } = wp.components
 
+function onRemoveImage() {
+	const { setAttributes } = props
 
-class UAGBSectionEdit extends Component {
+	setAttributes( { backgroundImage: null } )
+}
 
-	constructor() {
-		super( ...arguments )
-
-		this.onRemoveVideo = this.onRemoveVideo.bind( this )
-		this.onRemoveImage = this.onRemoveImage.bind( this )
-		this.onSelectImage = this.onSelectImage.bind( this )
-		this.onSelectVideo = this.onSelectVideo.bind( this )
-	}
-
-	componentDidUpdate( prevProps ) {
-		var element = document.getElementById( "uagb-section-style-" + this.props.clientId.substr( 0, 8 ) )
-
-		if( null !== element && undefined !== element ) {
-			element.innerHTML = styling( this.props )
-		}
-	}
-
-	componentDidMount() {
-
-		// Assigning block_id in the attribute.
-		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
-
-		this.props.setAttributes( { classMigrate: true } )
-
-		// Pushing Style tag for this block css.
-		const $style = document.createElement( "style" )
-		$style.setAttribute( "id", "uagb-section-style-" + this.props.clientId.substr( 0, 8 ) )
-		document.head.appendChild( $style )
-	}
-
-	/*
-	 * Event to set Image as null while removing.
-	 */
-	onRemoveImage() {
-		const { setAttributes } = this.props
-
-		setAttributes( { backgroundImage: null } )
-	}
-
-	/*
-	 * Event to set Image as while adding.
-	 */
-	onSelectImage( media ) {
-
-		const { setAttributes } = this.props
-
-		if ( ! media || ! media.url ) {
-			setAttributes( { backgroundImage: null } )
-			return
-		}
-
-		if ( ! media.type || "image" != media.type ) {
-			return
-		}
-
-		setAttributes( { backgroundImage: media } )
-	}
-
-	/*
-	 * Event to set Video as null while removing.
-	 */
-	onRemoveVideo() {
-		const { setAttributes } = this.props
-
+function onSelectVideo( media ) {
+	const { setAttributes } = props
+	
+	if ( ! media || ! media.url ) {
 		setAttributes( { backgroundVideo: null } )
+		return
+	}
+	if ( ! media.type || "video" != media.type ) {
+		return
+	}
+	setAttributes( { backgroundVideo: media } )
+}
+
+function onSelectImage( media ) {
+
+	const { setAttributes } = props
+
+	if ( ! media || ! media.url ) {
+		setAttributes( { backgroundImage: null } )
+		return
 	}
 
-	/*
-	 * Event to set Video while adding.
-	 */
-	onSelectVideo( media ) {
-		const { setAttributes } = this.props
-
-		if ( ! media || ! media.url ) {
-			setAttributes( { backgroundVideo: null } )
-			return
-		}
-		if ( ! media.type || "video" != media.type ) {
-			return
-		}
-		setAttributes( { backgroundVideo: media } )
+	if ( ! media.type || "image" != media.type ) {
+		return
 	}
 
-	render() {
+	setAttributes( { backgroundImage: media } )
+}
 
-		const { attributes, setAttributes, isSelected, className } = this.props
+function UAGBSectionEdit(props) {
 
-		const {
-			align,
-			contentWidth,
-			width,
-			innerWidth,
-			innerWidthType,
-			tag,
-			themeWidth,
-			leftPadding,
-			rightPadding,
-			topPadding,
-			bottomPadding,
-			leftMargin,
-			rightMargin,
-			topMargin,
-			bottomMargin,
-			topPaddingTablet,
-			bottomPaddingTablet,
-			leftPaddingTablet,
-			rightPaddingTablet,
-			topMarginTablet,
-			bottomMarginTablet,
-			leftMarginTablet,
-			rightMarginTablet,
+	const { attributes, setAttributes, isSelected, className } = props
 
-			topPaddingMobile,
-			bottomPaddingMobile,
-			leftPaddingMobile,
-			rightPaddingMobile,
-			topMarginMobile,
-			bottomMarginMobile,
-			leftMarginMobile,
-			rightMarginMobile,
-			backgroundType,
-			backgroundImage,
-			backgroundVideo,
-			backgroundColor,
-			backgroundPosition,
-			backgroundAttachment,
-			backgroundRepeat,
-			backgroundSize,
-			gradientColor1,
-			gradientColor2,
-			gradientLocation1,
-			gradientLocation2,
-			gradientType,
-			gradientAngle,
-			gradientPosition,
-			backgroundOpacity,
-			backgroundVideoColor,
-			backgroundVideoOpacity,
-			backgroundImageColor,
-			overlayType,
-			gradientOverlayColor1,
-			gradientOverlayColor2,
-			gradientOverlayType,
-			gradientOverlayLocation1,
-			gradientOverlayLocation2,
-			gradientOverlayAngle,
-			gradientOverlayPosition,
-			borderStyle,
-			borderWidth,
-			borderRadius,
-			borderColor,
-			mobileMarginType,
-			tabletMarginType,
-			desktopMarginType,
-			mobilePaddingType,
-			tabletPaddingType,
-			desktopPaddingType,
-			boxShadowColor,
-			boxShadowHOffset,
-			boxShadowVOffset,
-			boxShadowBlur,
-			boxShadowSpread,
-			boxShadowPosition,
-			gradientValue,
-		} = attributes
+	const {
+		align,
+		contentWidth,
+		width,
+		innerWidth,
+		innerWidthType,
+		tag,
+		themeWidth,
+		leftPadding,
+		rightPadding,
+		topPadding,
+		bottomPadding,
+		leftMargin,
+		rightMargin,
+		topMargin,
+		bottomMargin,
+		topPaddingTablet,
+		bottomPaddingTablet,
+		leftPaddingTablet,
+		rightPaddingTablet,
+		topMarginTablet,
+		bottomMarginTablet,
+		leftMarginTablet,
+		rightMarginTablet,
 
-		const CustomTag = `${tag}`
+		topPaddingMobile,
+		bottomPaddingMobile,
+		leftPaddingMobile,
+		rightPaddingMobile,
+		topMarginMobile,
+		bottomMarginMobile,
+		leftMarginMobile,
+		rightMarginMobile,
+		backgroundType,
+		backgroundImage,
+		backgroundVideo,
+		backgroundColor,
+		backgroundPosition,
+		backgroundAttachment,
+		backgroundRepeat,
+		backgroundSize,
+		gradientColor1,
+		gradientColor2,
+		gradientLocation1,
+		gradientLocation2,
+		gradientType,
+		gradientAngle,
+		gradientPosition,
+		backgroundOpacity,
+		backgroundVideoColor,
+		backgroundVideoOpacity,
+		backgroundImageColor,
+		overlayType,
+		gradientOverlayColor1,
+		gradientOverlayColor2,
+		gradientOverlayType,
+		gradientOverlayLocation1,
+		gradientOverlayLocation2,
+		gradientOverlayAngle,
+		gradientOverlayPosition,
+		borderStyle,
+		borderWidth,
+		borderRadius,
+		borderColor,
+		mobileMarginType,
+		tabletMarginType,
+		desktopMarginType,
+		mobilePaddingType,
+		tabletPaddingType,
+		desktopPaddingType,
+		boxShadowColor,
+		boxShadowHOffset,
+		boxShadowVOffset,
+		boxShadowBlur,
+		boxShadowSpread,
+		boxShadowPosition,
+		gradientValue,
+	} = attributes
+
+			const CustomTag = `${tag}`
 
 		let active = ( isSelected ) ? "active" : "not-active"
 
@@ -222,8 +173,21 @@ class UAGBSectionEdit extends Component {
 			}
 		}
 
-		return (
-			<Fragment>
+  	
+	
+	// Similar to componentDidMount and componentDidUpdate:
+	useEffect(() => {
+			const $style = document.createElement( "style" )
+			$style.setAttribute( "id", "uagb-section-style-" + props.clientId.substr( 0, 8 ) )
+			document.head.appendChild( $style )
+					
+			if( null !== $style && undefined !== $style ) {
+				$style.innerHTML = styling( props )
+			}
+	});
+
+  return (
+    <Fragment>
 				<BlockControls>
 					<BlockAlignmentToolbar
 						value={ align }
@@ -660,17 +624,17 @@ class UAGBSectionEdit extends Component {
 									label={ __( "Background Image",'ultimate-addons-for-gutenberg' ) }>
 									<MediaUpload
 										title={ __( "Select Background Image",'ultimate-addons-for-gutenberg' ) }
-										onSelect={ this.onSelectImage }
+										onSelect={ onSelectImage() }
 										allowedTypes={ [ "image" ] }
 										value={ backgroundImage }
 										render={ ( { open } ) => (
-											<Button isSecondary onClick={ open }>
+											<Button isDefault onClick={ open }>
 												{ ! backgroundImage ? __( "Select Background Image",'ultimate-addons-for-gutenberg' ) : __( "Replace image",'ultimate-addons-for-gutenberg' ) }
 											</Button>
 										) }
 									/>
 									{ backgroundImage &&
-										( <Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
+										( <Button className="uagb-rm-btn" onClick={ onRemoveImage() } isLink isDestructive>
 											{ __( "Remove Image" ) }
 										</Button> )
 									}
@@ -825,17 +789,17 @@ class UAGBSectionEdit extends Component {
 							>
 								<MediaUpload
 									title={ __( "Select Background Video",'ultimate-addons-for-gutenberg' ) }
-									onSelect={ this.onSelectVideo }
+									onSelect={ onSelectVideo() }
 									allowedTypes={ [ "video" ] }
 									value={ backgroundVideo }
 									render={ ( { open } ) => (
-										<Button isSecondary onClick={ open }>
+										<Button isDefault onClick={ open }>
 											{ ! backgroundVideo ? __( "Select Background Video",'ultimate-addons-for-gutenberg' ) : __( "Replace Video",'ultimate-addons-for-gutenberg' ) }
 										</Button>
 									) }
 								/>
 								{ backgroundVideo &&
-									( <Button onClick={ this.onRemoveVideo } isLink isDestructive>
+									( <Button onClick={ onRemoveVideo } isLink isDestructive>
 										{ __( "Remove Video" ) }
 									</Button> )
 								}
@@ -939,7 +903,7 @@ class UAGBSectionEdit extends Component {
 						`uagb-section__background-${backgroundType}`,
 						`uagb-section__edit-${ active }`,
 						block_controls_class,
-						`uagb-block-${this.props.clientId.substr( 0, 8 )}`
+						`uagb-block-${props.clientId.substr( 0, 8 )}`
 					) }
 				>
 					<div className="uagb-section__overlay"></div>
@@ -959,8 +923,7 @@ class UAGBSectionEdit extends Component {
 
 				</CustomTag>
 			</Fragment>
-		)
-	}
+  );
 }
-
-export default withNotices( UAGBSectionEdit )
+export default UAGBSectionEdit;
+// export default withNotices( UAGBSectionEdit )

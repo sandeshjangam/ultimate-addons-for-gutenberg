@@ -37,36 +37,29 @@ const {
 } = wp.components
 
 // Extend component
-const { Component, Fragment } = wp.element
+const { Component, Fragment, useEffect,} = wp.element
 
-class UAGBCF7 extends Component {
+/*
+* Event to set Image as while adding.
+*/
+function onSelectForm( id ) {
+	console.log(props);
+	const { formId } = props.attributes
+	const { setAttributes, setState } = props
 
-	constructor() {
-		super( ...arguments )
-		this.onSelectForm = this.onSelectForm.bind( this )
-	}
-
-	/*
-	 * Event to set Image as while adding.
-	 */
-	onSelectForm( id ) {
-		const { formId } = this.props.attributes
-		const { setAttributes, setState } = this.props
-
-		if ( ! id ) {
-			setAttributes( { isHtml: false } )
-			setAttributes( { formId: null } )
-			return
-		}
-
+	if ( ! id ) {
 		setAttributes( { isHtml: false } )
-		setAttributes( { formId: id } )
+		setAttributes( { formId: null } )
+		return
 	}
 
+	setAttributes( { isHtml: false } )
+	setAttributes( { formId: id } )
+}
 
-	render() {
-
-		const { className, setAttributes, attributes } = this.props
+function UAGBCF7(props) {
+	
+		const { className, setAttributes, attributes } = props
 
 		// Setup the attributes.
 		const {
@@ -444,7 +437,7 @@ class UAGBCF7 extends Component {
 				<SelectControl
 					label={ __( "Select Form",'ultimate-addons-for-gutenberg' ) }
 					value={ formId }
-					onChange={ this.onSelectForm }
+					onChange={ onSelectForm() }
 					options={ uagb_blocks_info.cf7_forms }
 				/>													
 			</PanelBody>			
@@ -460,7 +453,7 @@ class UAGBCF7 extends Component {
 					>
 						<SelectControl				
 							value={ formId }
-							onChange={ this.onSelectForm }
+							onChange={ onSelectForm() }
 							options={ uagb_blocks_info.cf7_forms }
 						/>	
 					</Placeholder>
@@ -996,6 +989,26 @@ class UAGBCF7 extends Component {
 			</PanelBody>
 		)
 
+	// Similar to componentDidMount and componentDidUpdate:
+	useEffect(() => {
+		// Assigning block_id in the attribute.
+		props.setAttributes( { isHtml: false } )
+		props.setAttributes( { block_id: props.clientId.substr( 0, 8 ) } )
+		// Pushing Style tag for this block css.
+		const $style = document.createElement( "style" )
+		$style.setAttribute( "id", "uagb-cf7-styler-" + props.clientId.substr( 0, 8 ) )
+		document.head.appendChild( $style )
+
+		$(".wpcf7-submit").click( function(event) {
+			event.preventDefault()
+		})
+
+		if( null !== $style && undefined !== $style ) {
+			$style.innerHTML = styling( props )
+		}
+
+	});
+
 		return (
 			<Fragment>
 				<BlockControls key='controls'>
@@ -1017,7 +1030,7 @@ class UAGBCF7 extends Component {
 					className = { classnames(
 						className,	
 						"uagb-cf7-styler__outer-wrap",
-						`uagb-block-${ this.props.clientId.substr( 0, 8 ) }`					
+						`uagb-block-${ props.clientId.substr( 0, 8 ) }`					
 					) }
 				>
 					<div className = {  classnames(
@@ -1048,32 +1061,11 @@ class UAGBCF7 extends Component {
 				{ loadValidationGoogleFonts }
 				{ loadMsgGoogleFonts }
 			</Fragment>
-		)
-	}
-
-	componentDidMount() {
-		// Assigning block_id in the attribute.
-		this.props.setAttributes( { isHtml: false } )
-		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
-		// Pushing Style tag for this block css.
-		const $style = document.createElement( "style" )
-		$style.setAttribute( "id", "uagb-cf7-styler-" + this.props.clientId.substr( 0, 8 ) )
-		document.head.appendChild( $style )
-	}
-
-	componentDidUpdate(){				
-		$(".wpcf7-submit").click( function(event) {
-			event.preventDefault()
-		})
-		var element = document.getElementById( "uagb-cf7-styler-" + this.props.clientId.substr( 0, 8 ) )
-
-		if( null !== element && undefined !== element ) {
-			element.innerHTML = styling( this.props )
-		}
-	}
+		);
 }
 
 export default withSelect( ( select, props ) => {
+	console.log(props)
 	const { setAttributes } = props
 	const { formId, isHtml } = props.attributes
 	let json_data = ""
