@@ -194,6 +194,8 @@
 
 				$(`.uagb-block-${blockId} .uagb-toc__list-wrap`).remove();
 				
+				$this_scope.find( '.uagb_table-of-contents-placeholder' )[0].style.display = 'block';
+				
 				$(".uagb_table-of-contents-placeholder").prepend(headerTable);
 			
 			}
