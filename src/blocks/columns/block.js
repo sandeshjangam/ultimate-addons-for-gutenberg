@@ -46,6 +46,7 @@ registerBlockType( "uagb/columns", {
 		anchor: true,
 	},
 	example: {},
+	// eslint-disable-next-line react/display-name
 	save : function( props ) {
 
 		const { attributes, className } = props
