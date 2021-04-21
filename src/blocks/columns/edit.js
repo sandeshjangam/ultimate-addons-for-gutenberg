@@ -10,6 +10,7 @@ import map from "lodash/map"
 import UAGB_Block_Icons from "../../../dist/blocks/uagb-controls/block-icons"
 import columnsSettings from "./settings"
 import renderColumns from "./render"
+import React, { useEffect } from 'react';
 
 const { __ } = wp.i18n
 const {
@@ -35,83 +36,80 @@ const {
 const {
 	createBlock
 } = wp.blocks
-class UAGBColumns extends Component {
 
-	constructor() {
-		super( ...arguments )
-		this.blockVariationPickerOnSelect = this.blockVariationPickerOnSelect.bind( this )
-	}
+const columnsComponent = props => {
 
-	componentDidMount() {
-
+	useEffect(() => {
+		console.log('in mount');
 		// Assigning block_id in the attribute.
-		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
+		props.setAttributes( { block_id: props.clientId.substr( 0, 8 ) } )
 
-		this.props.setAttributes( { classMigrate: true } )
+		props.setAttributes( { classMigrate: true } )
 
-		if ( "middle" === this.props.attributes.vAlign ) {
-			this.props.setAttributes( { vAlign: "center" } )
+		if ( "middle" === props.attributes.vAlign ) {
+			props.setAttributes( { vAlign: "center" } )
 		}
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
-		$style.setAttribute( "id", "uagb-columns-style-" + this.props.clientId.substr( 0, 8 ) )
+		$style.setAttribute( "id", "uagb-columns-style-" + props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
-	}
 
-	componentDidUpdate( prevProps ) {
-		var element = document.getElementById( "uagb-columns-style-" + this.props.clientId.substr( 0, 8 ) )
+	}, [])
+
+	useEffect(() => {
+		console.log('in update');
+
+		var element = document.getElementById( "uagb-columns-style-" + props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
-			element.innerHTML = styling( this.props )
+			element.innerHTML = styling( props )
 		}
-	}
+	}, [props] )
 
-	blockVariationPickerOnSelect ( nextVariation = this.props.defaultVariation ) {
+	const blockVariationPickerOnSelect = ( nextVariation = props.defaultVariation ) => {
 			
 		if ( nextVariation.attributes ) {
-			this.props.setAttributes( nextVariation.attributes )
+			props.setAttributes( nextVariation.attributes )
 		}
 
 		if ( nextVariation.innerBlocks ) {
-			this.props.replaceInnerBlocks(
-				this.props.clientId,
-				this.createBlocksFromInnerBlocksTemplate( nextVariation.innerBlocks )
+			props.replaceInnerBlocks(
+				props.clientId,
+				createBlocksFromInnerBlocksTemplate( nextVariation.innerBlocks )
 			)
 		}
 	}
 
-	createBlocksFromInnerBlocksTemplate( innerBlocksTemplate ) {
-		return map( innerBlocksTemplate, ( [ name, attributes, innerBlocks = [] ] ) => createBlock( name, attributes, this.createBlocksFromInnerBlocksTemplate( innerBlocks ) ) )
+	const createBlocksFromInnerBlocksTemplate = ( innerBlocksTemplate ) => {
+		return map( innerBlocksTemplate, ( [ name, attributes, innerBlocks = [] ] ) => createBlock( name, attributes, createBlocksFromInnerBlocksTemplate( innerBlocks ) ) )
 	}
 
-	render() {
-		
-		const {  
-			variations,
-			hasInnerBlocks,
-		 } = this.props
+	const {  
+		variations,
+		hasInnerBlocks,
+	} = props
 
-		if ( ! hasInnerBlocks ) {
+	if ( ! hasInnerBlocks ) {
 
-			return (
-				<__experimentalBlockVariationPicker
-					icon ={ UAGB_Block_Icons.columns }
-					label={ uagb_blocks_info.blocks["uagb/columns"]["title"] }
-					instructions={ __( "Select a variation to start with.", "ultimate-addons-for-gutenberg" ) }
-					variations={ variations }
-					allowSkip
-					onSelect={ ( nextVariation ) => this.blockVariationPickerOnSelect( nextVariation ) }
-				/>
-			)
-		}
-			
 		return (
-			<>
-				{ columnsSettings( this.props ) }
-				{ renderColumns( this.props ) }
-			</>
+			<__experimentalBlockVariationPicker
+				icon ={ UAGB_Block_Icons.columns }
+				label={ uagb_blocks_info.blocks["uagb/columns"]["title"] }
+				instructions={ __( "Select a variation to start with.", "ultimate-addons-for-gutenberg" ) }
+				variations={ variations }
+				allowSkip
+				onSelect={ ( nextVariation ) => blockVariationPickerOnSelect( nextVariation ) }
+			/>
 		)
 	}
+		
+	return (
+		<>
+			{ columnsSettings( props ) }
+			{ renderColumns( props ) }
+		</>
+	)
+	
 }
 
 const applyWithSelect = withSelect( ( select, props ) => {
@@ -136,4 +134,4 @@ const applyWithSelect = withSelect( ( select, props ) => {
 	}
 } )
 
-export default compose( withNotices, applyWithSelect )( UAGBColumns )
+export default compose( withNotices, applyWithSelect )( columnsComponent )
