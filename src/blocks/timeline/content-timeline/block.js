@@ -27,10 +27,10 @@ const {
 	registerBlockType
 } = wp.blocks
 
-const { addFilter } = wp.hooks;
-const { Fragment } = wp.element;
-const { withSelect } = wp.data;
-const { compose, createHigherOrderComponent } = wp.compose;
+const { addFilter } = wp.hooks
+const { Fragment } = wp.element
+const { withSelect } = wp.data
+const { compose, createHigherOrderComponent } = wp.compose
 
 /**
  * Override the default block element to add	wrapper props.
@@ -43,10 +43,10 @@ const enhance = compose(
 	
 	withSelect( ( select ) => {
 		return {
-			selected: select( 'core/block-editor' ).getSelectedBlock(),
-		};
+			selected: select( "core/block-editor" ).getSelectedBlock(),
+		}
 	} )
-);
+)
 /**
  * Add custom UAG attributes to selected blocks
  *
@@ -59,9 +59,9 @@ const withcontentTimeline = createHigherOrderComponent( ( BlockEdit ) => {
 			<Fragment>
 				<BlockEdit { ...props } />
 			</Fragment>
-		);
-	} );
-}, 'withcontentTimeline' );
+		)
+	} )
+}, "withcontentTimeline" )
 
 registerBlockType( "uagb/content-timeline", {
 
@@ -71,9 +71,9 @@ registerBlockType( "uagb/content-timeline", {
 	icon: UAGB_Block_Icons.content_timeline, // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "Content Timeline",'ultimate-addons-for-gutenberg' ),
-		__( "Timeline",'ultimate-addons-for-gutenberg' ),
-		__( "uag",'ultimate-addons-for-gutenberg' ),
+		__( "Content Timeline","ultimate-addons-for-gutenberg" ),
+		__( "Timeline","ultimate-addons-for-gutenberg" ),
+		__( "uag","ultimate-addons-for-gutenberg" ),
 	],
 	supports: {
 		anchor: true,
@@ -84,47 +84,47 @@ registerBlockType( "uagb/content-timeline", {
 	example: {
 		innerBlocks: [
 			{
-				name: 'uagb/content-timeline-child',
+				name: "uagb/content-timeline-child",
 				innerBlocks: [
 					{
-						name: 'uagb/content-timeline-child',
-						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:'1/1/2019' },
+						name: "uagb/content-timeline-child",
+						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:"1/1/2019" },
 					},
 				],
 			},
 			{
-				name: 'uagb/content-timeline-child',
+				name: "uagb/content-timeline-child",
 				innerBlocks: [
 					{
-						name: 'uagb/content-timeline-child',
-						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:'1/1/2019' },
+						name: "uagb/content-timeline-child",
+						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:"1/1/2019" },
 					},
 				],
 			},
 			{
-				name: 'uagb/content-timeline-child',
+				name: "uagb/content-timeline-child",
 				innerBlocks: [
 					{
-						name: 'uagb/content-timeline-child',
-						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:'1/1/2019' },
+						name: "uagb/content-timeline-child",
+						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:"1/1/2019" },
 					},
 				],
 			},
 			{
-				name: 'uagb/content-timeline-child',
+				name: "uagb/content-timeline-child",
 				innerBlocks: [
 					{
-						name: 'uagb/content-timeline-child',
-						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:'1/1/2019' },
+						name: "uagb/content-timeline-child",
+						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:"1/1/2019" },
 					},
 				],
 			},
 			{
-				name: 'uagb/content-timeline-child',
+				name: "uagb/content-timeline-child",
 				innerBlocks: [
 					{
-						name: 'uagb/content-timeline-child',
-						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:'1/1/2019' },
+						name: "uagb/content-timeline-child",
+						attributes: { time_heading: "Timeline Heading ",time_desc: "This is Timeline description, you can change me anytime click here ",t_date:"1/1/2019" },
 					},
 				],
 			},
@@ -133,7 +133,7 @@ registerBlockType( "uagb/content-timeline", {
 	deprecated,
 } )
 addFilter(
-	'editor.BlockEdit',
-	'uagb/content-timeline',
+	"editor.BlockEdit",
+	"uagb/content-timeline",
 	withcontentTimeline
-);
+)

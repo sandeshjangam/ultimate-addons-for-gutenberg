@@ -27,15 +27,15 @@ export default function save( props ) {
 		close_cookie_days
 	} = attributes
  	
-	let image_icon_html = ''
+	let image_icon_html = ""
 
 	if ( noticeDismiss ) {
 		image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG(icon) }</span>
 	}
 
-	var active = '';
+	var active = ""
 	if ( true === cookies ) {
-		active = 'uagb-notice__active';
+		active = "uagb-notice__active"
 	}
 	return (
 		<div className={ classnames(
@@ -59,5 +59,5 @@ export default function save( props ) {
 				className='uagb-notice-text'
 			/>
 		</div>
-		)
+	)
 }

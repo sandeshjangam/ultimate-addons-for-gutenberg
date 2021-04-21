@@ -4,7 +4,7 @@ import UAGB_Block_Icons from "../../../../dist/blocks/uagb-controls/block-icons"
 import {
 	InnerBlockLayoutContextProvider,
 	renderPostLayout 
-} from '.././function';
+} from ".././function"
 class Blog extends React.Component {
 
 	render() {
@@ -96,17 +96,17 @@ class Blog extends React.Component {
 		}
 
 		const all_posts = displayPosts.map( ( post, i ) =>
-				<article key={ i } >
-					<div className="uagb-post__inner-wrap" >
-							{ renderPostLayout(
-								"uagb/post-carousel",
-								post,
-								layoutConfig,
-								this.props.attributes,
-								this.props.categoriesList
-							) }
-					</div>
-				</article>
+			<article key={ i } >
+				<div className="uagb-post__inner-wrap" >
+					{ renderPostLayout(
+						"uagb/post-carousel",
+						post,
+						layoutConfig,
+						this.props.attributes,
+						this.props.categoriesList
+					) }
+				</div>
+			</article>
 		)
 
 		if ( columns >= displayPosts.length ) {
@@ -133,8 +133,8 @@ class Blog extends React.Component {
 						) }
 					>
 						<InnerBlockLayoutContextProvider
-						parentName="uagb/post-carousel"
-						parentClassName="uagb-block-grid"
+							parentName="uagb/post-carousel"
+							parentClassName="uagb-block-grid"
 						>
 							{ all_posts }
 						</InnerBlockLayoutContextProvider>

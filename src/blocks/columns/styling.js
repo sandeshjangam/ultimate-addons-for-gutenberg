@@ -73,10 +73,10 @@ function styling( props ) {
 			max_width = generateCSSUnit( width, widthType )
 		}
 	}
-	var boxShadowPositionCSS = boxShadowPosition;
+	var boxShadowPositionCSS = boxShadowPosition
 
-	if ( 'outset' === boxShadowPosition ) {
-		boxShadowPositionCSS = '';
+	if ( "outset" === boxShadowPosition ) {
+		boxShadowPositionCSS = ""
 	}
 	
 	var tablet_selectors = {}
@@ -108,7 +108,7 @@ function styling( props ) {
 			fill: hexToRgba( bottomColor, ( typeof bottomDividerOpacity != "undefined" ) ? bottomDividerOpacity : 100 ),
 		},
 		".wp-block-uagb-columns": {
-			"box-shadow": generateCSSUnit( boxShadowHOffset, "px" ) + ' ' + generateCSSUnit( boxShadowVOffset, "px" ) + ' ' + generateCSSUnit( boxShadowBlur, "px" ) + ' ' + generateCSSUnit( boxShadowSpread, "px" ) + ' ' + boxShadowColor + ' ' + boxShadowPositionCSS  
+			"box-shadow": generateCSSUnit( boxShadowHOffset, "px" ) + " " + generateCSSUnit( boxShadowVOffset, "px" ) + " " + generateCSSUnit( boxShadowBlur, "px" ) + " " + generateCSSUnit( boxShadowSpread, "px" ) + " " + boxShadowColor + " " + boxShadowPositionCSS  
 		},
 	}
 

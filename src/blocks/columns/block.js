@@ -8,7 +8,7 @@ import attributes from "./attributes"
 import edit from "./edit"
 import deprecated from "./deprecated"
 import shapes from "./shapes"
-import variations from './variations';
+import variations from "./variations"
 import "./style.scss"
 import "./editor.scss"
 
@@ -29,9 +29,9 @@ registerBlockType( "uagb/columns", {
 	icon: UAGB_Block_Icons.columns,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "columns", 'ultimate-addons-for-gutenberg' ),
-		__( "rows", 'ultimate-addons-for-gutenberg' ),
-		__( "uag", 'ultimate-addons-for-gutenberg' ),
+		__( "columns", "ultimate-addons-for-gutenberg" ),
+		__( "rows", "ultimate-addons-for-gutenberg" ),
+		__( "uag", "ultimate-addons-for-gutenberg" ),
 	],
 	attributes,
 	variations,
@@ -125,7 +125,7 @@ registerBlockType( "uagb/columns", {
 				{ "video" == backgroundType &&
 					<div className="uagb-columns__video-wrap">
 						{  backgroundVideo &&
-							<video autoplay loop muted playsinline>
+							<video autoPlay loop muted playsinline>
 								<source src={ backgroundVideo.url } type='video/mp4' />
 							</video>
 						}

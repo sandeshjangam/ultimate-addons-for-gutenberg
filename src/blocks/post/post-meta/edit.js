@@ -2,27 +2,27 @@ const { dateI18n, format, __experimentalGetSettings } = wp.date
 
 export const PostMeta = (props) =>  {
 		
-		const { post, attributes, categoriesList } = props
+	const { post, attributes, categoriesList } = props
 
-		const dateFormat = __experimentalGetSettings().formats.date
+	const dateFormat = __experimentalGetSettings().formats.date
 
-		var list = categoriesList;
-		var cat = post.categories;	
-		var categoriesName = [];
+	var list = categoriesList
+	var cat = post.categories	
+	var categoriesName = []
 
-		if(list !== undefined && cat !== undefined){
-			for(var j=0;j<list.length;j++){
-				for(var i=0;i<cat.length;i++){
-					if(list[j].id === cat[i] ){
-						categoriesName.push(list[j].name);
-					}
+	if(list !== undefined && cat !== undefined){
+		for(var j=0;j<list.length;j++){
+			for(var i=0;i<cat.length;i++){
+				if(list[j].id === cat[i] ){
+					categoriesName.push(list[j].name)
 				}
 			}
 		}
+	}
 	
 
-		return (
-			<div className=' uagb-post__text '>
+	return (
+		<div className=' uagb-post__text '>
 			<div className='uagb-post-grid-byline'>
 				{ attributes.displayPostAuthor && undefined !== post.uagb_author_info &&
 					<span className='uagb-post__author'>
@@ -52,7 +52,7 @@ export const PostMeta = (props) =>  {
 					</span>
 				}
 			</div>
-			</div>
-		)
+		</div>
+	)
 }
 

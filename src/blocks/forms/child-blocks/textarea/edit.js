@@ -46,7 +46,7 @@ class UAGBFormsTextareaEdit extends Component {
 
 		const { attributes, setAttributes, isSelected } = this.props
 
-        const {
+		const {
 			block_id,
 			textareaRequired,
 			textareaName,
@@ -58,22 +58,22 @@ class UAGBFormsTextareaEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General" , 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "General" , "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<ToggleControl
-						label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
+						label={ __( "Required" , "ultimate-addons-for-gutenberg") }
 						checked={ textareaRequired }
 						onChange={ ( value ) => setAttributes( { textareaRequired: ! textareaRequired } ) }
 					/>
 					<TextControl
-					 	label={__("Placeholder", 'ultimate-addons-for-gutenberg')}
+					 	label={__("Placeholder", "ultimate-addons-for-gutenberg")}
 						value={ placeholder }
 						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
 					/>
 					<RangeControl
-						label={ __( "Number of lines" , 'ultimate-addons-for-gutenberg') }
+						label={ __( "Number of lines" , "ultimate-addons-for-gutenberg") }
 						value={ rows }
 						onChange={ ( value ) => setAttributes( { rows: value } ) }
 						min={ 2 }
@@ -84,7 +84,7 @@ class UAGBFormsTextareaEdit extends Component {
 			)
 		}
 
-		const isRequired = (textareaRequired) ? __("required", 'ultimate-addons-for-gutenberg') : "";
+		const isRequired = (textareaRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
 
 		return (
 			<Fragment>
@@ -97,17 +97,17 @@ class UAGBFormsTextareaEdit extends Component {
 					`uagb-block-${ block_id }`,
 				) }>
 					{isSelected && (
-					<div className="uagb-forms-required-wrap">
-						<ToggleControl
-							label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
-							checked={ textareaRequired }
-							onChange={ ( value ) => setAttributes( { textareaRequired: ! textareaRequired } ) }
-						/>
-					</div>
+						<div className="uagb-forms-required-wrap">
+							<ToggleControl
+								label={ __( "Required" , "ultimate-addons-for-gutenberg") }
+								checked={ textareaRequired }
+								onChange={ ( value ) => setAttributes( { textareaRequired: ! textareaRequired } ) }
+							/>
+						</div>
 					)}
 					<RichText
 						tagName="div"
-						placeholder={ __( "Textarea Name" , 'ultimate-addons-for-gutenberg') }
+						placeholder={ __( "Textarea Name" , "ultimate-addons-for-gutenberg") }
 						value={ textareaName }
 						onChange={ ( value ) => setAttributes( { textareaName: value } ) }
 						className={`uagb-forms-textarea-label ${isRequired} uagb-forms-input-label`}

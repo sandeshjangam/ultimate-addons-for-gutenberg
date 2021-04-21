@@ -53,8 +53,8 @@ function styling( props ) {
 	var tablet_selectors = {}
 	var mobile_selectors = {}
 
-	var s_gap = ( '' !== step_gap ) ? step_gap : 0;
-	s_gap += 30;
+	var s_gap = ( "" !== step_gap ) ? step_gap : 0
+	s_gap += 30
 
 	var selectors = {
 		
@@ -65,31 +65,31 @@ function styling( props ) {
 			"line-height": generateCSSUnit( subHeadLineHeight, subHeadLineHeightType ),
 			"color": subHeadingColor,
 		},
-		' .uagb-how-to-main-wrap p': { 
-			"margin-bottom" :generateCSSUnit( row_gap, 'px' ),
+		" .uagb-how-to-main-wrap p": { 
+			"margin-bottom" :generateCSSUnit( row_gap, "px" ),
 		 },
 
-		 ' .uagb-how-to-main-wrap .uagb-howto__source-wrap': { 
-			"margin-bottom" :generateCSSUnit( row_gap, 'px' ),
+		 " .uagb-how-to-main-wrap .uagb-howto__source-wrap": { 
+			"margin-bottom" :generateCSSUnit( row_gap, "px" ),
 		 },
 
-		' .uagb-how-to-main-wrap span.uagb-howto__time-wrap' : {
-		   "margin-bottom" :generateCSSUnit( row_gap, 'px' ),
+		" .uagb-how-to-main-wrap span.uagb-howto__time-wrap" : {
+		   "margin-bottom" :generateCSSUnit( row_gap, "px" ),
 		},
 
-		' .uagb-how-to-main-wrap span.uagb-howto__cost-wrap' : {
-		    "margin-bottom" :generateCSSUnit( row_gap, 'px' ),
+		" .uagb-how-to-main-wrap span.uagb-howto__cost-wrap" : {
+		    "margin-bottom" :generateCSSUnit( row_gap, "px" ),
 		},
 
-		' .uagb-how-to-tools .uagb-how-to-tools-child__wrapper:last-child' : {
-		 "margin-bottom" : generateCSSUnit( row_gap, 'px' ),
+		" .uagb-how-to-tools .uagb-how-to-tools-child__wrapper:last-child" : {
+		 "margin-bottom" : generateCSSUnit( row_gap, "px" ),
 		 },
 
-		' .uagb-how-to-materials .uagb-how-to-materials-child__wrapper:last-child' : {
-		 "margin-bottom" :  generateCSSUnit( row_gap, 'px' ),
+		" .uagb-how-to-materials .uagb-how-to-materials-child__wrapper:last-child" : {
+		 "margin-bottom" :  generateCSSUnit( row_gap, "px" ),
 		 },
-		' .uagb-howto-steps__wrap .wp-block-uagb-info-box' : {
-			'margin-bottom' : generateCSSUnit( s_gap, 'px' )
+		" .uagb-howto-steps__wrap .wp-block-uagb-info-box" : {
+			"margin-bottom" : generateCSSUnit( s_gap, "px" )
 		},
 		" .block-editor-rich-text__editable.uagb-howto-timeNeeded-text": {
 			"font-family": priceFontFamily,

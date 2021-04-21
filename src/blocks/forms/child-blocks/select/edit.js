@@ -25,7 +25,7 @@ class UAGBFormsSelectEdit extends Component {
 
 	constructor() {
 		super( ...arguments )
-		this.state = { optionsstate:  [ { "optiontitle": __("Option Name 1", 'ultimate-addons-for-gutenberg') } ] };
+		this.state = { optionsstate:  [ { "optiontitle": __("Option Name 1", "ultimate-addons-for-gutenberg") } ] }
 	}
 
 	componentDidMount() {
@@ -46,7 +46,7 @@ class UAGBFormsSelectEdit extends Component {
 
 		const { attributes, setAttributes, isSelected } = this.props
 
-        const {
+		const {
 			block_id,
 			selectRequired,
 			options,
@@ -56,12 +56,12 @@ class UAGBFormsSelectEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General" , 'ultimate-addons-for-gutenberg') }
+					title={ __( "General" , "ultimate-addons-for-gutenberg") }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<ToggleControl
-						label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
+						label={ __( "Required" , "ultimate-addons-for-gutenberg") }
 						checked={ selectRequired }
 						onChange={ ( value ) => setAttributes( { selectRequired: ! selectRequired } ) }
 					/>
@@ -70,15 +70,15 @@ class UAGBFormsSelectEdit extends Component {
 		}
 
 		const addOption = () => {
-			const newOption ={ "optiontitle": __(`Option Name ${options.length + 1}`, 'ultimate-addons-for-gutenberg'),"optionvalue": __(`Option Value ${options.length + 1}`, 'ultimate-addons-for-gutenberg') }
-			options[options.length] = newOption; 
+			const newOption ={ "optiontitle": __(`Option Name ${options.length + 1}`, "ultimate-addons-for-gutenberg"),"optionvalue": __(`Option Value ${options.length + 1}`, "ultimate-addons-for-gutenberg") }
+			options[options.length] = newOption 
 			const addnewOptions = options.map( ( item, thisIndex ) => {				
 				return item
 			} )
 
-			setAttributes({ options:addnewOptions });
-			this.setState({optionsstate : addnewOptions});
-		};
+			setAttributes({ options:addnewOptions })
+			this.setState({optionsstate : addnewOptions})
+		}
 
 		const changeOption = (e, index) => {			
 			const editOptions = options.map( ( item, thisIndex ) => {
@@ -88,10 +88,10 @@ class UAGBFormsSelectEdit extends Component {
 				return item
 			} )
 			
-			setAttributes({ options: editOptions });
-			this.setState({ optionsstate : editOptions });
+			setAttributes({ options: editOptions })
+			this.setState({ optionsstate : editOptions })
 			
-		};
+		}
 
 		const deleteOption = index => {
 		
@@ -103,10 +103,10 @@ class UAGBFormsSelectEdit extends Component {
 				return item
 			} )
 		
-			this.setState({optionsstate : deleteCurrentOptions});
-			setAttributes({ deleteCurrentOptions });	
+			this.setState({optionsstate : deleteCurrentOptions})
+			setAttributes({ deleteCurrentOptions })	
 
-		};
+		}
 		
 		
 		const editView = options.map((s, index) => {
@@ -133,15 +133,15 @@ class UAGBFormsSelectEdit extends Component {
         				label="Remove" onClick={ () => deleteOption(index) }
     				/>
 				</div>
-			);
-		});
+			)
+		})
 
 		const SelectView = () => {
 
 			var showoptionsField =  options.map((o, index) => {
-				var optionvalue = o.optionvalue;
-				var value = optionvalue.replace(/\s+/g, '-').toLowerCase();
-				return <option value={optionvalue}>{o.optiontitle}</option>;
+				var optionvalue = o.optionvalue
+				var value = optionvalue.replace(/\s+/g, "-").toLowerCase()
+				return <option value={optionvalue}>{o.optiontitle}</option>
 			})
 
 			return  (
@@ -150,9 +150,9 @@ class UAGBFormsSelectEdit extends Component {
 					{ showoptionsField }
 				</select>
 			)			
-		};
+		}
 		
-		const isRequired = (selectRequired) ? __("required", 'ultimate-addons-for-gutenberg') : "";
+		const isRequired = (selectRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
 
 		return (
 			<Fragment>
@@ -165,17 +165,17 @@ class UAGBFormsSelectEdit extends Component {
 					`uagb-block-${ block_id }`,
 				) }>
 					{isSelected && (
-					<div className="uagb-forms-required-wrap">
-						<ToggleControl
-							label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
-							checked={ selectRequired }
-							onChange={ ( value ) => setAttributes( { selectRequired: ! selectRequired } ) }
-						/>
-					</div>
+						<div className="uagb-forms-required-wrap">
+							<ToggleControl
+								label={ __( "Required" , "ultimate-addons-for-gutenberg") }
+								checked={ selectRequired }
+								onChange={ ( value ) => setAttributes( { selectRequired: ! selectRequired } ) }
+							/>
+						</div>
 					)}
 					<RichText
 						tagName="div"
-						placeholder={ __( "Select Title" , 'ultimate-addons-for-gutenberg') }
+						placeholder={ __( "Select Title" , "ultimate-addons-for-gutenberg") }
 						value={ selectName }
 						onChange={ ( value ) => setAttributes( { selectName: value } ) }
 						className={`uagb-forms-select-label ${isRequired} uagb-forms-input-label`}
@@ -187,14 +187,14 @@ class UAGBFormsSelectEdit extends Component {
 							{editView}
 							<div className="uagb-forms-select-controls">
 								<div>
-									<Button isSecondary onClick={addOption}>{ __(" + Add Option " , 'ultimate-addons-for-gutenberg') }</Button>									
+									<Button isSecondary onClick={addOption}>{ __(" + Add Option " , "ultimate-addons-for-gutenberg") }</Button>									
 								</div>								
 							</div>
 						</Fragment>
-						)}
+					)}
 					
 					{!isSelected && (<SelectView/>)}
-					</div>
+				</div>
 			</Fragment>
 		)
 	}

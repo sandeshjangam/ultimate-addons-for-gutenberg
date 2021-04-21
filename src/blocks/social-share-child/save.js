@@ -24,7 +24,7 @@ export default function save( props ) {
 		link,
 	} = props.attributes
 
-	let url = links[type];	
+	let url = links[type]	
 	
 	let image_icon_html = ""
 	
@@ -41,7 +41,7 @@ export default function save( props ) {
 	return (
 		<div
 			className={ classnames(
-				`uagb-ss-repeater`,
+				"uagb-ss-repeater",
 				"uagb-ss__wrapper",
 				className,
 				`uagb-block-${ block_id }`

@@ -19,7 +19,7 @@ export default function save( props ) {
 		placeholder
 	} = attributes
 	
-	const isRequired = (required) ? __("required", 'ultimate-addons-for-gutenberg' ): "";
+	const isRequired = (required) ? __("required", "ultimate-addons-for-gutenberg" ): ""
 
 	return (
 		<div className={ classnames(

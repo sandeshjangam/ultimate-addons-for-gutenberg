@@ -23,8 +23,8 @@ function styling( props ) {
 
 	var selectors = {
 		".uagb-lottie__outer-wrap": {
-			"width": generateCSSUnit( width, 'px' ),
-			"height": generateCSSUnit( height, 'px' ),
+			"width": generateCSSUnit( width, "px" ),
+			"height": generateCSSUnit( height, "px" ),
 			"background": backgroundColor
 		},
 		".uagb-lottie__outer-wrap:hover": {
@@ -33,13 +33,13 @@ function styling( props ) {
 	}
 
 	tablet_selectors[".uagb-lottie__outer-wrap"] = {
-		"width": generateCSSUnit( widthTablet, 'px' ),
-		"height": generateCSSUnit( heightTablet, 'px' ),
+		"width": generateCSSUnit( widthTablet, "px" ),
+		"height": generateCSSUnit( heightTablet, "px" ),
 	}
 
 	mobile_selectors[".uagb-lottie__outer-wrap"] = {
-		"width": generateCSSUnit( widthMob, 'px' ),
-		"height": generateCSSUnit( heightMob, 'px' ),
+		"width": generateCSSUnit( widthMob, "px" ),
+		"height": generateCSSUnit( heightMob, "px" ),
 	}
 
 	var base_selector = `.block-editor-page #wpwrap .uagb-block-${ props.clientId.substr( 0, 8 ) }`

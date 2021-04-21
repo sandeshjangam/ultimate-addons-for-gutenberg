@@ -9,16 +9,16 @@ const attributes = {
 		type: "string"
 	},
 	name: {
-        type: "string",
-        default: __("Email" , 'ultimate-addons-for-gutenberg' )
+		type: "string",
+		default: __("Email" , "ultimate-addons-for-gutenberg" )
 	},
 	required : {
-        type: "boolean",
-        default: false
+		type: "boolean",
+		default: false
 	},
 	placeholder: {
-        type: "string",
-        default: __( "example@mail.com" , 'ultimate-addons-for-gutenberg')
-    },
+		type: "string",
+		default: __( "example@mail.com" , "ultimate-addons-for-gutenberg")
+	},
 }
 export default attributes

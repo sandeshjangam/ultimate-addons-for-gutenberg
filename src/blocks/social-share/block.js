@@ -26,9 +26,9 @@ registerBlockType( "uagb/social-share", {
 	icon: UAGB_Block_Icons.social_share,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "social share",'ultimate-addons-for-gutenberg' ),
-		__( "icon",'ultimate-addons-for-gutenberg' ),
-		__( "uag",'ultimate-addons-for-gutenberg' ),
+		__( "social share","ultimate-addons-for-gutenberg" ),
+		__( "icon","ultimate-addons-for-gutenberg" ),
+		__( "uag","ultimate-addons-for-gutenberg" ),
 	],
 	supports: {
 		anchor: true,
@@ -36,11 +36,11 @@ registerBlockType( "uagb/social-share", {
 	example:{
 		innerBlocks: [
 			{
-				name: 'uagb/social-share-child',
+				name: "uagb/social-share-child",
 				innerBlocks: [
 					{
-						name: 'uagb/social-share-child',
-						attributes: { type: 'facebook' },
+						name: "uagb/social-share-child",
+						attributes: { type: "facebook" },
 					},
 				],
 			},

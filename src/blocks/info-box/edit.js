@@ -50,12 +50,12 @@ const {
 const { Component, Fragment } = wp.element
 
 let imageSizeOptions = [
-	{ value: "thumbnail", label: __( "Thumbnail", 'ultimate-addons-for-gutenberg' ) },
-	{ value: "medium", label: __( "Medium", 'ultimate-addons-for-gutenberg' ) },
-	{ value: "full", label: __( "Large", 'ultimate-addons-for-gutenberg' ) }
+	{ value: "thumbnail", label: __( "Thumbnail", "ultimate-addons-for-gutenberg" ) },
+	{ value: "medium", label: __( "Medium", "ultimate-addons-for-gutenberg" ) },
+	{ value: "full", label: __( "Large", "ultimate-addons-for-gutenberg" ) }
 ]
 
-$ = jQuery;
+$ = jQuery
 
 class UAGBinfoBox extends Component {
 
@@ -118,7 +118,7 @@ class UAGBinfoBox extends Component {
 	onRemoveImage() {
 		const { setAttributes } = this.props
 
-		setAttributes( { iconImage: '' } )
+		setAttributes( { iconImage: "" } )
 	}
 
 	/**
@@ -255,7 +255,7 @@ class UAGBinfoBox extends Component {
 			onChange: this.getIfbIcon,
 			isMulti: false,
 			renderFunc: renderSVG,
-			noSelectedPlaceholder: __( "Select Icon", 'ultimate-addons-for-gutenberg' )
+			noSelectedPlaceholder: __( "Select Icon", "ultimate-addons-for-gutenberg" )
 		}
 
 		// Icon properties.
@@ -265,7 +265,7 @@ class UAGBinfoBox extends Component {
 			value: ctaIcon,
 			onChange: this.getCtaicon,
 			isMulti: false,
-			noSelectedPlaceholder: __( "Select Icon", 'ultimate-addons-for-gutenberg' )
+			noSelectedPlaceholder: __( "Select Icon", "ultimate-addons-for-gutenberg" )
 		}
 
 		if( iconImage && iconImage["sizes"] ){
@@ -338,7 +338,7 @@ class UAGBinfoBox extends Component {
 			<Fragment>
 				<FontIconPicker {...icon_props} />
 				<RangeControl
-					label = { __( "Icon Size", 'ultimate-addons-for-gutenberg' ) }
+					label = { __( "Icon Size", "ultimate-addons-for-gutenberg" ) }
 					value = { iconSize }
 					onChange = { ( value ) => setAttributes( { iconSize: value } ) }
 					min = { 10 }
@@ -351,12 +351,12 @@ class UAGBinfoBox extends Component {
 					tabs={ [
 						{
 							name: "normal",
-							title: __( "Normal", 'ultimate-addons-for-gutenberg' ),
+							title: __( "Normal", "ultimate-addons-for-gutenberg" ),
 							className: "uagb-normal-tab",
 						},
 						{
 							name: "hover",
-							title: __( "Hover", 'ultimate-addons-for-gutenberg' ),
+							title: __( "Hover", "ultimate-addons-for-gutenberg" ),
 							className: "uagb-focus-tab",
 						},
 					] }>
@@ -365,7 +365,7 @@ class UAGBinfoBox extends Component {
 							let tabout_icon
 							if( "normal" === tabName.name ) {
 								tabout_icon = <Fragment>
-									<p className="uagb-setting-label">{ __( "Icon Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconColor }} ></span></span></p>
+									<p className="uagb-setting-label">{ __( "Icon Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconColor }} ></span></span></p>
 									<ColorPalette
 										value={ iconColor }
 										onChange={ ( colorValue ) => setAttributes( { iconColor: colorValue } ) }
@@ -374,7 +374,7 @@ class UAGBinfoBox extends Component {
 								</Fragment>
 							}else {
 								tabout_icon = <Fragment>
-									<p className="uagb-setting-label">{ __( "Icon Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconHover }} ></span></span></p>
+									<p className="uagb-setting-label">{ __( "Icon Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconHover }} ></span></span></p>
 									<ColorPalette
 										value={ iconHover }
 										onChange={ ( colorValue ) => setAttributes( { iconHover: colorValue } ) }
@@ -392,18 +392,18 @@ class UAGBinfoBox extends Component {
 		// Separator settings.
 		const seperatorSettings = (
 			<PanelBody
-				title={ __( "Separator", 'ultimate-addons-for-gutenberg' ) }
+				title={ __( "Separator", "ultimate-addons-for-gutenberg" ) }
 				initialOpen={ false } >
 
 				<SelectControl
-					label={ __( "Position", 'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Position", "ultimate-addons-for-gutenberg" ) }
 					value={ seperatorPosition }
 					onChange={ ( value ) => setAttributes( { seperatorPosition: value } ) }
 					options={ [
-						{ value: "after_icon", label: __( "After Icon/Image", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "after_prefix", label: __( "After Prefix", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "after_title", label: __( "After Title", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "after_desc", label: __( "After Description", 'ultimate-addons-for-gutenberg' ) },
+						{ value: "after_icon", label: __( "After Icon/Image", "ultimate-addons-for-gutenberg" ) },
+						{ value: "after_prefix", label: __( "After Prefix", "ultimate-addons-for-gutenberg" ) },
+						{ value: "after_title", label: __( "After Title", "ultimate-addons-for-gutenberg" ) },
+						{ value: "after_desc", label: __( "After Description", "ultimate-addons-for-gutenberg" ) },
 					] }
 				/>
 				<SelectControl
@@ -411,17 +411,17 @@ class UAGBinfoBox extends Component {
 					value={ seperatorStyle }
 					onChange={ ( value ) => setAttributes( { seperatorStyle: value } ) }
 					options={ [
-						{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "solid", label: __( "Solid", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "double", label: __( "Double", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "dashed", label: __( "Dashed", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "dotted", label: __( "Dotted", 'ultimate-addons-for-gutenberg' ) },
+						{ value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
+						{ value: "solid", label: __( "Solid", "ultimate-addons-for-gutenberg" ) },
+						{ value: "double", label: __( "Double", "ultimate-addons-for-gutenberg" ) },
+						{ value: "dashed", label: __( "Dashed", "ultimate-addons-for-gutenberg" ) },
+						{ value: "dotted", label: __( "Dotted", "ultimate-addons-for-gutenberg" ) },
 					] }
 				/>
 				{ "none" !== seperatorStyle &&
 				( <Fragment>
 					<RangeControl
-						label={ __( "Thickness", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Thickness", "ultimate-addons-for-gutenberg" ) }
 						value={ seperatorThickness }
 						onChange={ ( value ) => setAttributes( { seperatorThickness: value } ) }
 						min={ 0 }
@@ -429,12 +429,12 @@ class UAGBinfoBox extends Component {
 						beforeIcon=""
 						allowReset
 					/>
-					<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
+					<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
 						<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ separatorWidthType === "px" } aria-pressed={ separatorWidthType === "px" } onClick={ () => setAttributes( { separatorWidthType: "px" } ) }>{ "px" }</Button>
 						<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ separatorWidthType === "%" } aria-pressed={ separatorWidthType === "%" } onClick={ () => setAttributes( { separatorWidthType: "%" } ) }>{ "%" }</Button>
 					</ButtonGroup>
 					<RangeControl
-						label={ __( "Width", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Width", "ultimate-addons-for-gutenberg" ) }
 						value={ seperatorWidth }
 						onChange={ ( value ) => setAttributes( { seperatorWidth: value } ) }
 						min={ 0 }
@@ -442,7 +442,7 @@ class UAGBinfoBox extends Component {
 						beforeIcon=""
 						allowReset
 					/>
-				    <p className="uagb-setting-label">{ __( "Separator Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: seperatorColor }} ></span></span></p>
+				    <p className="uagb-setting-label">{ __( "Separator Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: seperatorColor }} ></span></span></p>
 				    <ColorPalette
 				        value={ seperatorColor }
 				        onChange={ ( colorValue ) => setAttributes( { seperatorColor: colorValue } ) }
@@ -457,58 +457,58 @@ class UAGBinfoBox extends Component {
 
 		// CTA settings.
 		const ctaSettings = (
-			<PanelBody	title={ __( "Call To Action", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }	>
+			<PanelBody	title={ __( "Call To Action", "ultimate-addons-for-gutenberg" ) } initialOpen={ false }	>
 				<SelectControl
-					label={ __( "Type", 'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Type", "ultimate-addons-for-gutenberg" ) }
 					value={ ctaType }
 					onChange={ ( value ) => setAttributes( { ctaType: value } ) }
 					options={ [
-						{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "text", label: __( "Text", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "button", label: __( "Button", 'ultimate-addons-for-gutenberg' ) },
-						{ value: "all", label: __( "Complete Box", 'ultimate-addons-for-gutenberg' ) },
+						{ value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
+						{ value: "text", label: __( "Text", "ultimate-addons-for-gutenberg" ) },
+						{ value: "button", label: __( "Button", "ultimate-addons-for-gutenberg" ) },
+						{ value: "all", label: __( "Complete Box", "ultimate-addons-for-gutenberg" ) },
 					] }
 				/>
 				{ ( ctaType === "text" || ctaType === "button" ) && <Fragment>
 					<TextControl
-						label= { __( "Text", 'ultimate-addons-for-gutenberg' ) }
+						label= { __( "Text", "ultimate-addons-for-gutenberg" ) }
 						value= { ctaText }
 						onChange={ value => setAttributes( { ctaText: value } ) }
 					/>
 					<ToggleControl
-						label={ __( "Inherit from Theme", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Inherit from Theme", "ultimate-addons-for-gutenberg" ) }
 						checked={ inheritFromTheme }
 						onChange={ ( value ) => setAttributes( { inheritFromTheme: ! inheritFromTheme } ) }
 					/>
 					{ ctaType === "text" &&
 						<TypographyControl
-							label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: ctaLoadGoogleFonts, label: 'ctaLoadGoogleFonts' } }
-							fontFamily = { { value: ctaFontFamily, label: 'ctaFontFamily' } }
-							fontWeight = { { value: ctaFontWeight, label: 'ctaFontWeight' } }
-							fontSubset = { { value: ctaFontSubset, label: 'ctaFontSubset' } }
-							fontSizeType = { { value: ctaFontSizeType, label: 'ctaFontSizeType' } }
-							fontSize = { { value: ctaFontSize, label: 'ctaFontSize' } }
-							fontSizeMobile = { { value: ctaFontSizeMobile, label: 'ctaFontSizeMobile' } }
-							fontSizeTablet= { { value: ctaFontSizeTablet, label: 'ctaFontSizeTablet' } }
+							loadGoogleFonts = { { value: ctaLoadGoogleFonts, label: "ctaLoadGoogleFonts" } }
+							fontFamily = { { value: ctaFontFamily, label: "ctaFontFamily" } }
+							fontWeight = { { value: ctaFontWeight, label: "ctaFontWeight" } }
+							fontSubset = { { value: ctaFontSubset, label: "ctaFontSubset" } }
+							fontSizeType = { { value: ctaFontSizeType, label: "ctaFontSizeType" } }
+							fontSize = { { value: ctaFontSize, label: "ctaFontSize" } }
+							fontSizeMobile = { { value: ctaFontSizeMobile, label: "ctaFontSizeMobile" } }
+							fontSizeTablet= { { value: ctaFontSizeTablet, label: "ctaFontSizeTablet" } }
 							disableLineHeight = {true}
 						/>
 					}
 					{ (!inheritFromTheme  && ctaType === "button")    &&
 						<TypographyControl
-							label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: ctaLoadGoogleFonts, label: 'ctaLoadGoogleFonts' } }
-							fontFamily = { { value: ctaFontFamily, label: 'ctaFontFamily' } }
-							fontWeight = { { value: ctaFontWeight, label: 'ctaFontWeight' } }
-							fontSubset = { { value: ctaFontSubset, label: 'ctaFontSubset' } }
-							fontSizeType = { { value: ctaFontSizeType, label: 'ctaFontSizeType' } }
-							fontSize = { { value: ctaFontSize, label: 'ctaFontSize' } }
-							fontSizeMobile = { { value: ctaFontSizeMobile, label: 'ctaFontSizeMobile' } }
-							fontSizeTablet= { { value: ctaFontSizeTablet, label: 'ctaFontSizeTablet' } }
+							loadGoogleFonts = { { value: ctaLoadGoogleFonts, label: "ctaLoadGoogleFonts" } }
+							fontFamily = { { value: ctaFontFamily, label: "ctaFontFamily" } }
+							fontWeight = { { value: ctaFontWeight, label: "ctaFontWeight" } }
+							fontSubset = { { value: ctaFontSubset, label: "ctaFontSubset" } }
+							fontSizeType = { { value: ctaFontSizeType, label: "ctaFontSizeType" } }
+							fontSize = { { value: ctaFontSize, label: "ctaFontSize" } }
+							fontSizeMobile = { { value: ctaFontSizeMobile, label: "ctaFontSizeMobile" } }
+							fontSizeTablet= { { value: ctaFontSizeTablet, label: "ctaFontSizeTablet" } }
 							disableLineHeight = {true}
 						/>
 					}
@@ -517,12 +517,12 @@ class UAGBinfoBox extends Component {
 				{ ( ctaType !== "none" ) &&
 					<Fragment>
 						<TextControl
-							label= { __( "Link", 'ultimate-addons-for-gutenberg' ) }
+							label= { __( "Link", "ultimate-addons-for-gutenberg" ) }
 							value= { ctaLink }
 							onChange={ value => setAttributes( { ctaLink: value } ) }
 						/>
 						<ToggleControl
-							label={ __( "Open in new Window", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Open in new Window", "ultimate-addons-for-gutenberg" ) }
 							checked={ ctaTarget }
 							onChange={ this.toggleTarget }
 						/>
@@ -533,20 +533,20 @@ class UAGBinfoBox extends Component {
 				{ ( ctaType !== "all" ) && ( ctaType !== "none" ) &&
 					<Fragment>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Button Icon", 'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Button Icon", "ultimate-addons-for-gutenberg" ) }</h2>
 						<FontIconPicker {...cta_icon_props} />
 						{ ctaIcon != "" && <Fragment>
 							<SelectControl
-								label={ __( "Icon Position", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Icon Position", "ultimate-addons-for-gutenberg" ) }
 								value={ ctaIconPosition }
 								onChange={ ( value ) => setAttributes( { ctaIconPosition: value } ) }
 								options={ [
-									{ value: "before", label: __( "Before Text", 'ultimate-addons-for-gutenberg' ) },
-									{ value: "after", label: __( "After Text", 'ultimate-addons-for-gutenberg' ) },
+									{ value: "before", label: __( "Before Text", "ultimate-addons-for-gutenberg" ) },
+									{ value: "after", label: __( "After Text", "ultimate-addons-for-gutenberg" ) },
 								] }
 							/>
 							<RangeControl
-								label={ __( "Icon Spacing", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Icon Spacing", "ultimate-addons-for-gutenberg" ) }
 								value={ ctaIconSpace }
 								onChange={ ( value ) => setAttributes( { ctaIconSpace: value } ) }
 								min={ 0 }
@@ -562,7 +562,7 @@ class UAGBinfoBox extends Component {
 
 				{ ( !inheritFromTheme && ctaType == "button" ) && (
 					<Fragment>
-						<h2>{ __( "Button Padding", 'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Button Padding", "ultimate-addons-for-gutenberg" ) }</h2>
 						<RangeControl
 							label={ UAGB_Block_Icons.vertical_spacing }
 							value={ ctaBtnVertPadding }
@@ -582,24 +582,24 @@ class UAGBinfoBox extends Component {
 							allowReset
 						/>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Button Border", 'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Button Border", "ultimate-addons-for-gutenberg" ) }</h2>
 						<SelectControl
-							label={ __( "Style", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Style", "ultimate-addons-for-gutenberg" ) }
 							value={ ctaBorderStyle }
 							onChange={ ( value ) => setAttributes( { ctaBorderStyle: value } ) }
 							options={ [
-								{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "solid", label: __( "Solid", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "double", label: __( "Double", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "dashed", label: __( "Dashed", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "dotted", label: __( "Dotted", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
+								{ value: "solid", label: __( "Solid", "ultimate-addons-for-gutenberg" ) },
+								{ value: "double", label: __( "Double", "ultimate-addons-for-gutenberg" ) },
+								{ value: "dashed", label: __( "Dashed", "ultimate-addons-for-gutenberg" ) },
+								{ value: "dotted", label: __( "Dotted", "ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 
 						{ ( ctaBorderStyle !== "none" ) && (
 							<Fragment>
 								<RangeControl
-									label={ __( "Width", 'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Width", "ultimate-addons-for-gutenberg" ) }
 									value={ ctaBorderWidth }
 									onChange={ ( value ) => setAttributes( { ctaBorderWidth: value } ) }
 									min={ 0 }
@@ -611,7 +611,7 @@ class UAGBinfoBox extends Component {
 						)
 						}
 						<RangeControl
-							label={ __( "Rounded Corner", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Rounded Corner", "ultimate-addons-for-gutenberg" ) }
 							value={ ctaBorderRadius }
 							onChange={ ( value ) => setAttributes( { ctaBorderRadius: value } ) }
 							min={ 0 }
@@ -630,12 +630,12 @@ class UAGBinfoBox extends Component {
 						tabs={ [
 							{
 								name: "normal",
-								title: __( "Normal", 'ultimate-addons-for-gutenberg' ),
+								title: __( "Normal", "ultimate-addons-for-gutenberg" ),
 								className: "uagb-normal-tab",
 							},
 							{
 								name: "hover",
-								title: __( "Hover", 'ultimate-addons-for-gutenberg' ),
+								title: __( "Hover", "ultimate-addons-for-gutenberg" ),
 								className: "uagb-focus-tab",
 							},
 						] }>
@@ -644,7 +644,7 @@ class UAGBinfoBox extends Component {
 								let tabout_1
 								if( "normal" === tabName.name ) {
 									tabout_1 = <Fragment>
-										<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkColor }} ></span></span></p>
+										<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkColor }} ></span></span></p>
 										<ColorPalette
 											value={ ctaLinkColor }
 											onChange={ ( colorValue ) => setAttributes( { ctaLinkColor: colorValue } ) }
@@ -653,7 +653,7 @@ class UAGBinfoBox extends Component {
 									</Fragment>
 								} else {
 									tabout_1 = <Fragment>
-										<p className="uagb-setting-label">{ __( "Text Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkHoverColor }} ></span></span></p>
+										<p className="uagb-setting-label">{ __( "Text Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkHoverColor }} ></span></span></p>
 										<ColorPalette
 											value={ ctaLinkHoverColor }
 											onChange={ ( colorValue ) => setAttributes( { ctaLinkHoverColor: colorValue } ) }
@@ -673,12 +673,12 @@ class UAGBinfoBox extends Component {
 							tabs={ [
 								{
 									name: "normal",
-									title: __( "Normal", 'ultimate-addons-for-gutenberg' ),
+									title: __( "Normal", "ultimate-addons-for-gutenberg" ),
 									className: "uagb-normal-tab",
 								},
 								{
 									name: "hover",
-									title: __( "Hover", 'ultimate-addons-for-gutenberg' ),
+									title: __( "Hover", "ultimate-addons-for-gutenberg" ),
 									className: "uagb-focus-tab",
 								},
 							] }>
@@ -700,20 +700,20 @@ class UAGBinfoBox extends Component {
 
 		const ctaNormalSettings = (
 			<Fragment>
-				<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBtnLinkColor }} ></span></span></p>
+				<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBtnLinkColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaBtnLinkColor }
 					onChange={ ( colorValue ) => setAttributes( { ctaBtnLinkColor: colorValue } ) }
 					allowReset
 				/>
-				<p className="uagb-setting-label">{ __( "Background Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBgColor }} ></span></span></p>
+				<p className="uagb-setting-label">{ __( "Background Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBgColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaBgColor }
 					onChange={ ( colorValue ) => setAttributes( { ctaBgColor: colorValue } ) }
 					allowReset
 				/>
 				{ ( ctaBorderStyle !== "none" ) && <Fragment>
-					<p className="uagb-setting-label">{ __( "Border Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBorderColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Border Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBorderColor }} ></span></span></p>
 				    <ColorPalette
 				        value={ ctaBorderColor }
 				        onChange={ ( colorValue ) => setAttributes( { ctaBorderColor: colorValue } ) }
@@ -726,20 +726,20 @@ class UAGBinfoBox extends Component {
 
 		const ctaHoverSettings = (
 			<Fragment>
-				<p className="uagb-setting-label">{ __( "Text Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkHoverColor }} ></span></span></p>
+				<p className="uagb-setting-label">{ __( "Text Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaLinkHoverColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaLinkHoverColor }
 					onChange={ ( colorValue ) => setAttributes( { ctaLinkHoverColor: colorValue } ) }
 					allowReset
 				/>
-				<p className="uagb-setting-label">{ __( "Background Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBgHoverColor }} ></span></span></p>
+				<p className="uagb-setting-label">{ __( "Background Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBgHoverColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaBgHoverColor }
 					onChange={ ( colorValue ) => setAttributes( { ctaBgHoverColor: colorValue } ) }
 					allowReset
 				/>
 				{ ( ctaBorderStyle !== "none" ) && <Fragment>
-					<p className="uagb-setting-label">{ __( "Border Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBorderhoverColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Border Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBorderhoverColor }} ></span></span></p>
 				    <ColorPalette
 				        value={ ctaBorderhoverColor }
 				        onChange={ ( colorValue ) => setAttributes( { ctaBorderhoverColor: colorValue } ) }
@@ -752,32 +752,32 @@ class UAGBinfoBox extends Component {
 
 		// Typography settings.
 		const TypographySettings = (
-			<PanelBody	title={ __( "Content", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }	>
+			<PanelBody	title={ __( "Content", "ultimate-addons-for-gutenberg" ) } initialOpen={ false }	>
 				<ToggleControl
-					label={ __( "Enable Prefix", 'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Enable Prefix", "ultimate-addons-for-gutenberg" ) }
 					checked={ showPrefix }
 					onChange={ ( value ) => setAttributes( { showPrefix: ! showPrefix } ) }
 				/>
 				{ showPrefix &&
 					<Fragment>
 						<TypographyControl
-							label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: prefixLoadGoogleFonts, label: 'prefixLoadGoogleFonts' } }
-							fontFamily = { { value: prefixFontFamily, label: 'prefixFontFamily' } }
-							fontWeight = { { value: prefixFontWeight, label: 'prefixFontWeight' } }
-							fontSubset = { { value: prefixFontSubset, label: 'prefixFontSubset' } }
-							fontSizeType = { { value: prefixFontSizeType, label: 'prefixFontSizeType' } }
-							fontSize = { { value: prefixFontSize, label: 'prefixFontSize' } }
-							fontSizeMobile = { { value: prefixFontSizeMobile, label: 'prefixFontSizeMobile' } }
-							fontSizeTablet= { { value: prefixFontSizeTablet, label: 'prefixFontSizeTablet' } }
-							lineHeightType = { { value: prefixLineHeightType, label: 'prefixLineHeightType' } }
-							lineHeight = { { value: prefixLineHeight, label: 'prefixLineHeight' } }
-							lineHeightMobile = { { value: prefixLineHeightMobile, label: 'prefixLineHeightMobile' } }
-							lineHeightTablet= { { value: prefixLineHeightTablet, label: 'prefixLineHeightTablet' } }
+							loadGoogleFonts = { { value: prefixLoadGoogleFonts, label: "prefixLoadGoogleFonts" } }
+							fontFamily = { { value: prefixFontFamily, label: "prefixFontFamily" } }
+							fontWeight = { { value: prefixFontWeight, label: "prefixFontWeight" } }
+							fontSubset = { { value: prefixFontSubset, label: "prefixFontSubset" } }
+							fontSizeType = { { value: prefixFontSizeType, label: "prefixFontSizeType" } }
+							fontSize = { { value: prefixFontSize, label: "prefixFontSize" } }
+							fontSizeMobile = { { value: prefixFontSizeMobile, label: "prefixFontSizeMobile" } }
+							fontSizeTablet= { { value: prefixFontSizeTablet, label: "prefixFontSizeTablet" } }
+							lineHeightType = { { value: prefixLineHeightType, label: "prefixLineHeightType" } }
+							lineHeight = { { value: prefixLineHeight, label: "prefixLineHeight" } }
+							lineHeightMobile = { { value: prefixLineHeightMobile, label: "prefixLineHeightMobile" } }
+							lineHeightTablet= { { value: prefixLineHeightTablet, label: "prefixLineHeightTablet" } }
 						/>
-						<p className="uagb-setting-label">{ __( "Prefix Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: prefixColor }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Prefix Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: prefixColor }} ></span></span></p>
 					    <ColorPalette
 					        value={ prefixColor }
 					        onChange={ ( colorValue ) => setAttributes( { prefixColor: colorValue } ) }
@@ -788,13 +788,13 @@ class UAGBinfoBox extends Component {
 				}
 
 				<ToggleControl
-					label={ __( "Enable Title", 'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Enable Title", "ultimate-addons-for-gutenberg" ) }
 					checked={ showTitle }
 					onChange={ ( value ) => setAttributes( { showTitle: ! showTitle } ) }
 				/>
 				{ showTitle && <Fragment>
 					<SelectControl
-						label={ __( "Title Tag", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Title Tag", "ultimate-addons-for-gutenberg" ) }
 						value={ headingTag }
 						onChange={ ( value ) => setAttributes( { headingTag: value } ) }
 						options={ [
@@ -807,55 +807,55 @@ class UAGBinfoBox extends Component {
 						] }
 					/>
 					<TypographyControl
-						label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
-						loadGoogleFonts = { { value: headLoadGoogleFonts, label: 'headLoadGoogleFonts' } }
-						fontFamily = { { value: headFontFamily, label: 'headFontFamily' } }
-						fontWeight = { { value: headFontWeight, label: 'headFontWeight' } }
-						fontSubset = { { value: headFontSubset, label: 'headFontSubset' } }
-						fontSizeType = { { value: headFontSizeType, label: 'headFontSizeType' } }
-						fontSize = { { value: headFontSize, label: 'headFontSize' } }
-						fontSizeMobile = { { value: headFontSizeMobile, label: 'headFontSizeMobile' } }
-						fontSizeTablet= { { value: headFontSizeTablet, label: 'headFontSizeTablet' } }
-						lineHeightType = { { value: headLineHeightType, label: 'headLineHeightType' } }
-						lineHeight = { { value: headLineHeight, label: 'headLineHeight' } }
-						lineHeightMobile = { { value: headLineHeightMobile, label: 'headLineHeightMobile' } }
-						lineHeightTablet= { { value: headLineHeightTablet, label: 'headLineHeightTablet' } }
+						loadGoogleFonts = { { value: headLoadGoogleFonts, label: "headLoadGoogleFonts" } }
+						fontFamily = { { value: headFontFamily, label: "headFontFamily" } }
+						fontWeight = { { value: headFontWeight, label: "headFontWeight" } }
+						fontSubset = { { value: headFontSubset, label: "headFontSubset" } }
+						fontSizeType = { { value: headFontSizeType, label: "headFontSizeType" } }
+						fontSize = { { value: headFontSize, label: "headFontSize" } }
+						fontSizeMobile = { { value: headFontSizeMobile, label: "headFontSizeMobile" } }
+						fontSizeTablet= { { value: headFontSizeTablet, label: "headFontSizeTablet" } }
+						lineHeightType = { { value: headLineHeightType, label: "headLineHeightType" } }
+						lineHeight = { { value: headLineHeight, label: "headLineHeight" } }
+						lineHeightMobile = { { value: headLineHeightMobile, label: "headLineHeightMobile" } }
+						lineHeightTablet= { { value: headLineHeightTablet, label: "headLineHeightTablet" } }
 					/>
-				    <p className="uagb-setting-label">{ __( "Title Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
+				    <p className="uagb-setting-label">{ __( "Title Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
 				    <ColorPalette
 				        value={ headingColor }
 				        onChange={ ( colorValue ) => setAttributes( { headingColor: colorValue } ) }
 				        allowReset
 				    />
-				    <hr class="uagb-editor__separator" />
+				    <hr className="uagb-editor__separator" />
 				</Fragment>
 				}
 				<ToggleControl
-					label={ __( "Enable Description", 'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Enable Description", "ultimate-addons-for-gutenberg" ) }
 					checked={ showDesc }
 					onChange={ ( value ) => setAttributes( { showDesc: ! showDesc } ) }
 				/>
 				{ showDesc && <Fragment>
 					<TypographyControl
-						label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
-						loadGoogleFonts = { { value: subHeadLoadGoogleFonts, label: 'subHeadLoadGoogleFonts' } }
-						fontFamily = { { value: subHeadFontFamily, label: 'subHeadFontFamily' } }
-						fontWeight = { { value: subHeadFontWeight, label: 'subHeadFontWeight' } }
-						fontSubset = { { value: subHeadFontSubset, label: 'subHeadFontSubset' } }
-						fontSizeType = { { value: subHeadFontSizeType, label: 'subHeadFontSizeType' } }
-						fontSize = { { value: subHeadFontSize, label: 'subHeadFontSize' } }
-						fontSizeMobile = { { value: subHeadFontSizeMobile, label: 'subHeadFontSizeMobile' } }
-						fontSizeTablet= { { value: subHeadFontSizeTablet, label: 'subHeadFontSizeTablet' } }
-						lineHeightType = { { value: subHeadLineHeightType, label: 'subHeadLineHeightType' } }
-						lineHeight = { { value: subHeadLineHeight, label: 'subHeadLineHeight' } }
-						lineHeightMobile = { { value: subHeadLineHeightMobile, label: 'subHeadLineHeightMobile' } }
-						lineHeightTablet= { { value: subHeadLineHeightTablet, label: 'subHeadLineHeightTablet' } }
+						loadGoogleFonts = { { value: subHeadLoadGoogleFonts, label: "subHeadLoadGoogleFonts" } }
+						fontFamily = { { value: subHeadFontFamily, label: "subHeadFontFamily" } }
+						fontWeight = { { value: subHeadFontWeight, label: "subHeadFontWeight" } }
+						fontSubset = { { value: subHeadFontSubset, label: "subHeadFontSubset" } }
+						fontSizeType = { { value: subHeadFontSizeType, label: "subHeadFontSizeType" } }
+						fontSize = { { value: subHeadFontSize, label: "subHeadFontSize" } }
+						fontSizeMobile = { { value: subHeadFontSizeMobile, label: "subHeadFontSizeMobile" } }
+						fontSizeTablet= { { value: subHeadFontSizeTablet, label: "subHeadFontSizeTablet" } }
+						lineHeightType = { { value: subHeadLineHeightType, label: "subHeadLineHeightType" } }
+						lineHeight = { { value: subHeadLineHeight, label: "subHeadLineHeight" } }
+						lineHeightMobile = { { value: subHeadLineHeightMobile, label: "subHeadLineHeightMobile" } }
+						lineHeightTablet= { { value: subHeadLineHeightTablet, label: "subHeadLineHeightTablet" } }
 					/>
-					<p className="uagb-setting-label">{ __( "Description Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: subHeadingColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Description Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: subHeadingColor }} ></span></span></p>
 					    <ColorPalette
 					        value={ subHeadingColor }
 					        onChange={ ( colorValue ) => setAttributes( { subHeadingColor: colorValue } ) }
@@ -868,10 +868,10 @@ class UAGBinfoBox extends Component {
 
 		// Margin Settings.
 		const marginSettings = (
-			<PanelBody	title={ __( "Spacing", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }	>
+			<PanelBody	title={ __( "Spacing", "ultimate-addons-for-gutenberg" ) } initialOpen={ false }	>
 				{ showPrefix &&
 					<RangeControl
-						label={ __( "Prefix Bottom Margin", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Prefix Bottom Margin", "ultimate-addons-for-gutenberg" ) }
 						value={ prefixSpace }
 						onChange={ ( value ) => setAttributes( { prefixSpace: value } ) }
 						min={ 0 }
@@ -882,7 +882,7 @@ class UAGBinfoBox extends Component {
 				}
 				{ showTitle &&
 					<RangeControl
-						label={ __( "Title Bottom Margin", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Title Bottom Margin", "ultimate-addons-for-gutenberg" ) }
 						value={ headSpace }
 						onChange={ ( value ) => setAttributes( { headSpace: value } ) }
 						min={ 0 }
@@ -893,7 +893,7 @@ class UAGBinfoBox extends Component {
 				}
 				{ "none" !== seperatorStyle &&
 					<RangeControl
-						label={ __( "Separator Bottom Margin", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Separator Bottom Margin", "ultimate-addons-for-gutenberg" ) }
 						value={ seperatorSpace }
 						onChange={ ( value ) => setAttributes( { seperatorSpace: value } ) }
 						min={ 0 }
@@ -904,7 +904,7 @@ class UAGBinfoBox extends Component {
 				}
 				{ showDesc &&
 					<RangeControl
-						label={ __( "Description Bottom Margin", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Description Bottom Margin", "ultimate-addons-for-gutenberg" ) }
 						value={ subHeadSpace }
 						onChange={ ( value ) => setAttributes( { subHeadSpace: value } ) }
 						min={ 0 }
@@ -914,7 +914,7 @@ class UAGBinfoBox extends Component {
 					/>
 				}
 				<hr className="uagb-editor__separator" />
-				<h2>{ __( "Image/Icon Margin (px)", 'ultimate-addons-for-gutenberg' ) }</h2>
+				<h2>{ __( "Image/Icon Margin (px)", "ultimate-addons-for-gutenberg" ) }</h2>
 				<RangeControl
 					label={ UAGB_Block_Icons.left_margin }
 					className={ "uagb-margin-control" }
@@ -954,21 +954,21 @@ class UAGBinfoBox extends Component {
 			</PanelBody>
 		)
 
-		let image_name = __( "Select Image", 'ultimate-addons-for-gutenberg' )
+		let image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
 		if(iconImage){
 			if(iconImage.url == null || iconImage.url == "" ){
-				image_name = __( "Select Image", 'ultimate-addons-for-gutenberg' )
+				image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
 			}else{
-				image_name = __( "Replace Image", 'ultimate-addons-for-gutenberg' )
+				image_name = __( "Replace Image", "ultimate-addons-for-gutenberg" )
 			}
 		}
 
 		// Image controls.
 		const imageControls = (
 			<Fragment>
-				<BaseControl className="editor-bg-image-control" label={ __( "Image", 'ultimate-addons-for-gutenberg' ) } >
+				<BaseControl className="editor-bg-image-control" label={ __( "Image", "ultimate-addons-for-gutenberg" ) } >
 					<MediaUpload
-						title={ __( "Select Image", 'ultimate-addons-for-gutenberg' ) }
+						title={ __( "Select Image", "ultimate-addons-for-gutenberg" ) }
 						onSelect={ this.onSelectImage }
 						allowedTypes= { [ "image" ] }
 						value={ iconImage }
@@ -980,27 +980,27 @@ class UAGBinfoBox extends Component {
 					/>
 					{ ( iconImage && iconImage.url !=="null" && iconImage.url !== "" ) &&
 						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
-							{ __( "Remove Image", 'ultimate-addons-for-gutenberg' ) }
+							{ __( "Remove Image", "ultimate-addons-for-gutenberg" ) }
 						</Button>
 					}
 				</BaseControl>
 				{ ( iconImage && iconImage.url !=="null" && iconImage.url !== "" ) &&
 					<Fragment>
 						<SelectControl
-							label={ __( "Image Size", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Image Size", "ultimate-addons-for-gutenberg" ) }
 							options={ imageSizeOptions }
 							value={ imageSize }
 							onChange={ ( value ) => setAttributes( { imageSize: value } ) }
 						/>
 						<ToggleControl
-							label={ __( "Custom Width", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Custom Width", "ultimate-addons-for-gutenberg" ) }
 							checked={ imageWidthType }
 							onChange={ (value) => setAttributes( { imageWidthType: !imageWidthType } ) }
-							help={ __( "Turn this off to inherit the natural width of Image.", 'ultimate-addons-for-gutenberg' ) }
+							help={ __( "Turn this off to inherit the natural width of Image.", "ultimate-addons-for-gutenberg" ) }
 						/>
 						{ imageWidthType &&
 							<RangeControl
-								label={ __( "Width (px)", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Width (px)", "ultimate-addons-for-gutenberg" ) }
 								value={ imageWidth }
 								onChange={ ( value ) => setAttributes( { imageWidth: value } ) }
 								min={ 0 }
@@ -1010,7 +1010,7 @@ class UAGBinfoBox extends Component {
 							/>
 						}
 						<RangeControl
-							label = { __( "Rounded Corners (px)", 'ultimate-addons-for-gutenberg' ) }
+							label = { __( "Rounded Corners (px)", "ultimate-addons-for-gutenberg" ) }
 							value = { iconimgBorderRadius }
 							onChange = { ( value ) => setAttributes( { iconimgBorderRadius: value } ) }
 							min = { 0 }
@@ -1026,52 +1026,52 @@ class UAGBinfoBox extends Component {
 		// Global Controls.
 		const inspect_control = (
 			<InspectorControls>
-				<PanelBody	title={ __( "Image/Icon", 'ultimate-addons-for-gutenberg' ) } >
+				<PanelBody	title={ __( "Image/Icon", "ultimate-addons-for-gutenberg" ) } >
 					<SelectControl
-						label={ __( "Select Position", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Select Position", "ultimate-addons-for-gutenberg" ) }
 						value={ iconimgPosition }
 						onChange={ ( value ) => setAttributes( { iconimgPosition: value } ) }
 						options={ [
-							{ value: "above-title", label: __( "Above Title", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "below-title", label: __( "Below Title", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "left-title", label: __( "Left of Title", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "right-title", label: __( "Right of Title", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "left", label: __( "Left of Text and Title", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "right", label: __( "Right of Text and Title", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "above-title", label: __( "Above Title", "ultimate-addons-for-gutenberg" ) },
+							{ value: "below-title", label: __( "Below Title", "ultimate-addons-for-gutenberg" ) },
+							{ value: "left-title", label: __( "Left of Title", "ultimate-addons-for-gutenberg" ) },
+							{ value: "right-title", label: __( "Right of Title", "ultimate-addons-for-gutenberg" ) },
+							{ value: "left", label: __( "Left of Text and Title", "ultimate-addons-for-gutenberg" ) },
+							{ value: "right", label: __( "Right of Text and Title", "ultimate-addons-for-gutenberg" ) },
 
 						] }
 					/>
 					{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 						<SelectControl
-							label={ __( "Stack on", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Stack on", "ultimate-addons-for-gutenberg" ) }
 							value={ stack }
 							options={ [
-								{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "tablet", label: __( "Tablet", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "mobile", label: __( "Mobile", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
+								{ value: "tablet", label: __( "Tablet", "ultimate-addons-for-gutenberg" ) },
+								{ value: "mobile", label: __( "Mobile", "ultimate-addons-for-gutenberg" ) },
 							] }
-							help={ __( "Note: Choose on what breakpoint the Info Box will stack.", 'ultimate-addons-for-gutenberg' ) }
+							help={ __( "Note: Choose on what breakpoint the Info Box will stack.", "ultimate-addons-for-gutenberg" ) }
 							onChange={ ( value ) => setAttributes( { stack: value } ) }
 						/>
 					}
 					<hr className="uagb-editor__separator" />
 					<SelectControl
-						label={ __( "Select Source", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Select Source", "ultimate-addons-for-gutenberg" ) }
 						value={ source_type }
 						onChange={ ( value ) => setAttributes( { source_type: value } ) }
 						options={ [
-							{ value: "icon", label: __( "Icon", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "image", label: __( "Image", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "icon", label: __( "Icon", "ultimate-addons-for-gutenberg" ) },
+							{ value: "image", label: __( "Image", "ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 
 					{ ( iconimgPosition && (iconimgPosition !== "above-title" && iconimgPosition !== "below-title" )  ) && <SelectControl
-						label={ __( "Vertical Alignment", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Vertical Alignment", "ultimate-addons-for-gutenberg" ) }
 						value={ sourceAlign }
 						onChange={ ( value ) => setAttributes( { sourceAlign: value } ) }
 						options={ [
-							{ value: "top", label: __( "Top", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "middle", label: __( "Middle", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "top", label: __( "Top", "ultimate-addons-for-gutenberg" ) },
+							{ value: "middle", label: __( "Middle", "ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					}

@@ -160,7 +160,7 @@ function styling( props ) {
 			"text-align": paginationAlignment
 		},
 	}
-	if( imgPosition !== 'background' ){
+	if( imgPosition !== "background" ){
 		selectors[" .uagb-post__inner-wrap  > .uagb-post__image:first-child"] = {
 			"margin-top" : generateCSSUnit( ( -contentPadding ), "px" ),
 			"margin-left" : generateCSSUnit( ( -contentPadding ), "px" ),
@@ -221,12 +221,12 @@ function styling( props ) {
 			"border-radius": generateCSSUnit( borderRadius, "px" ),
 			"border-color": borderColor,
 			"border-style": borderStyle,
-		};
+		}
 		selectors[" .uagb-post__cta a"] = {
 			"color": ctaColor,
 			"font-size": generateCSSUnit( ctaFontSize, ctaFontSizeType ),
 			"padding": btnVPadding + "px " + btnHPadding + "px"
-		};
+		}
 		selectors[" .uagb-post__cta:hover"] = {
 			"color": ctaHColor,
 			"background": ctaBgHColor,
@@ -238,13 +238,13 @@ function styling( props ) {
 	}
 
 	if ( true === postPagination ) {
-		if ( 'filled' == paginationLayout ) {
+		if ( "filled" == paginationLayout ) {
 			selectors[" .uagb-post-pagination-wrap a"] = {
 				
 				"background-color" :  paginationBgColor,
 				"color" :  paginationColor,
 			}
-			if ( 'undefined' == typeof paginationBgActiveColor && 'undefined' == typeof paginationActiveColor ) {
+			if ( "undefined" == typeof paginationBgActiveColor && "undefined" == typeof paginationActiveColor ) {
 				
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					
@@ -252,7 +252,7 @@ function styling( props ) {
 					"color" :  paginationColor,
 				}
 			}
-			if ( 'undefined' == typeof paginationBgActiveColor && 'undefined' != typeof paginationActiveColor ) {
+			if ( "undefined" == typeof paginationBgActiveColor && "undefined" != typeof paginationActiveColor ) {
 
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					
@@ -260,7 +260,7 @@ function styling( props ) {
 					"color" :  paginationActiveColor,
 				}
 			}
-			if ( 'undefined' != typeof paginationBgActiveColor && 'undefined' == typeof paginationActiveColor ) {
+			if ( "undefined" != typeof paginationBgActiveColor && "undefined" == typeof paginationActiveColor ) {
 
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					
@@ -268,7 +268,7 @@ function styling( props ) {
 					"color" :  paginationColor,
 				}
 			}
-			if ( 'undefined' != typeof paginationBgActiveColor && 'undefined' != typeof paginationActiveColor ) {
+			if ( "undefined" != typeof paginationBgActiveColor && "undefined" != typeof paginationActiveColor ) {
 
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					
@@ -277,7 +277,7 @@ function styling( props ) {
 				}
 			}
 		}
-		if ( 'border' == paginationLayout ) {
+		if ( "border" == paginationLayout ) {
 			selectors[" .uagb-post-pagination-wrap a"] = {
 				"border-style" : "solid",
 				"border-width" :  generateCSSUnit( paginationBorderSize, "px" ),
@@ -286,7 +286,7 @@ function styling( props ) {
 				"color" :  paginationColor,
 				"background-color": "transparent",
 			}
-			if ( 'undefined' != typeof paginationBorderActiveColor && 'undefined' != typeof paginationActiveColor  ) {
+			if ( "undefined" != typeof paginationBorderActiveColor && "undefined" != typeof paginationActiveColor  ) {
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					"border-style" : "solid",
 					"border-width" :  generateCSSUnit( paginationBorderSize, "px" ),
@@ -296,7 +296,7 @@ function styling( props ) {
 					"background-color": "transparent",
 				}
 			}
-			if ( 'undefined' == typeof paginationBorderActiveColor && 'undefined' != typeof paginationActiveColor  ) {
+			if ( "undefined" == typeof paginationBorderActiveColor && "undefined" != typeof paginationActiveColor  ) {
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					"border-style" : "solid",
 					"border-width" :  generateCSSUnit( paginationBorderSize, "px" ),
@@ -306,7 +306,7 @@ function styling( props ) {
 					"background-color": "transparent",
 				}
 			}
-			if ( 'undefined' != typeof paginationBorderActiveColor && 'undefined' == typeof paginationActiveColor  ) {
+			if ( "undefined" != typeof paginationBorderActiveColor && "undefined" == typeof paginationActiveColor  ) {
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					"border-style" : "solid",
 					"border-width" :  generateCSSUnit( paginationBorderSize, "px" ),
@@ -316,7 +316,7 @@ function styling( props ) {
 					"background-color": "transparent",
 				}
 			}
-			if ( 'undefined' == typeof paginationBorderActiveColor && 'undefined' == typeof paginationActiveColor  ) {
+			if ( "undefined" == typeof paginationBorderActiveColor && "undefined" == typeof paginationActiveColor  ) {
 				selectors[" .uagb-post-pagination-wrap .page-numbers.current"] = {
 					"border-style" : "solid",
 					"border-width" :  generateCSSUnit( paginationBorderSize, "px" ),
@@ -414,46 +414,46 @@ function styling( props ) {
 		}
 	}
 
-	if ( 'infinite' === paginationType ) {
+	if ( "infinite" === paginationType ) {
 
-		if ( 'button' === paginationEventType ) {
-			selectors[' .uagb-post__load-more-wrap'] = {
-				'text-align' : paginationAlign,
+		if ( "button" === paginationEventType ) {
+			selectors[" .uagb-post__load-more-wrap"] = {
+				"text-align" : paginationAlign,
 			} 
-			selectors[' .uagb-post__load-more-wrap .uagb-post-pagination-button'] = {
+			selectors[" .uagb-post__load-more-wrap .uagb-post-pagination-button"] = {
 
-				'color' : paginationTextColor,
+				"color" : paginationTextColor,
 				"background-color" : paginationMasonryBgColor,
 				"border-style" : paginationMasonryBorderStyle,
-				"border-width" : generateCSSUnit( paginationMasonryBorderWidth, 'px' ),
-				"border-radius" : generateCSSUnit( paginationMasonryBorderRadius, 'px' ),
+				"border-width" : generateCSSUnit( paginationMasonryBorderWidth, "px" ),
+				"border-radius" : generateCSSUnit( paginationMasonryBorderRadius, "px" ),
 				"border-color" : paginationMasonryBorderColor,
-				"font-size": generateCSSUnit( paginationFontSize, 'px' ),
+				"font-size": generateCSSUnit( paginationFontSize, "px" ),
 				"padding-top": generateCSSUnit( vpaginationButtonPaddingDesktop, paginationButtonPaddingType ),
 				"padding-bottom": generateCSSUnit( vpaginationButtonPaddingDesktop, paginationButtonPaddingType ),
 				"padding-right": generateCSSUnit( hpaginationButtonPaddingDesktop, paginationButtonPaddingType ),
 				"padding-left": generateCSSUnit( hpaginationButtonPaddingDesktop, paginationButtonPaddingType ),
 
 			}
-			selectors[' .uagb-post__load-more-wrap .uagb-post-pagination-button:hover'] = {
-				'color' : paginationTextHoverColor,
+			selectors[" .uagb-post__load-more-wrap .uagb-post-pagination-button:hover"] = {
+				"color" : paginationTextHoverColor,
 				"background-color" : paginationBgHoverColor,
 			}
-			mobile_selectors[' .uagb-post__load-more-wrap .uagb-post-pagination-button'] = {
+			mobile_selectors[" .uagb-post__load-more-wrap .uagb-post-pagination-button"] = {
 				"padding-top": generateCSSUnit( vpaginationButtonPaddingMobile, paginationButtonPaddingType ),
 				"padding-bottom": generateCSSUnit( vpaginationButtonPaddingMobile, paginationButtonPaddingType ),
 				"padding-right": generateCSSUnit( hpaginationButtonPaddingMobile, paginationButtonPaddingType ),
 				"padding-left": generateCSSUnit( hpaginationButtonPaddingMobile, paginationButtonPaddingType ),
 			}
-			tablet_selectors[' .uagb-post__load-more-wrap .uagb-post-pagination-button'] = {
+			tablet_selectors[" .uagb-post__load-more-wrap .uagb-post-pagination-button"] = {
 				"padding-top": generateCSSUnit( vpaginationButtonPaddingTablet, paginationButtonPaddingType ),
 				"padding-bottom": generateCSSUnit( vpaginationButtonPaddingTablet, paginationButtonPaddingType ),
 				"padding-right": generateCSSUnit( hpaginationButtonPaddingTablet, paginationButtonPaddingType ),
 				"padding-left": generateCSSUnit( hpaginationButtonPaddingTablet, paginationButtonPaddingType ),
 			}
 		}
-		if ( 'scroll' === paginationEventType ) {
-			selectors['.uagb-post-grid .uagb-post-inf-loader div'] = {
+		if ( "scroll" === paginationEventType ) {
+			selectors[".uagb-post-grid .uagb-post-inf-loader div"] = {
 				"width" : generateCSSUnit( loaderSize, "px" ),
 				"height" : generateCSSUnit( loaderSize, "px" ),
 				"background-color" : loaderColor

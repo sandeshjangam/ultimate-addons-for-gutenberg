@@ -14,19 +14,19 @@ const {
 	InnerBlocks
 } = wp.blockEditor
 
-const { select } = wp.data;
+const { select } = wp.data
 
 class UAGBTabsChildEdit extends Component {
 	constructor() {
-		super( ...arguments );
+		super( ...arguments )
 	}
 
 	componentDidMount() {
-		const { attributes, setAttributes, clientId  } = this.props;
-		const {id, tabHeaders} = attributes;
-		const { getBlockRootClientId, getBlockAttributes } = !wp.blockEditor ? select( 'core/editor' ) : select( 'core/block-editor' );
-		const rootBlockId = getBlockRootClientId( clientId );
-		const rootBlockAttrs = getBlockAttributes( rootBlockId );
+		const { attributes, setAttributes, clientId  } = this.props
+		const {id, tabHeaders} = attributes
+		const { getBlockRootClientId, getBlockAttributes } = !wp.blockEditor ? select( "core/editor" ) : select( "core/block-editor" )
+		const rootBlockId = getBlockRootClientId( clientId )
+		const rootBlockAttrs = getBlockAttributes( rootBlockId )
 
 		setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
 		setAttributes({
@@ -36,31 +36,31 @@ class UAGBTabsChildEdit extends Component {
 		// Apply parent style if newly inserted
 		if (rootBlockAttrs !== null && rootBlockAttrs.needUpdate !== false) {
 			Object.keys(rootBlockAttrs).map((attribute) => {
-				attributes[attribute] = rootBlockAttrs[attribute];
-			});
+				attributes[attribute] = rootBlockAttrs[attribute]
+			})
 		}
 	}	
 	
 	render() {
-		const { attributes , className} = this.props;
-		const {tabActive, id, block_id} = attributes;
+		const { attributes , className} = this.props
+		const {tabActive, id, block_id} = attributes
 
 		return (
-				<div className={ classnames(
-					className,
-					`uagb-tabs__${block_id}`,
-					'uagb-tabs__body'
-				) }
+			<div className={ classnames(
+				className,
+				`uagb-tabs__${block_id}`,
+				"uagb-tabs__body"
+			) }
 					 style={{
-						 display: id === tabActive ? 'block' : 'none',
+						 display: id === tabActive ? "block" : "none",
 					 }}
-				>
-					<InnerBlocks
-						template={[ [ 'core/paragraph' ] ]}
-						templateLock={false}
-					/>
-				</div>
-		);
+			>
+				<InnerBlocks
+					template={[ [ "core/paragraph" ] ]}
+					templateLock={false}
+				/>
+			</div>
+		)
 	}
 }
 

@@ -16,12 +16,12 @@ export default function save( props ) {
 
 	return (
 		<div className={ classnames(
-				className,
-				"uagb-rest_menu__outer-wrap",
-				`uagb-block-${block_id}`,					
-			) }
-			>				
-		<InnerBlocks.Content/>
+			className,
+			"uagb-rest_menu__outer-wrap",
+			`uagb-block-${block_id}`,					
+		) }
+		>				
+			<InnerBlocks.Content/>
 		</div>
 	)
 }

@@ -16,7 +16,7 @@ class Title extends React.Component {
 		let author_title = ""
 		
 		if( typeof index_value !== "undefined" ){
-			const test_arr = attributes.rest_menu_item_arr[index_value];
+			const test_arr = attributes.rest_menu_item_arr[index_value]
 			if( test_arr ){
 				if( typeof test_arr !== "undefined"){		
 					author_title = test_arr["title"]		

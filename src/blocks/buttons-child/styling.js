@@ -31,7 +31,7 @@ function styling( props ) {
 		lineHeightTablet,
 		inheritFromTheme,
 		iconSpace
-	} = props.attributes;
+	} = props.attributes
 
 	var tablet_selectors = {}
 	var mobile_selectors = {}
@@ -91,11 +91,11 @@ function styling( props ) {
 	}
 
 	selectors[" .uagb-button__icon-position-after"] = {
-		'margin-left' : generateCSSUnit( iconSpace, 'px' )
+		"margin-left" : generateCSSUnit( iconSpace, "px" )
 	}
 
 	selectors[" .uagb-button__icon-position-before"] = {
-		'margin-right' : generateCSSUnit( iconSpace, 'px' )
+		"margin-right" : generateCSSUnit( iconSpace, "px" )
 	}
 
 	mobile_selectors[" .uagb-button__icon"] = {

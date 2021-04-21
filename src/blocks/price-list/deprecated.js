@@ -139,12 +139,12 @@ const deprecated = [
 			return (
 				<Fragment>
 					<div className={ classnames(
-							className,
-							"uagb-rest_menu__outer-wrap",
-							`uagb-block-${block_id}`,					
-						) }
-						>				
-					<InnerBlocks.Content/>
+						className,
+						"uagb-rest_menu__outer-wrap",
+						`uagb-block-${block_id}`,					
+					) }
+					>				
+						<InnerBlocks.Content/>
 					</div>
 				</Fragment>
 			)
@@ -152,4 +152,4 @@ const deprecated = [
 	},
 ]
 
-export default deprecated;
+export default deprecated

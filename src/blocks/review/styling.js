@@ -101,8 +101,8 @@ function styling( props ) {
 		        "padding-left" : generateCSSUnit( contentHrPadding, "px" ),
 		    	"padding-right" : generateCSSUnit( contentHrPadding, "px" ),
 		    	"padding-top" : generateCSSUnit( contentVrPadding, "px" ),
-				"padding-bottom" : generateCSSUnit( contentVrPadding, "px" ),
-				"text-align" : overallAlignment,
+			"padding-bottom" : generateCSSUnit( contentVrPadding, "px" ),
+			"text-align" : overallAlignment,
 		},
 		" .uagb_review_summary, p.rich-text.block-editor-rich-text__editable.uagb_review_summary_title" : {
 		    "font-size": generateCSSUnit( contentFontSize, contentFontSizeType ),
@@ -124,18 +124,18 @@ function styling( props ) {
 	}
 
 	mobile_selectors = {
-			" .uagb-rating-title, .uagb_review_entry" : {
-				"font-size": generateCSSUnit( headFontSizeMobile, headFontSizeType ),
-				"line-height": generateCSSUnit( headLineHeightMobile, headLineHeightType ),
-			},
-			" .uagb-rating-desc, .uagb-rating-author" : {
-				"font-size": generateCSSUnit( subHeadFontSizeMobile, subHeadFontSizeType ),
-				"line-height": generateCSSUnit( subHeadLineHeightMobile, subHeadLineHeightType ),
-			},
-			" .uagb_review_summary, p.rich-text.block-editor-rich-text__editable.uagb_review_summary_title" : {
+		" .uagb-rating-title, .uagb_review_entry" : {
+			"font-size": generateCSSUnit( headFontSizeMobile, headFontSizeType ),
+			"line-height": generateCSSUnit( headLineHeightMobile, headLineHeightType ),
+		},
+		" .uagb-rating-desc, .uagb-rating-author" : {
+			"font-size": generateCSSUnit( subHeadFontSizeMobile, subHeadFontSizeType ),
+			"line-height": generateCSSUnit( subHeadLineHeightMobile, subHeadLineHeightType ),
+		},
+		" .uagb_review_summary, p.rich-text.block-editor-rich-text__editable.uagb_review_summary_title" : {
 			    "font-size": generateCSSUnit( contentFontSizeMobile, contentFontSizeType ),
 			    "line-height": generateCSSUnit( contentLineHeightMobile, contentLineHeightType ),
-			},
+		},
 	}
 
 	tablet_selectors = { 

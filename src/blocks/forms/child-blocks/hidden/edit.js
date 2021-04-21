@@ -58,49 +58,49 @@ class UAGBFormsHiddenEdit extends Component {
 			
 			return (
 				<PanelBody
-				title={ __( "General" , 'ultimate-addons-for-gutenberg') }
-				initialOpen={ true }
-				className="uagb__url-panel-body"
+					title={ __( "General" , "ultimate-addons-for-gutenberg") }
+					initialOpen={ true }
+					className="uagb__url-panel-body"
 				>
 
-				<TextControl
-				label= {__( "Value" , 'ultimate-addons-for-gutenberg') }
-				value={ hidden_field_value }
-				onChange={ ( hidden_field_value ) =>setAttributes( {hidden_field_value} ) }
-				/>				
+					<TextControl
+						label= {__( "Value" , "ultimate-addons-for-gutenberg") }
+						value={ hidden_field_value }
+						onChange={ ( hidden_field_value ) =>setAttributes( {hidden_field_value} ) }
+					/>				
 				
 				</PanelBody>
-				)
-			}
+			)
+		}
 
 			
-			var hidden_field_label = hidden_field_name.replace(/\s+/g, '-').toLowerCase();
-			return (
-				<Fragment>
+		var hidden_field_label = hidden_field_name.replace(/\s+/g, "-").toLowerCase()
+		return (
+			<Fragment>
 				<InspectorControls>
-				{ hiddenFieldSettings() }
+					{ hiddenFieldSettings() }
 				</InspectorControls>
 				<div className={ classnames(
 					"uagb-forms-hidden-wrap",
 					`uagb-block-${ block_id }`,
-					) }>
-						{/* Edit View */}
+				) }>
+					{/* Edit View */}
 					{this.props.isSelected && (
 						<input type="text"  className="uagb-forms-hidden-input"  onChange={ this.changeHiddenName }  value={hidden_field_name}/>
 					)}
-						{/* Hidden Field View */}
+					{/* Hidden Field View */}
 					{!this.props.isSelected && (
 						<Fragment>
-							<label className={`uagb-forms-hidden-label uagb-form-hidden-${hidden_field_label}` }> { __( hidden_field_name , 'ultimate-addons-for-gutenberg' ) } </label>
+							<label className={`uagb-forms-hidden-label uagb-form-hidden-${hidden_field_label}` }> { __( hidden_field_name , "ultimate-addons-for-gutenberg" ) } </label>
 							<input type="hidden"  className="uagb-forms-hidden-input" value={hidden_field_value} />
 						</Fragment>
 					)}
 					
-					</div>
-					</Fragment>
-					)
-				}
-			}
+				</div>
+			</Fragment>
+		)
+	}
+}
 			
-			export default UAGBFormsHiddenEdit
+export default UAGBFormsHiddenEdit
 			

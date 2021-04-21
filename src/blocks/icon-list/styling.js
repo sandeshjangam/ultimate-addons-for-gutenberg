@@ -37,7 +37,7 @@ function styling( props ) {
 	var tablet_selectors = {}
 	var mobile_selectors = {}
 	var alignment = ( align == "left" ) ? "flex-start" : ( ( align == "right" ) ? "flex-end" : "center" )
-	var editor_gap = ( undefined !== typeof gap && '' !== gap ) ? ( gap + 15 ) : 15;
+	var editor_gap = ( undefined !== typeof gap && "" !== gap ) ? ( gap + 15 ) : 15
 	
 	selectors = {
 		" .uagb-icon-list__source-wrap" : {

@@ -3,7 +3,7 @@
  */
 
 
- const attributes = {
+const attributes = {
 	block_id: {
 		type: "string",
 	},

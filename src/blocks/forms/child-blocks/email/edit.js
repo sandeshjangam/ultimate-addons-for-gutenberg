@@ -46,7 +46,7 @@ class UAGBFormsEmailEdit extends Component {
 
 		const { attributes,setAttributes,isSelected } = this.props
 
-        const {
+		const {
 			block_id,
 			name,
 			required,
@@ -57,12 +57,12 @@ class UAGBFormsEmailEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General", 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "General", "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<ToggleControl
-						label={ __( "Required", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Required", "ultimate-addons-for-gutenberg" ) }
 						checked={ required }
 						onChange={ ( value ) => setAttributes( { required: ! required } ) }
 					/>
@@ -70,13 +70,13 @@ class UAGBFormsEmailEdit extends Component {
 					 	label="Placeholder"
 						value={ placeholder }
 						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
-						placeholder={__( "Placeholder" , 'ultimate-addons-for-gutenberg')}
+						placeholder={__( "Placeholder" , "ultimate-addons-for-gutenberg")}
 					/>
 				</PanelBody>
 			)
 		}
 
-		const isRequired = (required) ? __("required" , 'ultimate-addons-for-gutenberg') : "";
+		const isRequired = (required) ? __("required" , "ultimate-addons-for-gutenberg") : ""
 
 		return (
 			<Fragment>
@@ -91,20 +91,20 @@ class UAGBFormsEmailEdit extends Component {
 					{isSelected && (
 						<div className="uagb-forms-required-wrap">
 							<ToggleControl
-								label={ __( "Required" , 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Required" , "ultimate-addons-for-gutenberg" ) }
 								checked={ required }
 								onChange={ ( value ) => setAttributes( { required: ! required } ) }
 							/>
 						</div>
 					)}
 					<RichText
-							tagName="div"
-							placeholder={ __( "Email" , 'ultimate-addons-for-gutenberg' ) }
-							value={ name }
-							onChange={ ( value ) => setAttributes( { name: value } ) }
-							className={`uagb-forms-email-label ${isRequired} uagb-forms-input-label`}
-							multiline={ false }
-							id={ block_id }
+						tagName="div"
+						placeholder={ __( "Email" , "ultimate-addons-for-gutenberg" ) }
+						value={ name }
+						onChange={ ( value ) => setAttributes( { name: value } ) }
+						className={`uagb-forms-email-label ${isRequired} uagb-forms-input-label`}
+						multiline={ false }
+						id={ block_id }
 					/>
 					<input type="text" className="uagb-forms-email-input uagb-forms-input" placeholder={placeholder} required={ required } name={ block_id }/>
 				</div>

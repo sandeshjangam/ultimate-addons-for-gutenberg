@@ -152,8 +152,8 @@ function styling( props ) {
 	}
 	
 	selectors[" .uagb-toc__list-wrap"] = {
-		'column-count': tColumnsDesktop,
-		'overflow': 'hidden',
+		"column-count": tColumnsDesktop,
+		"overflow": "hidden",
 	}
 
 	if ( customWidth ) {
@@ -162,10 +162,10 @@ function styling( props ) {
 
 	if ( disableBullets ) {
 		selectors[" .uagb-toc__list"] = {
-			'list-style-type': 'none'
+			"list-style-type": "none"
 		}
 		selectors[" .uagb-toc__list .uagb-toc__list"] = {
-			'list-style-type': 'none'
+			"list-style-type": "none"
 		}
 	}
 
@@ -192,8 +192,8 @@ function styling( props ) {
 			"margin-bottom": generateCSSUnit( vMarginTablet, marginTypeTablet ),
 		},
 		" .uagb-toc__list-wrap" : {
-			'column-count': tColumnsTablet,
-			'overflow': 'hidden'
+			"column-count": tColumnsTablet,
+			"overflow": "hidden"
 		},
 
 		" .uagb-toc__list-wrap > ul.uagb-toc__list > li:first-child" : {
@@ -231,8 +231,8 @@ function styling( props ) {
 			"margin-bottom": generateCSSUnit( vMarginMobile, marginTypeMobile ),
 		},
 		" .uagb-toc__list-wrap" : {
-			'column-count': tColumnsMobile,
-			'overflow': 'hidden'
+			"column-count": tColumnsMobile,
+			"overflow": "hidden"
 		},		
 		" .uagb-toc__list-wrap > ul.uagb-toc__list > li:first-child" : {
 		    "padding-top": generateCSSUnit( contentPaddingMobile, contentPaddingTypeMobile )

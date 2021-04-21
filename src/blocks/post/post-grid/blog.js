@@ -4,7 +4,7 @@ import classnames from "classnames"
 import {
 	InnerBlockLayoutContextProvider,
 	renderPostLayout 
-} from '.././function';
+} from ".././function"
 
 
 class Blog extends React.Component {
@@ -54,9 +54,9 @@ class Blog extends React.Component {
 						parentName="uagb/post-grid"
 						parentClassName="uagb-block-grid"
 					>
-					{ displayPosts.map( ( post = {}, i ) =>
-						<article key={ i } >
-							<div className="uagb-post__inner-wrap" >
+						{ displayPosts.map( ( post = {}, i ) =>
+							<article key={ i } >
+								<div className="uagb-post__inner-wrap" >
 								
 									{ renderPostLayout(
 										"uagb/post-grid",
@@ -66,12 +66,12 @@ class Blog extends React.Component {
 										this.props.categoriesList
 									) }
 								
-							</div>
-						</article>
-					) }
+								</div>
+							</article>
+						) }
 					</InnerBlockLayoutContextProvider>
 				</div>
-				{ postPagination == true && 'empty' !== paginationMarkup &&
+				{ postPagination == true && "empty" !== paginationMarkup &&
 					<div dangerouslySetInnerHTML={ { __html: paginationMarkup } } className="uagb-post-pagination-wrap">
 					</div>
 				}

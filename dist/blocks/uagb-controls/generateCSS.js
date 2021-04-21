@@ -16,12 +16,12 @@ function generateCSS ( selectors, id, isResponsive = false, responsiveType = "" 
 				checkString = false
 			}
 
-			if ( 'font-family' === j && typeof sel[j] != "undefined" && 'Default' === sel[j] ) {
-				continue;
+			if ( "font-family" === j && typeof sel[j] != "undefined" && "Default" === sel[j] ) {
+				continue
 			}
 
 			if( typeof sel[j] != "undefined" && checkString ) {
-				if ( 'font-family' === j ) {
+				if ( "font-family" === j ) {
 					css += j + ": " + "'" + sel[j] + "'" + ";"
 				} else {
 					css += j + ": " + sel[j] + ";"

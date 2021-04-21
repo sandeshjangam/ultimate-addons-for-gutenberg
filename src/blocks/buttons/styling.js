@@ -31,12 +31,12 @@ function styling( props ) {
 
 	if ( "desktop" == stack ) {
 
-		selectors[" .uagb-button__wrapper"]["margin-left"] = 0;
-		selectors[" .uagb-button__wrapper"]["margin-right"] = 0;
-		selectors[" .uagb-button__wrapper"]["margin-bottom"] = generateCSSUnit( gap, "px" );
+		selectors[" .uagb-button__wrapper"]["margin-left"] = 0
+		selectors[" .uagb-button__wrapper"]["margin-right"] = 0
+		selectors[" .uagb-button__wrapper"]["margin-bottom"] = generateCSSUnit( gap, "px" )
 
 		selectors[" .block-editor-block-list__layout"] = {
-				"flex-direction": "column"
+			"flex-direction": "column"
 		}
 
 	} else if ( "tablet" == stack ) {
@@ -89,7 +89,7 @@ function styling( props ) {
 			}
 		}
 	} else {
-		selectors[" .uagb-button__wrapper"]["justify-content"] = "center";
+		selectors[" .uagb-button__wrapper"]["justify-content"] = "center"
 		selectors[" .uagb-buttons-repeater"] = {
 			"width" : "100%",
 		}

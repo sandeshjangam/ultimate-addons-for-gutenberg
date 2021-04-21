@@ -47,7 +47,7 @@ class UAGBFormsNameEdit extends Component {
 
 		const { attributes, setAttributes,isSelected } = this.props
 
-        const {
+		const {
 			block_id,
 			nameRequired,
 			name,
@@ -58,12 +58,12 @@ class UAGBFormsNameEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General" , 'ultimate-addons-for-gutenberg') }
+					title={ __( "General" , "ultimate-addons-for-gutenberg") }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<ToggleControl
-						label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
+						label={ __( "Required" , "ultimate-addons-for-gutenberg") }
 						checked={ nameRequired }
 						onChange={ ( value ) => setAttributes( { nameRequired: ! nameRequired } ) }
 					/>
@@ -71,13 +71,13 @@ class UAGBFormsNameEdit extends Component {
 					 	label="Placeholder"
 						value={ placeholder }
 						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
-						placeholder={__( "Placeholder" , 'ultimate-addons-for-gutenberg' )}
+						placeholder={__( "Placeholder" , "ultimate-addons-for-gutenberg" )}
 					/>
 				</PanelBody>
 			)
 		}
 
-		const isRequired = (nameRequired) ? __("required" , 'ultimate-addons-for-gutenberg') : "";
+		const isRequired = (nameRequired) ? __("required" , "ultimate-addons-for-gutenberg") : ""
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -92,7 +92,7 @@ class UAGBFormsNameEdit extends Component {
 					{isSelected && (
 						<div className="uagb-forms-required-wrap">
 							<ToggleControl
-								label={ __( "Required" , 'ultimate-addons-for-gutenberg') }
+								label={ __( "Required" , "ultimate-addons-for-gutenberg") }
 								checked={ nameRequired }
 								onChange={ ( value ) => setAttributes( { nameRequired: ! nameRequired } ) }
 							/>
@@ -100,7 +100,7 @@ class UAGBFormsNameEdit extends Component {
 					)}
 					<RichText
 						tagName="div"
-						placeholder={ __( "Name" , 'ultimate-addons-for-gutenberg') }
+						placeholder={ __( "Name" , "ultimate-addons-for-gutenberg") }
 						value={ name }
 						onChange={ ( value ) => setAttributes( { name: value } ) }
 						className={`uagb-forms-name-label ${isRequired} uagb-forms-input-label`}

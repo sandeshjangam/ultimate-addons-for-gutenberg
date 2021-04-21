@@ -69,7 +69,7 @@ function styling( props ) {
 	var alignment = ( align == "left" ) ? "flex-start" : ( ( align == "right" ) ? "flex-end" : "center" )
 
 	selectors[" .uagb-social-share__wrap .block-editor-inner-blocks"] = {
-			"text-align": align
+		"text-align": align
 	}
 
 	selectors[" .uagb-social-share__wrap"] = {

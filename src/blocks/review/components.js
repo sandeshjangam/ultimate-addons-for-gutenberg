@@ -1,50 +1,50 @@
-const { RichText} = wp.blockEditor || wp.editor;
-const { __ } = wp.i18n;
-import { Component } from "react";
+const { RichText} = wp.blockEditor || wp.editor
+const { __ } = wp.i18n
+import { Component } from "react"
 
 export class Stars extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			displayValue: this.props.value,
 			displayColor: this.props.activeStarColor,
-		};
-		this.mouseHover = this.mouseHover.bind(this);
-		this.mouseLeave = this.mouseLeave.bind(this);
-		this.mouseClick = this.mouseClick.bind(this);
+		}
+		this.mouseHover = this.mouseHover.bind(this)
+		this.mouseLeave = this.mouseLeave.bind(this)
+		this.mouseClick = this.mouseClick.bind(this)
 	}
 	mouseHover(i) {
 		this.setState({
 			displayValue: i + (this.props.value - i === 1 ? 0.5 : 1),
 			displayColor: this.props.selectedStarColor,
-		});
+		})
 	}
 	mouseLeave() {
 		this.setState({
 			displayValue: this.props.value,
 			displayColor: this.props.activeStarColor,
-		});
+		})
 	}
 	mouseClick(i) {
-		const { setValue, value } = this.props;
-		setValue(value === i + 1 ? i + 0.5 : i + 1);
+		const { setValue, value } = this.props
+		setValue(value === i + 1 ? i + 0.5 : i + 1)
 		this.setState({
 			displayValue: value === i + 1 ? i + 0.5 : i + 1,
-		});
+		})
 	}
 	componentWillReceiveProps(newProps) {
-		const { value, activeStarColor } = newProps;
+		const { value, activeStarColor } = newProps
 		if (this.props.onHover || this.state.displayValue !== value) {
 			this.setState({
 				displayValue: value,
 				displayColor: activeStarColor,
-			});
+			})
 		} else {
-			this.setState({ displayColor: activeStarColor });
+			this.setState({ displayColor: activeStarColor })
 		}
 	}
 	render() {
-		const { displayValue } = this.state;
+		const { displayValue } = this.state
 		const {
 			limit,
 			id,
@@ -54,7 +54,7 @@ export class Stars extends Component {
 			onClick,
 			style,
 			starOutlineColor,
-		} = this.props;
+		} = this.props
 		return (
 			<div
 				className={className}
@@ -113,18 +113,18 @@ export class Stars extends Component {
 					</svg>
 				))}
 			</div>
-		);
+		)
 	}
 }
 
 export class ReviewBody extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			average:
 				this.props.items.map((i) => i.value).reduce((total, v) => total + v) /
 				this.props.items.length,
-		};
+		}
 	}
 
 	render() {
@@ -156,15 +156,15 @@ export class ReviewBody extends Component {
 			imageEnabled,
 			descriptionEnabled,
 			showauthor,
-		} = this.props;
+		} = this.props
 
-		const { average } = this.state;
+		const { average } = this.state
 
 		const newAverage =
-			items.map((i) => i.value).reduce((total, v) => total + v) / items.length;
+			items.map((i) => i.value).reduce((total, v) => total + v) / items.length
 
 		if (average !== newAverage) {
-			this.setState({ average: newAverage });
+			this.setState({ average: newAverage })
 		}
 
 		let target ="_self"
@@ -183,17 +183,17 @@ export class ReviewBody extends Component {
 				>
 					<RichText
 						tagName={ headingTag }
-						placeholder={ __( 'Title of the review', 'ultimate-addons-for-gutenberg' ) }
+						placeholder={ __( "Title of the review", "ultimate-addons-for-gutenberg" ) }
 						keepPlaceholderOnFocus
 						value={ rTitle }
 						className='uagb-rating-title'
 						onChange={(text) => setTitle(text)}
 					/>
-					</a>
+				</a>
 				{ descriptionEnabled === true &&
 				<RichText
 					tagName="p"
-					placeholder={ __( 'Review Description', 'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Review Description", "ultimate-addons-for-gutenberg" ) }
 					keepPlaceholderOnFocus
 					value={ rContent }
 					className='uagb-rating-desc'
@@ -203,7 +203,7 @@ export class ReviewBody extends Component {
 				{ showauthor === true && 
 				<RichText
 					tagName="p"
-					placeholder={ __( 'Review Author', 'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Review Author", "ultimate-addons-for-gutenberg" ) }
 					keepPlaceholderOnFocus
 					value={ rAuthor }
 					className='uagb-rating-author'
@@ -214,94 +214,94 @@ export class ReviewBody extends Component {
 				}
 				{items.map((j, i) => (
 					showfeature === true && ( 
-					<div className="uagb_review_entry">
-						<RichText
-							style={{ marginRight: "auto" }}
-							key={i}
-							placeholder={ __( "Edit feature" ) }
-							value={j.label}
-							onChange={(text) =>
-								setItems([
-									...items.slice(0, i),
-									{ label: text, value: j.value },
-									...items.slice(i + 1),
-								])
-							}
-						/>
-						<div
-							key={i}
-							style={{
-								marginLeft: "auto",
-								minWidth: items.length > 1 ? 120 : 100,
-							}}
-						>
-						{items.length > 1 && (
-							<div
-								className="dashicons dashicons-trash"
-								onClick={() => {
-									let newItems = items
-										.slice(0, i)
-										.concat(items.slice(i + 1, items.length));
-										setItems(newItems);
-									this.setState({
-										average: newItems
-										.map((i) => i.value)
-										.reduce((total, v) => total + v) / newItems.length,
-									});
-								}}
-							/>
-						)}
-							<Stars
-								id={`${ID}-${i}`}
+						<div className="uagb_review_entry">
+							<RichText
+								style={{ marginRight: "auto" }}
 								key={i}
-								value={j.value}
-								limit={starCount}
-								setValue={(newValue) => {
-									const newArray = [
+								placeholder={ __( "Edit feature" ) }
+								value={j.label}
+								onChange={(text) =>
+									setItems([
 										...items.slice(0, i),
-										{ label: j.label, value: newValue },
+										{ label: text, value: j.value },
 										...items.slice(i + 1),
-									];
-									setItems(newArray);
-									setActiveStarIndex(i);
-									this.setState({
-										average:
+									])
+								}
+							/>
+							<div
+								key={i}
+								style={{
+									marginLeft: "auto",
+									minWidth: items.length > 1 ? 120 : 100,
+								}}
+							>
+								{items.length > 1 && (
+									<div
+										className="dashicons dashicons-trash"
+										onClick={() => {
+											let newItems = items
+												.slice(0, i)
+												.concat(items.slice(i + 1, items.length))
+											setItems(newItems)
+											this.setState({
+												average: newItems
+													.map((i) => i.value)
+													.reduce((total, v) => total + v) / newItems.length,
+											})
+										}}
+									/>
+								)}
+								<Stars
+									id={`${ID}-${i}`}
+									key={i}
+									value={j.value}
+									limit={starCount}
+									setValue={(newValue) => {
+										const newArray = [
+											...items.slice(0, i),
+											{ label: j.label, value: newValue },
+											...items.slice(i + 1),
+										]
+										setItems(newArray)
+										setActiveStarIndex(i)
+										this.setState({
+											average:
 											newArray
 												.map((i) => i.value)
 												.reduce((total, v) => total + v) / newArray.length,
-									});
-								}}
-								inactiveStarColor={inactiveStarColor}
-								activeStarColor={activeStarColor}
-								selectedStarColor={selectedStarColor}
-								starOutlineColor={starOutlineColor}
-							/>
+										})
+									}}
+									inactiveStarColor={inactiveStarColor}
+									activeStarColor={activeStarColor}
+									selectedStarColor={selectedStarColor}
+									starOutlineColor={starOutlineColor}
+								/>
+							</div>
 						</div>
-					</div>
-				)))}
+					)))}
 				{ showfeature === true && ( 
-				<div
-					title={__("Insert new review entry")}
-					onClick={() => {
-						setItems([...items, { label: "", value: 0 }]);
-						this.setState({
-							average: average / (items.length + 1),
-						});
-					}}
-					className="uagb_review_add_entry dashicons dashicons-plus-alt"
-				/>
+					<div
+						title={__("Insert new review entry")}
+						onClick={() => {
+							setItems([...items, { label: "", value: 0 }])
+							this.setState({
+								average: average / (items.length + 1),
+							})
+						}}
+						className="uagb_review_add_entry dashicons dashicons-plus-alt"
+					/>
 				)}
 				<div className="uagb_review_summary">
 					<RichText
 						className="uagb_review_summary_title"
-						placeholder={__("Title of the summary goes here",'ultimate-addons-for-gutenberg')}
+						placeholder={__("Title of the summary goes here","ultimate-addons-for-gutenberg")}
 						tagName="p"
 						onChange={(text) => setSummaryTitle(text)}
 						value={summaryTitle}
 					/>
 					<div className="uagb_review_overall_value">
 						<RichText
-							placeholder={__("Summary of the review goes here",'ultimate-addons-for-gutenberg')}
+							placeholder={__("Summary of the review goes here","ultimate-addons-for-gutenberg")}
 							onChange={(text) => setSummaryDescription(text)}
 							value={summaryDescription}
 						/>
@@ -325,6 +325,6 @@ export class ReviewBody extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
 	}
 }

@@ -55,4 +55,4 @@ const attributes = {
 
 }
 
-export default attributes;
+export default attributes

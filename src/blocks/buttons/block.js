@@ -28,9 +28,9 @@ registerBlockType( "uagb/buttons", {
 	icon: UAGB_Block_Icons.buttons,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "buttons", 'ultimate-addons-for-gutenberg' ),
-		__( "multi buttons", 'ultimate-addons-for-gutenberg' ),
-		__( "uag", 'ultimate-addons-for-gutenberg' ),
+		__( "buttons", "ultimate-addons-for-gutenberg" ),
+		__( "multi buttons", "ultimate-addons-for-gutenberg" ),
+		__( "uag", "ultimate-addons-for-gutenberg" ),
 	],
 	supports: {
 		anchor: true,
@@ -41,20 +41,20 @@ registerBlockType( "uagb/buttons", {
 	example:{
 		innerBlocks: [
 			{
-				name: 'uagb/buttons-child',
+				name: "uagb/buttons-child",
 				innerBlocks: [
 					{
-						name: 'uagb/buttons-child',
-						attributes: { label: '#Click Here' },
+						name: "uagb/buttons-child",
+						attributes: { label: "#Click Here" },
 					},
 				],
 			},
 			{
-				name: 'uagb/buttons-child',
+				name: "uagb/buttons-child",
 				innerBlocks: [
 					{
-						name: 'uagb/buttons-child',
-						attributes: { label: '#Click Here' },
+						name: "uagb/buttons-child",
+						attributes: { label: "#Click Here" },
 					},
 				],
 			}

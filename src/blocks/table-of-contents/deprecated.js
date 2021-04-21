@@ -3,9 +3,9 @@
  */
 
 import classnames from "classnames"
-import TableOfContents from './deprecated/components';
-import TOC from './deprecated/table-of-contents';
-import TableOfContent from './toc';
+import TableOfContents from "./deprecated/components"
+import TOC from "./deprecated/table-of-contents"
+import TableOfContent from "./toc"
 import attributes from "./attributes"
 import renderSVG from "../../../dist/blocks/uagb-controls/renderIcon"
 
@@ -80,7 +80,7 @@ const deprecated = [
 				smoothScrollDelay,
 			} = props.attributes
 
-			let icon_html = ''
+			let icon_html = ""
 
 			if ( makeCollapsible && icon ) {
 				icon_html = (
@@ -94,7 +94,7 @@ const deprecated = [
 					className,
 					`uagb-toc__align-${align}`,
 					`uagb-toc__columns-${tColumns}`,
-					( initialCollapse ) ? `uagb-toc__collapse` : ''
+					( initialCollapse ) ? "uagb-toc__collapse" : ""
 				) }
 				data-scroll={smoothScroll}
 				data-offset={smoothScrollOffset}
@@ -143,7 +143,7 @@ const deprecated = [
 				smoothScrollDelay,
 			} = props.attributes
 
-			let icon_html = ''
+			let icon_html = ""
 
 			if ( makeCollapsible && icon ) {
 				icon_html = (
@@ -154,15 +154,15 @@ const deprecated = [
 			return (
 
 				<div className={ classnames(
-						className,
-						`uagb-toc__align-${align}`,
-						`uagb-toc__columns-${tColumns}`,
-						( initialCollapse ) ? `uagb-toc__collapse` : '',
-						`uagb-block-${ block_id }`
-					) }
-					data-scroll={smoothScroll}
-					data-offset={smoothScrollOffset}
-					data-delay={smoothScrollDelay}
+					className,
+					`uagb-toc__align-${align}`,
+					`uagb-toc__columns-${tColumns}`,
+					( initialCollapse ) ? "uagb-toc__collapse" : "",
+					`uagb-block-${ block_id }`
+				) }
+				data-scroll={smoothScroll}
+				data-offset={smoothScrollOffset}
+				data-delay={smoothScrollDelay}
 				>
 					<div className="uagb-toc__wrap">
 						<div className="uagb-toc__title-wrap">
@@ -203,7 +203,7 @@ const deprecated = [
 				smoothScrollDelay,
 			} = props.attributes
 		
-			let icon_html = ''
+			let icon_html = ""
 		
 			if ( makeCollapsible && icon ) {
 				icon_html = (
@@ -214,15 +214,15 @@ const deprecated = [
 			return (
 		
 				<div className={ classnames(
-						className,
-						`uagb-toc__align-${align}`,
-						`uagb-toc__columns-${tColumns}`,
-						( initialCollapse ) ? `uagb-toc__collapse` : '',
-						`uagb-block-${ block_id }`
-					) }
-					data-scroll={smoothScroll}
-					data-offset={smoothScrollOffset}
-					data-delay={smoothScrollDelay}
+					className,
+					`uagb-toc__align-${align}`,
+					`uagb-toc__columns-${tColumns}`,
+					( initialCollapse ) ? "uagb-toc__collapse" : "",
+					`uagb-block-${ block_id }`
+				) }
+				data-scroll={smoothScroll}
+				data-offset={smoothScrollOffset}
+				data-delay={smoothScrollDelay}
 				>
 					<div className="uagb-toc__wrap">
 						<div className="uagb-toc__title-wrap">
@@ -244,4 +244,4 @@ const deprecated = [
 	}
 ]
 
-export default deprecated;
+export default deprecated

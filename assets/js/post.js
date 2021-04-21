@@ -1,7 +1,7 @@
 ( function( $ ) {
 
-	$ = jQuery;
-	var loadStatus = true;
+	$ = jQuery
+	var loadStatus = true
 	UAGBPostCarousel = {
 
 		_setHeight: function( scope ) {
@@ -10,12 +10,12 @@
 				post_active = scope.find(".slick-slide.slick-active"),
 				max_height = -1,
 				wrapper_height = -1,
-				post_active_height = -1;
+				post_active_height = -1
 
 			post_active.each( function( i ) {
 				var this_height = $( this ).outerHeight(),
 					blog_post = $( this ).find( ".uagb-post__inner-wrap" ),
-					blog_post_height = blog_post.outerHeight();
+					blog_post_height = blog_post.outerHeight()
 
 				if( max_height < blog_post_height ) {
 					max_height = blog_post_height
@@ -73,91 +73,91 @@
 	}
 	UAGBPostMasonry = {
        
-        _init : function( $attr, $selector ) {
+		_init : function( $attr, $selector ) {
             
-            var count = 2;
-            var windowHeight50 = jQuery( window ).outerHeight() / 1.25;
-            var $scope = $( $selector );
-            var loader = $scope.find( '.uagb-post-inf-loader' );
+			var count = 2
+			var windowHeight50 = jQuery( window ).outerHeight() / 1.25
+			var $scope = $( $selector )
+			var loader = $scope.find( ".uagb-post-inf-loader" )
 
-			$scope.find( '.is-masonry' ).isotope();
+			$scope.find( ".is-masonry" ).isotope()
 
-            if ( "scroll" === $attr.paginationEventType ) {
+			if ( "scroll" === $attr.paginationEventType ) {
 
-                $( window ).scroll( function () {
+				$( window ).scroll( function () {
                     
-                    if( ( $( window ).scrollTop() + windowHeight50 ) >= ( $scope.find( '.uagb-post__items:last' ).offset().top ) ) {
+					if( ( $( window ).scrollTop() + windowHeight50 ) >= ( $scope.find( ".uagb-post__items:last" ).offset().top ) ) {
         
-                        var $args = {
-                            'page_number' : count
-                        };
-                        total = $scope.data( 'total' );
-                        if( true == loadStatus ) {
+						var $args = {
+							"page_number" : count
+						}
+						total = $scope.data( "total" )
+						if( true == loadStatus ) {
                             
-                            if ( count <= total ) {
-                                loader.show();
-                                UAGBPostMasonry._callAjax( $scope, $args, $attr, loader, false, count );
-                                count++;
-                                loadStatus = false;
-                            }
+							if ( count <= total ) {
+								loader.show()
+								UAGBPostMasonry._callAjax( $scope, $args, $attr, loader, false, count )
+								count++
+								loadStatus = false
+							}
 
-                        }
-                    }
-                } );
-            }
-            if ( "button" === $attr.paginationEventType ) {
-                $( document ).on( 'click', '.uagb-post-pagination-button', function( e ) {
+						}
+					}
+				} )
+			}
+			if ( "button" === $attr.paginationEventType ) {
+				$( document ).on( "click", ".uagb-post-pagination-button", function( e ) {
 					
-					$scope = $( this ).closest( '.uagb-post-grid' );
-					total = $scope.data( 'total' );
+					$scope = $( this ).closest( ".uagb-post-grid" )
+					total = $scope.data( "total" )
 					var $args = {
-						'total' : total,
-                        'page_number' : count
-                    };
-					$scope.find('.uagb-post__load-more-wrap').hide();
-                    if( true == loadStatus ) {
+						"total" : total,
+						"page_number" : count
+					}
+					$scope.find(".uagb-post__load-more-wrap").hide()
+					if( true == loadStatus ) {
                         
-                        if ( count <= total ) {
-							loader.show();
-                            UAGBPostMasonry._callAjax( $scope, $args, $attr, loader, true, count );
-                            count++;
-                            loadStatus = false;
-                        }
+						if ( count <= total ) {
+							loader.show()
+							UAGBPostMasonry._callAjax( $scope, $args, $attr, loader, true, count )
+							count++
+							loadStatus = false
+						}
 
-                    }
-                } );
-            } 
+					}
+				} )
+			} 
 
-        },
-        _callAjax : function( $scope, $obj, $attr, loader, append = false, count ) {
+		},
+		_callAjax : function( $scope, $obj, $attr, loader, append = false, count ) {
 
-            $.ajax({
-                url: uagb_data.ajax_url,
-                data: {
-                    action: 'uagb_get_posts',
-                    page_number : $obj.page_number,
-                    attr : $attr,
-                    nonce : uagb_data.uagb_masonry_ajax_nonce,
-                },
-                dataType: 'json',
-                type: 'POST',
-                success: function( data ) {
-                    $scope.find( '.is-masonry' ).isotope( 'insert',$( data.data ));
-                    loadStatus = true; 
-					loader.hide();
+			$.ajax({
+				url: uagb_data.ajax_url,
+				data: {
+					action: "uagb_get_posts",
+					page_number : $obj.page_number,
+					attr : $attr,
+					nonce : uagb_data.uagb_masonry_ajax_nonce,
+				},
+				dataType: "json",
+				type: "POST",
+				success: function( data ) {
+					$scope.find( ".is-masonry" ).isotope( "insert",$( data.data ))
+					loadStatus = true 
+					loader.hide()
 					
 					if ( true === append ) {
-						$scope.find('.uagb-post__load-more-wrap').show();
+						$scope.find(".uagb-post__load-more-wrap").show()
 					}
 
 					if ( count == $obj.total ) {
-						$scope.find('.uagb-post__load-more-wrap').hide();
+						$scope.find(".uagb-post__load-more-wrap").hide()
 					}
-                }
-            });
-        }
+				}
+			})
+		}
 
-    }
+	}
 
 } )( jQuery )
 

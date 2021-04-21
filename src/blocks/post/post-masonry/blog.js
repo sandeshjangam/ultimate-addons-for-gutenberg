@@ -3,7 +3,7 @@ import Masonry from "react-masonry-component"
 import {
 	InnerBlockLayoutContextProvider,
 	renderPostLayout 
-} from '.././function';
+} from ".././function"
 class Blog extends React.Component {
 
 	render() {
@@ -28,16 +28,16 @@ class Blog extends React.Component {
 			latestPosts
 
 		const paginationRender = () => {
-			if ( 'infinite' === paginationType) {
+			if ( "infinite" === paginationType) {
 
 				if( "scroll" === paginationEventType ) { 
 					return (
 						
-							<div className="uagb-post-inf-loader">
-								<div className="uagb-post-loader-1"></div>
-								<div className="uagb-post-loader-2"></div>
-								<div className="uagb-post-loader-3"></div>
-							</div>
+						<div className="uagb-post-inf-loader">
+							<div className="uagb-post-loader-1"></div>
+							<div className="uagb-post-loader-2"></div>
+							<div className="uagb-post-loader-3"></div>
+						</div>
 					)
 				}
 				if( "button" === paginationEventType ) { 
@@ -79,19 +79,19 @@ class Blog extends React.Component {
 					<InnerBlockLayoutContextProvider
 						parentName="uagb/post-masonry"
 						parentClassName="uagb-block-grid">
-					{ displayPosts.map( ( post, i ) =>
-						<article key={ i }>
-							<div className="uagb-post__inner-wrap">
-								{ renderPostLayout(
-									"uagb/post-masonry",
-									post,
-									layoutConfig,
-									this.props.attributes,
-									this.props.categoriesList
-								) }
-							</div>
-						</article>
-					) }
+						{ displayPosts.map( ( post, i ) =>
+							<article key={ i }>
+								<div className="uagb-post__inner-wrap">
+									{ renderPostLayout(
+										"uagb/post-masonry",
+										post,
+										layoutConfig,
+										this.props.attributes,
+										this.props.categoriesList
+									) }
+								</div>
+							</article>
+						) }
 					</InnerBlockLayoutContextProvider>
 				</Masonry>
 				{ paginationRender() }

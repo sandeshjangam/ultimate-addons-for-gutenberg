@@ -22,9 +22,9 @@ registerBlockType( "uagb/how-to", {
 	icon: UAGB_Block_Icons.how_to,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "how to", 'ultimate-addons-for-gutenberg' ),
-		__( "schema", 'ultimate-addons-for-gutenberg' ),
-		__( "uag", 'ultimate-addons-for-gutenberg' ),
+		__( "how to", "ultimate-addons-for-gutenberg" ),
+		__( "schema", "ultimate-addons-for-gutenberg" ),
+		__( "uag", "ultimate-addons-for-gutenberg" ),
 	],
 	supports: {
 		anchor: true,
@@ -32,7 +32,7 @@ registerBlockType( "uagb/how-to", {
 	example:{
 		innerBlocks: [
 			{
-				name: 'uagb/info-box',
+				name: "uagb/info-box",
 				attributes: { 
 					infoBoxTitle:"Step 1",
 					iconimgPosition:"left",
@@ -43,7 +43,7 @@ registerBlockType( "uagb/how-to", {
 					headingTag: "h4" },
 			},
 			{
-				name: 'uagb/info-box',
+				name: "uagb/info-box",
 				attributes: { 
 					infoBoxTitle:"Step 2",
 					iconimgPosition:"left",
@@ -54,7 +54,7 @@ registerBlockType( "uagb/how-to", {
 					headingTag: "h4" },
 			},
 			{
-				name: 'uagb/info-box',
+				name: "uagb/info-box",
 				attributes: { 
 					infoBoxTitle:"Step 3",
 					iconimgPosition:"left",
