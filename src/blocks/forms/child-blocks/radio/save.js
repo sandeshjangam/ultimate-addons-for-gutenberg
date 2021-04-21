@@ -19,7 +19,7 @@ export default function save( props ) {
 		radioName
 	} = attributes
 	
-	const isRequired = (radioRequired) ? __("required" , "ultimate-addons-for-gutenberg") : ""
+	const isRequired = ( radioRequired ) ? __( "required" , "ultimate-addons-for-gutenberg" ) : ""
 	
 	return (
 		<div className={ classnames(
@@ -34,16 +34,16 @@ export default function save( props ) {
 				id={ block_id }		
 			/>
 			
-			{options.map((o, index) => {
+			{options.map( ( o, index ) => {
 				var optionvalue = o.optionvalue
-				var value = optionvalue.replace(/\s+/g, "-").toLowerCase()
+				var value = optionvalue.replace( /\s+/g, "-" ).toLowerCase()
 				return (
 					<Fragment>
 						<input type="radio" id={ `radio-${value}-${block_id}` } name={ block_id } value={ optionvalue } required={ radioRequired } />
 						<label htmlFor={ `radio-${value}-${block_id}` }>{o.optiontitle}</label><br/>						
 					</Fragment>
 				)
-			})}
+			} )}
 								
 		</div>
 	)

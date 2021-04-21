@@ -64,51 +64,51 @@ class UAGBRestaurantMenu extends Component {
 		
 	}
 	
-	setcolumns (value) {
+	setcolumns ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.columns = value
-		})
+		} )
 		setAttributes( { columns: value } )
 	}
-	setheadingTag (value) {
+	setheadingTag ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.headingTag = value
-		})
+		} )
 		setAttributes( { headingTag: value } )
 	}
 	
-	setimagePosition (value) {
+	setimagePosition ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.imagePosition = value
-		})
+		} )
 		setAttributes( { imagePosition: value } )
 	}
-	setimageSize (value) {
+	setimageSize ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.imageSize = value
-		})
+		} )
 		setAttributes( { imageSize: value } )
 	}
 	
-	setimageAlignment (value) {
+	setimageAlignment ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.imageAlignment = value
-		})
+		} )
 		setAttributes( { imageAlignment: value } )
 	}
 	
@@ -214,7 +214,7 @@ class UAGBRestaurantMenu extends Component {
 		let cnt = 0
 		rest_menu_item_arr.map( ( item, thisIndex ) => {
 			let image_arr = rest_menu_item_arr[thisIndex]
-			if( image_arr && typeof image_arr !== "undefined"){
+			if( image_arr && typeof image_arr !== "undefined" ){
 				const image = image_arr["image"]
 				if( typeof image !== "undefined" && image !== null && image !=="" ){
 					cnt++
@@ -363,7 +363,7 @@ class UAGBRestaurantMenu extends Component {
 						key={ "left" }
 						icon="editor-alignleft"
 						label="Left"
-						onClick={ () => this.setimagePosition("left") }
+						onClick={ () => this.setimagePosition( "left" ) }
 						aria-pressed = { "left" === imagePosition }
 						isPrimary = { "left" === imagePosition }
 					/>
@@ -371,7 +371,7 @@ class UAGBRestaurantMenu extends Component {
 						key={ "top" }
 						icon={alignTop}
 						label="Top"
-						onClick={ () => this.setimagePosition("top") }
+						onClick={ () => this.setimagePosition( "top" ) }
 						aria-pressed = { "top" === imagePosition }
 						isPrimary = { "top" === imagePosition }
 					/>
@@ -379,13 +379,13 @@ class UAGBRestaurantMenu extends Component {
 						key={ "right" }
 						icon="editor-alignright"
 						label="Right"
-						onClick={ () => this.setimagePosition("right") }
+						onClick={ () => this.setimagePosition( "right" ) }
 						aria-pressed = { "right" === imagePosition }
 						isPrimary = { "right" === imagePosition }
 					/>
 				</ButtonGroup>
 								
-				{ (imagePosition == "left" || imagePosition == "right") &&
+				{ ( imagePosition == "left" || imagePosition == "right" ) &&
 								<Fragment>
 									<SelectControl
 										label={ __( "Vertical Alignment" ) }
@@ -670,14 +670,14 @@ class UAGBRestaurantMenu extends Component {
 			element.innerHTML = RestMenuStyle( this.props )
 		}
 
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.imagePosition = this.props.attributes.imagePosition
 			pricelistChild.attributes.columns = this.props.attributes.columns
 			pricelistChild.attributes.tcolumns = this.props.attributes.tcolumns
 			pricelistChild.attributes.mcolumns = this.props.attributes.mcolumns
-		})
+		} )
 	}
 														
 	componentDidMount() {
@@ -694,11 +694,11 @@ class UAGBRestaurantMenu extends Component {
 		$style.setAttribute( "id", "uagb-restaurant-menu-style-" + this.props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
 
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((pricelistChild, key) => {
+		getChildBlocks.forEach( ( pricelistChild, key ) => {
 			pricelistChild.attributes.imageAlignment = this.props.attributes.imageAlignment
-		})
+		} )
 	}
 }
 													
@@ -711,5 +711,5 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})( UAGBRestaurantMenu )
+} )( UAGBRestaurantMenu )
 													

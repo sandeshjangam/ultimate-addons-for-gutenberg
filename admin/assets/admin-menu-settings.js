@@ -10,7 +10,7 @@
 	 *
 	 * @since 1.2.0.8
 	 */
-	var UAGBAjaxQueue = (function() {
+	var UAGBAjaxQueue = ( function() {
 
 		var requests = []
 
@@ -21,8 +21,8 @@
 			 *
 			 * @since 1.2.0.8
 			 */
-			add:  function(opt) {
-			    requests.push(opt)
+			add:  function( opt ) {
+			    requests.push( opt )
 			},
 
 			/**
@@ -30,9 +30,9 @@
 			 *
 			 * @since 1.2.0.8
 			 */
-			remove:  function(opt) {
-			    if( jQuery.inArray(opt, requests) > -1 )
-			        requests.splice($.inArray(opt, requests), 1)
+			remove:  function( opt ) {
+			    if( jQuery.inArray( opt, requests ) > -1 )
+			        requests.splice( $.inArray( opt, requests ), 1 )
 			},
 
 			/**
@@ -48,18 +48,18 @@
 			        oriSuc = requests[0].complete
 
 			        requests[0].complete = function() {
-			             if( typeof(oriSuc) === "function" ) oriSuc()
+			             if( typeof( oriSuc ) === "function" ) oriSuc()
 			             requests.shift()
-			             self.run.apply(self, [])
+			             self.run.apply( self, [] )
 			        }
 
-			        jQuery.ajax(requests[0])
+			        jQuery.ajax( requests[0] )
 
 			    } else {
 
-			      self.tid = setTimeout(function() {
-			         self.run.apply(self, [])
-			      }, 1000)
+			      self.tid = setTimeout( function() {
+			         self.run.apply( self, [] )
+			      }, 1000 )
 			    }
 			},
 
@@ -71,11 +71,11 @@
 			stop:  function() {
 
 			    requests = []
-			    clearTimeout(this.tid)
+			    clearTimeout( this.tid )
 			}
 		}
 
-	}())
+	}() )
 
 	UAGBAdmin = {
 
@@ -92,7 +92,7 @@
 			$( document ).on( "click",".uagb-deactivate-all", UAGBAdmin._bulk_deactivate_widgets )
 
 			$( document ).on( "click",".uag-install-theme", UAGBAdmin._installNow )
-			$( document ).on( "click",".uag-activate-theme", UAGBAdmin._activateTheme)
+			$( document ).on( "click",".uag-activate-theme", UAGBAdmin._activateTheme )
 
 			$( document ).on( "click",".uag-file-generation", UAGBAdmin._fileGeneration )
 
@@ -102,7 +102,7 @@
 
 			e.preventDefault()
 			var button = $( this ),
-				value  = button.data("value")
+				value  = button.data( "value" )
 
 			var data = {
 				value : value,
@@ -114,17 +114,17 @@
 				return
 			}
 
-			$( button ).addClass("updating-message")
+			$( button ).addClass( "updating-message" )
 
-			UAGBAjaxQueue.add({
+			UAGBAjaxQueue.add( {
 				url: ajaxurl,
 				type: "POST",
 				data: data,
-				success: function(data){
-					console.log(data)
+				success: function( data ){
+					console.log( data )
 					location.reload()
 				}
-			})
+			} )
 
 		},
 
@@ -143,25 +143,25 @@
 				return
 			}
 
-			$( button ).addClass("updating-message")
+			$( button ).addClass( "updating-message" )
 
-			UAGBAjaxQueue.add({
+			UAGBAjaxQueue.add( {
 				url: ajaxurl,
 				type: "POST",
 				data: data,
-				success: function(data){
+				success: function( data ){
 
 					console.log( data )
 
 					// Bulk add or remove classes to all modules.
-					$(".uagb-widget-list").children( "li" ).addClass( "activate" ).removeClass( "deactivate" )
-					$(".uagb-widget-list").children( "li" ).find(".uagb-activate-widget")
-						.addClass("uagb-deactivate-widget")
-						.text(uagb.deactivate)
-						.removeClass("uagb-activate-widget")
-					$( button ).removeClass("updating-message")
+					$( ".uagb-widget-list" ).children( "li" ).addClass( "activate" ).removeClass( "deactivate" )
+					$( ".uagb-widget-list" ).children( "li" ).find( ".uagb-activate-widget" )
+						.addClass( "uagb-deactivate-widget" )
+						.text( uagb.deactivate )
+						.removeClass( "uagb-activate-widget" )
+					$( button ).removeClass( "updating-message" )
 				}
-			})
+			} )
 			e.preventDefault()
 		},
 
@@ -179,24 +179,24 @@
 			if ( button.hasClass( "updating-message" ) ) {
 				return
 			}
-			$( button ).addClass("updating-message")
+			$( button ).addClass( "updating-message" )
 
-			UAGBAjaxQueue.add({
+			UAGBAjaxQueue.add( {
 				url: ajaxurl,
 				type: "POST",
 				data: data,
-				success: function(data){
+				success: function( data ){
 
 					console.log( data )
 					// Bulk add or remove classes to all modules.
-					$(".uagb-widget-list").children( "li" ).addClass( "deactivate" ).removeClass( "activate" )
-					$(".uagb-widget-list").children( "li" ).find(".uagb-deactivate-widget")
-						.addClass("uagb-activate-widget")
-						.text(uagb.activate)
-						.removeClass("uagb-deactivate-widget")
-					$( button ).removeClass("updating-message")
+					$( ".uagb-widget-list" ).children( "li" ).addClass( "deactivate" ).removeClass( "activate" )
+					$( ".uagb-widget-list" ).children( "li" ).find( ".uagb-deactivate-widget" )
+						.addClass( "uagb-activate-widget" )
+						.text( uagb.activate )
+						.removeClass( "uagb-deactivate-widget" )
+					$( button ).removeClass( "updating-message" )
 				}
-			})
+			} )
 			e.preventDefault()
 		},
 
@@ -205,7 +205,7 @@
 		 */
 		_activate_widget: function( e ) {
 			var button = $( this ),
-				id     = button.parents("li").attr("id")
+				id     = button.parents( "li" ).attr( "id" )
 
 			var data = {
 				block_id : id,
@@ -217,24 +217,24 @@
 				return
 			}
 
-			$( button ).addClass("updating-message")
+			$( button ).addClass( "updating-message" )
 
-			UAGBAjaxQueue.add({
+			UAGBAjaxQueue.add( {
 				url: ajaxurl,
 				type: "POST",
 				data: data,
-				success: function(data){
+				success: function( data ){
 
 					// Add active class.
-					$( "#" + id ).addClass("activate").removeClass( "deactivate" )
+					$( "#" + id ).addClass( "activate" ).removeClass( "deactivate" )
 					// Change button classes & text.
-					$( "#" + id ).find(".uagb-activate-widget")
-						.addClass("uagb-deactivate-widget")
-						.text(uagb.deactivate)
-						.removeClass("uagb-activate-widget")
-						.removeClass("updating-message")
+					$( "#" + id ).find( ".uagb-activate-widget" )
+						.addClass( "uagb-deactivate-widget" )
+						.text( uagb.deactivate )
+						.removeClass( "uagb-activate-widget" )
+						.removeClass( "updating-message" )
 				}
-			})
+			} )
 
 			e.preventDefault()
 		},
@@ -244,7 +244,7 @@
 		 */
 		_deactivate_widget: function( e ) {
 			var button = $( this ),
-				id     = button.parents("li").attr("id")
+				id     = button.parents( "li" ).attr( "id" )
 			var data = {
 				block_id: id,
 				action: "uagb_deactivate_widget",
@@ -255,25 +255,25 @@
 				return
 			}
 
-			$( button ).addClass("updating-message")
+			$( button ).addClass( "updating-message" )
 
-			UAGBAjaxQueue.add({
+			UAGBAjaxQueue.add( {
 				url: ajaxurl,
 				type: "POST",
 				data: data,
-				success: function(data){
+				success: function( data ){
 
 					// Remove active class.
-					$( "#" + id ).addClass( "deactivate" ).removeClass("activate")
+					$( "#" + id ).addClass( "deactivate" ).removeClass( "activate" )
 
 					// Change button classes & text.
-					$( "#" + id ).find(".uagb-deactivate-widget")
-						.addClass("uagb-activate-widget")
-						.text(uagb.activate)
-						.removeClass("uagb-deactivate-widget")
-						.removeClass("updating-message")
+					$( "#" + id ).find( ".uagb-deactivate-widget" )
+						.addClass( "uagb-activate-widget" )
+						.text( uagb.activate )
+						.removeClass( "uagb-deactivate-widget" )
+						.removeClass( "updating-message" )
 				}
-			})
+			} )
 			e.preventDefault()
 		},
 
@@ -285,16 +285,16 @@
 
 			event.preventDefault()
 
-			var $button = jQuery(event.target)
+			var $button = jQuery( event.target )
 
-			var $slug = $button.data("slug")
+			var $slug = $button.data( "slug" )
 
 			$button.text( uagb.activating_text ).addClass( "updating-message" )
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
 				
-				$.ajax({
+				$.ajax( {
 					url: uagb.ajax_url,
 					type: "POST",
 					data: {
@@ -302,8 +302,8 @@
 						"slug"   : $slug,
 						"nonce"  : uagb.ajax_nonce,
 					},
-				})
-					.done(function (result) {
+				} )
+					.done( function ( result ) {
 					
 						if( result.success ) {
 							$button.text( uagb.activated_text ).removeClass( "updating-message" )
@@ -313,7 +313,7 @@
 							}, 1200 )
 						}
 
-					})
+					} )
 
 			}, 1200 )
 
@@ -322,12 +322,12 @@
 		/**
 		 * Install Now
 		 */
-		_installNow: function(event)
+		_installNow: function( event )
 		{
 			event.preventDefault()
 
 			var $button 	= jQuery( event.target ),
-				$document   = jQuery(document)
+				$document   = jQuery( document )
 
 			$button.text( uagb.installing_text ).addClass( "updating-message" )
 
@@ -342,16 +342,16 @@
 			
 			wp.updates.installTheme( {
 				slug:    $button.data( "slug" )
-			}).then(function(e){
+			} ).then( function( e ){
 				$button.removeClass( "uag-install-theme updating-message" ).addClass( "uag-activate-theme" ).text( "Activate Astra Now!" )
-			})
+			} )
 		},
 
 	}
 
-	$( document ).ready(function() {
+	$( document ).ready( function() {
 		UAGBAdmin.init()
-	})
+	} )
 
 
 } )( jQuery )

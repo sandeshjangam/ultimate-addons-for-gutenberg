@@ -9,16 +9,16 @@ class RestMenuImage extends React.Component {
 
 		if( typeof index_value !== "undefined" ){
 			const image_array = attributes.rest_menu_item_arr[index_value]	
-			if( typeof image_array !== "undefined"){		
+			if( typeof image_array !== "undefined" ){		
 				image_arr = image_array["image"]		
 			}     
 		}else{
-			if(attributes.image !== ""){
+			if( attributes.image !== "" ){
 				image_arr = attributes.image
 		   }
 		}
 		
-		if( image_arr && typeof image_arr !== "undefined"){
+		if( image_arr && typeof image_arr !== "undefined" ){
 			let image = ""
 			if(  typeof image_arr !== "undefined" ){
 				image = image_arr
@@ -34,7 +34,7 @@ class RestMenuImage extends React.Component {
 			if( url_check !== "" ){
 				let size = image.sizes
 				let imageSize = attributes.imageSize
-				if ( typeof size !== "undefined" && typeof size[imageSize] !== "undefined") {
+				if ( typeof size !== "undefined" && typeof size[imageSize] !== "undefined" ) {
 					url = size[imageSize].url 
 				}else{
 					url = url_check 

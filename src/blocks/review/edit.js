@@ -48,23 +48,23 @@ let imageSizeOptions = [
 	{ value: "full", label: __( "Large","ultimate-addons-for-gutenberg" ) }
 ]
 
-export const removeFromArray = (arr, removedElems) =>
-	arr.filter((a) =>
-		Array.isArray(removedElems) ? !removedElems.includes(a) : a !== removedElems
+export const removeFromArray = ( arr, removedElems ) =>
+	arr.filter( ( a ) =>
+		Array.isArray( removedElems ) ? !removedElems.includes( a ) : a !== removedElems
 	)
 
-compose([
-	withState({ editable: "", editedStar: 0 }),
-	withSelect((select, ownProps) => {
+compose( [
+	withState( { editable: "", editedStar: 0 } ),
+	withSelect( ( select, ownProps ) => {
 		const { getBlock } =
-			select("core/block-editor") || select("core/editor")
+			select( "core/block-editor" ) || select( "core/editor" )
 
 		return {
-			block: getBlock(ownProps.clientId),
+			block: getBlock( ownProps.clientId ),
 			getBlock,
 		}
-	}),
-])
+	} ),
+] )
 
 class UAGBRatingEdit extends Component {
 
@@ -82,7 +82,7 @@ class UAGBRatingEdit extends Component {
 		// Assigning block_id in the attribute.
 		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
 
-		this.props.setAttributes({ schema: JSON.stringify(this.props.schemaJsonData) })
+		this.props.setAttributes( { schema: JSON.stringify( this.props.schemaJsonData ) } )
 
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
@@ -96,9 +96,9 @@ class UAGBRatingEdit extends Component {
 			JSON.stringify( this.props.schemaJsonData ) !==
 				JSON.stringify( prevProps.schemaJsonData )
 		) {
-			this.props.setAttributes({
-				schema: JSON.stringify(this.props.schemaJsonData)
-			})
+			this.props.setAttributes( {
+				schema: JSON.stringify( this.props.schemaJsonData )
+			} )
 		}
 
 		var element = document.getElementById( "uagb-ratings-style-" + this.props.clientId.substr( 0, 8 ) )
@@ -107,9 +107,9 @@ class UAGBRatingEdit extends Component {
 			element.innerHTML = styling( this.props )
 		}
 
-		$(".uagb-rating-link-wrapper").on( "click", function(event) {
+		$( ".uagb-rating-link-wrapper" ).on( "click", function( event ) {
 			event.preventDefault()
-		})
+		} )
 	}
 
 	/**
@@ -137,7 +137,7 @@ class UAGBRatingEdit extends Component {
 
 		setAttributes( { mainimage: media } )
 		if ( media["sizes"] ) {
-			var new_img = this.getImageSize(media["sizes"])
+			var new_img = this.getImageSize( media["sizes"] )
 			imageSizeOptions = new_img
 		}
 	}
@@ -152,14 +152,14 @@ class UAGBRatingEdit extends Component {
 		setAttributes( { ctaTarget: ! ctaTarget } )
 	}
 
-	getImageSize(sizes) {
+	getImageSize( sizes ) {
 		var size_arr = []
-		$.each(sizes, function (index, item) {
+		$.each( sizes, function ( index, item ) {
 		  var name = index
 		  	var p = { "value" : name, "label": name }
-		  	size_arr.push(p)
-		})
-		return(size_arr)
+		  	size_arr.push( p )
+		} )
+		return( size_arr )
 	}
 
 	render() {
@@ -267,27 +267,27 @@ class UAGBRatingEdit extends Component {
 		if (
 			block_id === ""
 		) {
-			setAttributes({
+			setAttributes( {
 				
 				block_id: this.props.clientId.substr( 0, 8 ),
-			})
+			} )
 		}
 
 		if (
 			items &&
-			items !== JSON.stringify(parts) &&
+			items !== JSON.stringify( parts ) &&
 			parts.length === 1 &&
 			parts[0].label === "" &&
 			parts[0].value === 0
 		) {
-			setAttributes({
-				parts: JSON.parse(items),
+			setAttributes( {
+				parts: JSON.parse( items ),
 				items: "[{\"label\":\"\",\"value\":0}]",
-			})
+			} )
 		}
 
 		if( mainimage && mainimage["sizes"] ){
-			imageSizeOptions = this.getImageSize(mainimage["sizes"])
+			imageSizeOptions = this.getImageSize( mainimage["sizes"] )
 		}
 
 		let url_chk = ""
@@ -395,7 +395,7 @@ class UAGBRatingEdit extends Component {
 			"datecreated"
 		]
 
-		switch (itemType) {
+		switch ( itemType ) {
 		default:
 			//empty
 			break
@@ -403,68 +403,68 @@ class UAGBRatingEdit extends Component {
 			itemTypeExtras = (
 				<Fragment>
 					<TextControl
-						label={__("ISBN","ultimate-addons-for-gutenberg")}
+						label={__( "ISBN","ultimate-addons-for-gutenberg" )}
 						value={isbn}
-						onChange={(value) => setAttributes({ isbn:value})}
+						onChange={( value ) => setAttributes( { isbn:value } )}
 						help={ __( "Note: This is a mandatory field for the Review schema","ultimate-addons-for-gutenberg" ) }
 					/>
 					<TextControl
-						label={__("Book author name","ultimate-addons-for-gutenberg")}
+						label={__( "Book author name","ultimate-addons-for-gutenberg" )}
 						value={bookAuthorName}
-						onChange={(value) => setAttributes({ bookAuthorName:value })}
+						onChange={( value ) => setAttributes( { bookAuthorName:value } )}
 						help={ __( "Note: This is a mandatory field for the Review schema","ultimate-addons-for-gutenberg" ) }
 					/>
 				</Fragment>
 			)
-			unusedDefaults = removeFromArray(unusedDefaults, [
+			unusedDefaults = removeFromArray( unusedDefaults, [
 				"isbn",
 				"bookAuthorName",
-			])
+			] )
 			break
 
 		case "Course":
 			itemTypeExtras = (
 				<Fragment>
 					<TextControl
-						label={__("Provider","ultimate-addons-for-gutenberg")}
+						label={__( "Provider","ultimate-addons-for-gutenberg" )}
 						value={provider}
-						onChange={(value) => setAttributes({ provider:value })}
+						onChange={( value ) => setAttributes( { provider:value } )}
 					/>
 				</Fragment>
 			)
-			unusedDefaults = removeFromArray(unusedDefaults, [
+			unusedDefaults = removeFromArray( unusedDefaults, [
 				"provider",
-			])
+			] )
 			break
 
 		case "SoftwareApplication":
 			itemTypeExtras = (
 				<Fragment>
 					<TextControl
-						label={__("Application Category","ultimate-addons-for-gutenberg")}
+						label={__( "Application Category","ultimate-addons-for-gutenberg" )}
 						value={appCategory}
-						onChange={(value) => setAttributes({ appCategory:value })}
+						onChange={( value ) => setAttributes( { appCategory:value } )}
 					/>
 					<TextControl
-						label={__("Operating System","ultimate-addons-for-gutenberg")}
+						label={__( "Operating System","ultimate-addons-for-gutenberg" )}
 						value={operatingSystem}
-						onChange={( value ) => setAttributes({ operatingSystem:value })}
+						onChange={( value ) => setAttributes( { operatingSystem:value } )}
 					/>
 				</Fragment>
 			)
-			unusedDefaults = removeFromArray(unusedDefaults, [
+			unusedDefaults = removeFromArray( unusedDefaults, [
 				"appCategory",
 				"operatingSystem",
-			])
+			] )
 			break
 
 		case "Movie":
 			itemTypeExtras = (
 				<Fragment>
 					<TextControl
-						label={__("Director Name","ultimate-addons-for-gutenberg")}
+						label={__( "Director Name","ultimate-addons-for-gutenberg" )}
 						value={directorname}
-						onChange={(value) => setAttributes({ directorname:value })}
+						onChange={( value ) => setAttributes( { directorname:value } )}
 					/>
 					<h2>{ __( "Date of create" ) }</h2>
 					<DateTimePicker
@@ -474,10 +474,10 @@ class UAGBRatingEdit extends Component {
 					/>
 				</Fragment>
 			)
-			unusedDefaults = removeFromArray(unusedDefaults, [
+			unusedDefaults = removeFromArray( unusedDefaults, [
 				"directorname",
 				"datecreated"
-			])
+			] )
 			break
 		}
 
@@ -508,7 +508,7 @@ class UAGBRatingEdit extends Component {
 						allowReset
 					/>
 					{ enableDescription === true &&
-					(<Fragment>
+					( <Fragment>
 						<hr className="uagb-editor__separator" />
 						<TypographyControl
 							label={ __( "Description Typography","ultimate-addons-for-gutenberg" ) }
@@ -533,10 +533,10 @@ class UAGBRatingEdit extends Component {
 							onChange={ ( value ) => setAttributes( { descColor: value } ) }
 							allowReset
 						/>
-					</Fragment>)
+					</Fragment> )
 					}
 					{ showAuthor === true &&
-					(<Fragment>
+					( <Fragment>
 						<hr className="uagb-editor__separator" />
 						<p className="uagb-setting-label">{ __( "Author Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: authorColor }} ></span></span></p>
 						<ColorPalette
@@ -544,10 +544,10 @@ class UAGBRatingEdit extends Component {
 							onChange={ ( value ) => setAttributes( { authorColor: value } ) }
 							allowReset
 						/>
-					</Fragment>)
+					</Fragment> )
 					}
 					{ showFeature === true &&
-					(<Fragment>
+					( <Fragment>
 						<hr className="uagb-editor__separator" />
 						<p className="uagb-setting-label">{ __( "Content Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: contentColor }} ></span></span></p>
 						<ColorPalette
@@ -555,7 +555,7 @@ class UAGBRatingEdit extends Component {
 							onChange={ ( value ) => setAttributes( { contentColor: value } ) }
 							allowReset
 						/>
-					</Fragment>)
+					</Fragment> )
 					}
 					<hr className="uagb-editor__separator" />
 					<TypographyControl
@@ -631,21 +631,21 @@ class UAGBRatingEdit extends Component {
 				return (
 					<PanelBody title={ __( "Schema","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 						<SelectControl
-							label={__("Item type","ultimate-addons-for-gutenberg")}
+							label={__( "Item type","ultimate-addons-for-gutenberg" )}
 							value={itemType}
-							onChange={(value) => {
-								setAttributes({ itemType:value })
-								if (itemType === "Movie") {
-									setAttributes({ enableImage: true })
+							onChange={( value ) => {
+								setAttributes( { itemType:value } )
+								if ( itemType === "Movie" ) {
+									setAttributes( { enableImage: true } )
 								}
-								if (itemType === "Course") {
-									setAttributes({ enableDescription: true })
+								if ( itemType === "Course" ) {
+									setAttributes( { enableDescription: true } )
 								}
 								if (
-									!subtypeCategories.hasOwnProperty(itemType) ||
-									!subtypeCategories[itemType].includes(itemSubtype)
+									!subtypeCategories.hasOwnProperty( itemType ) ||
+									!subtypeCategories[itemType].includes( itemSubtype )
 								) {
-									setAttributes({ itemSubtype: "None" })
+									setAttributes( { itemSubtype: "None" } )
 								}
 							}}
 							options={[
@@ -656,9 +656,9 @@ class UAGBRatingEdit extends Component {
 								{ value: "SoftwareApplication", label: __( "Software Application","ultimate-addons-for-gutenberg" ) },
 							]}
 						/>
-						{ subtypeCategories.hasOwnProperty(itemType) && (
+						{ subtypeCategories.hasOwnProperty( itemType ) && (
 							<SelectControl
-								label={__("Item subtype","ultimate-addons-for-gutenberg")}
+								label={__( "Item subtype","ultimate-addons-for-gutenberg" )}
 								options={ [{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },...subtypeCategories[itemType]] }
 								value={ itemSubtype }
 								onChange={ ( value ) =>
@@ -671,9 +671,9 @@ class UAGBRatingEdit extends Component {
 						<hr className="uagb-editor__separator" />
 						{itemTypeExtras}
 						<TextControl
-							label={__("Review publisher","ultimate-addons-for-gutenberg")}
+							label={__( "Review publisher","ultimate-addons-for-gutenberg" )}
 							value={reviewPublisher}
-							onChange={(value) => setAttributes({ reviewPublisher:value })}
+							onChange={( value ) => setAttributes( { reviewPublisher:value } )}
 							help={ __( "Note: This is a mandatory field for the Review schema","ultimate-addons-for-gutenberg" ) }
 						/>
 						<h2>{ __( "Date of publish","ultimate-addons-for-gutenberg" ) }</h2>
@@ -687,22 +687,22 @@ class UAGBRatingEdit extends Component {
 								{["Product"].includes( itemType ) && (
 									<Fragment>
 										<TextControl
-											label={__("Brand","ultimate-addons-for-gutenberg")}
+											label={__( "Brand","ultimate-addons-for-gutenberg" )}
 											value={brand}
-											onChange={(value) => setAttributes({ brand:value })}
+											onChange={( value ) => setAttributes( { brand:value } )}
 										/>
 										<TextControl
-											label={__("SKU","ultimate-addons-for-gutenberg")}
+											label={__( "SKU","ultimate-addons-for-gutenberg" )}
 											value={sku}
-											onChange={(value) => setAttributes({ sku:value })}
+											onChange={( value ) => setAttributes( { sku:value } )}
 										/>
 										<TextControl
-											label={__("Identifier","ultimate-addons-for-gutenberg")}
+											label={__( "Identifier","ultimate-addons-for-gutenberg" )}
 											value={identifier}
-											onChange={(value) => setAttributes({ identifier:value })}
+											onChange={( value ) => setAttributes( { identifier:value } )}
 										/>
 										<SelectControl
-											label={__("Identifier type","ultimate-addons-for-gutenberg")}
+											label={__( "Identifier type","ultimate-addons-for-gutenberg" )}
 											value={identifierType}
 											options={[
 												"nsn",
@@ -712,9 +712,9 @@ class UAGBRatingEdit extends Component {
 												"gtin13",
 												"gtin14",
 												"gtin",
-											].map((a) => ({ label: __(a.toUpperCase()), value: a }))}
-											onChange={(value) =>
-												setAttributes({ identifierType:value })
+											].map( ( a ) => ( { label: __( a.toUpperCase() ), value: a } ) )}
+											onChange={( value ) =>
+												setAttributes( { identifierType:value } )
 											}
 										/>
 									</Fragment>
@@ -722,22 +722,22 @@ class UAGBRatingEdit extends Component {
 								{["Product", "SoftwareApplication"].includes( itemType ) && (
 									<Fragment>
 										<TextControl
-											label={__("Offer Currency","ultimate-addons-for-gutenberg")}
+											label={__( "Offer Currency","ultimate-addons-for-gutenberg" )}
 											value={offerCurrency}
-											onChange={(value) => setAttributes({ offerCurrency:value })}
+											onChange={( value ) => setAttributes( { offerCurrency:value } )}
 										/>
 									</Fragment>
 								)}
 								{offerType == "Offer" && (
 									<Fragment>
 										<TextControl
-											label={__("Offer Price","ultimate-addons-for-gutenberg")}
+											label={__( "Offer Price","ultimate-addons-for-gutenberg" )}
 											value={offerPrice}
-											onChange={(value) => setAttributes({ offerPrice:value })}
+											onChange={( value ) => setAttributes( { offerPrice:value } )}
 											help={ __( "Note: This is a mandatory field for the Review schema","ultimate-addons-for-gutenberg" ) }
 										/>
 										<SelectControl
-											label={__("Offer Status")}
+											label={__( "Offer Status" )}
 											value={offerStatus}
 											options={[
 												{ value: "https://schema.org/Discontinued", label: __( "Discontinued","ultimate-addons-for-gutenberg" ) },
@@ -912,18 +912,18 @@ class UAGBRatingEdit extends Component {
 			) }>
 				<ReviewBody
 					rTitle={rTitle}
-					setTitle={(newValue) =>
-						setAttributes({ rTitle: newValue })
+					setTitle={( newValue ) =>
+						setAttributes( { rTitle: newValue } )
 					}
 					ctaLink={ctaLink}
 					ctaTarget={ctaTarget}
 					rContent={rContent}
-					setDescription={(newValue) =>
-						setAttributes({ rContent: newValue })
+					setDescription={( newValue ) =>
+						setAttributes( { rContent: newValue } )
 					}
 					rAuthor={rAuthor}
-					setAuthorName={(newValue) =>
-						setAttributes({ rAuthor: newValue })
+					setAuthorName={( newValue ) =>
+						setAttributes( { rAuthor: newValue } )
 					}
 					headingTag={headingTag}
 					mainimage={mainimage}
@@ -944,24 +944,24 @@ class UAGBRatingEdit extends Component {
 					activeStarColor={activeStarColor}
 					selectedStarColor={activeStarColor}
 					starOutlineColor={starOutlineColor}
-					setItemName={(newValue) => setAttributes({ itemName: newValue })}
-					setImage={(img) =>
-						setAttributes({
+					setItemName={( newValue ) => setAttributes( { itemName: newValue } )}
+					setImage={( img ) =>
+						setAttributes( {
 							imgID: img.id,
 							imgURL: img.url,
 							imgAlt: img.alt,
-						})
+						} )
 					}
-					setItems={(newValue) => setAttributes({ parts: newValue })}
-					setSummaryTitle={(newValue) =>
-						setAttributes({ summaryTitle: newValue })
+					setItems={( newValue ) => setAttributes( { parts: newValue } )}
+					setSummaryTitle={( newValue ) =>
+						setAttributes( { summaryTitle: newValue } )
 					}
-					setSummaryDescription={(newValue) =>
-						setAttributes({ summaryDescription: newValue })
+					setSummaryDescription={( newValue ) =>
+						setAttributes( { summaryDescription: newValue } )
 					}
 					hasFocus={isSelected}
-					setEditable={(newValue) => this.setState({ editable: newValue })}
-					setActiveStarIndex={(editedStar) => this.setState({ editedStar })}
+					setEditable={( newValue ) => this.setState( { editable: newValue } )}
+					setActiveStarIndex={( editedStar ) => this.setState( { editedStar } )}
 					showfeature={showFeature}
 					showauthor={showAuthor}
 				/>{ loadHeadingGoogleFonts }
@@ -971,11 +971,11 @@ class UAGBRatingEdit extends Component {
 	}} 
 export default compose(
 	withSelect( ( select,ownProps ) => {
-		const newAverage = ownProps.attributes.parts.map((i) => i.value).reduce((total, v) => total + v) / ownProps.attributes.parts.length
+		const newAverage = ownProps.attributes.parts.map( ( i ) => i.value ).reduce( ( total, v ) => total + v ) / ownProps.attributes.parts.length
 		var itemtype = ""
 				
 		if( ["Product", "SoftwareApplication", "Book"].includes( ownProps.attributes.itemType ) ){
-			itemtype = ( ( ownProps.attributes.itemSubtype != "None" && ownProps.attributes.itemSubtype != "" ) ? ownProps.attributes.itemSubtype : ownProps.attributes.itemType)
+			itemtype = ( ( ownProps.attributes.itemSubtype != "None" && ownProps.attributes.itemSubtype != "" ) ? ownProps.attributes.itemSubtype : ownProps.attributes.itemType )
 		}else{
 			itemtype = ownProps.attributes.itemType
 		}

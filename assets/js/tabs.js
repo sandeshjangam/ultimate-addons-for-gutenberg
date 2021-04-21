@@ -1,11 +1,11 @@
 
-(function ($) {
+( function ( $ ) {
 	$ = jQuery
-	jQuery(".uagb-tabs__wrap").each(function () {
+	jQuery( ".uagb-tabs__wrap" ).each( function () {
        
-		var activeTab = jQuery(this).data("tab-active")
-		var tabs = jQuery(this).find(".uagb-tab")
-		var bodyContainers = jQuery(this).find(".uagb-tabs__body-container")
+		var activeTab = jQuery( this ).data( "tab-active" )
+		var tabs = jQuery( this ).find( ".uagb-tab" )
+		var bodyContainers = jQuery( this ).find( ".uagb-tabs__body-container" )
 
 		tabs.on( "click", function ( event ) {
 			event.preventDefault()
@@ -20,6 +20,6 @@
 
 		tabs.eq( activeTab ).trigger( "click" ) // Default
         
-	})
+	} )
 
-})( jQuery )
+} )( jQuery )

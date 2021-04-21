@@ -344,7 +344,7 @@ class UAGBSectionEdit extends Component {
 									max={ ( "%" == desktopPaddingType ) ? 100 : 2000 }
 									allowReset
 								/>
-							</Fragment>) }
+							</Fragment> ) }
 						{ "Tablet" === deviceType && (
 							<Fragment>
 								<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type" ) }>
@@ -480,7 +480,7 @@ class UAGBSectionEdit extends Component {
 									max={ 2000 }
 									allowReset
 								/>
-							</Fragment>) }
+							</Fragment> ) }
 						{ "Tablet" === deviceType && (
 							<Fragment>
 								<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type" ) }>
@@ -915,4 +915,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})( UAGBSectionEdit )
+} )( UAGBSectionEdit )

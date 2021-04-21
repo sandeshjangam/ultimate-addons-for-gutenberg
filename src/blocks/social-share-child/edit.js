@@ -45,7 +45,7 @@ class UAGBSocialShareChild extends Component {
 
 		// Assigning block_id in the attribute.
 		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
-		this.props.setAttributes( { current_url: wp.data.select("core/editor").getPermalink() } )
+		this.props.setAttributes( { current_url: wp.data.select( "core/editor" ).getPermalink() } )
 
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
@@ -234,7 +234,7 @@ class UAGBSocialShareChild extends Component {
 
 			if ( image_icon == "icon" ) {
 				if ( icon ) {
-					image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG(icon) }</span>
+					image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG( icon ) }</span>
 				}
 			} else {
 				if ( image && image.url ) {
@@ -319,7 +319,7 @@ class UAGBSocialShareChild extends Component {
 									value={ image }
 									render={ ( { open } ) => (
 										<Button isSecondary onClick={ open }>
-											{ ! image ? __( "Select Image","ultimate-addons-for-gutenberg") : __( "Replace image","ultimate-addons-for-gutenberg" ) }
+											{ ! image ? __( "Select Image","ultimate-addons-for-gutenberg" ) : __( "Replace image","ultimate-addons-for-gutenberg" ) }
 										</Button>
 									) }
 								/>

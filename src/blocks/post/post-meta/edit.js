@@ -1,6 +1,6 @@
 const { dateI18n, format, __experimentalGetSettings } = wp.date
 
-export const PostMeta = (props) =>  {
+export const PostMeta = ( props ) =>  {
 		
 	const { post, attributes, categoriesList } = props
 
@@ -10,11 +10,11 @@ export const PostMeta = (props) =>  {
 	var cat = post.categories	
 	var categoriesName = []
 
-	if(list !== undefined && cat !== undefined){
-		for(var j=0;j<list.length;j++){
-			for(var i=0;i<cat.length;i++){
-				if(list[j].id === cat[i] ){
-					categoriesName.push(list[j].name)
+	if( list !== undefined && cat !== undefined ){
+		for( var j=0;j<list.length;j++ ){
+			for( var i=0;i<cat.length;i++ ){
+				if( list[j].id === cat[i] ){
+					categoriesName.push( list[j].name )
 				}
 			}
 		}
@@ -48,7 +48,7 @@ export const PostMeta = (props) =>  {
 				{ attributes.displayPostTaxonomy && 
 					<span className='uagb-post__taxonomy' >
 						<span className="dashicons-tag dashicons"></span>
-						<div dangerouslySetInnerHTML={{__html:categoriesName.join(", ")}}></div>
+						<div dangerouslySetInnerHTML={{ __html:categoriesName.join( ", " ) }}></div>
 					</span>
 				}
 			</div>

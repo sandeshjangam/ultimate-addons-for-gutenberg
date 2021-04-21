@@ -170,7 +170,7 @@ class UAGBPostGrid extends Component {
 		}
 
 		const onCancel = () => {
-			const {replaceInnerBlocks } = this.props
+			const { replaceInnerBlocks } = this.props
 			const { innerBlocks } = this.state
 			replaceInnerBlocks( this.props.clientId, innerBlocks )
 			this.togglePreview()
@@ -184,7 +184,7 @@ class UAGBPostGrid extends Component {
 				return true
 			} )	
 			replaceInnerBlocks( this.props.clientId, newBlocks )
-			this.setState( { innerBlocks: block} )
+			this.setState( { innerBlocks: block } )
 		}
 
 		const InnerBlockProps = {
@@ -235,7 +235,7 @@ class UAGBPostGrid extends Component {
 							className="uagb-block-all-post__reset-button"
 							onClick={ onReset }
 						>
-							{ __("Reset Layout") }
+							{ __( "Reset Layout" ) }
 						</Button>
 					</div>
 				</div>
@@ -576,7 +576,7 @@ class UAGBPostGrid extends Component {
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Tablet" === deviceType && (
 						<RangeControl
@@ -585,7 +585,7 @@ class UAGBPostGrid extends Component {
 							onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Mobile" === deviceType && (
 						<RangeControl
@@ -594,7 +594,7 @@ class UAGBPostGrid extends Component {
 							onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					<ToggleControl
 						label={ __( "Equal Height","ultimate-addons-for-gutenberg" ) }
@@ -726,7 +726,7 @@ class UAGBPostGrid extends Component {
 								label={ __( "Spacing","ultimate-addons-for-gutenberg" ) }
 								value={ paginationSpacing }
 								onChange={ ( value ) => setAttributes( { paginationSpacing: value } ) }
-								help = { __( "This spacing is between the Post Grid and the Pagination","ultimate-addons-for-gutenberg") }
+								help = { __( "This spacing is between the Post Grid and the Pagination","ultimate-addons-for-gutenberg" ) }
 								min={ 0 }
 								max={ 500 }
 							/>
@@ -831,7 +831,7 @@ class UAGBPostGrid extends Component {
 							selected={ displayPostContentRadio }
 							options={ [
 								{ label: __( "Excerpt","ultimate-addons-for-gutenberg" ), value: "excerpt" },
-								{label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post",},
+								{ label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post", },
 							] }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -1217,7 +1217,7 @@ class UAGBPostGrid extends Component {
 
 export default compose(
 	withSelect( ( select, props ) => {
-		const { categories, postsToShow, order, orderBy, postType, taxonomyType, paginationMarkup, postPagination, excludeCurrentPost , block_id} = props.attributes
+		const { categories, postsToShow, order, orderBy, postType, taxonomyType, paginationMarkup, postPagination, excludeCurrentPost , block_id } = props.attributes
 		const { setAttributes } = props
 		const { getEntityRecords } = select( "core" )
 		const { __experimentalGetPreviewDeviceType = null } = select( "core/edit-post" )
@@ -1229,7 +1229,7 @@ export default compose(
 		let categoriesList = []
 		let rest_base = ""
 		if ( true === postPagination && "empty" === paginationMarkup ) {
-			$.ajax({
+			$.ajax( {
 				url: uagb_blocks_info.ajax_url,
 				data: {
 					action: "uagb_post_pagination",
@@ -1241,7 +1241,7 @@ export default compose(
 				success: function( data ) {
 					setAttributes( { paginationMarkup: data.data } ) 
 				}
-			})
+			} )
 		}
 		if ( "undefined" != typeof currentTax ) {
 			if ( "undefined" != typeof currentTax["taxonomy"][taxonomyType] ) {
@@ -1259,23 +1259,23 @@ export default compose(
 			per_page: postsToShow,
 		}
 		if ( excludeCurrentPost ) {		
-			latestPostsQuery["exclude"] = select("core/editor").getCurrentPostId()
+			latestPostsQuery["exclude"] = select( "core/editor" ).getCurrentPostId()
 		}
 		var category = []	
-		var temp = parseInt(categories)
-		category.push(temp)
+		var temp = parseInt( categories )
+		category.push( temp )
 		var catlenght = categoriesList.length
-		for(var i=0;i<catlenght;i++){
-			if(categoriesList[i].id == temp){
-				if(categoriesList[i].child.length !== 0){
-					categoriesList[i].child.forEach(element => {
-						category.push(element)
-					})
+		for( var i=0;i<catlenght;i++ ){
+			if( categoriesList[i].id == temp ){
+				if( categoriesList[i].child.length !== 0 ){
+					categoriesList[i].child.forEach( element => {
+						category.push( element )
+					} )
 				}		
 			}
 		}
 		if ( undefined !== categories && "" !== categories ) {
-			latestPostsQuery[rest_base] = (undefined === categories || "" === categories ) ? categories :category
+			latestPostsQuery[rest_base] = ( undefined === categories || "" === categories ) ? categories :category
 		}
 		const { getBlocks } = select( "core/block-editor" )
 		return {

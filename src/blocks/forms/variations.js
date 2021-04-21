@@ -21,8 +21,8 @@ const variations = [
 		},
 		isDefault: true,
 		innerBlocks: [
-			[ "uagb/forms-name", { name:__("First Name", "ultimate-addons-for-gutenberg"),placeholder:__("John", "ultimate-addons-for-gutenberg"),nameRequired:true } ],
-			[ "uagb/forms-name", { name:__("Last Name", "ultimate-addons-for-gutenberg"),placeholder:__("Doe", "ultimate-addons-for-gutenberg"),nameRequired:true } ],
+			[ "uagb/forms-name", { name:__( "First Name", "ultimate-addons-for-gutenberg" ),placeholder:__( "John", "ultimate-addons-for-gutenberg" ),nameRequired:true } ],
+			[ "uagb/forms-name", { name:__( "Last Name", "ultimate-addons-for-gutenberg" ),placeholder:__( "Doe", "ultimate-addons-for-gutenberg" ),nameRequired:true } ],
 			[ "uagb/forms-email",{ emailRequired:true } ],
 			[ "uagb/forms-textarea",{ textareaRequired:true } ],
 		],
@@ -62,7 +62,7 @@ const variations = [
 
 				] 
 			} ],
-			[ "uagb/forms-name", { name:__("Subject", "ultimate-addons-for-gutenberg"),placeholder:__("Enter your subject", "ultimate-addons-for-gutenberg"),nameRequired:true } ],
+			[ "uagb/forms-name", { name:__( "Subject", "ultimate-addons-for-gutenberg" ),placeholder:__( "Enter your subject", "ultimate-addons-for-gutenberg" ),nameRequired:true } ],
 			[ "uagb/forms-textarea",{ textareaRequired:true } ],
 		],
 		scope: [ "block" ],

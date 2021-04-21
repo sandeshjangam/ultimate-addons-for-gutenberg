@@ -8,7 +8,7 @@ const attributes = {
 	},
 	phoneName: {
 		type: "string",
-		default: __("Phone" , "ultimate-addons-for-gutenberg" )
+		default: __( "Phone" , "ultimate-addons-for-gutenberg" )
 	},
 	phoneRequired : {
 		type: "boolean",
@@ -16,7 +16,7 @@ const attributes = {
 	},
 	pattern: {
 		type: "string",
-		default: __("[0-9]{3}-[0-9]{3}-[0-9]{4}" , "ultimate-addons-for-gutenberg"),
+		default: __( "[0-9]{3}-[0-9]{3}-[0-9]{4}" , "ultimate-addons-for-gutenberg" ),
 	}
 }
 export default attributes

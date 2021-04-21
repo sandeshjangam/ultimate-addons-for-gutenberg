@@ -106,7 +106,7 @@ class UAGBcontentTimelineChild extends Component {
 		var post_date = t_date
 
 			
-		if(timelinAlignment == "center"){
+		if( timelinAlignment == "center" ){
 			display_inner_date = true
 		} 
 
@@ -119,7 +119,7 @@ class UAGBcontentTimelineChild extends Component {
 				) }>
 					<div className = { this.props.attributes.content_class }>
 						<div className = "uagb-timeline__marker uagb-timeline__out-view-icon">
-							<span className = {icon_class}>{ renderSVG(icon) }</span>
+							<span className = {icon_class}>{ renderSVG( icon ) }</span>
 						</div>
 						<div className = { this.props.attributes.dayalign_class }>
 							<div className="uagb-timeline__events-new">

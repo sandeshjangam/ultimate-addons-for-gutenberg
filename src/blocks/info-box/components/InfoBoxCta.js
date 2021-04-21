@@ -22,7 +22,7 @@ class InfoBoxCta extends React.Component {
 
 		var cta_icon_output = ""
 		if( attributes.ctaIcon !== "" ){
-			cta_icon_output = <span className= { classnames(`uagb-ifb-${ attributes.ctaType }-icon`, `uagb-ifb-align-icon-${ attributes.ctaIconPosition }`) }>
+			cta_icon_output = <span className= { classnames( `uagb-ifb-${ attributes.ctaType }-icon`, `uagb-ifb-align-icon-${ attributes.ctaIconPosition }` ) }>
 				<i className= {attributes.ctaIcon} ></i>
 			</span>
 		}

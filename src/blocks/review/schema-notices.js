@@ -59,7 +59,7 @@ class SchemaNotices extends Component {
 				emptyItems.push( msg )
 			}
 			if ( "undefined" === typeof offerCurrency || "" === offerCurrency ) {
-				msg = __("Missing offer currency of a product","ultimate-addons-for-gutenberg")
+				msg = __( "Missing offer currency of a product","ultimate-addons-for-gutenberg" )
 				emptyItems.push( msg )
 			}
 			if ( "undefined" === typeof offerPrice || "" === offerPrice ) {

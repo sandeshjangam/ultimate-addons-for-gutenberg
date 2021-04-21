@@ -57,7 +57,7 @@ const {
 	InnerBlocks
 } = wp.blockEditor
 
-const { withSelect , useDispatch, withDispatch} = wp.data
+const { withSelect , useDispatch, withDispatch } = wp.data
 
 class UAGBPostCarousel extends Component {
 
@@ -101,9 +101,9 @@ class UAGBPostCarousel extends Component {
 
 		var equalHeight =  this.props.attributes.equalHeight
 		if( equalHeight ) {
-			uagb_carousel_height(this.props.clientId.substr( 0, 8 ))
+			uagb_carousel_height( this.props.clientId.substr( 0, 8 ) )
 		} else {
-			uagb_carousel_unset_height(this.props.clientId.substr( 0, 8 ))
+			uagb_carousel_unset_height( this.props.clientId.substr( 0, 8 ) )
 		}
 
 		var element = document.getElementById( "uagb-post-carousel-style-" + this.props.clientId.substr( 0, 8 ) )
@@ -153,7 +153,7 @@ class UAGBPostCarousel extends Component {
 		}
 
 		const onCancel = () => {
-			const {replaceInnerBlocks } = this.props
+			const { replaceInnerBlocks } = this.props
 			const { innerBlocks } = this.state
 			replaceInnerBlocks( this.props.clientId, innerBlocks )
 			this.togglePreview()
@@ -167,7 +167,7 @@ class UAGBPostCarousel extends Component {
 				return true
 			} )	
 			replaceInnerBlocks( this.props.clientId, newBlocks )
-			this.setState( { innerBlocks: block} )
+			this.setState( { innerBlocks: block } )
 		}
 
 		const InnerBlockProps = {
@@ -204,14 +204,14 @@ class UAGBPostCarousel extends Component {
 							isPrimary
 							onClick={ onDone }
 						>
-							{ __( "Done") }
+							{ __( "Done" ) }
 						</Button>
 						<Button
 							className="uagb-block-all-post__cancel-button"
 							isTertiary
 							onClick={ onCancel }
 						>
-							{ __( "Cancel") }
+							{ __( "Cancel" ) }
 						</Button>
 						<Button
 							className="uagb-block-all-post__reset-button"
@@ -549,7 +549,7 @@ class UAGBPostCarousel extends Component {
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Tablet" === deviceType && (
 						<RangeControl
@@ -558,7 +558,7 @@ class UAGBPostCarousel extends Component {
 							onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Mobile" === deviceType && (
 						<RangeControl
@@ -567,7 +567,7 @@ class UAGBPostCarousel extends Component {
 							onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					<ToggleControl
 						label={ __( "Equal Height","ultimate-addons-for-gutenberg" ) }
@@ -746,7 +746,7 @@ class UAGBPostCarousel extends Component {
 							selected={ displayPostContentRadio }
 							options={ [
 								{ label: __( "Excerpt","ultimate-addons-for-gutenberg" ), value: "excerpt" },
-								{label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post",},
+								{ label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post", },
 							] }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -1172,24 +1172,24 @@ export default compose(
 		}
 
 		if ( excludeCurrentPost ) {		
-			latestPostsQuery["exclude"] = select("core/editor").getCurrentPostId()
+			latestPostsQuery["exclude"] = select( "core/editor" ).getCurrentPostId()
 		}
 		var category = []	
-		var temp = parseInt(categories)
-		category.push(temp)
+		var temp = parseInt( categories )
+		category.push( temp )
 		var catlenght = categoriesList.length
-		for(var i=0;i<catlenght;i++){
-			if(categoriesList[i].id == temp){
-				if(categoriesList[i].child.length !== 0){
-					categoriesList[i].child.forEach(element => {
-						category.push(element)
-					})
+		for( var i=0;i<catlenght;i++ ){
+			if( categoriesList[i].id == temp ){
+				if( categoriesList[i].child.length !== 0 ){
+					categoriesList[i].child.forEach( element => {
+						category.push( element )
+					} )
 				}		
 			}
 		}
 		const { getBlocks } = select( "core/block-editor" )
 		if ( undefined !== categories && "" !== categories ) {
-			latestPostsQuery[rest_base] = (undefined === categories || "" === categories ) ? categories :category
+			latestPostsQuery[rest_base] = ( undefined === categories || "" === categories ) ? categories :category
 		}
 		return {
 			latestPosts: getEntityRecords( "postType", postType, latestPostsQuery ),

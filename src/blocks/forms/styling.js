@@ -155,7 +155,7 @@ function styling( props ) {
 		},     
 		" .uagb-slider:before ": {
 			"height" : generateCSSUnit( 20 + toggleHeightSize - inputborderWidth, "px" ),
-			"width" : generateCSSUnit( 20 + toggleWidthSize - inputborderWidth/2, "px")
+			"width" : generateCSSUnit( 20 + toggleWidthSize - inputborderWidth/2, "px" )
 		},  
 		" .uagb-switch input:checked + .uagb-slider:before ": {
 			"transform" : "translateX("+ generateCSSUnit( 26 + toggleWidthSize , "px" )/2+")",

@@ -63,7 +63,7 @@ const deprecated = [
 						"uagb-testomonial__outer-wrap uagb-slick-carousel uagb-tm__arrow-outside"
 					) }
 					id = { `uagb-testimonial-${block_id}` }
-					data-slider = {JSON.stringify(sldier_data)}
+					data-slider = {JSON.stringify( sldier_data )}
 					>
 
 						<div
@@ -81,7 +81,7 @@ const deprecated = [
 								) } key ={ "wrap-"+index } >
 									<div className = "uagb-tm__content" key ={ "tm_content-"+index }>
 										<div className = "uagb-tm__overlay"></div>
-										{ (imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
+										{ ( imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
 
 										<div className ="uagb-tm__text-wrap">
 											{  // Get description.
@@ -94,7 +94,7 @@ const deprecated = [
 											<div className ="uagb-tm__meta">
 												<div className ="uagb-tm__meta-inner">
 
-													{ (imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
+													{ ( imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
 
 													{ //title_text
 														<Fragment>
@@ -161,7 +161,7 @@ const deprecated = [
 								) } key ={ "wrap-"+index } >
 									<div className = "uagb-tm__content" key ={ "tm_content-"+index }>
 										<div className = "uagb-tm__overlay"></div>
-										{ (imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
+										{ ( imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
 
 										<div className ="uagb-tm__text-wrap">
 											{  // Get description.
@@ -174,7 +174,7 @@ const deprecated = [
 											<div className ="uagb-tm__meta">
 												<div className ="uagb-tm__meta-inner">
 
-													{ (imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
+													{ ( imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
 
 													{ //title_text
 														<Fragment>
@@ -241,7 +241,7 @@ const deprecated = [
 								) } key ={ "wrap-"+index } >
 									<div className = "uagb-tm__content" key ={ "tm_content-"+index }>
 										<div className = "uagb-tm__overlay"></div>
-										{ (imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
+										{ ( imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
 		
 										<div className ="uagb-tm__text-wrap">
 											{  // Get description.
@@ -254,7 +254,7 @@ const deprecated = [
 											<div className ="uagb-tm__meta">
 												<div className ="uagb-tm__meta-inner">
 		
-													{ (imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
+													{ ( imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
 		
 													{ //title_text
 														<Fragment>

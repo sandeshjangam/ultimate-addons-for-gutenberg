@@ -27,13 +27,13 @@ function inlineStyles( props, isEditor ) {
 	} = props.attributes
 
 	var style = {
-		"padding-top": generateCSSUnit( topPadding , desktopPaddingType),
-		"padding-bottom": generateCSSUnit( bottomPadding , desktopPaddingType),
-		"padding-left": generateCSSUnit( leftPadding , desktopPaddingType),
-		"padding-right": generateCSSUnit( rightPadding , desktopPaddingType),
-		"margin-top": generateCSSUnit( topMargin , desktopMarginType),
-		"margin-bottom": generateCSSUnit( bottomMargin , desktopMarginType),
-		"border-radius": generateCSSUnit( borderRadius , desktopMarginType),
+		"padding-top": generateCSSUnit( topPadding , desktopPaddingType ),
+		"padding-bottom": generateCSSUnit( bottomPadding , desktopPaddingType ),
+		"padding-left": generateCSSUnit( leftPadding , desktopPaddingType ),
+		"padding-right": generateCSSUnit( rightPadding , desktopPaddingType ),
+		"margin-top": generateCSSUnit( topMargin , desktopMarginType ),
+		"margin-bottom": generateCSSUnit( bottomMargin , desktopMarginType ),
+		"border-radius": generateCSSUnit( borderRadius , desktopMarginType ),
 	}
 
 	if ( borderStyle != "none" ) {

@@ -69,7 +69,7 @@ class UAGBTimeline extends Component {
 
 	constructor() {
 		super( ...arguments )
-		this.getTimelineicon          = this.getTimelineicon.bind(this)
+		this.getTimelineicon          = this.getTimelineicon.bind( this )
 		this.onSelectPostType = this.onSelectPostType.bind( this )
 		this.onSelectTaxonomyType = this.onSelectTaxonomyType.bind( this )
 	}
@@ -88,7 +88,7 @@ class UAGBTimeline extends Component {
 		setAttributes( { categories: "" } )
 	}
 
-	getTimelineicon(value) {
+	getTimelineicon( value ) {
 		this.props.setAttributes( { icon: value } )
 	}
 
@@ -920,7 +920,7 @@ class UAGBTimeline extends Component {
 
 		var cta_enable = ""
 
-		if(displayPostLink){
+		if( displayPostLink ){
 			cta_enable = "uagb_timeline__cta-enable"
 		}
 
@@ -971,12 +971,12 @@ class UAGBTimeline extends Component {
 		this.props.setAttributes( { block_id: this.props.clientId } )
 
 		var id = this.props.clientId
-		window.addEventListener("load", this.timelineContent_back(id))
-		window.addEventListener("resize", this.timelineContent_back(id))
+		window.addEventListener( "load", this.timelineContent_back( id ) )
+		window.addEventListener( "resize", this.timelineContent_back( id ) )
 		var time = this
-		$(".edit-post-layout__content").scroll( function(event) {
-			time.timelineContent_back(id)
-		})
+		$( ".edit-post-layout__content" ).scroll( function( event ) {
+			time.timelineContent_back( id )
+		} )
 
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
@@ -986,50 +986,50 @@ class UAGBTimeline extends Component {
 
 	componentDidUpdate(){
 		var id = this.props.clientId
-		window.addEventListener("load", this.timelineContent_back(id))
-		window.addEventListener("resize", this.timelineContent_back(id))
+		window.addEventListener( "load", this.timelineContent_back( id ) )
+		window.addEventListener( "resize", this.timelineContent_back( id ) )
 		var time = this
-		$(".edit-post-layout__content").scroll( function(event) {
-			time.timelineContent_back(id)
-		})
+		$( ".edit-post-layout__content" ).scroll( function( event ) {
+			time.timelineContent_back( id )
+		} )
 	}
 
 	/*  Js for timeline line and inner line filler*/
-	timelineContent_back(id){
-		var timeline            = $(".uagb-timeline").parents("#block-"+id)
-		var tm_item             = timeline.find(".uagb-timeline")
-		var line_inner          = timeline.find(".uagb-timeline__line__inner")
-		var line_outer          = timeline.find(".uagb-timeline__line")
-		var $icon_class         = timeline.find(".uagb-timeline__marker")
-		if( $icon_class.length > 0){
-			var $card_last          = timeline.find(".uagb-timeline__field:last-child")
+	timelineContent_back( id ){
+		var timeline            = $( ".uagb-timeline" ).parents( "#block-"+id )
+		var tm_item             = timeline.find( ".uagb-timeline" )
+		var line_inner          = timeline.find( ".uagb-timeline__line__inner" )
+		var line_outer          = timeline.find( ".uagb-timeline__line" )
+		var $icon_class         = timeline.find( ".uagb-timeline__marker" )
+		if( $icon_class.length > 0 ){
+			var $card_last          = timeline.find( ".uagb-timeline__field:last-child" )
 			var timeline_start_icon = $icon_class.first().position()
 			var timeline_end_icon   = $icon_class.last().position()
-			line_outer.css("top", timeline_start_icon.top )
+			line_outer.css( "top", timeline_start_icon.top )
 
 			var timeline_card_height = $card_last.height()
 			var last_item_top = $card_last.offset().top - tm_item.offset().top
 			var $last_item, parent_top
-			var $document = $(document)
+			var $document = $( document )
 
-			if( tm_item.hasClass("uagb-timeline__arrow-center")) {
+			if( tm_item.hasClass( "uagb-timeline__arrow-center" ) ) {
 
-				line_outer.css("bottom", timeline_end_icon.top )
+				line_outer.css( "bottom", timeline_end_icon.top )
 
 				parent_top = last_item_top - timeline_start_icon.top
 				$last_item = parent_top + timeline_end_icon.top
 
-			} else if( tm_item.hasClass("uagb-timeline__arrow-top")) {
+			} else if( tm_item.hasClass( "uagb-timeline__arrow-top" ) ) {
 
 				var top_height = timeline_card_height - timeline_end_icon.top
-				line_outer.css("bottom", top_height )
+				line_outer.css( "bottom", top_height )
 
 				$last_item = last_item_top
 
-			} else if( tm_item.hasClass("uagb-timeline__arrow-bottom")) {
+			} else if( tm_item.hasClass( "uagb-timeline__arrow-bottom" ) ) {
 
 				var bottom_height = timeline_card_height - timeline_end_icon.top
-				line_outer.css("bottom", bottom_height )
+				line_outer.css( "bottom", bottom_height )
 
 				parent_top = last_item_top - timeline_start_icon.top
 				$last_item = parent_top + timeline_end_icon.top
@@ -1038,7 +1038,7 @@ class UAGBTimeline extends Component {
 			var num = 0
 			var elementEnd = $last_item + 20
 
-			var connectorHeight = 3 * timeline.find(".uagb-timeline__marker:first").height()
+			var connectorHeight = 3 * timeline.find( ".uagb-timeline__marker:first" ).height()
 			var viewportHeight = document.documentElement.clientHeight + connectorHeight
 			var viewportHeightHalf = viewportHeight/2 + connectorHeight
 
@@ -1048,31 +1048,31 @@ class UAGBTimeline extends Component {
 
 			var photoViewportOffsetTop = new_elementPos - $document.scrollTop()
 
-			if (photoViewportOffsetTop < 0) {
-				photoViewportOffsetTop = Math.abs(photoViewportOffsetTop)
+			if ( photoViewportOffsetTop < 0 ) {
+				photoViewportOffsetTop = Math.abs( photoViewportOffsetTop )
 			} else {
-				photoViewportOffsetTop = -Math.abs(photoViewportOffsetTop)
+				photoViewportOffsetTop = -Math.abs( photoViewportOffsetTop )
 			}
 
-			if ( elementPos < (viewportHeightHalf) ) {
-				if ( (viewportHeightHalf) + Math.abs(photoViewportOffsetTop) < (elementEnd) ) {
-					line_inner.height((viewportHeightHalf) + photoViewportOffsetTop)
+			if ( elementPos < ( viewportHeightHalf ) ) {
+				if ( ( viewportHeightHalf ) + Math.abs( photoViewportOffsetTop ) < ( elementEnd ) ) {
+					line_inner.height( ( viewportHeightHalf ) + photoViewportOffsetTop )
 				}else{
-					if ( (photoViewportOffsetTop + viewportHeightHalf) >= elementEnd ) {
-						line_inner.height(elementEnd)
+					if ( ( photoViewportOffsetTop + viewportHeightHalf ) >= elementEnd ) {
+						line_inner.height( elementEnd )
 					}
 				}
 			} else {
-				if ( (photoViewportOffsetTop  + viewportHeightHalf) < elementEnd ) {
-					if (0 > photoViewportOffsetTop) {
-						line_inner.height((viewportHeightHalf) - Math.abs(photoViewportOffsetTop))
+				if ( ( photoViewportOffsetTop  + viewportHeightHalf ) < elementEnd ) {
+					if ( 0 > photoViewportOffsetTop ) {
+						line_inner.height( ( viewportHeightHalf ) - Math.abs( photoViewportOffsetTop ) )
 						++num
 					} else {
-						line_inner.height((viewportHeightHalf) + photoViewportOffsetTop)
+						line_inner.height( ( viewportHeightHalf ) + photoViewportOffsetTop )
 					}
 				}else{
-					if ( (photoViewportOffsetTop + viewportHeightHalf) >= elementEnd ) {
-						line_inner.height(elementEnd)
+					if ( ( photoViewportOffsetTop + viewportHeightHalf ) >= elementEnd ) {
+						line_inner.height( elementEnd )
 					}
 				}
 			}
@@ -1081,12 +1081,12 @@ class UAGBTimeline extends Component {
 			var timeline_icon_pos, timeline_card_pos
 			var elementPos, elementCardPos
 			var timeline_icon_top, timeline_card_top
-			var timeline_icon   = timeline.find(".uagb-timeline__marker"),
-				animate_border  = timeline.find(".uagb-timeline__field-wrap")
+			var timeline_icon   = timeline.find( ".uagb-timeline__marker" ),
+				animate_border  = timeline.find( ".uagb-timeline__field-wrap" )
 
-			for (var i = 0; i < timeline_icon.length; i++) {
-				timeline_icon_pos = $(timeline_icon[i]).offset().top
-				timeline_card_pos = $(animate_border[i]).offset().top
+			for ( var i = 0; i < timeline_icon.length; i++ ) {
+				timeline_icon_pos = $( timeline_icon[i] ).offset().top
+				timeline_card_pos = $( animate_border[i] ).offset().top
 				elementPos = timeline.offset().top
 				elementCardPos = timeline.offset().top
 
@@ -1095,26 +1095,26 @@ class UAGBTimeline extends Component {
 
 				if ( ( timeline_card_top ) < ( ( viewportHeightHalf ) ) ) {
 
-					animate_border[i].classList.remove("out-view")
-					animate_border[i].classList.add("in-view")
+					animate_border[i].classList.remove( "out-view" )
+					animate_border[i].classList.add( "in-view" )
 
 				} else {
 					// Remove classes if element is below than half of viewport.
-					animate_border[i].classList.add("out-view")
-					animate_border[i].classList.remove("in-view")
+					animate_border[i].classList.add( "out-view" )
+					animate_border[i].classList.remove( "in-view" )
 				}
 
 				if ( ( timeline_icon_top ) < ( ( viewportHeightHalf ) ) ) {
 
 					// Add classes if element is above than half of viewport.
-					timeline_icon[i].classList.remove("uagb-timeline__out-view-icon")
-					timeline_icon[i].classList.add("uagb-timeline__in-view-icon")
+					timeline_icon[i].classList.remove( "uagb-timeline__out-view-icon" )
+					timeline_icon[i].classList.add( "uagb-timeline__in-view-icon" )
 
 				} else {
 
 					// Remove classes if element is below than half of viewport.
-					timeline_icon[i].classList.add("uagb-timeline__out-view-icon")
-					timeline_icon[i].classList.remove("uagb-timeline__in-view-icon")
+					timeline_icon[i].classList.add( "uagb-timeline__out-view-icon" )
+					timeline_icon[i].classList.remove( "uagb-timeline__in-view-icon" )
 
 				}
 			}
@@ -1170,9 +1170,9 @@ class UAGBTimeline extends Component {
 			return (
 				<div className = "uagb-timeline__days">
 					{
-						displayPosts.map((post,index) => {
+						displayPosts.map( ( post,index ) => {
 
-							if(timelinAlignment == "center"){
+							if( timelinAlignment == "center" ){
 								display_inner_date = true
 								content_align_class = AlignClass( this.props.attributes, index )
 								day_align_class = DayAlignClass( this.props.attributes, index )
@@ -1191,7 +1191,7 @@ class UAGBTimeline extends Component {
 														{ <PostDate post={post} attributes={attributes} dateClass = "uagb-timeline__inner-date-new"/> }
 													</div>
 													{ <FeaturedImage post={post} attributes={attributes} /> }
-													<div className="uagb-content" style = {{ padding: contentPadding+"px"}}>
+													<div className="uagb-content" style = {{ padding: contentPadding+"px" }}>
 														{ <Title post={post} attributes={attributes} /> }
 														{ <Author post={post} attributes={attributes} /> }
 														{ <Excerpt post={post} attributes={attributes} /> }
@@ -1211,7 +1211,7 @@ class UAGBTimeline extends Component {
 									</div>
 								</article>
 							)
-						})
+						} )
 					}
 				</div>
 			)
@@ -1254,23 +1254,23 @@ export default withSelect( ( select, props ) => {
 	}
 
 	if ( excludeCurrentPost ) {		
-		latestPostsQuery["exclude"] = select("core/editor").getCurrentPostId()
+		latestPostsQuery["exclude"] = select( "core/editor" ).getCurrentPostId()
 	}
 	var category = []	
-	var temp = parseInt(categories)
-	category.push(temp)
+	var temp = parseInt( categories )
+	category.push( temp )
 	var catlenght = categoriesList.length
-	for(var i=0;i<catlenght;i++){
-		if(categoriesList[i].id == temp){
-			if(categoriesList[i].child.length !== 0){
-				categoriesList[i].child.forEach(element => {
-					category.push(element)
-				})
+	for( var i=0;i<catlenght;i++ ){
+		if( categoriesList[i].id == temp ){
+			if( categoriesList[i].child.length !== 0 ){
+				categoriesList[i].child.forEach( element => {
+					category.push( element )
+				} )
 			}		
 		}
 	}
 	if ( undefined !== categories && "" !== categories ) {
-		latestPostsQuery[rest_base] = (undefined === categories || "" === categories ) ? categories :category
+		latestPostsQuery[rest_base] = ( undefined === categories || "" === categories ) ? categories :category
 	}
 	return {
 		deviceType: deviceType,

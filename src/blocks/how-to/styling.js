@@ -104,7 +104,7 @@ function styling( props ) {
 			"font-size": generateCSSUnit( subHeadFontSize, subHeadFontSizeType ),
 			"line-height": generateCSSUnit( subHeadLineHeight, subHeadLineHeightType ),
 			"color": subHeadingColor,
-			"margin-left" : generateCSSUnit( timeSpace,"px"),
+			"margin-left" : generateCSSUnit( timeSpace,"px" ),
 		},
 		" .uagb-howto-timeINmin-text ": {
 			"font-family": subHeadFontFamily,
@@ -126,7 +126,7 @@ function styling( props ) {
 			"font-size": generateCSSUnit( subHeadFontSize, subHeadFontSizeType ),
 			"line-height": generateCSSUnit( subHeadLineHeight, subHeadLineHeightType ),
 			"color": subHeadingColor,
-			"margin-left" : generateCSSUnit( costSpace,"px"),
+			"margin-left" : generateCSSUnit( costSpace,"px" ),
 		},
 
 		" .uagb-howto-steps__wrap h4.block-editor-rich-text__editable" :{

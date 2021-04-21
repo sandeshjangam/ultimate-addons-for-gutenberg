@@ -39,13 +39,13 @@ class SchemaNotices extends Component {
 		} = this.props
 
 		var emptyItems = []
-		var steps = select("core/block-editor").getBlocks( clientId )
+		var steps = select( "core/block-editor" ).getBlocks( clientId )
 		var steps_empty_item_flag = false
-		steps.forEach((step, key) => {
+		steps.forEach( ( step, key ) => {
 			if ( "" === step.attributes.ctaLink || "#" === step.attributes.ctaLink || "" === step.attributes.infoBoxTitle || "" === step.attributes.headingDesc || "" === step.attributes.iconImage.url ) {
 				steps_empty_item_flag = true
 			}
-		})
+		} )
 
 		if ( "undefined" === typeof headingTitle || "" === headingTitle ) {
 			emptyItems.push( "How-To Title" )

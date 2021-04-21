@@ -39,7 +39,7 @@ class UAGBFormsHiddenEdit extends Component {
 		
 	}
 
-	changeHiddenName  (value) {
+	changeHiddenName  ( value ) {
 		const { setAttributes } = this.props
 		setAttributes( { hidden_field_name: value.target.value } )
 	}
@@ -58,15 +58,15 @@ class UAGBFormsHiddenEdit extends Component {
 			
 			return (
 				<PanelBody
-					title={ __( "General" , "ultimate-addons-for-gutenberg") }
+					title={ __( "General" , "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 
 					<TextControl
-						label= {__( "Value" , "ultimate-addons-for-gutenberg") }
+						label= {__( "Value" , "ultimate-addons-for-gutenberg" ) }
 						value={ hidden_field_value }
-						onChange={ ( hidden_field_value ) =>setAttributes( {hidden_field_value} ) }
+						onChange={ ( hidden_field_value ) =>setAttributes( { hidden_field_value } ) }
 					/>				
 				
 				</PanelBody>
@@ -74,7 +74,7 @@ class UAGBFormsHiddenEdit extends Component {
 		}
 
 			
-		var hidden_field_label = hidden_field_name.replace(/\s+/g, "-").toLowerCase()
+		var hidden_field_label = hidden_field_name.replace( /\s+/g, "-" ).toLowerCase()
 		return (
 			<Fragment>
 				<InspectorControls>

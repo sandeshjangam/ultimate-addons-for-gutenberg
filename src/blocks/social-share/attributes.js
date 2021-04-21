@@ -6,7 +6,7 @@ const ITEM_COUNT = 1
 
 const socials = []
 
-for (var i = 1; i <= ITEM_COUNT; i++) {
+for ( var i = 1; i <= ITEM_COUNT; i++ ) {
 	socials.push(
 		{
 			"type": "facebook",

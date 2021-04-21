@@ -106,20 +106,20 @@ export default function save( props ) {
 		) }>
 			<div className = "uagb-ifb-left-right-wrap">
 
-				{ ( iconimgPosition == "left") &&
+				{ ( iconimgPosition == "left" ) &&
 						is_image
 				}
 				<div className = "uagb-ifb-content">
 
 					{  iconimgPosition == "above-title" && icon_image_html }
 
-					{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+					{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 					{ iconimgPosition == "below-title"  && icon_image_html }
 
-					{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+					{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-					{ ( iconimgPosition === "left-title") &&
+					{ ( iconimgPosition === "left-title" ) &&
 							<Fragment>
 								<div className = "uagb-ifb-left-title-image">
 									{ icon_image_html }
@@ -129,7 +129,7 @@ export default function save( props ) {
 							</Fragment>
 					}
 
-					{ ( iconimgPosition === "right-title") &&
+					{ ( iconimgPosition === "right-title" ) &&
 							<Fragment>
 								<div className = "uagb-ifb-right-title-image">
 									{ title_text }
@@ -139,7 +139,7 @@ export default function save( props ) {
 							</Fragment>
 					}
 
-					{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+					{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 							<Fragment>
 								{ title_text }
 								{ desc }
@@ -148,7 +148,7 @@ export default function save( props ) {
 
 				</div>
 
-				{ ( iconimgPosition == "right") && icon_image_html }
+				{ ( iconimgPosition == "right" ) && icon_image_html }
 			</div>
 		</div>
 	)
@@ -165,7 +165,7 @@ export default function save( props ) {
 			`uagb-block-${block_id}`
 		) }>
 
-			{ ( ctaType == "all") &&
+			{ ( ctaType == "all" ) &&
 				<a href= {ctaLink} className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" target={target} aria-label={"Infobox Link"} rel ="noopener noreferrer"></a>
 			}
 			{output}

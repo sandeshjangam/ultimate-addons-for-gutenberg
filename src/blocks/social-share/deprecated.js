@@ -69,7 +69,7 @@ const deprecated =[
 										<a className="uagb-ss__link" href={url} rel ="noopener noreferrer"><span className="uagb-ss__source-wrap">{image_icon_html}</span></a>
 									</div>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -117,7 +117,7 @@ const deprecated =[
 
 								if ( social.image_icon == "icon" ) {
 									if ( social.icon ) {
-										image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG(social.icon) }</span>
+										image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG( social.icon ) }</span>
 									}
 								} else {
 									if ( social.image ) {
@@ -136,7 +136,7 @@ const deprecated =[
 										<a className="uagb-ss__link" data-href={url} rel ="noopener noreferrer"><span className="uagb-ss__source-wrap">{image_icon_html}</span></a>
 									</div>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -185,7 +185,7 @@ const deprecated =[
 
 								if ( social.image_icon == "icon" ) {
 									if ( social.icon ) {
-										image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG(social.icon) }</span>
+										image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG( social.icon ) }</span>
 									}
 								} else {
 									if ( social.image ) {
@@ -204,7 +204,7 @@ const deprecated =[
 										<a className="uagb-ss__link" data-href={url} rel ="noopener noreferrer"><span className="uagb-ss__source-wrap">{image_icon_html}</span></a>
 									</div>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>

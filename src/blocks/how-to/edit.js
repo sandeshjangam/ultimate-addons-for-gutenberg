@@ -64,7 +64,7 @@ class UAGBHowTo extends Component {
 
 		this.onRemoveImage = this.onRemoveImage.bind( this )
 		this.onSelectImage = this.onSelectImage.bind( this )
-		this.getImageSize  	  = this.getImageSize.bind(this)
+		this.getImageSize  	  = this.getImageSize.bind( this )
 	}
 
 	componentDidMount() {
@@ -72,7 +72,7 @@ class UAGBHowTo extends Component {
 		// Assigning block_id in the attribute.
 		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
 
-		this.props.setAttributes({ schema: JSON.stringify(this.props.schemaJsonData) })
+		this.props.setAttributes( { schema: JSON.stringify( this.props.schemaJsonData ) } )
 
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
@@ -80,15 +80,15 @@ class UAGBHowTo extends Component {
 		document.head.appendChild( $style )
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 
 		if (
 			JSON.stringify( this.props.schemaJsonData ) !==
 				JSON.stringify( prevProps.schemaJsonData )
 		) {
-			this.props.setAttributes({
-				schema: JSON.stringify(this.props.schemaJsonData)
-			})
+			this.props.setAttributes( {
+				schema: JSON.stringify( this.props.schemaJsonData )
+			} )
 		}
 		var element = document.getElementById( "uagb-how-to-schema-style-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -156,19 +156,19 @@ class UAGBHowTo extends Component {
 
 		setAttributes( { mainimage: media } )
 		if ( media["sizes"] ) {
-			var new_img = this.getImageSize(media["sizes"])
+			var new_img = this.getImageSize( media["sizes"] )
 			imageSizeOptions = new_img
 		}
 	}
 
-	getImageSize(sizes) {
+	getImageSize( sizes ) {
 		var size_arr = []
-		$.each(sizes, function (index, item) {
+		$.each( sizes, function ( index, item ) {
 		  var name = index
 		  	var p = { "value" : name, "label": name }
-		  	size_arr.push(p)
-		})
-		return(size_arr)
+		  	size_arr.push( p )
+		} )
+		return( size_arr )
 	}
 
 	render() {
@@ -259,7 +259,7 @@ class UAGBHowTo extends Component {
 		} = this.props
 		
 		if( mainimage && mainimage["sizes"] ){
-			imageSizeOptions = this.getImageSize(mainimage["sizes"])
+			imageSizeOptions = this.getImageSize( mainimage["sizes"] )
 		}
 		
 		let loadHeadingGoogleFonts
@@ -335,7 +335,7 @@ class UAGBHowTo extends Component {
 			
 		}
 
-		var minsValue = (timeInMins) ? timeInMins : time
+		var minsValue = ( timeInMins ) ? timeInMins : time
 		
 		const getInfoBoxAsChild = [
 			[ "uagb/info-box", 
@@ -516,7 +516,7 @@ class UAGBHowTo extends Component {
 				            for( var i= 0; i < incAmount; i++ ){
 				                data_new.pop()
 				            }
-				            setAttributes({tools:data_new})
+				            setAttributes( { tools:data_new } )
 
 							}
 							setAttributes( { tools_count: newCount } )
@@ -558,7 +558,7 @@ class UAGBHowTo extends Component {
 				            for( var i= 0; i < incAmount; i++ ){
 				                data_new.pop()
 				            }
-				            setAttributes({materials:data_new})
+				            setAttributes( { materials:data_new } )
 
 							}
 							setAttributes( { material_count: newCount } )
@@ -690,11 +690,11 @@ class UAGBHowTo extends Component {
 		}
 
 		//Time Labels
-		var yearlabel = (timeInYears > 1) ? __( "Years", "ultimate-addons-for-gutenberg" ) : __( "Year", "ultimate-addons-for-gutenberg" )
-		var monthlabel = (timeInMonths > 1) ? __(" Months " , "ultimate-addons-for-gutenberg") : __(" Month " , "ultimate-addons-for-gutenberg")
-		var daylabel = (timeInDays > 1) ? __(" Days ", "ultimate-addons-for-gutenberg") :__( " Day ", "ultimate-addons-for-gutenberg")
-		var hourlabel = (timeInHours > 1) ? __("Hours ", "ultimate-addons-for-gutenberg") :__( " Hour ", "ultimate-addons-for-gutenberg")
-		var minslabel = (minsValue > 1) ? __(" Minutes ", "ultimate-addons-for-gutenberg") : __(" Minute ", "ultimate-addons-for-gutenberg")		
+		var yearlabel = ( timeInYears > 1 ) ? __( "Years", "ultimate-addons-for-gutenberg" ) : __( "Year", "ultimate-addons-for-gutenberg" )
+		var monthlabel = ( timeInMonths > 1 ) ? __( " Months " , "ultimate-addons-for-gutenberg" ) : __( " Month " , "ultimate-addons-for-gutenberg" )
+		var daylabel = ( timeInDays > 1 ) ? __( " Days ", "ultimate-addons-for-gutenberg" ) :__( " Day ", "ultimate-addons-for-gutenberg" )
+		var hourlabel = ( timeInHours > 1 ) ? __( "Hours ", "ultimate-addons-for-gutenberg" ) :__( " Hour ", "ultimate-addons-for-gutenberg" )
+		var minslabel = ( minsValue > 1 ) ? __( " Minutes ", "ultimate-addons-for-gutenberg" ) : __( " Minute ", "ultimate-addons-for-gutenberg" )		
 
 
 
@@ -876,7 +876,7 @@ class UAGBHowTo extends Component {
 											</div>
 										</div>
 									)
-								})
+								} )
 							}
 						</div>
 							}
@@ -923,7 +923,7 @@ class UAGBHowTo extends Component {
 										</div>
 									</div>
 								)
-							})
+							} )
 						}
 					</div>
 							}
@@ -995,7 +995,7 @@ export default compose(
 		var d  = ( ownProps.attributes.timeInDays ) ? (  ownProps.attributes.timeInDays ) : 0
 		var h  = ( ownProps.attributes.timeInHours ) ? ( ownProps.attributes.timeInHours ) : 0
 
-		var minutes = (ownProps.attributes.timeInMins) ? ownProps.attributes.timeInMins : ownProps.attributes.time
+		var minutes = ( ownProps.attributes.timeInMins ) ? ownProps.attributes.timeInMins : ownProps.attributes.time
 
 		if ( ownProps.attributes.showTotaltime ) {
 			json_data.totalTime = "P"+y+"Y"+m+"M"+d+"DT"+h+"H"+minutes+"M"
@@ -1010,28 +1010,28 @@ export default compose(
 		}
 
 		if ( ownProps.attributes.showTools ) {
-			ownProps.attributes.tools.forEach((tools, key) => {
+			ownProps.attributes.tools.forEach( ( tools, key ) => {
 				tools_data = {	
 					"@type": "HowToTool",
 					"name": tools.add_required_tools
 				}
 				json_data["tool"][key] = tools_data
-			})
+			} )
 		}
 			
 		if ( ownProps.attributes.showMaterials ) {
-			ownProps.attributes.materials.forEach((materials, key) => {
+			ownProps.attributes.materials.forEach( ( materials, key ) => {
 				materials_data = {	
 					"@type": "HowToSupply",
 					"name": materials.add_required_materials
 				}
 				json_data["supply"][key] = materials_data
-			})
+			} )
 		}
 
-		let getChildBlocks = select("core/block-editor").getBlocks( ownProps.clientId )
+		let getChildBlocks = select( "core/block-editor" ).getBlocks( ownProps.clientId )
 
-		getChildBlocks.forEach((steps, key) => {
+		getChildBlocks.forEach( ( steps, key ) => {
 			steps_data = {	
 				"@type": "HowToStep",
 				"url": steps.attributes.ctaLink,
@@ -1040,7 +1040,7 @@ export default compose(
 				"image": steps.attributes.iconImage.url
 			}
 			json_data["step"][key] = steps_data
-		})	
+		} )	
 			
 		return {
 			schemaJsonData: json_data,

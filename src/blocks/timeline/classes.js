@@ -16,7 +16,7 @@ function ContentTmClasses( attributes ) {
 	var align_class = "uagb-timeline__center-block "+" "
 	if( attributes.timelinAlignment == "left" ){
 		align_class = "uagb-timeline__left-block"+" "
-	}else if( attributes.timelinAlignment == "right"){
+	}else if( attributes.timelinAlignment == "right" ){
 		align_class = "uagb-timeline__right-block"+" "
 	}
 	align_class+= arrow_align_class+""

@@ -30,8 +30,8 @@ export default function save( props ) {
 	const icon_html = ( curr_position ) => {
 		if ( "" !== icon && curr_position === iconPosition ) {
 			return (
-				<span className= { classnames("uagb-button__icon", `uagb-button__icon-position-${ iconPosition }`) }>
-					{ renderSVG(icon) }
+				<span className= { classnames( "uagb-button__icon", `uagb-button__icon-position-${ iconPosition }` ) }>
+					{ renderSVG( icon ) }
 				</span>
 			)
 		}

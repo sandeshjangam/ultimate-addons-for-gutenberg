@@ -70,10 +70,10 @@ class UAGBFormsDateEdit extends Component {
 		}
 
 		var invalidDateErrorMsg = ""
-		var start = Date.parse(validation_min_value)
-		var end = Date.parse(validation_max_value)
+		var start = Date.parse( validation_min_value )
+		var end = Date.parse( validation_max_value )
 
-		if (start > end) {
+		if ( start > end ) {
 			invalidDateErrorMsg = <p className="uagb-forms-date-invalidate">Invalid date range selected</p>			
 		}
 
@@ -82,7 +82,7 @@ class UAGBFormsDateEdit extends Component {
 		var YearDefaults = [{ label: "YYYY", value: "" }]
 
 		for ( var i = 1930; i <= 2030; i++ ) {
-			YearDefaults.push({ label: `${i}`, value: `${i}` })
+			YearDefaults.push( { label: `${i}`, value: `${i}` } )
 		}	
 				 
 		
@@ -90,14 +90,14 @@ class UAGBFormsDateEdit extends Component {
 
 		for ( var i = 1; i <= 12; i++ ) {
 			var twoDigitMonth = ( i < 10 ) ? `0${i}` : `${i}` 
-			MonthsDefaults.push({ label: twoDigitMonth, value: twoDigitMonth })
+			MonthsDefaults.push( { label: twoDigitMonth, value: twoDigitMonth } )
 		}
 		
 		var dateDefaults = [{ label: "DD", value: "" }]
 
 		for ( var i = 1; i <= 31; i++ ) {
 			var twoDigitDate = ( i < 10 ) ? `0${i}` : `${i}` 
-			dateDefaults.push({ label: twoDigitDate, value: twoDigitDate })
+			dateDefaults.push( { label: twoDigitDate, value: twoDigitDate } )
 		}
 		
 
@@ -105,12 +105,12 @@ class UAGBFormsDateEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General" , "ultimate-addons-for-gutenberg") }
+					title={ __( "General" , "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<ToggleControl
-						label={ __( "Required" , "ultimate-addons-for-gutenberg") }
+						label={ __( "Required" , "ultimate-addons-for-gutenberg" ) }
 						checked={ dateRequired }
 						onChange={ ( value ) => setAttributes( { dateRequired: ! dateRequired } ) }
 					/>
@@ -118,7 +118,7 @@ class UAGBFormsDateEdit extends Component {
 						label={ __( "Additional Validation" , "ultimate-addons-for-gutenberg" ) }
 						checked={ additonalVal }
 						onChange={ ( value ) => setAttributes( { additonalVal: ! additonalVal } ) }
-						help={ __( "Helps to set range of calender" , "ultimate-addons-for-gutenberg")}
+						help={ __( "Helps to set range of calender" , "ultimate-addons-for-gutenberg" )}
 					/>
 					{ additonalVal && (
 						<Fragment>
@@ -187,7 +187,7 @@ class UAGBFormsDateEdit extends Component {
 		}
 
 	 
-		const isRequired = (dateRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
+		const isRequired = ( dateRequired ) ? __( "required", "ultimate-addons-for-gutenberg" ) : ""
 	
 		return (
 			<Fragment>
@@ -203,7 +203,7 @@ class UAGBFormsDateEdit extends Component {
 					{isSelected && (
 						<div className="uagb-forms-required-wrap">
 							<ToggleControl
-								label={ __( "Required" , "ultimate-addons-for-gutenberg") }
+								label={ __( "Required" , "ultimate-addons-for-gutenberg" ) }
 								checked={ dateRequired }
 								onChange={ ( value ) => setAttributes( { dateRequired: ! dateRequired } ) }
 							/>
@@ -211,7 +211,7 @@ class UAGBFormsDateEdit extends Component {
 					)}
 					<RichText
 						tagName="div"
-						placeholder={ __( "Date" , "ultimate-addons-for-gutenberg") }
+						placeholder={ __( "Date" , "ultimate-addons-for-gutenberg" ) }
 						value={ name }
 						onChange={ ( value ) => setAttributes( { name: value } ) }						
 						className={`uagb-forms-date-label ${isRequired} uagb-forms-input-label`}

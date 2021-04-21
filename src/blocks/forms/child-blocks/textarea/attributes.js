@@ -10,7 +10,7 @@ const attributes = {
 	},
 	textareaName: {
 		type: "string",
-		default: __("Message" , "ultimate-addons-for-gutenberg")
+		default: __( "Message" , "ultimate-addons-for-gutenberg" )
 	},
 	textareaRequired : {
 		type: "boolean",

@@ -9,7 +9,7 @@ const {
 export default function save( props ) {
 
 	const { attributes , className } = props
-	const {id, header,block_id} = attributes
+	const { id, header,block_id } = attributes
     
 	return (
 		<div className="uagb-tabs__body-container">

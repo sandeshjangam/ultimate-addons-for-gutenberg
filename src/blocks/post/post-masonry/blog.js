@@ -28,7 +28,7 @@ class Blog extends React.Component {
 			latestPosts
 
 		const paginationRender = () => {
-			if ( "infinite" === paginationType) {
+			if ( "infinite" === paginationType ) {
 
 				if( "scroll" === paginationEventType ) { 
 					return (

@@ -1,7 +1,7 @@
 const { decodeEntities } = wp.htmlEntities
 const { __ } = wp.i18n
 
-export const PostTitle = (props) => {
+export const PostTitle = ( props ) => {
 		
 	const { attributes ,post } = props
 		

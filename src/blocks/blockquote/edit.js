@@ -260,8 +260,8 @@ class UAGBBlockQuote extends Component {
 		)
 
 		let image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
-		if(authorImage){
-			if(authorImage.url == null || authorImage.url == "" ){
+		if( authorImage ){
+			if( authorImage.url == null || authorImage.url == "" ){
 				image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
 			}else{
 				image_name = __( "Replace Image", "ultimate-addons-for-gutenberg" )
@@ -990,7 +990,7 @@ class UAGBBlockQuote extends Component {
 					/>														
 				</Fragment>
 				}
-				{ (enableTweet && iconView == "icon_text") && <Fragment>
+				{ ( enableTweet && iconView == "icon_text" ) && <Fragment>
 					<hr className="uagb-editor__separator" />
 					<RangeControl
 						label={ __( "Space between Tweet Icon and Text", "ultimate-addons-for-gutenberg" ) }
@@ -1151,7 +1151,7 @@ class UAGBBlockQuote extends Component {
 		)
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-blockquote-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {

@@ -52,7 +52,7 @@ export default function save( props ) {
 					) } key ={ "wrap-"+index } >
 						<div className = "uagb-tm__content" key ={ "tm_content-"+index }>
 							<div className = "uagb-tm__overlay"></div>
-							{ (imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
+							{ ( imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={props.attributes} index_value = {index} /> }
 
 							<div className ="uagb-tm__text-wrap">
 								{  // Get description.
@@ -65,7 +65,7 @@ export default function save( props ) {
 								<div className ="uagb-tm__meta">
 									<div className ="uagb-tm__meta-inner">
 
-										{ (imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
+										{ ( imagePosition == "bottom" ) && <TestimonialImage  attributes={props.attributes}  index_value = {index} /> }
 
 										{ //title_text
 											<Fragment>

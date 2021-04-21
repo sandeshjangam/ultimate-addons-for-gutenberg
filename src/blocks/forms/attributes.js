@@ -382,7 +382,7 @@ const attributes = {
 	},
 	captchaMessage:{
 		type:"string",
-		default:__("Please fill up the above captcha." , "ultimate-addons-for-gutenberg")
+		default:__( "Please fill up the above captcha." , "ultimate-addons-for-gutenberg" )
 	}
 }
 export default attributes

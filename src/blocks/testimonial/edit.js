@@ -53,8 +53,8 @@ class UAGBtestimonial extends Component {
 
 		super( ...arguments )
 		this.onSelectTestImage  = this.onSelectTestImage.bind( this )
-		this.onRemoveTestImage  = this.onRemoveTestImage.bind(this)
-		this.getImageName       = this.getImageName.bind(this)
+		this.onRemoveTestImage  = this.onRemoveTestImage.bind( this )
+		this.getImageName       = this.getImageName.bind( this )
 		this.togglePauseOnHover = this.togglePauseOnHover.bind( this )
 		this.toggleInfiniteLoop = this.toggleInfiniteLoop.bind( this )
 		this.toggleAutoplay     = this.toggleAutoplay.bind( this )
@@ -119,8 +119,8 @@ class UAGBtestimonial extends Component {
 		const { test_block } = this.props.attributes
 
 		let image_name = __( "Select Image","ultimate-addons-for-gutenberg" )
-		if(image){
-			if(image.url == null || image.url == "" ){
+		if( image ){
+			if( image.url == null || image.url == "" ){
 				image_name = __( "Select Image","ultimate-addons-for-gutenberg" )
 			}else{
 				image_name = __( "Replace Image","ultimate-addons-for-gutenberg" )
@@ -690,7 +690,7 @@ class UAGBtestimonial extends Component {
 		// Set testinomial image panel
 		const tmControls = ( index ) => {
 			let image_val = null
-			if( test_block[index] && typeof test_block[index] !== "undefined"){
+			if( test_block[index] && typeof test_block[index] !== "undefined" ){
 				image_val = test_block[index]["image"]
 			}
 			return (
@@ -718,8 +718,8 @@ class UAGBtestimonial extends Component {
 							) }
 						/>
 						{ ( image_val && test_block[index]["image"].url !== null && test_block[index]["image"].url !=="" ) &&
-							<Button className="uagb-rm-btn" key= { index} onClick={ (value) => {
-								this.onRemoveTestImage(index)
+							<Button className="uagb-rm-btn" key= { index} onClick={ ( value ) => {
+								this.onRemoveTestImage( index )
 							} } isLink isDestructive>
 								{ __( "Remove Image" ) }
 							</Button>
@@ -803,7 +803,7 @@ class UAGBtestimonial extends Component {
 		let cnt = 0
 		test_block.map( ( item, thisIndex ) => {
 			let image_arr = test_block[thisIndex]
-			if( image_arr && typeof image_arr !== "undefined"){
+			if( image_arr && typeof image_arr !== "undefined" ){
 	            const image = image_arr["image"]
 	            if( typeof image !== "undefined" && image !== null && image !=="" ){
 	            	cnt++
@@ -839,7 +839,7 @@ class UAGBtestimonial extends Component {
 				            for( var i= 0; i < incAmount; i++ ){
 				                data_new.pop()
 				            }
-				            setAttributes({test_block:data_new})
+				            setAttributes( { test_block:data_new } )
 
 							}
 							setAttributes( { test_item_count: newCount } )
@@ -903,7 +903,7 @@ class UAGBtestimonial extends Component {
 								{ value: "right", label: __( "Right","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
-						{ (imagePosition == "left" || imagePosition == "right") &&
+						{ ( imagePosition == "left" || imagePosition == "right" ) &&
 						<Fragment>
 							<SelectControl
 								label={ __( "Vertical ALignment","ultimate-addons-for-gutenberg" ) }
@@ -996,7 +996,7 @@ class UAGBtestimonial extends Component {
 							) } key ={ "wrap-"+index } >
 								<div className = "uagb-tm__content" key ={ "tm_content-"+index }>
 									<div className = "uagb-tm__overlay"></div>
-									{ (imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={attributes}  index_value = {index} /> }
+									{ ( imagePosition == "top" || imagePosition == "left" ) && <TestimonialImage  attributes={attributes}  index_value = {index} /> }
 
 									<div className ="uagb-tm__text-wrap">
 										{  // Get description.
@@ -1009,7 +1009,7 @@ class UAGBtestimonial extends Component {
 										<div className ="uagb-tm__meta">
 											<div className ="uagb-tm__meta-inner">
 
-												{ (imagePosition == "bottom" ) && <TestimonialImage  attributes={attributes} index_value = {index} /> }
+												{ ( imagePosition == "bottom" ) && <TestimonialImage  attributes={attributes} index_value = {index} /> }
 
 												{ //title_text
 													<Fragment>
@@ -1035,7 +1035,7 @@ class UAGBtestimonial extends Component {
 		)
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-testinomial-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -1066,4 +1066,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})( UAGBtestimonial )
+} )( UAGBtestimonial )

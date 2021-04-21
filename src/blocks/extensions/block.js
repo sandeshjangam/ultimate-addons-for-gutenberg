@@ -3,9 +3,9 @@ import UserConditionOptions from "./condition-block"
 const { __ } = wp.i18n
 const enableConditions = uagb_blocks_info.uagb_display_condition
 
-const AdvancedControlsBlock = wp.compose.createHigherOrderComponent((BlockEdit) => {
+const AdvancedControlsBlock = wp.compose.createHigherOrderComponent( ( BlockEdit ) => {
 
-	return (props) => {
+	return ( props ) => {
 		
 		const { Fragment } = wp.element
 		
@@ -19,7 +19,7 @@ const AdvancedControlsBlock = wp.compose.createHigherOrderComponent((BlockEdit) 
 		return (
 			<Fragment>
 				<BlockEdit {...props} />
-				{isSelected && ! block_type.includes(blocks_name) &&
+				{isSelected && ! block_type.includes( blocks_name ) &&
 					<InspectorAdvancedControls>
 						<p className="components-base-control__help">{ __( "Below setting will only take effect once you are on the live page, and not while you're editing.", "ultimate-addons-for-gutenberg" ) }</p> 
 						{ UserConditionOptions( props ) }						
@@ -28,9 +28,9 @@ const AdvancedControlsBlock = wp.compose.createHigherOrderComponent((BlockEdit) 
 			</Fragment>
 		)
 	}
-}, "AdvancedControlsBlock")
+}, "AdvancedControlsBlock" )
 
-function ApplyExtraClass(extraProps, blockType, attributes) {
+function ApplyExtraClass( extraProps, blockType, attributes ) {
 
 	const { 
 		UAGHideDesktop,
@@ -61,7 +61,7 @@ wp.hooks.addFilter(
 	"uagb/apply-extra-class",
 	ApplyExtraClass,
 )
-if(enableConditions){
+if( enableConditions ){
 	wp.hooks.addFilter(
 		"editor.BlockEdit",
 		"uagb/advanced-control-block",

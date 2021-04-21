@@ -1,7 +1,7 @@
 const { __ } = wp.i18n
 import classnames from "classnames"
 
-export const PostButton = (props) =>  {
+export const PostButton = ( props ) =>  {
 	
 	
 	const { attributes , post } = props
@@ -14,7 +14,7 @@ export const PostButton = (props) =>  {
 
 		return (
 			<div className='uagb-post__text'> 
-				<div className={classnames("uagb-post__cta", ( attributes.inheritFromTheme ) ? "wp-block-button" : null)}>
+				<div className={classnames( "uagb-post__cta", ( attributes.inheritFromTheme ) ? "wp-block-button" : null )}>
 					<a
 						className={classnames(
 							( !attributes.inheritFromTheme ) ? "uagb-post__link " : null,

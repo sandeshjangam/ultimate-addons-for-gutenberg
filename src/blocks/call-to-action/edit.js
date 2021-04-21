@@ -47,10 +47,10 @@ class UAGBCallToAction extends Component {
 	constructor() {
 		super( ...arguments )
 		this.toggleTarget     = this.toggleTarget.bind( this )
-		this.setCtaIcon  	  = this.setCtaIcon.bind(this)
+		this.setCtaIcon  	  = this.setCtaIcon.bind( this )
 	}
 
-	setCtaIcon(value) {
+	setCtaIcon( value ) {
 		this.props.setAttributes( { ctaIcon: value } )
 	}
 
@@ -373,7 +373,7 @@ class UAGBCallToAction extends Component {
 				</TabPanel>
 				}
 
-				{ ( ctaType === "button") && ! inheritFromTheme &&
+				{ ( ctaType === "button" ) && ! inheritFromTheme &&
 					<TabPanel className="uagb-inspect-tabs uagb-inspect-tabs-col-2"
 						activeClass="active-tab"
 						tabs={ [
@@ -691,7 +691,7 @@ class UAGBCallToAction extends Component {
 							    </Fragment>
 						}
 
-						{ ( ctaPosition == "right") &&
+						{ ( ctaPosition == "right" ) &&
 								<Fragment>
 									{ title_text }
 									{ desc }
@@ -700,7 +700,7 @@ class UAGBCallToAction extends Component {
 
 					</div>
 
-					{ ( ctaPosition == "right") &&
+					{ ( ctaPosition == "right" ) &&
 								is_cta
 					}
 				</div>
@@ -723,13 +723,13 @@ class UAGBCallToAction extends Component {
 					`uagb-block-${this.props.clientId.substr( 0, 8 )}`
 				) }
 				>
-					{ ( ctaType == "all") &&
+					{ ( ctaType == "all" ) &&
 							<Fragment>
 								<a href= "javascript:void(0)" className = "uagb-cta__block-link-wrap uagb-cta__link-to-all" rel ="noopener noreferrer" > </a>
 								{output}
 							</Fragment>
 					}
-					{ ( ctaType !== "all") && output }
+					{ ( ctaType !== "all" ) && output }
 				</div>
 				{ loadCtaGoogleFonts }
 				{ loadTitleGoogleFonts }

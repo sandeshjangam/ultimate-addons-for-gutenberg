@@ -4,8 +4,8 @@
 
 		_run: function( attr, id ) {
             
-			var animation = bodymovin.loadAnimation({
-				container: document.getElementsByClassName(id)[0],
+			var animation = bodymovin.loadAnimation( {
+				container: document.getElementsByClassName( id )[0],
 				renderer: "svg",
 				loop: attr["loop"],
 				autoplay: ( "none" === attr["playOn"] ) ? true : false , 
@@ -14,31 +14,31 @@
 					preserveAspectRatio: "xMidYMid",
 					className:"uagb-lottie-inner-wrap"
 				}
-			})
+			} )
 
-			animation.setSpeed(attr["speed"])
+			animation.setSpeed( attr["speed"] )
 
 			const reversedir = ( attr["reverse"] && attr["loop"] ) ? -1 : 1
 
-			animation.setDirection(reversedir)
+			animation.setDirection( reversedir )
             
-			if( "hover" === attr["playOn"]){
-				document.getElementsByClassName(id)[0].addEventListener("mouseenter", function() {
+			if( "hover" === attr["playOn"] ){
+				document.getElementsByClassName( id )[0].addEventListener( "mouseenter", function() {
 					animation.play()
-				})
-				document.getElementsByClassName(id)[0].addEventListener("mouseleave", function() {
+				} )
+				document.getElementsByClassName( id )[0].addEventListener( "mouseleave", function() {
 					animation.stop()
-				})
-			} else if ( "click" === attr["playOn"]){
-				document.getElementsByClassName(id)[0].addEventListener("click", function() {
-					animation.stop()
-					animation.play()
-				})
-			} else if ( "scroll" === attr["playOn"]) {
-				window.addEventListener("scroll", function() {
+				} )
+			} else if ( "click" === attr["playOn"] ){
+				document.getElementsByClassName( id )[0].addEventListener( "click", function() {
 					animation.stop()
 					animation.play()
-				})
+				} )
+			} else if ( "scroll" === attr["playOn"] ) {
+				window.addEventListener( "scroll", function() {
+					animation.stop()
+					animation.play()
+				} )
 			}
 		}
 	}

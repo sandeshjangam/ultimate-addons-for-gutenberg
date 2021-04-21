@@ -6,8 +6,8 @@
 
 		_setHeight: function( scope ) {
 			
-			var post_wrapper = scope.find(".slick-slide"),
-				post_active = scope.find(".slick-slide.slick-active"),
+			var post_wrapper = scope.find( ".slick-slide" ),
+				post_active = scope.find( ".slick-slide.slick-active" ),
 				max_height = -1,
 				wrapper_height = -1,
 				post_active_height = -1
@@ -25,49 +25,49 @@
 				if ( wrapper_height < this_height ) {
 					wrapper_height = this_height
 				}
-			})
+			} )
 
 			post_active.each( function( i ) {
 				var selector = $( this ).find( ".uagb-post__inner-wrap" )
-				selector.animate({ height: max_height }, { duration: 200, easing: "linear" })
-			})
+				selector.animate( { height: max_height }, { duration: 200, easing: "linear" } )
+			} )
 
-			scope.find(".slick-list").animate({ height: post_active_height }, { duration: 200, easing: "linear" })
+			scope.find( ".slick-list" ).animate( { height: post_active_height }, { duration: 200, easing: "linear" } )
 
 			max_height = -1
 			wrapper_height = -1
 
-			post_wrapper.each(function() {
+			post_wrapper.each( function() {
 
 				var $this = jQuery( this ),
 					selector = $this.find( ".uagb-post__inner-wrap" ),
 					blog_post_height = selector.outerHeight()
 
-				if ( $this.hasClass("slick-active") ) {
+				if ( $this.hasClass( "slick-active" ) ) {
 					return true
 				}
 
 				selector.css( "height", blog_post_height )
-			})
+			} )
 
 		},
 		_unSetHeight:function( scope ) {
-			var post_wrapper = scope.find(".slick-slide"),
-				post_active = scope.find(".slick-active")
+			var post_wrapper = scope.find( ".slick-slide" ),
+				post_active = scope.find( ".slick-active" )
 
 			post_active.each( function( i ) {
 				var selector = $( this ).find( ".uagb-post__inner-wrap" )
 				selector.css( "height", "auto" )
-			})
+			} )
 
-			post_wrapper.each(function() {
+			post_wrapper.each( function() {
 				var $this = jQuery( this ),
 					selector = $this.find( ".uagb-post__inner-wrap" )
-				if ( $this.hasClass("slick-active") ) {
+				if ( $this.hasClass( "slick-active" ) ) {
 					return true
 				}
 				selector.css( "height", "auto" )
-			})
+			} )
 
 		},
 	}
@@ -114,7 +114,7 @@
 						"total" : total,
 						"page_number" : count
 					}
-					$scope.find(".uagb-post__load-more-wrap").hide()
+					$scope.find( ".uagb-post__load-more-wrap" ).hide()
 					if( true == loadStatus ) {
                         
 						if ( count <= total ) {
@@ -131,7 +131,7 @@
 		},
 		_callAjax : function( $scope, $obj, $attr, loader, append = false, count ) {
 
-			$.ajax({
+			$.ajax( {
 				url: uagb_data.ajax_url,
 				data: {
 					action: "uagb_get_posts",
@@ -142,19 +142,19 @@
 				dataType: "json",
 				type: "POST",
 				success: function( data ) {
-					$scope.find( ".is-masonry" ).isotope( "insert",$( data.data ))
+					$scope.find( ".is-masonry" ).isotope( "insert",$( data.data ) )
 					loadStatus = true 
 					loader.hide()
 					
 					if ( true === append ) {
-						$scope.find(".uagb-post__load-more-wrap").show()
+						$scope.find( ".uagb-post__load-more-wrap" ).show()
 					}
 
 					if ( count == $obj.total ) {
-						$scope.find(".uagb-post__load-more-wrap").hide()
+						$scope.find( ".uagb-post__load-more-wrap" ).hide()
 					}
 				}
-			})
+			} )
 		}
 
 	}
@@ -163,14 +163,14 @@
 
 // Set Carousel Height for Customiser.
 function uagb_carousel_height(  id ) {
-	var wrap            = jQuery("#block-"+id)
-	var scope = wrap.find(".wp-block-uagb-post-carousel").find( ".is-carousel" )
+	var wrap            = jQuery( "#block-"+id )
+	var scope = wrap.find( ".wp-block-uagb-post-carousel" ).find( ".is-carousel" )
 	UAGBPostCarousel._setHeight( scope )
 }
 
 // Unset Carousel Height for Customiser.
 function uagb_carousel_unset_height(  id ) {
-	var wrap            = jQuery("#block-"+id)
-	var scope = wrap.find(".wp-block-uagb-post-carousel").find( ".is-carousel" )
+	var wrap            = jQuery( "#block-"+id )
+	var scope = wrap.find( ".wp-block-uagb-post-carousel" ).find( ".is-carousel" )
 	UAGBPostCarousel._unSetHeight( scope )
 }

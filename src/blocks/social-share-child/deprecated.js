@@ -35,7 +35,7 @@ const deprecated =[
 
 			if ( image_icon == "icon" ) {
 				if ( icon ) {
-					image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG(icon) }</span>
+					image_icon_html = <span className="uagb-ss__source-icon">{ renderSVG( icon ) }</span>
 				}
 			} else {
 				if ( image && image.url ) {

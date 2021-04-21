@@ -3,7 +3,7 @@
  */
 
 // Import block dependencies and components
-import {PostTitle} from "./edit"
+import { PostTitle } from "./edit"
 import "./style.scss"
 import "./editor.scss"
 import save from "./save"

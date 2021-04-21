@@ -58,7 +58,7 @@ const attributes = {
 	},
 	mappingHeaders: {
 		type: "array",
-		default: Array(6).fill(true)
+		default: Array( 6 ).fill( true )
 	},
 	align : {
 		type    : "string",

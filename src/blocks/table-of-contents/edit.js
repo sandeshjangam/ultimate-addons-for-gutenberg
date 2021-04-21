@@ -19,7 +19,7 @@ import Columnresponsive from "../../components/typography/column-responsive"
 import WebfontLoader from "../../components/typography/fontloader"
 import TableOfContents from "./toc"
 
-const striptags = require("striptags")
+const striptags = require( "striptags" )
 const { __ } = wp.i18n
 const { withSelect } = wp.data
 const { compose } = wp.compose
@@ -55,14 +55,14 @@ class UAGBTableOfContentsEdit extends Component {
 
 	constructor() {
 		super( ...arguments )
-		this.getIcon  	 = this.getIcon.bind(this)
+		this.getIcon  	 = this.getIcon.bind( this )
 	}
 
-	getIcon(value) {
+	getIcon( value ) {
 		this.props.setAttributes( { icon: value } )
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 
 		var element = document.getElementById( "uagb-style-toc-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -246,7 +246,7 @@ class UAGBTableOfContentsEdit extends Component {
 
 		if ( makeCollapsible && icon ) {
 			icon_html = (
-				<span className="uag-toc__collapsible-wrap">{renderSVG(icon)}</span>
+				<span className="uag-toc__collapsible-wrap">{renderSVG( icon )}</span>
 			)	
 		}
 
@@ -264,24 +264,24 @@ class UAGBTableOfContentsEdit extends Component {
 				<InspectorControls>
 					<PanelBody title={ __( "General","ultimate-addons-for-gutenberg" ) } initialOpen={ true }>
 						<h2>{ __( "Select the heading to consider when generating the table","ultimate-addons-for-gutenberg" ) }</h2>
-						{mappingHeaders.map((a, i) => (
+						{mappingHeaders.map( ( a, i ) => (
 							<PanelRow key={i}>
 								<label htmlFor={`ub_toggle_h${i + 1}`}>{`H${i + 1}`}</label>
 								<ToggleControl
 									id={`ub_toggle_h${i + 1}`}
 									checked={a}
 									onChange={() =>
-										setAttributes({
+										setAttributes( {
 											mappingHeaders: [
-												...mappingHeaders.slice(0, i),
+												...mappingHeaders.slice( 0, i ),
 												!mappingHeaders[i],
-												...mappingHeaders.slice(i + 1)
+												...mappingHeaders.slice( i + 1 )
 											]
-										})
+										} )
 									}
 								/>
 							</PanelRow>
-						))}
+						) )}
 					</PanelBody>
 					<PanelBody title={ __( "Scroll","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 						<ToggleControl
@@ -874,43 +874,43 @@ export default compose(
 			}
 			
 			var parsedSlug = slug.toString().toLowerCase()                        
-				.replace(/\…+/g,"")                          // Remove multiple …
-				.replace(/&(amp;)/g, "")					 // Remove &
-				.replace(/&(mdash;)/g, "")					 // Remove long dash
-				.replace(/\u2013|\u2014/g, "")				 // Remove long dash
-				.replace(/[&]nbsp[;]/gi, "-")                // Replace inseccable spaces
-				.replace(/\s+/g, "-")                        // Replace spaces with -
-				.replace(/[&\/\\#,^!+()$~%.\[\]'":*?<>{}@‘’”“|]/g, "")  // Remove special chars
-				.replace(/\-\-+/g, "-")                      // Replace multiple - with single -
-				.replace(/^-+/, "")                          // Trim - from start of text
-				.replace(/-+$/, "")                         // Trim - from end of text
+				.replace( /\…+/g,"" )                          // Remove multiple …
+				.replace( /&(amp;)/g, "" )					 // Remove &
+				.replace( /&(mdash;)/g, "" )					 // Remove long dash
+				.replace( /\u2013|\u2014/g, "" )				 // Remove long dash
+				.replace( /[&]nbsp[;]/gi, "-" )                // Replace inseccable spaces
+				.replace( /\s+/g, "-" )                        // Replace spaces with -
+				.replace( /[&\/\\#,^!+()$~%.\[\]'":*?<>{}@‘’”“|]/g, "" )  // Remove special chars
+				.replace( /\-\-+/g, "-" )                      // Replace multiple - with single -
+				.replace( /^-+/, "" )                          // Trim - from start of text
+				.replace( /-+$/, "" )                         // Trim - from end of text
 
 			return decodeURI( encodeURIComponent( parsedSlug ) )
 		}
 
 		var level = 0
 		
-		var headerArray = $( "div.is-root-container" ).find("h1, h2, h3, h4, h5, h6" )
+		var headerArray = $( "div.is-root-container" ).find( "h1, h2, h3, h4, h5, h6" )
 		let headers = []
 		if( headerArray != "undefined" ) {
 
-			headerArray.each( function (index, value){
+			headerArray.each( function ( index, value ){
 				let header = $( this )
 				let excludeHeading 
 				
-				if ( value.className.includes("uagb-toc-hide-heading") ) {
+				if ( value.className.includes( "uagb-toc-hide-heading" ) ) {
 					excludeHeading = true
-				} else if ( 0 < header.parents(".uagb-toc-hide-heading").length ) {
+				} else if ( 0 < header.parents( ".uagb-toc-hide-heading" ).length ) {
 					excludeHeading = true
 				} else {
 					excludeHeading = false
 				}
 				
-				let headerText = parseTocSlug(header.text())
-				var openLevel = header[0].nodeName.replace(/^H+/, "")
+				let headerText = parseTocSlug( header.text() )
+				var openLevel = header[0].nodeName.replace( /^H+/, "" )
 				var titleText = header.text()
 					
-				level = parseInt(openLevel)
+				level = parseInt( openLevel )
 					
 				if ( !excludeHeading ) {
 					headers.push(
@@ -924,7 +924,7 @@ export default compose(
 				}
 				
 									
-			})	
+			} )	
 		}
 
 		if ( headers !== undefined ) {
@@ -944,7 +944,7 @@ export default compose(
 						break
 					}
 				}
-			})
+			} )
 		}
 
 		return {

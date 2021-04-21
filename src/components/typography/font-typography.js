@@ -40,7 +40,7 @@ function FontFamilyControl( props ) {
 			fontWeight = googleFonts[k].weight
 			fontSubset = googleFonts[k].subset
 		}
-	})
+	} )
 
 	// check if the font is a system font and then apply the font weight accordingly.
 	if ( fontWeight === "" ) {
@@ -49,20 +49,20 @@ function FontFamilyControl( props ) {
 
 	const fontWeightObj = []
 
-	fontWeight.forEach(function(item) {
+	fontWeight.forEach( function( item ) {
 		fontWeightObj.push(
 			{ value: item, label: item }
 		)
-	})
+	} )
 
 	const fontSubsetObj = []
 
 	if( typeof fontSubset == "object" ) {
-		fontSubset.forEach(function(item) {
+		fontSubset.forEach( function( item ) {
 			fontSubsetObj.push(
 				{ value: item, label: item }
 			)
-		})
+		} )
 	}
 
 	const onFontfamilyChange = ( value ) => {
@@ -84,7 +84,7 @@ function FontFamilyControl( props ) {
 
 			if( typeof gfontsObj == "object" ) {
 
-				gfontsObj.forEach(function(item) {
+				gfontsObj.forEach( function( item ) {
 
 					if( fontWeight.value == item ) {
 						font_flag = false
@@ -94,9 +94,9 @@ function FontFamilyControl( props ) {
 						props.setAttributes( { [ props.fontWeight.label ]: new_value } )
 						return
 					}
-				})
+				} )
 
-				gfontSubsetObj.forEach(function(item) {
+				gfontSubsetObj.forEach( function( item ) {
 
 					if( fontSubset.value == item ) {
 						font_flag = false
@@ -106,7 +106,7 @@ function FontFamilyControl( props ) {
 						props.setAttributes( { [ props.fontSubset.label ]: new_value } )
 						return
 					}
-				})
+				} )
 			}
 		}
 	}

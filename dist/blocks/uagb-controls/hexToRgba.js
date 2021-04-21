@@ -20,11 +20,11 @@ function hexToRgba ( color, opacity ) {
 
 	// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
 	let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-	color = color.replace(shorthandRegex, function(m, r, g, b) {
+	color = color.replace( shorthandRegex, function( m, r, g, b ) {
 		return r + r + g + g + b + b
-	})
+	} )
 
-	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color)
+	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec( color )
 
 	let parsed_color = result ? {
 		r: parseInt( result[1], 16 ),

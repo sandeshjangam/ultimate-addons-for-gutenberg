@@ -56,8 +56,8 @@ class UAGBMarketingButtonEdit extends Component {
 
 	constructor() {
 		super( ...arguments )
-		this.onClickLinkSettings = this.onClickLinkSettings.bind(this)
-		this.onChangeOpensInNewTab = this.onChangeOpensInNewTab.bind(this)
+		this.onClickLinkSettings = this.onClickLinkSettings.bind( this )
+		this.onChangeOpensInNewTab = this.onChangeOpensInNewTab.bind( this )
 		this.state = {
 			isURLPickerOpen:false,
 		}
@@ -89,7 +89,7 @@ class UAGBMarketingButtonEdit extends Component {
 	onClickLinkSettings () {
 		this.setState( {
 			isURLPickerOpen: true
-		}) 
+		} ) 
 	}
 
 	onChangeOpensInNewTab ( value ) {
@@ -212,7 +212,7 @@ class UAGBMarketingButtonEdit extends Component {
 				position="bottom center"
 				onClose={ () => this.setState( {
 					isURLPickerOpen: false
-				}) }
+				} ) }
 			>
 				<__experimentalLinkControl
 					value={ { url:link, opensInNewTab:linkTarget }  }
@@ -808,4 +808,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})( UAGBMarketingButtonEdit )
+} )( UAGBMarketingButtonEdit )

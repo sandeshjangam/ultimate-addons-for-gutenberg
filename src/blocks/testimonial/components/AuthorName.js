@@ -21,7 +21,7 @@ class AuthorName extends React.Component {
 
 		const test_arr = attributes.test_block[index_value]
 		let author_name = ""
-		if( test_arr && typeof test_arr !== "undefined"){
+		if( test_arr && typeof test_arr !== "undefined" ){
 			author_name = test_arr["name"]			
 		}
 

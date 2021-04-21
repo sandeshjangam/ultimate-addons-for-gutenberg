@@ -62,20 +62,20 @@ class UAGBinfoBox extends Component {
 	constructor() {
 
 		super( ...arguments )
-		this.getIfbIcon  	  = this.getIfbIcon.bind(this)
+		this.getIfbIcon  	  = this.getIfbIcon.bind( this )
 		this.toggleTarget     = this.toggleTarget.bind( this )
 		this.toggleResponsive = this.toggleResponsive.bind( this )
 		this.onSelectImage    = this.onSelectImage.bind( this )
 		this.onRemoveImage    = this.onRemoveImage.bind( this )
-		this.getCtaicon  	  = this.getCtaicon.bind(this)
-		this.getImageSize  	  = this.getImageSize.bind(this)
+		this.getCtaicon  	  = this.getCtaicon.bind( this )
+		this.getImageSize  	  = this.getImageSize.bind( this )
 	}
 
-	getIfbIcon(value) {
+	getIfbIcon( value ) {
 		this.props.setAttributes( { icon: value } )
 	}
 
-	getCtaicon(value) {
+	getCtaicon( value ) {
 		this.props.setAttributes( { ctaIcon: value } )
 	}
 
@@ -96,7 +96,7 @@ class UAGBinfoBox extends Component {
 			return
 		}
 		if ( media["sizes"] ) {
-			var new_img = this.getImageSize(media["sizes"])
+			var new_img = this.getImageSize( media["sizes"] )
 			imageSizeOptions = new_img
 		}
 		setAttributes( { iconImage: media } )
@@ -104,12 +104,12 @@ class UAGBinfoBox extends Component {
 
 	getImageSize( sizes ) {
 		var size_arr = []
-		$.each(sizes, function (index, item) {
+		$.each( sizes, function ( index, item ) {
 		  var name = index
 		  	var p = { "value" : name, "label": name }
-		  	size_arr.push(p)
-		})
-		return(size_arr)
+		  	size_arr.push( p )
+		} )
+		return( size_arr )
 	}
 
 	/*
@@ -269,7 +269,7 @@ class UAGBinfoBox extends Component {
 		}
 
 		if( iconImage && iconImage["sizes"] ){
-			imageSizeOptions = this.getImageSize(iconImage["sizes"])
+			imageSizeOptions = this.getImageSize( iconImage["sizes"] )
 		}
 
 		let loadPrefixGoogleFonts
@@ -496,7 +496,7 @@ class UAGBinfoBox extends Component {
 							disableLineHeight = {true}
 						/>
 					}
-					{ (!inheritFromTheme  && ctaType === "button")    &&
+					{ ( !inheritFromTheme  && ctaType === "button" )    &&
 						<TypographyControl
 							label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
@@ -955,8 +955,8 @@ class UAGBinfoBox extends Component {
 		)
 
 		let image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
-		if(iconImage){
-			if(iconImage.url == null || iconImage.url == "" ){
+		if( iconImage ){
+			if( iconImage.url == null || iconImage.url == "" ){
 				image_name = __( "Select Image", "ultimate-addons-for-gutenberg" )
 			}else{
 				image_name = __( "Replace Image", "ultimate-addons-for-gutenberg" )
@@ -995,7 +995,7 @@ class UAGBinfoBox extends Component {
 						<ToggleControl
 							label={ __( "Custom Width", "ultimate-addons-for-gutenberg" ) }
 							checked={ imageWidthType }
-							onChange={ (value) => setAttributes( { imageWidthType: !imageWidthType } ) }
+							onChange={ ( value ) => setAttributes( { imageWidthType: !imageWidthType } ) }
 							help={ __( "Turn this off to inherit the natural width of Image.", "ultimate-addons-for-gutenberg" ) }
 						/>
 						{ imageWidthType &&
@@ -1065,7 +1065,7 @@ class UAGBinfoBox extends Component {
 						] }
 					/>
 
-					{ ( iconimgPosition && (iconimgPosition !== "above-title" && iconimgPosition !== "below-title" )  ) && <SelectControl
+					{ ( iconimgPosition && ( iconimgPosition !== "above-title" && iconimgPosition !== "below-title" )  ) && <SelectControl
 						label={ __( "Vertical Alignment", "ultimate-addons-for-gutenberg" ) }
 						value={ sourceAlign }
 						onChange={ ( value ) => setAttributes( { sourceAlign: value } ) }
@@ -1154,20 +1154,20 @@ class UAGBinfoBox extends Component {
 				( ctaType == "all" ? " uagb-infobox_cta-type-all" : "" ),
 				...InfoBoxPositionClasses( attributes ) ) }>
 				<div className = "uagb-ifb-left-right-wrap">
-					{ ( iconimgPosition == "left") &&
+					{ ( iconimgPosition == "left" ) &&
 							icon_image_html
 					}
 					<div className = "uagb-ifb-content">
 
 						{  iconimgPosition == "above-title" && icon_image_html }
 
-						{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+						{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 						{ iconimgPosition == "below-title"  && icon_image_html }
 
-						{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+						{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-						{ ( iconimgPosition === "left-title") &&
+						{ ( iconimgPosition === "left-title" ) &&
 								<Fragment>
 									<div className = "uagb-ifb-left-title-image">
 										{ icon_image_html }
@@ -1177,7 +1177,7 @@ class UAGBinfoBox extends Component {
 								</Fragment>
 						}
 
-						{ ( iconimgPosition === "right-title") &&
+						{ ( iconimgPosition === "right-title" ) &&
 								<Fragment>
 									<div className = "uagb-ifb-right-title-image">
 										{ title_text }
@@ -1187,7 +1187,7 @@ class UAGBinfoBox extends Component {
 								</Fragment>
 						}
 
-						{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+						{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 								<Fragment>
 									{ title_text }
 									{ desc }
@@ -1196,14 +1196,14 @@ class UAGBinfoBox extends Component {
 
 					</div>
 
-					{ ( iconimgPosition == "right") && icon_image_html	}
+					{ ( iconimgPosition == "right" ) && icon_image_html	}
 				</div>
 			</div>
 		)
 
 		return (
 			<Fragment>
-				{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") &&
+				{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) &&
 					<BlockControls key='controls'>
 						<AlignmentToolbar
 							value={ headingAlign }
@@ -1218,12 +1218,12 @@ class UAGBinfoBox extends Component {
 					`uagb-block-${ this.props.clientId.substr( 0, 8 ) }`
 				) }
 				>
-					{ ( ctaType == "all") &&<Fragment>
+					{ ( ctaType == "all" ) &&<Fragment>
 						<a className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" aria-label={"Infobox Link"} rel ="noopener noreferrer"></a>
 						{output}
 					</Fragment>
 					}
-					{ ( ctaType !== "all") && output }
+					{ ( ctaType !== "all" ) && output }
 				</div>
 				{ loadPrefixGoogleFonts }
 				{ loadSubHeadGoogleFonts }

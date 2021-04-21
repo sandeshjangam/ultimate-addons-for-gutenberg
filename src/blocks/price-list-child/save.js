@@ -39,7 +39,7 @@ export default function save( props ) {
 						...PositionClasses( props.attributes ),
 					) } >
 						<div className = "uagb-rm__content">
-							{ (imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  /> }
+							{ ( imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  /> }
 							<div className ="uagb-rm__text-wrap">
 								{
 									<Fragment>

@@ -33,10 +33,10 @@ const deprecated = [
 				return (
 					<Fragment>
 						<span className="uagb-icon uagb-faq-icon-wrap">
-							{ renderSVG(icon) }
+							{ renderSVG( icon ) }
 						</span>
 						<span className="uagb-icon-active uagb-faq-icon-wrap">
-							{ renderSVG(iconActive) }
+							{ renderSVG( iconActive ) }
 						</span>
 					</Fragment>
 				)

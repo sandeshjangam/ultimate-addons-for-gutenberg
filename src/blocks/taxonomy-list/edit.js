@@ -65,7 +65,7 @@ class UAGBTaxonomyList extends Component {
 		document.head.appendChild( $style )
 	}
 
-	componentDidUpdate(prevProps, prevState) {		
+	componentDidUpdate( prevProps, prevState ) {		
         
 		var element = document.getElementById( "uagb-style-taxonomy-list-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -169,7 +169,7 @@ class UAGBTaxonomyList extends Component {
 			titleTag
 		} = attributes
 		
-		const taxonomy_list_setting = (showEmptyTaxonomy) ? taxonomyList : termsList
+		const taxonomy_list_setting = ( showEmptyTaxonomy ) ? taxonomyList : termsList
 		
 		if ( "" != taxonomy_list_setting && undefined != taxonomy_list_setting ) {
 			var taxonomyListOptions = [
@@ -844,10 +844,10 @@ class UAGBTaxonomyList extends Component {
 
 						{"grid" == layout && ( 
 								
-							categoriesList.map((p,index)=>
+							categoriesList.map( ( p,index )=>
 								<div className="uagb-taxomony-box" key={index}>
 									<a className="uagb-tax-link" href={p.link}>
-										<Tag className="uagb-tax-title" dangerouslySetInnerHTML={ { __html: p.name}}></Tag>
+										<Tag className="uagb-tax-title" dangerouslySetInnerHTML={ { __html: p.name }}></Tag>
 										{showCount && (
 											<div className="uagb-tax-count">{p.count} {p.count > "1" ? `${p.singular_name}s` :p.singular_name}</div>
 										)}
@@ -859,10 +859,10 @@ class UAGBTaxonomyList extends Component {
 
 						{"list" == layout && "list" == listDisplayStyle && ( 
 							<ul className="uagb-list-wrap">
-								{categoriesList.map((p,index)=>										
+								{categoriesList.map( ( p,index )=>										
 									<li className="uagb-tax-list" key={index}>
 										<Tag className="uagb-tax-link-wrap">
-											<a className="uagb-tax-link" href={p.link} dangerouslySetInnerHTML={ { __html: p.name}}></a>
+											<a className="uagb-tax-link" href={p.link} dangerouslySetInnerHTML={ { __html: p.name }}></a>
 											{ showCount && (
 												<span className="uagb-tax-list-count">{` (${p.count})`}</span>
 											)}
@@ -893,7 +893,7 @@ class UAGBTaxonomyList extends Component {
 							
 						{"list" == layout && "dropdown" == listDisplayStyle && ( 
 							<select className="uagb-list-dropdown-wrap">
-								{ categoriesList.map((p,index)=>										
+								{ categoriesList.map( ( p,index )=>										
 									<option value={p.link}>
 										{ p.name } 
 										{ showCount && ( ` (${p.count})` )}
@@ -920,7 +920,7 @@ class UAGBTaxonomyList extends Component {
 
 export default withSelect( ( select, props ) => {
 
-	const { categories, postsToShow, order, orderBy, postType, taxonomyType,showEmptyTaxonomy} = props.attributes
+	const { categories, postsToShow, order, orderBy, postType, taxonomyType,showEmptyTaxonomy } = props.attributes
 	const { getEntityRecords } = select( "core" )
 	const { __experimentalGetPreviewDeviceType = null } = select( "core/edit-post" )
 
@@ -930,11 +930,11 @@ export default withSelect( ( select, props ) => {
 	let allTaxonomy = uagb_blocks_info.taxonomy_list
 	let currentTax = allTaxonomy[postType]
 	
-	var listToShowTaxonomy = (showEmptyTaxonomy) ? "with_empty_taxonomy" : "without_empty_taxonomy"
+	var listToShowTaxonomy = ( showEmptyTaxonomy ) ? "with_empty_taxonomy" : "without_empty_taxonomy"
 	
 	let categoriesList = []
 	if ( "undefined" != typeof currentTax ) {
-		if ("undefined" != typeof  currentTax[listToShowTaxonomy] && "undefined" != typeof currentTax[listToShowTaxonomy][taxonomyType] ) {
+		if ( "undefined" != typeof  currentTax[listToShowTaxonomy] && "undefined" != typeof currentTax[listToShowTaxonomy][taxonomyType] ) {
 			categoriesList = currentTax[listToShowTaxonomy][taxonomyType]
 		}
 	}

@@ -74,13 +74,13 @@ export default function save( props ) {
 	}
 
 	//Time Labels
-	var yearlabel = (timeInYears > 1) ? " Years " : " Year "
-	var monthlabel = (timeInMonths > 1) ? " Months " : " Month "
-	var daylabel = (timeInDays > 1) ? " Days " : " Day "
-	var hourlabel = (timeInHours > 1) ? "Hours " : " Hour "
+	var yearlabel = ( timeInYears > 1 ) ? " Years " : " Year "
+	var monthlabel = ( timeInMonths > 1 ) ? " Months " : " Month "
+	var daylabel = ( timeInDays > 1 ) ? " Days " : " Day "
+	var hourlabel = ( timeInHours > 1 ) ? "Hours " : " Hour "
 
-	var minsValue = (timeInMins) ? timeInMins : time
-	var minslabel = (minsValue > 1) ? " Minutes " : " Minute "		
+	var minsValue = ( timeInMins ) ? timeInMins : time
+	var minslabel = ( minsValue > 1 ) ? " Minutes " : " Minute "		
 
 	return (
 		<div
@@ -173,7 +173,7 @@ export default function save( props ) {
 									</div>
 								</div>
 							)
-						})
+						} )
 					}
 				</div>
 				}
@@ -206,7 +206,7 @@ export default function save( props ) {
 									</div>
 								</div>
 							)
-						})
+						} )
 					}
 				</div>
 				}

@@ -47,11 +47,11 @@ class UAGBInlineNoticeEdit extends Component {
 	constructor() {
 
 		super( ...arguments )
-		this.update_cookie_id = this.update_cookie_id.bind(this)
+		this.update_cookie_id = this.update_cookie_id.bind( this )
 	}
 
 	update_cookie_id( value ) {
-		const { getCurrentPostId } = wp.data.select("core/editor")
+		const { getCurrentPostId } = wp.data.select( "core/editor" )
 		const post_id = getCurrentPostId().toString()
 		const timestamp = new Date().getTime()
 
@@ -176,7 +176,7 @@ class UAGBInlineNoticeEdit extends Component {
 		let image_icon_html = ""
 
 		if ( noticeDismiss ) {
-			image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG(icon) }</span>
+			image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG( icon ) }</span>
 		}
 
 		const inlineGeneralSettings = () => {

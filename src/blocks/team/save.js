@@ -15,7 +15,7 @@ const { Fragment } = wp.element
 function social_html( icon, link, target ) {
 	let target_value =  ( target ) ? "_blank" : "_self"
 	return (
-		<li className="uagb-team__social-icon"><a href={link} aria-label={ icon } target={target_value} title="" rel ="noopener noreferrer">{renderSVG(icon)}</a></li>
+		<li className="uagb-team__social-icon"><a href={link} aria-label={ icon } target={target_value} title="" rel ="noopener noreferrer">{renderSVG( icon )}</a></li>
 	)
 }
 
@@ -88,7 +88,7 @@ export default function save( props ) {
 			) }>
 			<div className = "uagb-team__wrap">
 
-				{ ( imgPosition == "left") && image_html }
+				{ ( imgPosition == "left" ) && image_html }
 
 				<div className = "uagb-team__content">
 
@@ -127,7 +127,7 @@ export default function save( props ) {
 
 				</div>
 
-				{ ( imgPosition == "right") && image_html }
+				{ ( imgPosition == "right" ) && image_html }
 			</div>
 		</div>
 	)

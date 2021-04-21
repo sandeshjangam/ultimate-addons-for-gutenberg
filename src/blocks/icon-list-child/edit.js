@@ -258,7 +258,7 @@ class UAGBIconListChild extends Component {
 
 			if ( image_icon == "icon" ) {
 				if ( icon ) {
-					image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG(icon) }</span>
+					image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG( icon ) }</span>
 				}
 			} else {
 				if ( image && image.url ) {

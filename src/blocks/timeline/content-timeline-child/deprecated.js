@@ -37,7 +37,7 @@ const deprecated = [
 			var content_class = ""
 			var dayalign_class = ""
         
-			if( props.attributes.dayalign_class != "undefined" && props.attributes.content_class != "undefined"){
+			if( props.attributes.dayalign_class != "undefined" && props.attributes.content_class != "undefined" ){
 				content_class = props.attributes.content_class
 				dayalign_class = props.attributes.dayalign_class
 			}
@@ -49,7 +49,7 @@ const deprecated = [
 					<div className = { classnames( content_class ) }>
         
 						<div className = "uagb-timeline__marker out-view-uagb-timeline__icon">
-							<span className = {icon_class}>{ renderSVG(icon) }</span>
+							<span className = {icon_class}>{ renderSVG( icon ) }</span>
 						</div>
         
 						<div className = { classnames( dayalign_class ) }>

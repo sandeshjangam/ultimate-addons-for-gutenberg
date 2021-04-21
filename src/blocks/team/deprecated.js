@@ -15,7 +15,7 @@ const { Fragment } = wp.element
 function social_html( icon, link, target ) {
 	let target_value =  ( target ) ? "_blank" : "_self"
 	return (
-		<li className="uagb-team__social-icon"><a href={link} target={target_value} title="" rel ="noopener noreferrer">{renderSVG(icon)}</a></li>
+		<li className="uagb-team__social-icon"><a href={link} target={target_value} title="" rel ="noopener noreferrer">{renderSVG( icon )}</a></li>
 	)
 }
 
@@ -98,7 +98,7 @@ const deprecated = [
 					id={ `uagb-team-${ block_id }` }>
 					<div className = "uagb-team__wrap">
 
-						{ ( imgPosition == "left") && image_html }
+						{ ( imgPosition == "left" ) && image_html }
 
 						<div className = "uagb-team__content">
 
@@ -137,7 +137,7 @@ const deprecated = [
 
 						</div>
 
-						{ ( imgPosition == "right") && image_html }
+						{ ( imgPosition == "right" ) && image_html }
 					</div>
 				</div>
 			)
@@ -213,7 +213,7 @@ const deprecated = [
 					id={ `uagb-team-${ block_id }` }>
 					<div className = "uagb-team__wrap">
 
-						{ ( imgPosition == "left") && image_html }
+						{ ( imgPosition == "left" ) && image_html }
 
 						<div className = "uagb-team__content">
 
@@ -252,7 +252,7 @@ const deprecated = [
 
 						</div>
 
-						{ ( imgPosition == "right") && image_html }
+						{ ( imgPosition == "right" ) && image_html }
 					</div>
 				</div>
 			)
@@ -328,7 +328,7 @@ const deprecated = [
 					) }>
 					<div className = "uagb-team__wrap">
 		
-						{ ( imgPosition == "left") && image_html }
+						{ ( imgPosition == "left" ) && image_html }
 		
 						<div className = "uagb-team__content">
 		
@@ -367,7 +367,7 @@ const deprecated = [
 		
 						</div>
 		
-						{ ( imgPosition == "right") && image_html }
+						{ ( imgPosition == "right" ) && image_html }
 					</div>
 				</div>
 			)

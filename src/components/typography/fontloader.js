@@ -16,8 +16,8 @@ const noop = () => {}
 
 class WebfontLoader extends Component {
 
-	constructor(props) {
-	    super(props)
+	constructor( props ) {
+	    super( props )
 
 	    this.state = {
 			status: undefined,

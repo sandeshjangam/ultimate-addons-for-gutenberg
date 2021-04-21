@@ -56,7 +56,7 @@ class UAGBGoogleMap extends Component {
 		} = this.props
 		let encoded_address = encodeURI( address )
 
-		var lang_par = (language) ? language : "en"
+		var lang_par = ( language ) ? language : "en"
 
 		let url = `https://www.google.com/maps/embed/v1/place?key=${api_key}&q=${encoded_address}&zoom=${zoom}&language=${lang_par}`
 
@@ -174,7 +174,7 @@ class UAGBGoogleMap extends Component {
 						className="uagb-google-map__iframe"
 						title = { __( "Google Map for " + address ) }
 						src={url}
-						style={{height: height}}></iframe>
+						style={{ height: height }}></iframe>
 				</div>
 			</Fragment>
 		)
@@ -229,7 +229,7 @@ registerBlockType( "uagb/google-map", {
 		
 		let encoded_address = encodeURI( address )
 
-		var lang_par = (language) ? language : "en"
+		var lang_par = ( language ) ? language : "en"
 
 		let url = `https://www.google.com/maps/embed/v1/place?key=${api_key}&q=${encoded_address}&zoom=${zoom}&language=${lang_par}`
 
@@ -239,7 +239,7 @@ registerBlockType( "uagb/google-map", {
 					className="uagb-google-map__iframe"
 					title = { __( "Google Map for " + address ) }
 					src={url}
-					style={{height: height}}></iframe>
+					style={{ height: height }}></iframe>
 			</div>
 		)
 	},
@@ -281,7 +281,7 @@ registerBlockType( "uagb/google-map", {
 							className="uagb-google-map__iframe"
 							title = { __( "Google Map for " + address ) }
 							src={url}
-							style={{height: height}}></iframe>
+							style={{ height: height }}></iframe>
 					</div>
 				)
 			},
@@ -321,7 +321,7 @@ registerBlockType( "uagb/google-map", {
 						<iframe
 							className="uagb-google-map__iframe"
 							src={url}
-							style={{height: height}}></iframe>
+							style={{ height: height }}></iframe>
 					</div>
 				)
 			},
@@ -361,7 +361,7 @@ registerBlockType( "uagb/google-map", {
 						<iframe
 							className="uagb-google-map__iframe"
 							src={url}
-							style={{height: height}}></iframe>
+							style={{ height: height }}></iframe>
 					</div>
 				)
 			},

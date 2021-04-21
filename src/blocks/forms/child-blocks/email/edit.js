@@ -70,13 +70,13 @@ class UAGBFormsEmailEdit extends Component {
 					 	label="Placeholder"
 						value={ placeholder }
 						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
-						placeholder={__( "Placeholder" , "ultimate-addons-for-gutenberg")}
+						placeholder={__( "Placeholder" , "ultimate-addons-for-gutenberg" )}
 					/>
 				</PanelBody>
 			)
 		}
 
-		const isRequired = (required) ? __("required" , "ultimate-addons-for-gutenberg") : ""
+		const isRequired = ( required ) ? __( "required" , "ultimate-addons-for-gutenberg" ) : ""
 
 		return (
 			<Fragment>

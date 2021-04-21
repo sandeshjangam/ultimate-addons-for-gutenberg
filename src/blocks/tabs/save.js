@@ -37,14 +37,14 @@ export default function save( props ) {
 				{tabHeaders.map( ( header, index ) => (
 					<li key={ index } className="uagb-tab">
 						<a href={`#uagb-tabs__tab${index}`} className={`uagb-tabs__icon-position-${iconPosition}`}>
-							{(showIcon && (iconPosition === "left" || iconPosition === "top" ) &&
-                                 <span className="uagb-tabs__icon">{ renderSVG(icon) }</span>)}
+							{( showIcon && ( iconPosition === "left" || iconPosition === "top" ) &&
+                                 <span className="uagb-tabs__icon">{ renderSVG( icon ) }</span> )}
 							<RichText.Content
 								tagName={ "span" }
 								value={ header }					
 							/>
-							{(showIcon && (iconPosition === "right" || iconPosition === "bottom") &&
-                                 <span className="uagb-tabs__icon">{ renderSVG(icon) }</span>)}
+							{( showIcon && ( iconPosition === "right" || iconPosition === "bottom" ) &&
+                                 <span className="uagb-tabs__icon">{ renderSVG( icon ) }</span> )}
 						</a>
 					</li>
 				) ) }

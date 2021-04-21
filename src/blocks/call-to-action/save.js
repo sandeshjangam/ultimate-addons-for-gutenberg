@@ -57,7 +57,7 @@ export default function save( props ) {
 			) }>
 				<div className = "uagb-cta__left-right-wrap">
 
-					{ ( ctaPosition == "left") &&
+					{ ( ctaPosition == "left" ) &&
 							is_cta
 					}
 					<div className = "uagb-cta__content">
@@ -78,7 +78,7 @@ export default function save( props ) {
 						    </Fragment>
 						}
 
-						{ ( ctaPosition == "left" || ctaPosition == "right") &&
+						{ ( ctaPosition == "left" || ctaPosition == "right" ) &&
 							<Fragment>
 								{ title_text }
 								{ desc }
@@ -87,7 +87,7 @@ export default function save( props ) {
 
 					</div>
 
-					{ ( ctaPosition == "right") &&
+					{ ( ctaPosition == "right" ) &&
 							is_cta
 					}
 				</div>
@@ -107,13 +107,13 @@ export default function save( props ) {
 			`uagb-block-${block_id}`
 		) }>
 
-			{ ( ctaType == "all") &&
+			{ ( ctaType == "all" ) &&
 					<Fragment>
 						<a href= {ctaLink} className = "uagb-cta__block-link-wrap uagb-cta__link-to-all" target={target} rel ="noopener noreferrer"></a>
 						{output}
 					</Fragment>
 			}
-			{ ( ctaType !== "all") && output }
+			{ ( ctaType !== "all" ) && output }
 
 		</div>
 	)

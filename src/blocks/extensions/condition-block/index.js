@@ -42,33 +42,33 @@ const UserConditionOptions = ( props ) => {
 			{ UAGDisplayConditions == "userstate" && 
                 <Fragment>
                 	<ToggleControl
-                		label={ __("Hide From Logged In Users")}
+                		label={ __( "Hide From Logged In Users" )}
                 		checked={UAGLoggedIn}
-                		onChange={(value) => setAttributes({ UAGLoggedIn: !attributes.UAGLoggedIn })}
+                		onChange={( value ) => setAttributes( { UAGLoggedIn: !attributes.UAGLoggedIn } )}
                 	/>
                 	<ToggleControl
-                		label={ __("Hide From Logged Out Users" ) }
+                		label={ __( "Hide From Logged Out Users" ) }
                 		checked={UAGLoggedOut}
-                		onChange={(value) => setAttributes({ UAGLoggedOut: !attributes.UAGLoggedOut })}
+                		onChange={( value ) => setAttributes( { UAGLoggedOut: !attributes.UAGLoggedOut } )}
                 	/>
                 </Fragment>
 			}
 			{ UAGDisplayConditions == "responsiveVisibility" && 
                 <Fragment>
                 	<ToggleControl
-                		label={ __("Hide on Desktop")}
+                		label={ __( "Hide on Desktop" )}
                 		checked={UAGHideDesktop}
-                		onChange={(value) => setAttributes({ UAGHideDesktop: !attributes.UAGHideDesktop })}
+                		onChange={( value ) => setAttributes( { UAGHideDesktop: !attributes.UAGHideDesktop } )}
                 	/>
                 	<ToggleControl
-                		label={ __("Hide on Tablet" ) }
+                		label={ __( "Hide on Tablet" ) }
                 		checked={UAGHideTab}
-                		onChange={(value) => setAttributes({ UAGHideTab: !attributes.UAGHideTab })}
+                		onChange={( value ) => setAttributes( { UAGHideTab: !attributes.UAGHideTab } )}
                 	/>
                 	<ToggleControl
-                		label={ __("Hide on Mobile" ) }
+                		label={ __( "Hide on Mobile" ) }
                 		checked={UAGHideMob}
-                		onChange={(value) => setAttributes({ UAGHideMob: !attributes.UAGHideMob })}
+                		onChange={( value ) => setAttributes( { UAGHideMob: !attributes.UAGHideMob } )}
                 	/>
                 </Fragment>
 			}

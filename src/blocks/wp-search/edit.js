@@ -54,7 +54,7 @@ class UAGBWpSearchEdit extends Component {
 		$style.setAttribute( "id", "uagb-style-wp-search-" + this.props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
 	}
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 
 		if ( ! this.props.isSelected && prevProps.isSelected && this.state.isFocused ) {
 			this.setState( {
@@ -190,7 +190,7 @@ class UAGBWpSearchEdit extends Component {
 							{ value: "input-button", label: __( "Classic","ultimate-addons-for-gutenberg" ) },
 							{ value: "input", label: __( "Minimal","ultimate-addons-for-gutenberg" ) },
 						] }
-						onChange={ (value) => setAttributes( { layout: value } ) }
+						onChange={ ( value ) => setAttributes( { layout: value } ) }
 					/>
 					<Fragment>
 						<TextControl
@@ -639,4 +639,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})(UAGBWpSearchEdit)
+} )( UAGBWpSearchEdit )

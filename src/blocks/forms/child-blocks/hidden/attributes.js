@@ -9,7 +9,7 @@ const attributes = {
 	},
 	hidden_field_name : {
 		type: "string",
-		default: __("Hidden Field Name", "ultimate-addons-for-gutenberg")
+		default: __( "Hidden Field Name", "ultimate-addons-for-gutenberg" )
 	},
 	hidden_field_value : {
 		type: "string"

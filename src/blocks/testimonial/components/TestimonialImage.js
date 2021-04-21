@@ -13,7 +13,7 @@ class TestimonialImage extends React.Component {
         
 		const image_arr = attributes.test_block[index_value]
         
-		if( image_arr && typeof image_arr !== "undefined"){
+		if( image_arr && typeof image_arr !== "undefined" ){
 			const image = image_arr["image"]
 			let url = ""
            
@@ -24,7 +24,7 @@ class TestimonialImage extends React.Component {
 			if( url_check !== "" ){
 				let size = image.sizes
 				let imageSize = attributes.imageSize
-				if ( typeof size !== "undefined" && typeof size[imageSize] !== "undefined") {
+				if ( typeof size !== "undefined" && typeof size[imageSize] !== "undefined" ) {
 					url = size[imageSize].url 
 				}else{
 					url = url_check 

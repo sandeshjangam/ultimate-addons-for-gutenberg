@@ -6,7 +6,7 @@ const ITEM_COUNT = 3
 
 const testimonial_block = []
 
-for (var i = 1; i <= ITEM_COUNT; i++) {
+for ( var i = 1; i <= ITEM_COUNT; i++ ) {
 	var desc_text = "I have been working with these guys since years now! With lots of hard work and timely communication they made sure they delivered the best to me. Highly recommended!"
 	var author_text    = "John Doe "
 	var company_text    = "Company"+i

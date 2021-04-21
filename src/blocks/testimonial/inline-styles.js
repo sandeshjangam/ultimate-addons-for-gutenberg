@@ -174,7 +174,7 @@ function TestimonialStyle( props ) {
 		}
 	}
 
-	if( arrowDots === "dots"){
+	if( arrowDots === "dots" ){
 		selectors[" .uagb-slick-carousel.uagb-tm__arrow-outside"] = {
 			"padding" : "0 0 35px 0",
 		}

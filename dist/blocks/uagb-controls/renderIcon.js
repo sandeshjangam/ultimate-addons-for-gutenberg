@@ -15,8 +15,8 @@ function renderSVG ( svg ) {
 
 	if ( "undefined" != typeof fontAwesome ) {
 
-		var viewbox_array = ( fontAwesome["svg"].hasOwnProperty("brands") ) ? fontAwesome["svg"]["brands"]["viewBox"] : fontAwesome["svg"]["solid"]["viewBox"]
-		var path = ( fontAwesome["svg"].hasOwnProperty("brands") ) ? fontAwesome["svg"]["brands"]["path"] : fontAwesome["svg"]["solid"]["path"]
+		var viewbox_array = ( fontAwesome["svg"].hasOwnProperty( "brands" ) ) ? fontAwesome["svg"]["brands"]["viewBox"] : fontAwesome["svg"]["solid"]["viewBox"]
+		var path = ( fontAwesome["svg"].hasOwnProperty( "brands" ) ) ? fontAwesome["svg"]["brands"]["path"] : fontAwesome["svg"]["solid"]["path"]
 		var viewBox = viewbox_array.join( " " )
 
 		return (

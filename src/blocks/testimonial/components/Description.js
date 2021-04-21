@@ -21,7 +21,7 @@ class Description extends React.Component {
 			
 		const test_arr = attributes.test_block[index_value]
 		let description = ""
-		if( test_arr && typeof test_arr !== "undefined"){
+		if( test_arr && typeof test_arr !== "undefined" ){
 			description = test_arr["description"]			
 		}
 

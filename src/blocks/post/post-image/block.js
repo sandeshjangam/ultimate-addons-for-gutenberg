@@ -3,7 +3,7 @@
  */
 
 // Import block dependencies and components
-import {PostImage} from "./edit"
+import { PostImage } from "./edit"
 import save from "./save"
 import UAGB_Block_Icons from "../../../../dist/blocks/uagb-controls/block-icons"
 import "./editor.scss"

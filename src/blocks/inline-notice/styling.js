@@ -100,7 +100,7 @@ function styling( props ) {
 		},
 	}
 	
-	if("modern" == layout){	
+	if( "modern" == layout ){	
 
 		selectors[" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus"]["background-color"] = noticeColor
 		selectors[" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus"]["border-top-right-radius"] = "3px"
@@ -112,7 +112,7 @@ function styling( props ) {
 		selectors[" .rich-text.block-editor-rich-text__editable.uagb-notice-text"]["border-bottom-right-radius"] = "3px"
 
 
-	}else if("simple" == layout){	
+	}else if( "simple" == layout ){	
 		
 		selectors[" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus"]["background-color"] = contentBgColor
 		selectors[" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus"]["border-left"] =  generateCSSUnit( highlightWidth, "px" ) +" solid " + noticeColor

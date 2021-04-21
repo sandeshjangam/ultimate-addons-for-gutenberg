@@ -72,7 +72,7 @@ class Blog extends React.Component {
 			rtl : false,
 			afterChange: current  => {
 				if( equalHeight ){
-					uagb_carousel_height(block_id)
+					uagb_carousel_height( block_id )
 				}
 		    },
 			nextArrow: <NextArrow arrowSize={arrowSize}/>,
@@ -145,7 +145,7 @@ class Blog extends React.Component {
 
 			let style_str = ""
 
-			if ( "dots" == arrowDots ) { style_str = {padding:"0 0 35px 0"} }
+			if ( "dots" == arrowDots ) { style_str = { padding:"0 0 35px 0" } }
 
 			return (
 

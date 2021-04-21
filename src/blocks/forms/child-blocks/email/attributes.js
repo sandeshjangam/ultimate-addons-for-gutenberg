@@ -10,7 +10,7 @@ const attributes = {
 	},
 	name: {
 		type: "string",
-		default: __("Email" , "ultimate-addons-for-gutenberg" )
+		default: __( "Email" , "ultimate-addons-for-gutenberg" )
 	},
 	required : {
 		type: "boolean",
@@ -18,7 +18,7 @@ const attributes = {
 	},
 	placeholder: {
 		type: "string",
-		default: __( "example@mail.com" , "ultimate-addons-for-gutenberg")
+		default: __( "example@mail.com" , "ultimate-addons-for-gutenberg" )
 	},
 }
 export default attributes

@@ -48,8 +48,8 @@ class UAGBButtonsChild extends Component {
 	
 	constructor() {
 		super( ...arguments )
-		this.onClickLinkSettings = this.onClickLinkSettings.bind(this)
-		this.onChangeOpensInNewTab = this.onChangeOpensInNewTab.bind(this)
+		this.onClickLinkSettings = this.onClickLinkSettings.bind( this )
+		this.onChangeOpensInNewTab = this.onChangeOpensInNewTab.bind( this )
 		this.state = {
 			isURLPickerOpen:false,
 		}
@@ -85,7 +85,7 @@ class UAGBButtonsChild extends Component {
 
 		this.setState( {
 			isURLPickerOpen: true
-		}) 
+		} ) 
 	}
 
 	onChangeOpensInNewTab ( value ) {
@@ -133,7 +133,7 @@ class UAGBButtonsChild extends Component {
 		const icon_props = {
 			icons: svg_icons,
 			value: icon,
-			onChange: (value) => ( setAttributes( { icon: value } ) ),
+			onChange: ( value ) => ( setAttributes( { icon: value } ) ),
 			isMulti: false,
 			renderFunc: renderSVG,
 			noSelectedPlaceholder: __( "Select Icon", "ultimate-addons-for-gutenberg" )
@@ -145,7 +145,7 @@ class UAGBButtonsChild extends Component {
 				position="bottom center"
 				onClose={ () => this.setState( {
 					isURLPickerOpen: false
-				}) }
+				} ) }
 			>
 				<__experimentalLinkControl
 					value={ { url:link, opensInNewTab:opensInNewTab }  }
@@ -564,8 +564,8 @@ class UAGBButtonsChild extends Component {
 		const icon_html = ( curr_position ) => {
 			if ( "" !== icon && curr_position === iconPosition ) {
 				return (
-					<span className= { classnames("uagb-button__icon", `uagb-button__icon-position-${ iconPosition }`) }>
-						{ renderSVG(icon) }
+					<span className= { classnames( "uagb-button__icon", `uagb-button__icon-position-${ iconPosition }` ) }>
+						{ renderSVG( icon ) }
 					</span>
 				)
 			}
@@ -604,7 +604,7 @@ class UAGBButtonsChild extends Component {
 								value={ label }
 								tagName='div'
 								onChange={ value => {
-									setAttributes( { label: value })
+									setAttributes( { label: value } )
 								} }
 								allowedFormats={ [ "bold", "italic", "strikethrough" ] }
 								className='uagb-button__link'
@@ -628,4 +628,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})( UAGBButtonsChild )
+} )( UAGBButtonsChild )

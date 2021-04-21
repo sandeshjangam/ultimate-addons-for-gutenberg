@@ -129,7 +129,7 @@ function styling( props ) {
 		selectors[" > .uagb-section__overlay"]["background-color"] = "transparent"
 		selectors[" > .uagb-section__overlay"]["opacity"] = ( typeof backgroundOpacity != "undefined" ) ? backgroundOpacity/100 : ""
 
-		if(gradientValue){
+		if( gradientValue ){
 			selectors[" > .uagb-section__overlay"]["background-image"] = gradientValue
 		}else{
 			if ( "linear" === gradientType ) {

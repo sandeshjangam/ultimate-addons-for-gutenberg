@@ -41,7 +41,7 @@ const deprecated = [
 								...PositionClasses( props.attributes ),
 							) } key ={ "wrap-"+index } >
 								<div className = "uagb-rm__content" key ={ "tm_content-"+index }>
-									{ (imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  index_value = {index} /> }
+									{ ( imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  index_value = {index} /> }
 
 									<div className ="uagb-rm__text-wrap">
 										{
@@ -97,7 +97,7 @@ const deprecated = [
 								...PositionClasses( props.attributes ),
 							) } key ={ "wrap-"+index } >
 								<div className = "uagb-rm__content" key ={ "tm_content-"+index }>
-									{ (imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  index_value = {index} /> }
+									{ ( imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  index_value = {index} /> }
 		
 									<div className ="uagb-rm__text-wrap">
 										{

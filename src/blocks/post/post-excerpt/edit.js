@@ -1,13 +1,13 @@
 import truncate from "lodash/truncate"
 
-export const PostExcerpt = (props) =>  {
+export const PostExcerpt = ( props ) =>  {
 	const { post, attributes } = props
 
 	if ( post.uagb_excerpt == undefined ) {
 		return null
 	}
 
-	const words = post.uagb_excerpt.split(" ")
+	const words = post.uagb_excerpt.split( " " )
 
 	let excerpt = post.uagb_excerpt
 
@@ -31,7 +31,7 @@ export const PostExcerpt = (props) =>  {
 			</div>
 		)
 
-	}else if(attributes.displayPostExcerpt && attributes.displayPostContentRadio == "full_post" ){
+	}else if( attributes.displayPostExcerpt && attributes.displayPostContentRadio == "full_post" ){
 			
 		return (
 			<div className='uagb-post__text'> 

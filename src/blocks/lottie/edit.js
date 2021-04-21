@@ -34,7 +34,7 @@ class UAGBLottie extends Component {
 	constructor() {
 		super( ...arguments )
 		this.lottieplayer = React.createRef()
-		this.state = {  direction: 1,  loopState: true,}
+		this.state = {  direction: 1,  loopState: true, }
 		this.onSelectLottieJSON    = this.onSelectLottieJSON.bind( this )
 		this.reverseDirection    = this.reverseDirection.bind( this )
 		this.loopLottie    = this.loopLottie.bind( this )        
@@ -52,7 +52,7 @@ class UAGBLottie extends Component {
 		document.head.appendChild( $style )
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-lottie-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -82,7 +82,7 @@ class UAGBLottie extends Component {
 		const { loopState } = this.state
 
 		setAttributes( { loop: ! loop } )
-		this.setState({ loopState :! loopState})
+		this.setState( { loopState :! loopState } )
 		
 	}
 
@@ -92,7 +92,7 @@ class UAGBLottie extends Component {
 		const { direction } = this.state
 
 		setAttributes( { reverse: ! reverse } )
-		this.setState({ direction : direction * -1 })
+		this.setState( { direction : direction * -1 } )
 		
 	}
       
@@ -301,7 +301,7 @@ class UAGBLottie extends Component {
 
 		//Check if given url is valid or not for json extension.
 		var validJsonPath = "invalid"
-		if( lottieURl && lottieURl.endsWith(".json") ){
+		if( lottieURl && lottieURl.endsWith( ".json" ) ){
 			validJsonPath = "valid" 
 		}       
 		if ( ! uagb_blocks_info.uagb_mime_type ) {
@@ -309,9 +309,9 @@ class UAGBLottie extends Component {
 			return(
 				<div className="uagb-show-notice">
 					<span> 
-						{__("Lottie block requires the file type JSON to be uploaded to media files. Seems like your website has disabled this file type. Please refer", "ultimate-addons-for-gutenberg" )}
+						{__( "Lottie block requires the file type JSON to be uploaded to media files. Seems like your website has disabled this file type. Please refer", "ultimate-addons-for-gutenberg" )}
 						<a href={`${uagb_blocks_info.uagb_site_url}/docs/lottie/?utm_source=uagb-dashboard&utm_medium=uagb-editor-page&utm_campaign=uagb-plugin`} target="__blank"> { __( "this document" ) } </a>
-						{__("to know more about it.")}
+						{__( "to know more about it." )}
 					</span>
 				</div>
 			) 
@@ -319,8 +319,8 @@ class UAGBLottie extends Component {
 
 		if ( validJsonPath === "invalid" ) {
 
-			const lottie_url = <span> {__("Allows you to add fancy animation i.e Lottie to your website. You can see sample Lottie animations", "ultimate-addons-for-gutenberg" )}
-				<a href="https://lottiefiles.com/" target="__blank"> { __( "here on this" ) } </a>{__("website.")}</span>
+			const lottie_url = <span> {__( "Allows you to add fancy animation i.e Lottie to your website. You can see sample Lottie animations", "ultimate-addons-for-gutenberg" )}
+				<a href="https://lottiefiles.com/" target="__blank"> { __( "here on this" ) } </a>{__( "website." )}</span>
 
 			return (               
 				<div className="uagb-lottie_upload_wrap">                    
@@ -348,7 +348,7 @@ class UAGBLottie extends Component {
 			this.lottieplayer.current.anim.stop()
 		}
 
-		const reversedir = (reverse && loop ) ? -1 : 1
+		const reversedir = ( reverse && loop ) ? -1 : 1
 
 		var play_animation = true
 

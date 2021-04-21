@@ -11,7 +11,7 @@ class Blog extends React.Component {
 
 	render() {
 
-		const { attributes, className, latestPosts, block_id, categoriesList, deviceType} = this.props
+		const { attributes, className, latestPosts, block_id, categoriesList, deviceType } = this.props
 
 		const {
 			columns,

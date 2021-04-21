@@ -162,7 +162,7 @@ const deprecated = [
                         					</div>
                         				</div>
                         			)
-                        		})
+                        		} )
                         	}
                         </div>
 						}
@@ -195,7 +195,7 @@ const deprecated = [
                         					</div>
                         				</div>
                         			)
-                        		})
+                        		} )
                         	}
                         </div>
 						}

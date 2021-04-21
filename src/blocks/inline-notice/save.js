@@ -30,7 +30,7 @@ export default function save( props ) {
 	let image_icon_html = ""
 
 	if ( noticeDismiss ) {
-		image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG(icon) }</span>
+		image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG( icon ) }</span>
 	}
 
 	var active = ""

@@ -12,7 +12,7 @@ const attributes = {
 	},
 	name: {
 		type: "string",
-		default: __("Name" , "ultimate-addons-for-gutenberg")
+		default: __( "Name" , "ultimate-addons-for-gutenberg" )
 	},
 	toggleStatus : {
 		type: "boolean",

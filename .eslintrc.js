@@ -16,6 +16,8 @@ module.exports = {
 	},
 	plugins: [ 'react' ],
 	rules: {
+		"object-curly-spacing": ["error", "always", { "objectsInObjects": false }],
+		"space-in-parens": ["error", "always"],
 		"react/react-in-jsx-scope": "off",
 		indent: [ 'error', 'tab' ],
 		'linebreak-style': [ 'error', 'windows' ],

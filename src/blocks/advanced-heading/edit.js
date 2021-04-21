@@ -66,7 +66,7 @@ class UAGBAdvancedHeading extends Component {
 		document.head.appendChild( $style )
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-adv-heading-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -242,7 +242,7 @@ class UAGBAdvancedHeading extends Component {
 							lineHeightMobile = { { value: headLineHeightMobile, label:"headLineHeightMobile"  } }
 							lineHeightTablet= { { value: headLineHeightTablet, label:"headLineHeightTablet"  } }
 						/>
-						<p className="uagb-setting-label">{ __( "Heading Color" , "ultimate-addons-for-gutenberg") }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Heading Color" , "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
 						<ColorPalette
 							value={ headingColor }
 							onChange={ ( value ) => setAttributes( { headingColor: value } ) }

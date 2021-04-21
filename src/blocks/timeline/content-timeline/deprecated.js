@@ -60,9 +60,9 @@ const deprecated = [
 							<div className = "uagb-timeline__main">
 								<div className = "uagb-timeline__days">
 									{
-										tm_content.map((post,index) => {
+										tm_content.map( ( post,index ) => {
 											var second_index = "uagb-"+index
-											if(timelinAlignment == "center"){
+											if( timelinAlignment == "center" ){
 												display_inner_date = true
 												content_align_class = AlignClass( props.attributes, index ) // Get classname for layout alignment
 												day_align_class     = DayAlignClass( props.attributes, index ) //
@@ -129,7 +129,7 @@ const deprecated = [
 												</article>
 											)
 
-										})
+										} )
 									}
 								</div>
 								<div className = "uagb-timeline__line" >
@@ -185,9 +185,9 @@ const deprecated = [
 							<div className = "uagb-timeline__main">
 								<div className = "uagb-timeline__days">
 									{
-										tm_content.map((post,index) => {
+										tm_content.map( ( post,index ) => {
 											var second_index = "uagb-"+index
-											if(timelinAlignment == "center"){
+											if( timelinAlignment == "center" ){
 												display_inner_date = true
 												content_align_class = AlignClass( props.attributes, index ) // Get classname for layout alignment
 												day_align_class     = DayAlignClass( props.attributes, index ) //
@@ -257,7 +257,7 @@ const deprecated = [
 												</article>
 											)
 
-										})
+										} )
 									}
 								</div>
 								<div className = "uagb-timeline__line" >
@@ -312,14 +312,14 @@ const deprecated = [
 							<div className = "uagb-timeline__main">
 								<div className = "uagb-timeline__days">
 									{
-										tm_content.map((post,index) => {
+										tm_content.map( ( post,index ) => {
 
 											if ( timelineItem <= index ) {
 												return
 											}
 
 											var second_index = "uagb-"+index
-											if(timelinAlignment == "center"){
+											if( timelinAlignment == "center" ){
 												display_inner_date = true
 												content_align_class = AlignClass( props.attributes, index ) // Get classname for layout alignment
 												day_align_class     = DayAlignClass( props.attributes, index ) //
@@ -337,7 +337,7 @@ const deprecated = [
 													) }>
 
 														<div className = "uagb-timeline__marker out-view-uagb-timeline__icon">
-															<span className = {icon_class}>{ renderSVG(icon) }</span>
+															<span className = {icon_class}>{ renderSVG( icon ) }</span>
 														</div>
 
 														<div className = { classnames(
@@ -389,7 +389,7 @@ const deprecated = [
 												</article>
 											)
 
-										})
+										} )
 									}
 								</div>
 								<div className = "uagb-timeline__line" >
@@ -443,14 +443,14 @@ const deprecated = [
 							<div className = "uagb-timeline__main">
 								<div className = "uagb-timeline__days">
 									{
-										tm_content.map((post,index) => {
+										tm_content.map( ( post,index ) => {
 		
 											if ( timelineItem <= index ) {
 												return
 											}
 		
 											var second_index = "uagb-"+index
-											if(timelinAlignment == "center"){
+											if( timelinAlignment == "center" ){
 												display_inner_date = true
 												content_align_class = AlignClass( props.attributes, index ) // Get classname for layout alignment
 												day_align_class     = DayAlignClass( props.attributes, index ) //
@@ -472,7 +472,7 @@ const deprecated = [
 													) }>
 		
 														<div className = "uagb-timeline__marker out-view-uagb-timeline__icon">
-															<span className = {icon_class}>{ renderSVG(icon) }</span>
+															<span className = {icon_class}>{ renderSVG( icon ) }</span>
 														</div>
 		
 														<div className = { classnames(
@@ -524,7 +524,7 @@ const deprecated = [
 												</article>
 											)
 		
-										})
+										} )
 									}
 								</div>
 								<div className = "uagb-timeline__line" >

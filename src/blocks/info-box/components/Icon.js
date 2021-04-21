@@ -16,7 +16,7 @@ class Icon extends React.Component {
 			<div className="uagb-ifb-image-icon-content uagb-ifb-imgicon-wrap" >
 				<div className="uagb-ifb-icon-wrap">
 					<span className="uagb-ifb-icon">
-						{ renderSVG(attributes.icon) }
+						{ renderSVG( attributes.icon ) }
 					</span>
 				</div>
 			</div>

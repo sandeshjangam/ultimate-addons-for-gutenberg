@@ -50,7 +50,7 @@ const {
 	InnerBlocks
 } = wp.blockEditor
 
-const { withSelect , useDispatch, withDispatch} = wp.data
+const { withSelect , useDispatch, withDispatch } = wp.data
 
 class UAGBPostMasonry extends Component {
 
@@ -114,7 +114,7 @@ class UAGBPostMasonry extends Component {
 		document.head.appendChild( $style )
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-post-masonry-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -132,7 +132,7 @@ class UAGBPostMasonry extends Component {
 		}
 
 		const onCancel = () => {
-			const {replaceInnerBlocks } = this.props
+			const { replaceInnerBlocks } = this.props
 			const { innerBlocks } = this.state
 			replaceInnerBlocks( this.props.clientId, innerBlocks )
 			this.togglePreview()
@@ -146,7 +146,7 @@ class UAGBPostMasonry extends Component {
 				return true
 			} )	
 			replaceInnerBlocks( this.props.clientId, newBlocks )
-			this.setState( { innerBlocks: block} )
+			this.setState( { innerBlocks: block } )
 		}
 
 		const InnerBlockProps = {
@@ -196,7 +196,7 @@ class UAGBPostMasonry extends Component {
 							className="uagb-block-all-post__reset-button"
 							onClick={ onReset }
 						>
-							{ __("Reset Layout") }
+							{ __( "Reset Layout" ) }
 						</Button>
 					</div>
 				</div>
@@ -504,7 +504,7 @@ class UAGBPostMasonry extends Component {
 									aria-pressed = { "right" === paginationAlign }
 									isPrimary = { "right" === paginationAlign }
 								/>
-								<h2> { __("Font Size (px) ","ultimate-addons-for-gutenberg") } </h2>
+								<h2> { __( "Font Size (px) ","ultimate-addons-for-gutenberg" ) } </h2>
 								<RangeControl
 									value={ paginationFontSize }
 									onChange={ ( value ) => setAttributes( { paginationFontSize: value } ) }
@@ -818,7 +818,7 @@ class UAGBPostMasonry extends Component {
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Tablet" === deviceType && (
 						<RangeControl
@@ -827,7 +827,7 @@ class UAGBPostMasonry extends Component {
 							onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					{ "Mobile" === deviceType && (
 						<RangeControl
@@ -836,7 +836,7 @@ class UAGBPostMasonry extends Component {
 							onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
 							min={ 1 }
 							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>)
+						/> )
 					}
 					<SelectControl
 						label={ __( "Pagination","ultimate-addons-for-gutenberg" ) }
@@ -970,7 +970,7 @@ class UAGBPostMasonry extends Component {
 							selected={ displayPostContentRadio }
 							options={ [
 								{ label: __( "Excerpt","ultimate-addons-for-gutenberg" ), value: "excerpt" },
-								{label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post",},
+								{ label: __( "Full post","ultimate-addons-for-gutenberg" ), value: "full_post", },
 							] }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -1393,24 +1393,24 @@ export default compose(
 		}
 
 		if ( excludeCurrentPost ) {		
-			latestPostsQuery["exclude"] = select("core/editor").getCurrentPostId()
+			latestPostsQuery["exclude"] = select( "core/editor" ).getCurrentPostId()
 		}
 		var category = []	
-		var temp = parseInt(categories)
-		category.push(temp)
+		var temp = parseInt( categories )
+		category.push( temp )
 		var catlenght = categoriesList.length
-		for(var i=0;i<catlenght;i++){
-			if(categoriesList[i].id == temp){
-				if(categoriesList[i].child.length !== 0){
-					categoriesList[i].child.forEach(element => {
-						category.push(element)
-					})
+		for( var i=0;i<catlenght;i++ ){
+			if( categoriesList[i].id == temp ){
+				if( categoriesList[i].child.length !== 0 ){
+					categoriesList[i].child.forEach( element => {
+						category.push( element )
+					} )
 				}		
 			}
 		}
 		const { getBlocks } = select( "core/block-editor" )
 		if ( undefined !== categories && "" !== categories ) {
-			latestPostsQuery[rest_base] = (undefined === categories || "" === categories ) ? categories :category
+			latestPostsQuery[rest_base] = ( undefined === categories || "" === categories ) ? categories :category
 		}
 		return {
 			latestPosts: getEntityRecords( "postType", postType, latestPostsQuery ),

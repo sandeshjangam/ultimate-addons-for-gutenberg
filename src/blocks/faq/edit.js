@@ -123,14 +123,14 @@ class UAGBFaqEdit extends Component {
 		}
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		if (
 			JSON.stringify( this.props.schemaJsonData ) !==
 			JSON.stringify( prevProps.schemaJsonData )
 		) {
-			this.props.setAttributes({
-				schema: JSON.stringify(this.props.schemaJsonData)
-			})
+			this.props.setAttributes( {
+				schema: JSON.stringify( this.props.schemaJsonData )
+			} )
 		}
 		var element = document.getElementById( "uagb-style-faq-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -138,48 +138,48 @@ class UAGBFaqEdit extends Component {
 			element.innerHTML = styling( this.props )
 		}
 
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((faqChild, key) => {
+		getChildBlocks.forEach( ( faqChild, key ) => {
 			faqChild.attributes.headingTag = this.props.attributes.headingTag
-		})
+		} )
 	}
 	onchangeIcon ( value ) {
 		const { setAttributes } = this.props
-		let getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
-		getChildBlocks.forEach((faqChild, key) => {
+		let getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
+		getChildBlocks.forEach( ( faqChild, key ) => {
 			faqChild.attributes.icon = value
-		})
+		} )
 
 		setAttributes( { icon: value } )
 	}
 	onchangeActiveIcon ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((faqChild, key) => {
+		getChildBlocks.forEach( ( faqChild, key ) => {
 			faqChild.attributes.iconActive = value
-		})
+		} )
 
 		setAttributes( { iconActive: value } )
 	}
 	onchangeLayout ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((faqChild, key) => {
+		getChildBlocks.forEach( ( faqChild, key ) => {
 			faqChild.attributes.layout = value
-		})
+		} )
 
 		setAttributes( { layout: value } )
 	}
 	onchangeTag ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((faqChild, key) => {
+		getChildBlocks.forEach( ( faqChild, key ) => {
 			faqChild.attributes.headingTag = value
-		})
+		} )
 
 		setAttributes( { headingTag: value } )
 	}
@@ -318,7 +318,7 @@ class UAGBFaqEdit extends Component {
 							{ value: "accordion", label: __( "Accordion", "ultimate-addons-for-gutenberg" ) },
 							{ value: "grid", label: __( "Grid", "ultimate-addons-for-gutenberg" ) },
 						] }
-						onChange={ (value) => this.onchangeLayout( value ) }
+						onChange={ ( value ) => this.onchangeLayout( value ) }
 					/>
 					{ "accordion" === layout &&
 						<Fragment>
@@ -616,7 +616,7 @@ class UAGBFaqEdit extends Component {
 						renderFunc= {renderSVG}
 						theme="default"
 						value={icon}
-						onChange={ (value) => this.onchangeIcon( value ) }
+						onChange={ ( value ) => this.onchangeIcon( value ) }
 						isMulti={false}
 						noSelectedPlaceholder= { __( "Select Icon", "ultimate-addons-for-gutenberg" ) }
 					/>
@@ -626,7 +626,7 @@ class UAGBFaqEdit extends Component {
 						renderFunc= {renderSVG}
 						theme="default"
 						value={iconActive}
-						onChange={ (value) => this.onchangeActiveIcon( value ) }
+						onChange={ ( value ) => this.onchangeActiveIcon( value ) }
 						isMulti={false}
 						noSelectedPlaceholder= { __( "Select Icon", "ultimate-addons-for-gutenberg" ) }
 					/>
@@ -661,7 +661,7 @@ class UAGBFaqEdit extends Component {
 					<SelectControl
 						label={ __( "Question Tag", "ultimate-addons-for-gutenberg" ) }
 						value={ headingTag }
-						onChange={ (value) => this.onchangeTag( value ) }
+						onChange={ ( value ) => this.onchangeTag( value ) }
 						options={ [
 							{ value: "span", label: __( "Span", "ultimate-addons-for-gutenberg" ) },
 							{ value: "p", label: __( "P", "ultimate-addons-for-gutenberg" ) },
@@ -996,7 +996,7 @@ class UAGBFaqEdit extends Component {
 
 export default compose(
 	withSelect( ( select, ownProps ) => {
-		const page_url = select("core/editor").getPermalink()
+		const page_url = select( "core/editor" ).getPermalink()
 		const { __experimentalGetPreviewDeviceType = null } = select( "core/edit-post" )
 
     	let deviceType = __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : null
@@ -1008,9 +1008,9 @@ export default compose(
 			"@id": page_url,
 			"mainEntity": []
 		}
-		const faqChildBlocks = select("core/block-editor").getBlocks( ownProps.clientId )
+		const faqChildBlocks = select( "core/block-editor" ).getBlocks( ownProps.clientId )
 
-		faqChildBlocks.forEach((faqChild, key) => {
+		faqChildBlocks.forEach( ( faqChild, key ) => {
 
 			faq_data = {
 				"@type" : "Question",
@@ -1021,7 +1021,7 @@ export default compose(
 				}
 			}
 			json_data["mainEntity"][key] = faq_data
-		})
+		} )
 
 		return {
 			deviceType: deviceType,

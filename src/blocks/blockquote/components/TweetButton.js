@@ -4,7 +4,7 @@ class TweetButton extends React.Component {
 
 	render() {
 
-		const { attributes} = this.props
+		const { attributes } = this.props
 	
 		return (			
 			<a href= "javascript:void(0)" className='uagb-blockquote__tweet-button' target='_blank' rel ='noopener noreferrer'>

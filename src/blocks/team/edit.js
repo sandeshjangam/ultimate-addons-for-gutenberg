@@ -56,7 +56,7 @@ class UAGBTeam extends Component {
 		let target_value =  ( target ) ? "_blank" : "_self"
 
 		return (
-			<li className="uagb-team__social-icon"><a href={link} aria-label={ icon } target={target_value} title="" rel ="noopener noreferrer">{ renderSVG(icon) }</a></li>
+			<li className="uagb-team__social-icon"><a href={link} aria-label={ icon } target={target_value} title="" rel ="noopener noreferrer">{ renderSVG( icon ) }</a></li>
 		)
 	}
 
@@ -66,14 +66,14 @@ class UAGBTeam extends Component {
 	}
 
 
-	getImageSize(sizes) {
+	getImageSize( sizes ) {
 		var size_arr = []
-		$.each(sizes, function (index, item) {
+		$.each( sizes, function ( index, item ) {
 		  var name = index
 		  	var p = { "value" : name, "label": name }
-		  	size_arr.push(p)
-		})
-		return(size_arr)
+		  	size_arr.push( p )
+		} )
+		return( size_arr )
 	}
 
 	onSelectImage( media ) {
@@ -90,7 +90,7 @@ class UAGBTeam extends Component {
 		setAttributes( { image: media } )
 		
 		if ( media["sizes"] ) {
-			var new_img = this.getImageSize(media["sizes"])
+			var new_img = this.getImageSize( media["sizes"] )
 			imageSizeOptions = new_img
 		}
 	}
@@ -179,7 +179,7 @@ class UAGBTeam extends Component {
 		} = attributes
 
 		if( image && image["sizes"] ){
-			imageSizeOptions = this.getImageSize(image["sizes"])
+			imageSizeOptions = this.getImageSize( image["sizes"] )
 		}
 
 		// Remove image.
@@ -759,7 +759,7 @@ class UAGBTeam extends Component {
 					) }>
 					<div className = "uagb-team__wrap">
 
-						{ ( imgPosition == "left") && image_html }
+						{ ( imgPosition == "left" ) && image_html }
 
 						<div className = "uagb-team__content">
 
@@ -773,7 +773,7 @@ class UAGBTeam extends Component {
 
 						</div>
 
-						{ ( imgPosition == "right") && image_html }
+						{ ( imgPosition == "right" ) && image_html }
 					</div>
 				</div>
 				{ loadTitleGoogleFonts }
@@ -783,7 +783,7 @@ class UAGBTeam extends Component {
 		)
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 		var element = document.getElementById( "uagb-team-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {

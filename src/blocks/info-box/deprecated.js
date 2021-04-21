@@ -81,20 +81,20 @@ const deprecated = [
 					) }>
 						<div className = "uagb-ifb-left-right-wrap">
 
-							{ ( iconimgPosition == "left") &&
+							{ ( iconimgPosition == "left" ) &&
 								is_image
 							}
 							<div className = "uagb-ifb-content">
 
 								{  iconimgPosition == "above-title" && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 								{ iconimgPosition == "below-title"  && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-								{ ( iconimgPosition === "left-title") &&
+								{ ( iconimgPosition === "left-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-left-title-image">
 											{ is_image }
@@ -104,7 +104,7 @@ const deprecated = [
 									</Fragment>
 								}
 
-								{ ( iconimgPosition === "right-title") &&
+								{ ( iconimgPosition === "right-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-right-title-image">
 											{ title_text }
@@ -114,7 +114,7 @@ const deprecated = [
 									</Fragment>
 								}
 
-								{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+								{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 									<Fragment>
 										{ title_text }
 										{ desc }
@@ -123,7 +123,7 @@ const deprecated = [
 
 							</div>
 
-							{ ( iconimgPosition == "right") &&
+							{ ( iconimgPosition == "right" ) &&
 								is_image
 							}
 						</div>
@@ -144,12 +144,12 @@ const deprecated = [
 					) }
 					id = { `uagb-infobox-${block_id}` } >
 
-						{ ( ctaType == "all") &&
+						{ ( ctaType == "all" ) &&
 							<Fragment>
 								<a href= {ctaLink} className = "uagb-infobox-link-wrap" target={target} rel ="noopener noreferrer"> {output}</a>
 							</Fragment>
 						}
-						{ ( ctaType !== "all") && output }
+						{ ( ctaType !== "all" ) && output }
 
 					</div>
 				</Fragment>
@@ -216,20 +216,20 @@ const deprecated = [
 					) }>
 						<div className = "uagb-ifb-left-right-wrap">
 
-							{ ( iconimgPosition == "left") &&
+							{ ( iconimgPosition == "left" ) &&
 									is_image
 							}
 							<div className = "uagb-ifb-content">
 
 								{  iconimgPosition == "above-title" && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 								{ iconimgPosition == "below-title"  && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-								{ ( iconimgPosition === "left-title") &&
+								{ ( iconimgPosition === "left-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-left-title-image">
 												{ is_image }
@@ -239,7 +239,7 @@ const deprecated = [
 										</Fragment>
 								}
 
-								{ ( iconimgPosition === "right-title") &&
+								{ ( iconimgPosition === "right-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-right-title-image">
 												{ title_text }
@@ -249,7 +249,7 @@ const deprecated = [
 										</Fragment>
 								}
 
-								{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+								{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 										<Fragment>
 											{ title_text }
 											{ desc }
@@ -258,7 +258,7 @@ const deprecated = [
 
 							</div>
 
-							{ ( iconimgPosition == "right") &&
+							{ ( iconimgPosition == "right" ) &&
 									is_image
 							}
 						</div>
@@ -279,12 +279,12 @@ const deprecated = [
 					) }
 					id = { `uagb-infobox-${block_id}` } >
 
-						{ ( ctaType == "all") &&
+						{ ( ctaType == "all" ) &&
 							<Fragment>
 								<a href= {ctaLink} className = "uagb-infobox-link-wrap" target={target} rel ="noopener noreferrer"> {output}</a>
 							</Fragment>
 						}
-						{ ( ctaType !== "all") && output }
+						{ ( ctaType !== "all" ) && output }
 
 					</div>
 				</Fragment>
@@ -351,20 +351,20 @@ const deprecated = [
 					) }>
 						<div className = "uagb-ifb-left-right-wrap">
 
-							{ ( iconimgPosition == "left") &&
+							{ ( iconimgPosition == "left" ) &&
 								is_image
 							}
 							<div className = "uagb-ifb-content">
 
 								{  iconimgPosition == "above-title" && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 								{ iconimgPosition == "below-title"  && is_image }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-								{ ( iconimgPosition === "left-title") &&
+								{ ( iconimgPosition === "left-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-left-title-image">
 											{ is_image }
@@ -374,7 +374,7 @@ const deprecated = [
 									</Fragment>
 								}
 
-								{ ( iconimgPosition === "right-title") &&
+								{ ( iconimgPosition === "right-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-right-title-image">
 											{ title_text }
@@ -384,7 +384,7 @@ const deprecated = [
 									</Fragment>
 								}
 
-								{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+								{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 									<Fragment>
 										{ title_text }
 										{ desc }
@@ -393,7 +393,7 @@ const deprecated = [
 
 							</div>
 
-							{ ( iconimgPosition == "right") &&
+							{ ( iconimgPosition == "right" ) &&
 								is_image
 							}
 						</div>
@@ -414,12 +414,12 @@ const deprecated = [
 					) }
 					id = { `uagb-infobox-${block_id}` } >
 
-						{ ( ctaType == "all") &&
+						{ ( ctaType == "all" ) &&
 						<Fragment>
 							<a href= {ctaLink} className = "uagb-infobox-link-wrap" target={target} rel ="noopener noreferrer"> {output}</a>
 						</Fragment>
 						}
-						{ ( ctaType !== "all") && output }
+						{ ( ctaType !== "all" ) && output }
 
 					</div>
 				</Fragment>
@@ -518,20 +518,20 @@ const deprecated = [
 					) }>
 						<div className = "uagb-ifb-left-right-wrap">
 
-							{ ( iconimgPosition == "left") &&
+							{ ( iconimgPosition == "left" ) &&
 									is_image
 							}
 							<div className = "uagb-ifb-content">
 
 								{  iconimgPosition == "above-title" && icon_image_html }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 								{ iconimgPosition == "below-title"  && icon_image_html }
 
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-								{ ( iconimgPosition === "left-title") &&
+								{ ( iconimgPosition === "left-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-left-title-image">
 												{ icon_image_html }
@@ -541,7 +541,7 @@ const deprecated = [
 										</Fragment>
 								}
 
-								{ ( iconimgPosition === "right-title") &&
+								{ ( iconimgPosition === "right-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-right-title-image">
 												{ title_text }
@@ -551,7 +551,7 @@ const deprecated = [
 										</Fragment>
 								}
 
-								{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+								{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 										<Fragment>
 											{ title_text }
 											{ desc }
@@ -560,7 +560,7 @@ const deprecated = [
 
 							</div>
 
-							{ ( iconimgPosition == "right") && icon_image_html }
+							{ ( iconimgPosition == "right" ) && icon_image_html }
 						</div>
 					</div>
 				</Fragment>
@@ -579,13 +579,13 @@ const deprecated = [
 					) }
 					id = { `uagb-infobox-${block_id}` } >
 
-						{ ( ctaType == "all") &&
+						{ ( ctaType == "all" ) &&
 							<Fragment>
 								<a href= {ctaLink} className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" target={target} rel ="noopener noreferrer"></a>
 								{output}
 							</Fragment>
 						}
-						{ ( ctaType !== "all") && output }
+						{ ( ctaType !== "all" ) && output }
 
 					</div>
 				</Fragment>
@@ -684,20 +684,20 @@ const deprecated = [
 					) }>
 						<div className = "uagb-ifb-left-right-wrap">
 		
-							{ ( iconimgPosition == "left") &&
+							{ ( iconimgPosition == "left" ) &&
 									is_image
 							}
 							<div className = "uagb-ifb-content">
 		
 								{  iconimgPosition == "above-title" && icon_image_html }
 		
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 		
 								{ iconimgPosition == "below-title"  && icon_image_html }
 		
-								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+								{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 		
-								{ ( iconimgPosition === "left-title") &&
+								{ ( iconimgPosition === "left-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-left-title-image">
 												{ icon_image_html }
@@ -707,7 +707,7 @@ const deprecated = [
 										</Fragment>
 								}
 		
-								{ ( iconimgPosition === "right-title") &&
+								{ ( iconimgPosition === "right-title" ) &&
 										<Fragment>
 											<div className = "uagb-ifb-right-title-image">
 												{ title_text }
@@ -717,7 +717,7 @@ const deprecated = [
 										</Fragment>
 								}
 		
-								{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+								{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 										<Fragment>
 											{ title_text }
 											{ desc }
@@ -726,7 +726,7 @@ const deprecated = [
 		
 							</div>
 		
-							{ ( iconimgPosition == "right") && icon_image_html }
+							{ ( iconimgPosition == "right" ) && icon_image_html }
 						</div>
 					</div>
 				</Fragment>
@@ -745,13 +745,13 @@ const deprecated = [
 						`uagb-block-${block_id}`
 					) }>
 		
-						{ ( ctaType == "all") &&
+						{ ( ctaType == "all" ) &&
 							<Fragment>
 								<a href= {ctaLink} className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" target={target} rel ="noopener noreferrer"></a>
 								{output}
 							</Fragment>
 						}
-						{ ( ctaType !== "all") && output }
+						{ ( ctaType !== "all" ) && output }
 		
 					</div>
 				</Fragment>
@@ -846,20 +846,20 @@ const deprecated = [
 				) }>
 					<div className = "uagb-ifb-left-right-wrap">
 		
-						{ ( iconimgPosition == "left") &&
+						{ ( iconimgPosition == "left" ) &&
 								is_image
 						}
 						<div className = "uagb-ifb-content">
 		
 							{  iconimgPosition == "above-title" && icon_image_html }
 		
-							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 		
 							{ iconimgPosition == "below-title"  && icon_image_html }
 		
-							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 		
-							{ ( iconimgPosition === "left-title") &&
+							{ ( iconimgPosition === "left-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-left-title-image">
 											{ icon_image_html }
@@ -869,7 +869,7 @@ const deprecated = [
 									</Fragment>
 							}
 		
-							{ ( iconimgPosition === "right-title") &&
+							{ ( iconimgPosition === "right-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-right-title-image">
 											{ title_text }
@@ -879,7 +879,7 @@ const deprecated = [
 									</Fragment>
 							}
 		
-							{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+							{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 									<Fragment>
 										{ title_text }
 										{ desc }
@@ -888,7 +888,7 @@ const deprecated = [
 		
 						</div>
 		
-						{ ( iconimgPosition == "right") && icon_image_html }
+						{ ( iconimgPosition == "right" ) && icon_image_html }
 					</div>
 				</div>
 			)
@@ -905,7 +905,7 @@ const deprecated = [
 					`uagb-block-${block_id}`
 				) }>
 		
-					{ ( ctaType == "all") &&
+					{ ( ctaType == "all" ) &&
 						<a href= {ctaLink} className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" target={target} aria-label={"Infobox Link"} rel ="noopener noreferrer"></a>
 					}
 					{output}
@@ -1002,20 +1002,20 @@ const deprecated = [
 				) }>
 					<div className = "uagb-ifb-left-right-wrap">
 
-						{ ( iconimgPosition == "left") &&
+						{ ( iconimgPosition == "left" ) &&
 								is_image
 						}
 						<div className = "uagb-ifb-content">
 
 							{  iconimgPosition == "above-title" && icon_image_html }
 
-							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && title_text }
+							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && title_text }
 
 							{ iconimgPosition == "below-title"  && icon_image_html }
 
-							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title") && desc }
+							{ ( iconimgPosition == "above-title" || iconimgPosition == "below-title" ) && desc }
 
-							{ ( iconimgPosition === "left-title") &&
+							{ ( iconimgPosition === "left-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-left-title-image">
 											{ icon_image_html }
@@ -1025,7 +1025,7 @@ const deprecated = [
 									</Fragment>
 							}
 
-							{ ( iconimgPosition === "right-title") &&
+							{ ( iconimgPosition === "right-title" ) &&
 									<Fragment>
 										<div className = "uagb-ifb-right-title-image">
 											{ title_text }
@@ -1035,7 +1035,7 @@ const deprecated = [
 									</Fragment>
 							}
 
-							{ ( iconimgPosition == "left" || iconimgPosition == "right") &&
+							{ ( iconimgPosition == "left" || iconimgPosition == "right" ) &&
 									<Fragment>
 										{ title_text }
 										{ desc }
@@ -1044,7 +1044,7 @@ const deprecated = [
 
 						</div>
 
-						{ ( iconimgPosition == "right") && icon_image_html }
+						{ ( iconimgPosition == "right" ) && icon_image_html }
 					</div>
 				</div>
 			)
@@ -1061,7 +1061,7 @@ const deprecated = [
 					`uagb-block-${block_id}`
 				) }>
 
-					{ ( ctaType == "all") &&
+					{ ( ctaType == "all" ) &&
 						<a href= {ctaLink} className = "uagb-infobox-link-wrap uagb-infbox__link-to-all" target={target} aria-label={"Infobox Link"} rel ="noopener noreferrer"></a>
 					}
 					{output}

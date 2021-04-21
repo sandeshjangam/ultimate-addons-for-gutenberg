@@ -89,7 +89,7 @@ const deprecated = [
 										</div>
 									</a>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -134,7 +134,7 @@ const deprecated = [
 
 								if ( icon.image_icon == "icon" ) {
 									if ( icon.icon ) {
-										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG(icon.icon) }</span>
+										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG( icon.icon ) }</span>
 									}
 								} else {
 									if ( icon.image ) {
@@ -169,7 +169,7 @@ const deprecated = [
 										</div>
 									</a>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -214,7 +214,7 @@ const deprecated = [
 
 								if ( icon.image_icon == "icon" ) {
 									if ( icon.icon ) {
-										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG(icon.icon) }</span>
+										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG( icon.icon ) }</span>
 									}
 								} else {
 									if ( icon.image ) {
@@ -249,7 +249,7 @@ const deprecated = [
 										</div>
 									</a>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -294,7 +294,7 @@ const deprecated = [
 
 								if ( icon.image_icon == "icon" ) {
 									if ( icon.icon ) {
-										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG(icon.icon) }</span>
+										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG( icon.icon ) }</span>
 									}
 								} else {
 									if ( icon.image ) {
@@ -329,7 +329,7 @@ const deprecated = [
 										</div>
 									</a>
 								)
-							})
+							} )
 						}
 					</div>
 				</div>
@@ -374,7 +374,7 @@ const deprecated = [
 
 								if ( icon.image_icon == "icon" ) {
 									if ( icon.icon ) {
-										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG(icon.icon) }</span>
+										image_icon_html = <span className="uagb-icon-list__source-icon">{ renderSVG( icon.icon ) }</span>
 									}
 								} else {
 									if ( icon.image ) {
@@ -435,7 +435,7 @@ const deprecated = [
 									)
 								}
 
-							})
+							} )
 						}
 					</div>
 				</div>

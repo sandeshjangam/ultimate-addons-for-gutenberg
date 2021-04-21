@@ -1140,9 +1140,9 @@ class UAGBGF extends Component {
 	}
 
 	componentDidUpdate(){				
-		$(".wpgf-submit").click( function(event) {
+		$( ".wpgf-submit" ).click( function( event ) {
 			event.preventDefault()
-		})
+		} )
 
 		var element = document.getElementById( "uagb-gf-styler-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -1160,7 +1160,7 @@ export default withSelect( ( select, props ) => {
 
 	if ( formId && -1 != formId && 0 != formId && ! isHtml ) {
 
-		$.ajax({
+		$.ajax( {
 			url: uagb_blocks_info.ajax_url,
 			data: {
 				action: "uagb_gf_shortcode",
@@ -1174,7 +1174,7 @@ export default withSelect( ( select, props ) => {
 				setAttributes( { formJson: data } )
 				json_data = data
 			}
-		})
+		} )
 	}
 
 	return {

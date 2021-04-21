@@ -44,23 +44,23 @@ registerBlockType( "uagb/advanced-heading", {
 			{
 				type: "block",
 				blocks: ["core/heading"],
-				transform: (attributes) => {
-					return createBlock("uagb/advanced-heading", {
+				transform: ( attributes ) => {
+					return createBlock( "uagb/advanced-heading", {
 						headingTitle: attributes.content,
 						headingAlign:attributes.align,
 						className:"uagb-heading-text"
-					})
+					} )
 				}
 			},
 			{
 				type: "block",
 				blocks: ["core/quote"],
-				transform: (attributes) => { 
-					return createBlock("uagb/advanced-heading", {
+				transform: ( attributes ) => { 
+					return createBlock( "uagb/advanced-heading", {
 						headingTitle: attributes.value,
 						headingDesc: attributes.citation,
 						className:"uagb-heading-text"
-					})
+					} )
 				}
 			}
 		],
@@ -68,23 +68,23 @@ registerBlockType( "uagb/advanced-heading", {
 			{
 				type: "block",
 				blocks: ["core/heading"],
-				transform: (attributes) => {
-					return createBlock("core/heading", {
+				transform: ( attributes ) => {
+					return createBlock( "core/heading", {
 						content: attributes.headingTitle,
 						align:attributes.headingAlign,
 						className:"uagb-heading-text"
-					})
+					} )
 				}
 			},
 			{
 				type: "block",
 				blocks: ["core/quote"],
-				transform: (attributes) => { 
-					return createBlock("core/quote", {
+				transform: ( attributes ) => { 
+					return createBlock( "core/quote", {
 						value: `<p>${ attributes.headingTitle }</p>`,
 						citation: attributes.headingDesc,
 						className:"uagb-heading-text"
-					})
+					} )
 				}
 			}
 		]

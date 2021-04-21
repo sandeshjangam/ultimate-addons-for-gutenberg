@@ -1,6 +1,6 @@
-module.exports = function(grunt) {
+module.exports = function( grunt ) {
 
-	grunt.initConfig({
+	grunt.initConfig( {
 
 		pkg: grunt.file.readJSON( "package.json" ),
 
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
 				}
 			},
 		},
-	})
+	} )
 
 	/* Load Tasks */
 	grunt.loadNpmTasks( "grunt-contrib-copy" )
@@ -162,11 +162,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( "grunt-text-replace" )
 
 	/* Read File Generation task */
-	grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
+	grunt.loadNpmTasks( "grunt-wp-readme-to-markdown" )
 
 	/* Register task started */
-	grunt.registerTask("release", ["clean:zip", "copy","compress","clean:main"])
-	grunt.registerTask("i18n", ["addtextdomain", "makepot"])
+	grunt.registerTask( "release", ["clean:zip", "copy","compress","clean:main"] )
+	grunt.registerTask( "i18n", ["addtextdomain", "makepot"] )
 
 	// Default
 	//grunt.registerTask('default', ['style']);
@@ -174,38 +174,38 @@ module.exports = function(grunt) {
 	// Version Bump `grunt bump-version --ver=<version-number>`
 	grunt.registerTask( "bump-version", function() {
 
-		var newVersion = grunt.option("ver")
+		var newVersion = grunt.option( "ver" )
 
-		if (newVersion) {
+		if ( newVersion ) {
 			newVersion = newVersion ? newVersion : "patch"
 
-			grunt.task.run("bumpup:" + newVersion)
-			grunt.task.run("replace")
+			grunt.task.run( "bumpup:" + newVersion )
+			grunt.task.run( "replace" )
 		}
 	} )
 
 	// Update Font Awesome library.
-	grunt.registerTask("font-awesome", function () {
+	grunt.registerTask( "font-awesome", function () {
 		this.async()
-		var request = require("request")
-		var fs = require("fs")
+		var request = require( "request" )
+		var fs = require( "fs" )
 
-		request("https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json", function (error, response, body) {
+		request( "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json", function ( error, response, body ) {
 
-			if (response && response.statusCode == 200) {
+			if ( response && response.statusCode == 200 ) {
 
-				console.log("Fonts successfully fetched!")
+				console.log( "Fonts successfully fetched!" )
 
-				var fonts = JSON.parse(body)
+				var fonts = JSON.parse( body )
 
-				fs.writeFile("dist/blocks/uagb-controls/UAGBIcon.json", JSON.stringify(fonts, null, 4), function (err) {
-					if (!err) {
-						console.log("Font-Awesome library updated!")
+				fs.writeFile( "dist/blocks/uagb-controls/UAGBIcon.json", JSON.stringify( fonts, null, 4 ), function ( err ) {
+					if ( !err ) {
+						console.log( "Font-Awesome library updated!" )
 					}
-				})
+				} )
 			}
-		})
-	})
+		} )
+	} )
 
 	// Generate Read me file
 	grunt.registerTask( "readme", ["wp_readme_to_markdown"] )

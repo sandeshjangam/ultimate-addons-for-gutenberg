@@ -1062,9 +1062,9 @@ class UAGBCF7 extends Component {
 	}
 
 	componentDidUpdate(){				
-		$(".wpcf7-submit").click( function(event) {
+		$( ".wpcf7-submit" ).click( function( event ) {
 			event.preventDefault()
-		})
+		} )
 		var element = document.getElementById( "uagb-cf7-styler-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -1080,7 +1080,7 @@ export default withSelect( ( select, props ) => {
 
 	if ( formId && -1 != formId && 0 != formId && ! isHtml ) {
 
-		$.ajax({
+		$.ajax( {
 			url: uagb_blocks_info.ajax_url,
 			data: {
 				action: "uagb_cf7_shortcode",
@@ -1094,7 +1094,7 @@ export default withSelect( ( select, props ) => {
 				setAttributes( { formJson: data } )
 				json_data = data
 			}
-		})
+		} )
 	}
 
 	return {

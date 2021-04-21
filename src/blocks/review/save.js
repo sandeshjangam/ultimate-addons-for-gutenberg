@@ -40,7 +40,7 @@ export default function save( props ) {
 		ctaLink 
 	} = attributes
 
-	const newAverage = parts.map((i) => i.value).reduce((total, v) => total + v) / parts.length
+	const newAverage = parts.map( ( i ) => i.value ).reduce( ( total, v ) => total + v ) / parts.length
 	
 	let url_chk = ""
 	let title = ""
@@ -122,7 +122,7 @@ export default function save( props ) {
 					{image_icon_html}
 				</div>
 				}
-				{parts.map((j, i) => (
+				{parts.map( ( j, i ) => (
 					showFeature === true && ( 
 						<div className="uagb_review_entry">
 							<RichText.Content
@@ -148,7 +148,7 @@ export default function save( props ) {
 								/>
 							</div>
 						</div>
-					)))}
+					) ) )}
 				<div className="uagb_review_summary">
 					<RichText.Content
 						className="uagb_review_summary_title"
@@ -163,7 +163,7 @@ export default function save( props ) {
 						/>
 						<div className="uagb_review_average">
 							<span className="uagb_review_rating">
-								{Math.round(newAverage * 10) / 10}
+								{Math.round( newAverage * 10 ) / 10}
 							</span>
 							<Stars
 								id={`${ID}-average`}

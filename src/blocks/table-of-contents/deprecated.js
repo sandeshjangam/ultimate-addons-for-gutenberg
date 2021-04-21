@@ -50,7 +50,7 @@ const deprecated = [
 							numcolumns={tColumns}
 							scrollToTop={scrollToTop}
 							mappingHeaders={mappingHeaders}
-							headers={headerLinks && JSON.parse(headerLinks)}
+							headers={headerLinks && JSON.parse( headerLinks )}
 							blockProp={props}
 						/>
 					</div>
@@ -84,7 +84,7 @@ const deprecated = [
 
 			if ( makeCollapsible && icon ) {
 				icon_html = (
-					<span className="uag-toc__collapsible-wrap">{renderSVG(icon)}</span>
+					<span className="uag-toc__collapsible-wrap">{renderSVG( icon )}</span>
 				)	
 			}
 
@@ -114,7 +114,7 @@ const deprecated = [
 							numcolumns={tColumns}
 							scrollToTop={scrollToTop}
 							mappingHeaders={mappingHeaders}
-							headers={headerLinks && JSON.parse(headerLinks)}
+							headers={headerLinks && JSON.parse( headerLinks )}
 							blockProp={props}
 						/>
 					</div>
@@ -147,7 +147,7 @@ const deprecated = [
 
 			if ( makeCollapsible && icon ) {
 				icon_html = (
-					<span className="uag-toc__collapsible-wrap">{renderSVG(icon)}</span>
+					<span className="uag-toc__collapsible-wrap">{renderSVG( icon )}</span>
 				)	
 			}
 
@@ -175,7 +175,7 @@ const deprecated = [
 						</div>
 						<TOC
 							mappingHeaders={mappingHeaders}
-							headers={headerLinks && JSON.parse(headerLinks)}
+							headers={headerLinks && JSON.parse( headerLinks )}
 						/>
 					</div>
 				</div>
@@ -207,7 +207,7 @@ const deprecated = [
 		
 			if ( makeCollapsible && icon ) {
 				icon_html = (
-					<span className="uag-toc__collapsible-wrap">{renderSVG(icon)}</span>
+					<span className="uag-toc__collapsible-wrap">{renderSVG( icon )}</span>
 				)	
 			}
 		
@@ -235,7 +235,7 @@ const deprecated = [
 						</div>
 						<TableOfContent
 							mappingHeaders={mappingHeaders}
-							headers={headerLinks && JSON.parse(headerLinks)}
+							headers={headerLinks && JSON.parse( headerLinks )}
 						/>
 					</div>
 				</div>

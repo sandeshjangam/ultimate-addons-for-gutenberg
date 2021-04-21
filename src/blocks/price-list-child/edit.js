@@ -34,8 +34,8 @@ class UAGBRestaurantMenuChild extends Component {
 
 		super( ...arguments )
 		this.onSelectRestImage  = this.onSelectRestImage.bind( this )
-		this.onRemoveRestImage  = this.onRemoveRestImage.bind(this)
-		this.getImageName       = this.getImageName.bind(this)
+		this.onRemoveRestImage  = this.onRemoveRestImage.bind( this )
+		this.getImageName       = this.getImageName.bind( this )
 	}
     
 	onSelectRestImage( media ) {
@@ -66,8 +66,8 @@ class UAGBRestaurantMenuChild extends Component {
 	getImageName( image ){
 
 		let image_title = __( "Select Image" )
-		if(image){
-			if(image.url == null || image.url == "" ){
+		if( image ){
+			if( image.url == null || image.url == "" ){
 				image_title = __( "Select Image" )
 			}else{
 				image_title = __( "Replace Image" )
@@ -131,7 +131,7 @@ class UAGBRestaurantMenuChild extends Component {
 		)
 
 		const parentClientId = select( "core/block-editor" ).getBlockHierarchyRootClientId( this.props.clientId )	
-		const parentAttributes = select("core/block-editor").getBlockAttributes( parentClientId )
+		const parentAttributes = select( "core/block-editor" ).getBlockAttributes( parentClientId )
 
 		let position = ( parentAttributes ) ? parentAttributes.imagePosition : imagePosition
 						

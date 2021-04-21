@@ -18,7 +18,7 @@ export default function save( props ) {
 		selectName
 	} = attributes
 	
-	const isRequired = (selectRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
+	const isRequired = ( selectRequired ) ? __( "required", "ultimate-addons-for-gutenberg" ) : ""
 	
 	return (
 		<div className={ classnames(
@@ -36,11 +36,11 @@ export default function save( props ) {
 				<option value="" disabled selected>
 						Select your option
 				</option>
-				{options.map((o, index) => {
+				{options.map( ( o, index ) => {
 					var optionvalue = o.optionvalue
-					var value = optionvalue.replace(/\s+/g, "-").toLowerCase()
+					var value = optionvalue.replace( /\s+/g, "-" ).toLowerCase()
 					return <option value={optionvalue}>{o.optiontitle}</option>
-				})}
+				} )}
 					
 			</select>
 		</div>

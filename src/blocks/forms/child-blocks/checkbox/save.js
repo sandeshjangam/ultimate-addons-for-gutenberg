@@ -19,7 +19,7 @@ export default function save( props ) {
 		checkboxName
 	} = attributes
 	
-	const isRequired = (checkboxRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
+	const isRequired = ( checkboxRequired ) ? __( "required", "ultimate-addons-for-gutenberg" ) : ""
 
 	return (
 		<div className={ classnames(
@@ -34,16 +34,16 @@ export default function save( props ) {
 				id={ block_id }		
 			/>
 			
-			{options.map((o, index) => {
+			{options.map( ( o, index ) => {
 				var optionvalue = o.optionvalue
-				var value = optionvalue.replace(/\s+/g, "-").toLowerCase()
+				var value = optionvalue.replace( /\s+/g, "-" ).toLowerCase()
 				return (
 					<Fragment>
 						<input type="checkbox" className="uagb-forms-checkbox" id={`checkbox-${value}-${block_id}`} name={ `${checkboxName}[]` } value={ optionvalue } required={ checkboxRequired }  onInvalid="this.setCustomValidity('Please check this box if you want to proceed.')"/>
 						<label htmlFor={ `checkbox-${value}-${block_id}` }>{ o.optiontitle }</label><br/>						
 					</Fragment>
 				)
-			})}
+			} )}
 								
 		</div>
 	)

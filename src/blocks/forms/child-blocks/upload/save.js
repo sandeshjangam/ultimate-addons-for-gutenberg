@@ -18,9 +18,9 @@ export default function save( props ) {
 		formats
 	} = attributes
 	
-	const allowed_files = formats.map(f => ".".concat(f)).join(",")
+	const allowed_files = formats.map( f => ".".concat( f ) ).join( "," )
 
-	const isRequired = (uploadRequired) ? __("required" , "ultimate-addons-for-gutenberg") : ""
+	const isRequired = ( uploadRequired ) ? __( "required" , "ultimate-addons-for-gutenberg" ) : ""
 
 	return (
 		<div className={ classnames(

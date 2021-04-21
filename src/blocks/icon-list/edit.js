@@ -80,11 +80,11 @@ class UAGBIconList extends Component {
 
 	changeChildAttr ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 
-		getChildBlocks.forEach((iconChild, key) => {
+		getChildBlocks.forEach( ( iconChild, key ) => {
 			iconChild.attributes.hideLabel = value
-		})
+		} )
 		setAttributes( { hideLabel: value } )
 	}
 
@@ -208,7 +208,7 @@ class UAGBIconList extends Component {
 						<ToggleControl
 							label={ __( "Hide Labels", "ultimate-addons-for-gutenberg" ) }
 							checked={ hideLabel }
-							onChange={ (value) => this.changeChildAttr( value ) }
+							onChange={ ( value ) => this.changeChildAttr( value ) }
 						/>
 						<hr className="uagb-editor__separator" />
 						<RangeControl
@@ -252,7 +252,7 @@ class UAGBIconList extends Component {
 									allowReset
 									initialPosition={40}
 								/>
-							</Fragment>)
+							</Fragment> )
 						}
 						{ "Tablet" === deviceType && (
 							<Fragment>
@@ -266,7 +266,7 @@ class UAGBIconList extends Component {
 									allowReset
 									initialPosition={40}
 								/>
-							</Fragment>)
+							</Fragment> )
 						}
 						{ "Mobile" === deviceType && (
 							<Fragment>
@@ -280,7 +280,7 @@ class UAGBIconList extends Component {
 									allowReset
 									initialPosition={40}
 								/>
-							</Fragment>)
+							</Fragment> )
 						}
 						<hr className="uagb-editor__separator" />
 						<TypographyControl
@@ -360,4 +360,4 @@ export default withSelect( ( select, props ) => {
 	return {
 		deviceType: deviceType,
 	}
-})(UAGBIconList)
+} )( UAGBIconList )

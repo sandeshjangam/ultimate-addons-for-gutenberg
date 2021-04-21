@@ -1,7 +1,7 @@
 const { decodeEntities } = wp.htmlEntities
 const { __ } = wp.i18n
 
-export const PostImage = (props) =>  {
+export const PostImage = ( props ) =>  {
 		
 	const { post, attributes } = props
 

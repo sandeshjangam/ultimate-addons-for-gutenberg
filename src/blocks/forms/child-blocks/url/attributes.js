@@ -17,7 +17,7 @@ const attributes = {
 	},
 	placeholder: {
 		type: "string",
-		default: __( "https://example.com" , "ultimate-addons-for-gutenberg")
+		default: __( "https://example.com" , "ultimate-addons-for-gutenberg" )
 	},
 }
 export default attributes

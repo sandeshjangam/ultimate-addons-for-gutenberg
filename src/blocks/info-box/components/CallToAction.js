@@ -23,8 +23,8 @@ class InfoBoxCta extends React.Component {
 
 		var cta_icon_output = ""
 		if( attributes.ctaIcon !== "" ){
-			cta_icon_output = <span className= { classnames(`uagb-ifb-${ attributes.ctaType }-icon`, `uagb-ifb-align-icon-${ attributes.ctaIconPosition }`) }>
-				{ renderSVG(attributes.ctaIcon) }
+			cta_icon_output = <span className= { classnames( `uagb-ifb-${ attributes.ctaType }-icon`, `uagb-ifb-align-icon-${ attributes.ctaIconPosition }` ) }>
+				{ renderSVG( attributes.ctaIcon ) }
 			</span>
 		}
 
@@ -42,7 +42,7 @@ class InfoBoxCta extends React.Component {
 					}
 
 					{  attributes.ctaType === "button" && (
-						<div className = {classnames("uagb-ifb-button-wrapper", ( attributes.inheritFromTheme ) ? "wp-block-button" : null)}>
+						<div className = {classnames( "uagb-ifb-button-wrapper", ( attributes.inheritFromTheme ) ? "wp-block-button" : null )}>
 							<a className = { ctaBtnClass } target= {target} rel= {rel} >
 								{ cta_icon_output }
 								<span className = "uagb-ifb-cta-content-wrapper">
@@ -67,7 +67,7 @@ class InfoBoxCta extends React.Component {
 					}
 
 					{  attributes.ctaType === "button" && (
-						<div className = {classnames("uagb-ifb-button-wrapper", ( attributes.inheritFromTheme ) ? "wp-block-button" : null)}>
+						<div className = {classnames( "uagb-ifb-button-wrapper", ( attributes.inheritFromTheme ) ? "wp-block-button" : null )}>
 							<a href = {attributes.ctaLink} className = { ctaBtnClass } target= {target} rel= {rel} >
 								{ cta_icon_output }
 								<span className = "uagb-ifb-cta-content-wrapper">

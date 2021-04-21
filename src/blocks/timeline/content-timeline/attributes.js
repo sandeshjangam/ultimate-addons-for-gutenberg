@@ -9,7 +9,7 @@ const ITEM_COUNT = 5
 const item = []
 const date_arr = []
 
-for (var i = 1; i <= ITEM_COUNT; i++) {
+for ( var i = 1; i <= ITEM_COUNT; i++ ) {
 
 	item.push(
 		{

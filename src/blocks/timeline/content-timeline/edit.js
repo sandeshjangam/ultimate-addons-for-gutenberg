@@ -58,78 +58,78 @@ class UAGBcontentTimeline extends Component {
 	constructor() {
 		super( ...arguments )
 
-		this.getdateFormat = this.getdateFormat.bind(this)
+		this.getdateFormat = this.getdateFormat.bind( this )
 
 		this.toggleDisplayPostDate  = this.toggleDisplayPostDate.bind( this )
 
 		this.getTimelineicon = this.getTimelineicon.bind( this )
 
-		this.geticonSize = this.geticonSize.bind(this)
+		this.geticonSize = this.geticonSize.bind( this )
 
-		this.getborderwidth = this.getborderwidth.bind(this)
+		this.getborderwidth = this.getborderwidth.bind( this )
 
-		this.getconnectorBgsize = this.getconnectorBgsize.bind(this)
+		this.getconnectorBgsize = this.getconnectorBgsize.bind( this )
 
-		this.getseparatorwidth = this.getseparatorwidth.bind(this)
+		this.getseparatorwidth = this.getseparatorwidth.bind( this )
 	}
 
-	getconnectorBgsize (value) {
+	getconnectorBgsize ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 		
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.connectorBgsize = value
-		})
+		} )
 		setAttributes( { connectorBgsize: value } )
 	}
 
-	getborderwidth (value) {
+	getborderwidth ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 			
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.borderwidth = value
-		})
+		} )
 		setAttributes( { borderwidth: value } )
 	}
 
-	geticonSize (value) {
+	geticonSize ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 			
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.iconSize = value
-		})
+		} )
 		setAttributes( { iconSize: value } )
 	}
 
-	getseparatorwidth (value) {
+	getseparatorwidth ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 				
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.separatorwidth = value
-		})
+		} )
 		setAttributes( { separatorwidth: value } )
 	}
 
-	getdateFormat (value) {
+	getdateFormat ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 			
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.dateFormat = value
-		})
+		} )
 		setAttributes( { dateFormat: value } )
 	}
 
-	getTimelineicon (value) {
+	getTimelineicon ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 			
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.icon = value
-		})
+		} )
 		setAttributes( { icon: value } )
 	}
 
@@ -140,11 +140,11 @@ class UAGBcontentTimeline extends Component {
 		const { displayPostDate } = this.props.attributes
 		// const { setAttributes } = this.props
 		const { setAttributes } = this.props
-		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
+		const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
 			
-		getChildBlocks.forEach((UAGBcontentTimelineChild, key) => {
+		getChildBlocks.forEach( ( UAGBcontentTimelineChild, key ) => {
 			UAGBcontentTimelineChild.attributes.displayPostDate = displayPostDate
-		})
+		} )
 		setAttributes( { displayPostDate: ! displayPostDate } )
 	}
 
@@ -714,12 +714,12 @@ class UAGBcontentTimeline extends Component {
 		this.props.setAttributes( { childMigrate : true } )
 
 		var id = this.props.clientId
-		window.addEventListener("load", this.timelineContent_back(id))
-		window.addEventListener("resize", this.timelineContent_back(id))
+		window.addEventListener( "load", this.timelineContent_back( id ) )
+		window.addEventListener( "resize", this.timelineContent_back( id ) )
 		var time = this
-		$(".edit-post-layout__content").on("scroll",function(event) {
-			time.timelineContent_back(id)
-		})
+		$( ".edit-post-layout__content" ).on( "scroll",function( event ) {
+			time.timelineContent_back( id )
+		} )
 
 		// Pushing Style tag for this block css.
 		const $style = document.createElement( "style" )
@@ -729,7 +729,7 @@ class UAGBcontentTimeline extends Component {
 
 	componentDidUpdate(){
 
-		select("core/block-editor").getBlocksByClientId(this.props.clientId)[0].innerBlocks.forEach(function (block,key) {
+		select( "core/block-editor" ).getBlocksByClientId( this.props.clientId )[0].innerBlocks.forEach( function ( block,key ) {
 			let align_class = ""
 			if( "left" == block.attributes.timelinAlignment ){
 				align_class = "uagb-timeline__widget uagb-timeline__left"
@@ -756,59 +756,59 @@ class UAGBcontentTimeline extends Component {
 				}
 			}
 			
-			dispatch("core/block-editor").updateBlockAttributes(block.clientId, ({ content_class: align_class }))
-			dispatch("core/block-editor").updateBlockAttributes(block.clientId, ({ dayalign_class: day_align_class }))
-		  })
-		  const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
-		  getChildBlocks.forEach((ctChild, key) => {
+			dispatch( "core/block-editor" ).updateBlockAttributes( block.clientId, ( { content_class: align_class } ) )
+			dispatch( "core/block-editor" ).updateBlockAttributes( block.clientId, ( { dayalign_class: day_align_class } ) )
+		  } )
+		  const getChildBlocks = select( "core/block-editor" ).getBlocks( this.props.clientId )
+		  getChildBlocks.forEach( ( ctChild, key ) => {
 			ctChild.attributes.headingTag = this.props.attributes.headingTag
-		})
+		} )
 
 		var id = this.props.clientId
-		window.addEventListener("load", this.timelineContent_back(id))
-		window.addEventListener("resize", this.timelineContent_back(id))
+		window.addEventListener( "load", this.timelineContent_back( id ) )
+		window.addEventListener( "resize", this.timelineContent_back( id ) )
 		var time = this
-		$(".edit-post-layout__content").on("scroll",function(event) {
-			time.timelineContent_back(id)
-		})
+		$( ".edit-post-layout__content" ).on( "scroll",function( event ) {
+			time.timelineContent_back( id )
+		} )
 	}
 
 	/*  Js for timeline line and inner line filler*/
-	timelineContent_back(id){
-		var timeline            = $(".uagb-timeline").parents("#block-"+id)
-		var tm_item             = timeline.find(".uagb-timeline")
-		var line_inner          = timeline.find(".uagb-timeline__line__inner")
-		var line_outer          = timeline.find(".uagb-timeline__line")
-		var $icon_class         = timeline.find(".uagb-timeline__marker")
-		if( $icon_class.length > 0){
-			var $card_last          = timeline.find(".uagb-timeline__field:last-child")
+	timelineContent_back( id ){
+		var timeline            = $( ".uagb-timeline" ).parents( "#block-"+id )
+		var tm_item             = timeline.find( ".uagb-timeline" )
+		var line_inner          = timeline.find( ".uagb-timeline__line__inner" )
+		var line_outer          = timeline.find( ".uagb-timeline__line" )
+		var $icon_class         = timeline.find( ".uagb-timeline__marker" )
+		if( $icon_class.length > 0 ){
+			var $card_last          = timeline.find( ".uagb-timeline__field:last-child" )
 			var timeline_start_icon = $icon_class.first().position()
 			var timeline_end_icon   = $icon_class.last().position()
-			line_outer.css("top", timeline_start_icon.top )
+			line_outer.css( "top", timeline_start_icon.top )
 
 			var timeline_card_height = $card_last.height()
 			var last_item_top = $card_last.offset().top - tm_item.offset().top
 			var $last_item, parent_top
-			var $document = $(document)
+			var $document = $( document )
 
-			if( tm_item.hasClass("uagb-timeline__arrow-center")) {
+			if( tm_item.hasClass( "uagb-timeline__arrow-center" ) ) {
 
-				line_outer.css("bottom", timeline_end_icon.top )
+				line_outer.css( "bottom", timeline_end_icon.top )
 
 				parent_top = last_item_top - timeline_start_icon.top
 				$last_item = parent_top + timeline_end_icon.top
 
-			} else if( tm_item.hasClass("uagb-timeline__arrow-top")) {
+			} else if( tm_item.hasClass( "uagb-timeline__arrow-top" ) ) {
 
 				var top_height = timeline_card_height - timeline_end_icon.top
-				line_outer.css("bottom", top_height )
+				line_outer.css( "bottom", top_height )
 
 				$last_item = last_item_top
 
-			} else if( tm_item.hasClass("uagb-timeline__arrow-bottom")) {
+			} else if( tm_item.hasClass( "uagb-timeline__arrow-bottom" ) ) {
 
 				var bottom_height = timeline_card_height - timeline_end_icon.top
-				line_outer.css("bottom", bottom_height )
+				line_outer.css( "bottom", bottom_height )
 
 				parent_top = last_item_top - timeline_start_icon.top
 				$last_item = parent_top + timeline_end_icon.top
@@ -817,7 +817,7 @@ class UAGBcontentTimeline extends Component {
 			var num = 0
 			var elementEnd = $last_item + 20
 
-			var connectorHeight = 3 * timeline.find(".uagb-timeline__marker:first").height()
+			var connectorHeight = 3 * timeline.find( ".uagb-timeline__marker:first" ).height()
 			var viewportHeight = document.documentElement.clientHeight + connectorHeight
 			var viewportHeightHalf = viewportHeight/2 + connectorHeight
 
@@ -827,31 +827,31 @@ class UAGBcontentTimeline extends Component {
 
 			var photoViewportOffsetTop = new_elementPos - $document.scrollTop()
 
-			if (photoViewportOffsetTop < 0) {
-				photoViewportOffsetTop = Math.abs(photoViewportOffsetTop)
+			if ( photoViewportOffsetTop < 0 ) {
+				photoViewportOffsetTop = Math.abs( photoViewportOffsetTop )
 			} else {
-				photoViewportOffsetTop = -Math.abs(photoViewportOffsetTop)
+				photoViewportOffsetTop = -Math.abs( photoViewportOffsetTop )
 			}
 
-			if ( elementPos < (viewportHeightHalf) ) {
-				if ( (viewportHeightHalf) + Math.abs(photoViewportOffsetTop) < (elementEnd) ) {
-					line_inner.height((viewportHeightHalf) + photoViewportOffsetTop)
+			if ( elementPos < ( viewportHeightHalf ) ) {
+				if ( ( viewportHeightHalf ) + Math.abs( photoViewportOffsetTop ) < ( elementEnd ) ) {
+					line_inner.height( ( viewportHeightHalf ) + photoViewportOffsetTop )
 				}else{
-					if ( (photoViewportOffsetTop + viewportHeightHalf) >= elementEnd ) {
-						line_inner.height(elementEnd)
+					if ( ( photoViewportOffsetTop + viewportHeightHalf ) >= elementEnd ) {
+						line_inner.height( elementEnd )
 					}
 				}
 			} else {
-				if ( (photoViewportOffsetTop  + viewportHeightHalf) < elementEnd ) {
-					if (0 > photoViewportOffsetTop) {
-						line_inner.height((viewportHeightHalf) - Math.abs(photoViewportOffsetTop))
+				if ( ( photoViewportOffsetTop  + viewportHeightHalf ) < elementEnd ) {
+					if ( 0 > photoViewportOffsetTop ) {
+						line_inner.height( ( viewportHeightHalf ) - Math.abs( photoViewportOffsetTop ) )
 						++num
 					} else {
-						line_inner.height((viewportHeightHalf) + photoViewportOffsetTop)
+						line_inner.height( ( viewportHeightHalf ) + photoViewportOffsetTop )
 					}
 				}else{
-					if ( (photoViewportOffsetTop + viewportHeightHalf) >= elementEnd ) {
-						line_inner.height(elementEnd)
+					if ( ( photoViewportOffsetTop + viewportHeightHalf ) >= elementEnd ) {
+						line_inner.height( elementEnd )
 					}
 				}
 			}

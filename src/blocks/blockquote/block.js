@@ -54,22 +54,22 @@ registerBlockType( "uagb/blockquote", {
 			{
 				type: "block",
 				blocks: ["core/quote"],
-				transform: (attributes) => {
-					return createBlock("uagb/blockquote", {
+				transform: ( attributes ) => {
+					return createBlock( "uagb/blockquote", {
 						descriptionText : attributes.value,
 						author: attributes.citation,
 						align: attributes.align
-					})
+					} )
 				}
 			},
 			{
 				type: "block",
 				blocks: ["core/heading"],
-				transform: (attributes) => {
-					return createBlock("uagb/blockquote", {
+				transform: ( attributes ) => {
+					return createBlock( "uagb/blockquote", {
 						descriptionText: attributes.content,
 						align:attributes.align,
-					})
+					} )
 				}
 			},
 		],
@@ -77,22 +77,22 @@ registerBlockType( "uagb/blockquote", {
 			{
 				type: "block",
 				blocks: ["core/quote"],
-				transform: (attributes) => {
-					return createBlock("core/quote", {
+				transform: ( attributes ) => {
+					return createBlock( "core/quote", {
 						value : `<p>${ attributes.descriptionText }</p>`,
 						citation: attributes.author,
 						align: attributes.align
-					})
+					} )
 				}
 			},
 			{
 				type: "block",
 				blocks: ["core/heading"],
-				transform: (attributes) => {
-					return createBlock("core/heading", {
+				transform: ( attributes ) => {
+					return createBlock( "core/heading", {
 						content: attributes.descriptionText,
 						align:attributes.align
-					})
+					} )
 				}
 			},
 		]

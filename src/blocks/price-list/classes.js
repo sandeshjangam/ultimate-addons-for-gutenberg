@@ -11,7 +11,7 @@ function PositionClasses( attributes ) {
 	if( typeof attributes.rest_menu_item_arr !== "undefined" ){
 		attributes.rest_menu_item_arr.map( ( item, thisIndex ) => {
 			let image_arr = item.image
-			if( image_arr && typeof image_arr !== "undefined"){
+			if( image_arr && typeof image_arr !== "undefined" ){
 				imge_cnt++
 			}
 		} )

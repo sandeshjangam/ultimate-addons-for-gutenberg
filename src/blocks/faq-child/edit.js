@@ -31,7 +31,7 @@ class UAGBFaqChildEdit extends Component {
 		this.props.setAttributes( { block_id: this.props.clientId.substr( 0, 8 ) } )
 		// Pushing Style tag for this block css.
 	}
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate( prevProps, prevState ) {
 
 		if ( ! this.props.isSelected && prevProps.isSelected && this.state.isFocused ) {
 			this.setState( {
@@ -62,10 +62,10 @@ class UAGBFaqChildEdit extends Component {
 			return (
 				<Fragment>
 					<span className="uagb-icon uagb-faq-icon-wrap">
-						{ renderSVG(icon) }
+						{ renderSVG( icon ) }
 					</span>
 					<span className="uagb-icon-active uagb-faq-icon-wrap">
-						{ renderSVG(iconActive) }
+						{ renderSVG( iconActive ) }
 					</span>
 				</Fragment>
 			)
