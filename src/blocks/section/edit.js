@@ -32,11 +32,8 @@ const {
 	RangeControl,
 	Button,
 	ButtonGroup,
-	Dashicon,
 	BaseControl,
-	withNotices,
 	ToggleControl,
-	TabPanel
 } = wp.components
 
 const { withSelect } = wp.data
@@ -53,7 +50,7 @@ class UAGBSectionEdit extends Component {
 		this.onSelectVideo = this.onSelectVideo.bind( this )
 	}
 
-	componentDidUpdate( prevProps ) {
+	componentDidUpdate() {
 		var element = document.getElementById( "uagb-section-style-" + this.props.clientId.substr( 0, 8 ) )
 
 		if( null !== element && undefined !== element ) {
@@ -155,7 +152,6 @@ class UAGBSectionEdit extends Component {
 			bottomMarginTablet,
 			leftMarginTablet,
 			rightMarginTablet,
-
 			topPaddingMobile,
 			bottomPaddingMobile,
 			leftPaddingMobile,
@@ -172,13 +168,6 @@ class UAGBSectionEdit extends Component {
 			backgroundAttachment,
 			backgroundRepeat,
 			backgroundSize,
-			gradientColor1,
-			gradientColor2,
-			gradientLocation1,
-			gradientLocation2,
-			gradientType,
-			gradientAngle,
-			gradientPosition,
 			backgroundOpacity,
 			backgroundVideoColor,
 			backgroundVideoOpacity,
@@ -207,7 +196,6 @@ class UAGBSectionEdit extends Component {
 			boxShadowBlur,
 			boxShadowSpread,
 			boxShadowPosition,
-			gradientValue,
 		} = attributes
 
 		const CustomTag = `${tag}`
@@ -261,7 +249,7 @@ class UAGBSectionEdit extends Component {
 							<ToggleControl
 								label={ __( "Inherit Inner Width from Theme","ultimate-addons-for-gutenberg" ) }
 								checked={ themeWidth }
-								onChange={ ( value ) => setAttributes( { themeWidth: ! themeWidth } ) }
+								onChange={ ( ) => setAttributes( { themeWidth: ! themeWidth } ) }
 							/>
 						}
 						{
@@ -306,7 +294,7 @@ class UAGBSectionEdit extends Component {
 									<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ desktopPaddingType === "px" } aria-pressed={ desktopPaddingType === "px" } onClick={ () => setAttributes( { desktopPaddingType: "px" } ) }>{ "px" }</Button>
 									<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ desktopPaddingType === "%" } aria-pressed={ desktopPaddingType === "%" } onClick={ () => setAttributes( { desktopPaddingType: "%" } ) }>{ "%" }</Button>
 								</ButtonGroup>
-								
+
 								<h2>{ __( "Padding" ) }</h2>
 								<RangeControl
 									label={ UAGB_Block_Icons.top_margin }
@@ -870,7 +858,7 @@ class UAGBSectionEdit extends Component {
 							boxShadowBlur = { { value: boxShadowBlur, label: __( "Blur","ultimate-addons-for-gutenberg" ) } }
 							boxShadowSpread = { { value: boxShadowSpread, label: __( "Spread","ultimate-addons-for-gutenberg" ) } }
 							boxShadowPosition = { { value: boxShadowPosition, label: __( "Position","ultimate-addons-for-gutenberg" ) } }
-							
+
 						/>
 					</PanelBody>
 				</InspectorControls>
@@ -906,7 +894,7 @@ class UAGBSectionEdit extends Component {
 	}
 }
 
-export default withSelect( ( select, props ) => { 
+export default withSelect( ( select ) => {
 
 	const { __experimentalGetPreviewDeviceType = null } = select( "core/edit-post" )
 

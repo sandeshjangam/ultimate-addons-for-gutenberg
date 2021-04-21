@@ -5,15 +5,13 @@
 // Import block dependencies and components.
 import classnames from "classnames"
 
-const { Fragment } = wp.element
-
 const {
 	InnerBlocks
 } = wp.blockEditor
 
 export default function save( props ) {
 
-	const { attributes, className } = props
+	const { className } = props
 
 	const {
 		block_id,

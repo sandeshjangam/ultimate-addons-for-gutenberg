@@ -5,6 +5,7 @@
 // Import block dependencies and components.
 import classnames from "classnames"
 import attributes from "./attributes"
+import PropTypes from "prop-types"
 
 const {
 	InnerBlocks,
@@ -12,10 +13,10 @@ const {
 
 const deprecated = [
 	{
-		attributes,			
+		attributes,
 		save: function( props ) {
 
-			const { attributes, className } = props
+			const { className } = props
 
 			const {
 				block_id,
@@ -64,10 +65,10 @@ const deprecated = [
 		},
 	},
 	{
-		attributes,			
+		attributes,
 		save: function( props ) {
 
-			const { attributes, className } = props
+			const { className } = props
 
 			const {
 				block_id,
@@ -118,5 +119,9 @@ const deprecated = [
 		},
 	}
 ]
+
+deprecated.propTypes = {
+	attributes: PropTypes.array
+}
 
 export default deprecated

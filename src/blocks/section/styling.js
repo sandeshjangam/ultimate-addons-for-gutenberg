@@ -9,7 +9,6 @@ import generateCSSUnit from "../../../dist/blocks/uagb-controls/generateCSSUnit"
 function styling( props ) {
 
 	const {
-		classMigrate,
 		backgroundType,
 		backgroundVideoColor,
 		backgroundImageColor,
@@ -136,11 +135,11 @@ function styling( props ) {
 
 				selectors[" > .uagb-section__overlay"]["background-image"] = `linear-gradient(${ gradientAngle }deg, ${ gradientColor1 } ${ gradientLocation1 }%, ${ gradientColor2 } ${ gradientLocation2 }%)`
 			} else {
-	
+
 				selectors[" > .uagb-section__overlay"]["background-image"] = `radial-gradient( at ${ gradientPosition }, ${ gradientColor1 } ${ gradientLocation1 }%, ${ gradientColor2 } ${ gradientLocation2 }%)`
 			}
 		}
-		
+
 	}
 
 	selectors[" > .uagb-section__overlay"]["border-radius"] = generateCSSUnit( borderRadius, "px" )

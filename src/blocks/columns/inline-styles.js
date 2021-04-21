@@ -3,7 +3,7 @@
  */
 import generateCSSUnit from "../../../dist/blocks/uagb-controls/generateCSSUnit"
 
-function inlineStyles( props, isEditor ) {
+function inlineStyles( props ) {
 
 	const {
 		leftPadding,
