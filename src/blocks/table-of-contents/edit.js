@@ -16,9 +16,9 @@ import TypographyControl from "../../components/typography"
 
 // Import Web font loader for google fonts.
 import WebfontLoader from "../../components/typography/fontloader"
-import TableOfContents from './toc';
+import TableOfContents from "./toc"
 
-const striptags = require('striptags');
+const striptags = require("striptags")
 const { __ } = wp.i18n
 const { withSelect } = wp.data
 const { compose } = wp.compose
@@ -86,7 +86,7 @@ class UAGBTableOfContentsEdit extends Component {
 		const $style = document.createElement( "style" )
 		$style.setAttribute( "id", "uagb-style-toc-" + this.props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
-		if( this.props.attributes.heading && '' !== this.props.attributes.heading ){
+		if( this.props.attributes.heading && "" !== this.props.attributes.heading ){
 			this.props.setAttributes( { headingTitle: this.props.attributes.heading } )
 		}
 	}
@@ -238,10 +238,10 @@ class UAGBTableOfContentsEdit extends Component {
 			onChange: this.getIcon,
 			isMulti: false,
 			renderFunc: renderSVG,
-			noSelectedPlaceholder: __( "Select Icon",'ultimate-addons-for-gutenberg' )
+			noSelectedPlaceholder: __( "Select Icon","ultimate-addons-for-gutenberg" )
 		}
 
-		let icon_html = ''
+		let icon_html = ""
 
 		if ( makeCollapsible && icon ) {
 			icon_html = (
@@ -261,8 +261,8 @@ class UAGBTableOfContentsEdit extends Component {
 					/>
 				</BlockControls>
 				<InspectorControls>
-					<PanelBody title={ __( "General",'ultimate-addons-for-gutenberg' ) } initialOpen={ true }>
-						<h2>{ __( "Select the heading to consider when generating the table",'ultimate-addons-for-gutenberg' ) }</h2>
+					<PanelBody title={ __( "General","ultimate-addons-for-gutenberg" ) } initialOpen={ true }>
+						<h2>{ __( "Select the heading to consider when generating the table","ultimate-addons-for-gutenberg" ) }</h2>
 						{mappingHeaders.map((a, i) => (
 							<PanelRow key={i}>
 								<label htmlFor={`ub_toggle_h${i + 1}`}>{`H${i + 1}`}</label>
@@ -282,24 +282,24 @@ class UAGBTableOfContentsEdit extends Component {
 							</PanelRow>
 						))}
 					</PanelBody>
-					<PanelBody title={ __( "Scroll",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
+					<PanelBody title={ __( "Scroll","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 						<ToggleControl
-							label={ __( "Smooth Scroll",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Smooth Scroll","ultimate-addons-for-gutenberg" ) }
 							checked={ smoothScroll }
-							help={ __( "This will be in Action only in Front End.",'ultimate-addons-for-gutenberg' ) }
+							help={ __( "This will be in Action only in Front End.","ultimate-addons-for-gutenberg" ) }
 							onChange={ ( value ) => setAttributes( { smoothScroll: ! smoothScroll } ) }
 						/>
 						{ smoothScroll &&
 							<Fragment>
 								<RangeControl
-									label={ __( "Smooth Scroll Offset (px)",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Smooth Scroll Offset (px)","ultimate-addons-for-gutenberg" ) }
 									value={ smoothScrollOffset }
 									onChange={ ( value ) => setAttributes( { smoothScrollOffset: value } ) }
 									min={ 0 }
 									max={ 1000 }
 								/>
 								<RangeControl
-									label={ __( "Scroll Animation Delay (ms)",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Scroll Animation Delay (ms)","ultimate-addons-for-gutenberg" ) }
 									value={ smoothScrollDelay }
 									onChange={ ( value ) => setAttributes( { smoothScrollDelay: value } ) }
 									min={ 100 }
@@ -309,20 +309,20 @@ class UAGBTableOfContentsEdit extends Component {
 						}
 						<hr className="uagb-editor__separator"/>
 						<ToggleControl
-							label={ __( "Show Scroll To Top",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Show Scroll To Top","ultimate-addons-for-gutenberg" ) }
 							checked={ scrollToTop }
-							help={ __( "This will add a Scroll to Top arrow at the bottom of page.",'ultimate-addons-for-gutenberg' ) }
+							help={ __( "This will add a Scroll to Top arrow at the bottom of page.","ultimate-addons-for-gutenberg" ) }
 							onChange={ ( value ) => setAttributes( { scrollToTop: ! scrollToTop } ) }
 						/>
 						{ scrollToTop &&
 							<Fragment>
-								<p className="uagb-setting-label">{ __( "Icon Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: scrollToTopColor }} ></span></span></p>
+								<p className="uagb-setting-label">{ __( "Icon Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: scrollToTopColor }} ></span></span></p>
 								<ColorPalette
 									value={ scrollToTopColor }
 									onChange={ ( colorValue ) => setAttributes( { scrollToTopColor: colorValue } ) }
 									allowReset
 								/>
-								<p className="uagb-setting-label">{ __( "Background Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: scrollToTopBgColor }} ></span></span></p>
+								<p className="uagb-setting-label">{ __( "Background Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: scrollToTopBgColor }} ></span></span></p>
 								<ColorPalette
 									value={ scrollToTopBgColor }
 									onChange={ ( colorValue ) => setAttributes( { scrollToTopBgColor: colorValue } ) }
@@ -331,20 +331,20 @@ class UAGBTableOfContentsEdit extends Component {
 							</Fragment>
 						}
 					</PanelBody>
-					<PanelBody title={ __( "Content",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-						<h2>{ __( "Heading",'ultimate-addons-for-gutenberg' ) }</h2>
+					<PanelBody title={ __( "Content","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+						<h2>{ __( "Heading","ultimate-addons-for-gutenberg" ) }</h2>
 						<SelectControl
-							label={ __( "Alignment",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Alignment","ultimate-addons-for-gutenberg" ) }
 							value={ headingAlignment }
 							onChange={ ( value ) => setAttributes( { headingAlignment: value } ) }
 							options={ [
-								{ value: "left", label: __( "Left",'ultimate-addons-for-gutenberg' ) },
-								{ value: "center", label: __( "Center",'ultimate-addons-for-gutenberg' ) },
-								{ value: "right", label: __( "Right",'ultimate-addons-for-gutenberg' ) },
+								{ value: "left", label: __( "Left","ultimate-addons-for-gutenberg" ) },
+								{ value: "center", label: __( "Center","ultimate-addons-for-gutenberg" ) },
+								{ value: "right", label: __( "Right","ultimate-addons-for-gutenberg" ) },
 							] }
 	  					/>						
 						<RangeControl
-							label={ __( "Bottom Space",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Bottom Space","ultimate-addons-for-gutenberg" ) }
 							value={ headingBottom }
 							onChange={ ( value ) => setAttributes( { headingBottom: value } ) }
 							min={ 0 }
@@ -352,7 +352,7 @@ class UAGBTableOfContentsEdit extends Component {
 							allowReset
 						/>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: headingLoadGoogleFonts, label: "headingLoadGoogleFonts" } }
@@ -368,29 +368,29 @@ class UAGBTableOfContentsEdit extends Component {
 							lineHeightMobile = { { value: headingLineHeightMobile, label: "headingLineHeightMobile" } }
 							lineHeightTablet= { { value: headingLineHeightTablet, label: "headingLineHeightTablet" } }
 						/>
-						<p className="uagb-setting-label">{ __( "Heading Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Heading Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
 						<ColorPalette
 							value={ headingColor }
 							onChange={ ( colorValue ) => setAttributes( { headingColor: colorValue } ) }
 							allowReset
 						/>						
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Collapsible",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Collapsible","ultimate-addons-for-gutenberg" ) }</h2>
 						<ToggleControl
-							label={ __( "Make Content Collapsible",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Make Content Collapsible","ultimate-addons-for-gutenberg" ) }
 							checked={ makeCollapsible }
 							onChange={ ( value ) => setAttributes( { makeCollapsible: ! makeCollapsible } ) }
 						/>
 						{ makeCollapsible &&
 							<Fragment>
 								<ToggleControl
-									label={ __( "Keep Collapsed Initially",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Keep Collapsed Initially","ultimate-addons-for-gutenberg" ) }
 									checked={ initialCollapse }
 									onChange={ ( value ) => setAttributes( { initialCollapse: ! initialCollapse } ) }
 								/>
 								<FontIconPicker {...icon_props} />
 								<RangeControl
-									label = { __( "Icon Size",'ultimate-addons-for-gutenberg' ) }
+									label = { __( "Icon Size","ultimate-addons-for-gutenberg" ) }
 									value = { iconSize }
 									onChange = { ( value ) => setAttributes( { iconSize: value } ) }
 									min = { 0 }
@@ -406,15 +406,15 @@ class UAGBTableOfContentsEdit extends Component {
 							</Fragment>
 						}
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Content",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Content","ultimate-addons-for-gutenberg" ) }</h2>
 						<ToggleControl
-							label={ __( "Disable Bullet Points",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Disable Bullet Points","ultimate-addons-for-gutenberg" ) }
 							checked={ disableBullets }
 							onChange={ ( value ) => setAttributes( { disableBullets: ! disableBullets } ) }
 						/>
 						{ ! disableBullets &&
 							<Fragment>
-								<p className="uagb-setting-label">{ __( "Bullet Points Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: bulletColor }} ></span></span></p>
+								<p className="uagb-setting-label">{ __( "Bullet Points Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: bulletColor }} ></span></span></p>
 								<ColorPalette
 									value={ bulletColor }
 									onChange={ ( colorValue ) => setAttributes( { bulletColor: colorValue } ) }
@@ -447,11 +447,11 @@ class UAGBTableOfContentsEdit extends Component {
 									if ( "mobile" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeMobile === "px" } aria-pressed={ contentPaddingTypeMobile === "px" } onClick={ () => setAttributes( { contentPaddingTypeMobile: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeMobile === "%" } aria-pressed={ contentPaddingTypeMobile === "%" } onClick={ () => setAttributes( { contentPaddingTypeMobile: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2 className="uagb-light-font-weight">{ __( "Gap Between Lists",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2 className="uagb-light-font-weight">{ __( "Gap Between Lists","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													className={ "uagb-margin-control" }
 													value={ contentPaddingMobile }
@@ -459,17 +459,17 @@ class UAGBTableOfContentsEdit extends Component {
 													min={ 0 }
 													max={ 100 }
 													allowReset
-													/>
+												/>
 											</Fragment>
 										)
 									} else if ( "tablet" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeTablet === "px" } aria-pressed={ contentPaddingTypeTablet === "px" } onClick={ () => setAttributes( { contentPaddingTypeTablet: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeTablet === "%" } aria-pressed={ contentPaddingTypeTablet === "%" } onClick={ () => setAttributes( { contentPaddingTypeTablet: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2 className="uagb-lighter-font-weight">{ __( "Gap Between Lists",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2 className="uagb-lighter-font-weight">{ __( "Gap Between Lists","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													className={ "uagb-margin-control" }
 													value={ contentPaddingTablet }
@@ -477,17 +477,17 @@ class UAGBTableOfContentsEdit extends Component {
 													min={ 0 }
 													max={ 100 }
 													allowReset
-													/>
+												/>
 											</Fragment>
 										)
 									} else {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeDesktop === "px" } aria-pressed={ contentPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { contentPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ contentPaddingTypeDesktop === "%" } aria-pressed={ contentPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { contentPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2 className="uagb-light-font-weight">{ __( "Gap Between Lists",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2 className="uagb-light-font-weight">{ __( "Gap Between Lists","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													className={ "uagb-gap-control" }
 													value={ contentPaddingDesktop }
@@ -505,7 +505,7 @@ class UAGBTableOfContentsEdit extends Component {
 							}
 						</TabPanel>					
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: loadGoogleFonts, label: "loadGoogleFonts" } }
@@ -521,22 +521,22 @@ class UAGBTableOfContentsEdit extends Component {
 							lineHeightMobile = { { value: lineHeightMobile, label: "lineHeightMobile" } }
 							lineHeightTablet= { { value: lineHeightTablet, label: "lineHeightTablet" } }
 						/>
-						<p className="uagb-setting-label">{ __( "Content Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: linkColor }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Content Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: linkColor }} ></span></span></p>
 						<ColorPalette
 							value={ linkColor }
 							onChange={ ( colorValue ) => setAttributes( { linkColor: colorValue } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Content Hover Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: linkHoverColor }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Content Hover Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: linkHoverColor }} ></span></span></p>
 						<ColorPalette
 							value={ linkHoverColor }
 							onChange={ ( colorValue ) => setAttributes( { linkHoverColor: colorValue } ) }
 							allowReset
 						/>						
 					</PanelBody>
-					<PanelBody title={ __( "Style",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-						<h2>{ __( "Background",'ultimate-addons-for-gutenberg' ) }</h2>
-						<p className="uagb-setting-label">{ __( "Background Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundColor }} ></span></span></p>
+					<PanelBody title={ __( "Style","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+						<h2>{ __( "Background","ultimate-addons-for-gutenberg" ) }</h2>
+						<p className="uagb-setting-label">{ __( "Background Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundColor }} ></span></span></p>
 						<ColorPalette
 							value={ backgroundColor }
 							onChange={ ( colorValue ) => setAttributes( { backgroundColor: colorValue } ) }
@@ -544,10 +544,10 @@ class UAGBTableOfContentsEdit extends Component {
 						/>
 						<hr className="uagb-editor__separator"/>
 						<ToggleControl
-							label={ __( "Custom Width",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Custom Width","ultimate-addons-for-gutenberg" ) }
 							checked={ customWidth }
 							onChange={ ( value ) => setAttributes( { customWidth: ! customWidth } ) }
-							help={ __( "Table's width will be auto if this is kept off.",'ultimate-addons-for-gutenberg' ) }
+							help={ __( "Table's width will be auto if this is kept off.","ultimate-addons-for-gutenberg" ) }
 						/>
 						{ customWidth &&
 							<TabPanel className="uagb-size-type-field-tabs" activeClass="active-tab"
@@ -575,12 +575,12 @@ class UAGBTableOfContentsEdit extends Component {
 										if ( "mobile" === tab.name ) {
 											tabout = (
 												<Fragment>
-													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ widthTypeMobile === "px" } aria-pressed={ widthTypeMobile === "px" } onClick={ () => setAttributes( { widthTypeMobile: "px" } ) }>{ "px" }</Button>
 														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ widthTypeMobile === "%" } aria-pressed={ widthTypeMobile === "%" } onClick={ () => setAttributes( { widthTypeMobile: "%" } ) }>{ "%" }</Button>
 													</ButtonGroup>
 													<RangeControl
-														label={ __( "Width",'ultimate-addons-for-gutenberg' ) }
+														label={ __( "Width","ultimate-addons-for-gutenberg" ) }
 														value={ widthMobile }
 														onChange={ ( value ) => setAttributes( { widthMobile: value } ) }
 														min={ 0 }
@@ -593,12 +593,12 @@ class UAGBTableOfContentsEdit extends Component {
 										} else if ( "tablet" === tab.name ) {
 											tabout = (
 												<Fragment>
-													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ widthTypeTablet === "px" } aria-pressed={ widthTypeTablet === "px" } onClick={ () => setAttributes( { widthTypeTablet: "px" } ) }>{ "px" }</Button>
 														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ widthTypeTablet === "%" } aria-pressed={ widthTypeTablet === "%" } onClick={ () => setAttributes( { widthTypeTablet: "%" } ) }>{ "%" }</Button>
 													</ButtonGroup>
 													<RangeControl
-														label={ __( "Width",'ultimate-addons-for-gutenberg' ) }
+														label={ __( "Width","ultimate-addons-for-gutenberg" ) }
 														value={ widthTablet }
 														onChange={ ( value ) => setAttributes( { widthTablet: value } ) }
 														min={ 0 }
@@ -611,12 +611,12 @@ class UAGBTableOfContentsEdit extends Component {
 										} else {
 											tabout = (
 												<Fragment>
-													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ widthTypeDesktop === "px" } aria-pressed={ widthTypeDesktop === "px" } onClick={ () => setAttributes( { widthTypeDesktop: "px" } ) }>{ "px" }</Button>
 														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ widthTypeDesktop === "%" } aria-pressed={ widthTypeDesktop === "%" } onClick={ () => setAttributes( { widthTypeDesktop: "%" } ) }>{ "%" }</Button>
 													</ButtonGroup>
 													<RangeControl
-														label={ __( "Width",'ultimate-addons-for-gutenberg' ) }
+														label={ __( "Width","ultimate-addons-for-gutenberg" ) }
 														value={ widthDesktop }
 														onChange={ ( value ) => setAttributes( { widthDesktop: value } ) }
 														min={ 0 }
@@ -658,7 +658,7 @@ class UAGBTableOfContentsEdit extends Component {
 									if ( "mobile" === tab.name ) {
 										tabout = (
 											<RangeControl
-												label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+												label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 												value={ tColumnsMobile }
 												onChange={ ( value ) => setAttributes( { tColumnsMobile: value } ) }
 												min={ 1 }
@@ -668,7 +668,7 @@ class UAGBTableOfContentsEdit extends Component {
 									} else if ( "tablet" === tab.name ) {
 										tabout = (
 											<RangeControl
-												label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+												label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 												value={ tColumnsTablet }
 												onChange={ ( value ) => setAttributes( { tColumnsTablet: value } ) }
 												min={ 1 }
@@ -678,7 +678,7 @@ class UAGBTableOfContentsEdit extends Component {
 									} else {
 										tabout = (
 											<RangeControl
-												label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+												label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 												value={ tColumnsDesktop }
 												onChange={ ( value ) => setAttributes( { tColumnsDesktop: value } ) }
 												min={ 1 }
@@ -717,11 +717,11 @@ class UAGBTableOfContentsEdit extends Component {
 									if ( "mobile" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeMobile === "px" } aria-pressed={ paddingTypeMobile === "px" } onClick={ () => setAttributes( { paddingTypeMobile: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeMobile === "%" } aria-pressed={ paddingTypeMobile === "%" } onClick={ () => setAttributes( { paddingTypeMobile: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "Padding",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "Padding","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -745,11 +745,11 @@ class UAGBTableOfContentsEdit extends Component {
 									} else if ( "tablet" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeTablet === "px" } aria-pressed={ paddingTypeTablet === "px" } onClick={ () => setAttributes( { paddingTypeTablet: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeTablet === "%" } aria-pressed={ paddingTypeTablet === "%" } onClick={ () => setAttributes( { paddingTypeTablet: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "Padding",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "Padding","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -773,11 +773,11 @@ class UAGBTableOfContentsEdit extends Component {
 									} else {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeDesktop === "px" } aria-pressed={ paddingTypeDesktop === "px" } onClick={ () => setAttributes( { paddingTypeDesktop: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ paddingTypeDesktop === "%" } aria-pressed={ paddingTypeDesktop === "%" } onClick={ () => setAttributes( { paddingTypeDesktop: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "Padding",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "Padding","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -829,11 +829,11 @@ class UAGBTableOfContentsEdit extends Component {
 									if ( "mobile" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ marginTypeMobile === "px" } aria-pressed={ marginTypeMobile === "px" } onClick={ () => setAttributes( { marginTypeMobile: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ marginTypeMobile === "%" } aria-pressed={ marginTypeMobile === "%" } onClick={ () => setAttributes( { marginTypeMobile: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "List Margin",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "List Margin","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -857,11 +857,11 @@ class UAGBTableOfContentsEdit extends Component {
 									} else if ( "tablet" === tab.name ) {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ marginTypeTablet === "px" } aria-pressed={ marginTypeTablet === "px" } onClick={ () => setAttributes( { marginTypeTablet: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ marginTypeTablet === "%" } aria-pressed={ marginTypeTablet === "%" } onClick={ () => setAttributes( { marginTypeTablet: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "List Margin",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "List Margin","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -885,11 +885,11 @@ class UAGBTableOfContentsEdit extends Component {
 									} else {
 										tabout = (
 											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
+												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type","ultimate-addons-for-gutenberg" ) }>
 													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ marginTypeDesktop === "px" } aria-pressed={ marginTypeDesktop === "px" } onClick={ () => setAttributes( { marginTypeDesktop: "px" } ) }>{ "px" }</Button>
 													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ marginTypeDesktop === "%" } aria-pressed={ marginTypeDesktop === "%" } onClick={ () => setAttributes( { marginTypeDesktop: "%" } ) }>{ "%" }</Button>
 												</ButtonGroup>
-												<h2>{ __( "List Margin",'ultimate-addons-for-gutenberg' ) }</h2>
+												<h2>{ __( "List Margin","ultimate-addons-for-gutenberg" ) }</h2>
 												<RangeControl
 													label={ UAGB_Block_Icons.vertical_spacing }
 													className={ "uagb-margin-control" }
@@ -917,26 +917,26 @@ class UAGBTableOfContentsEdit extends Component {
 							}
 						</TabPanel>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Border",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Border","ultimate-addons-for-gutenberg" ) }</h2>
 						<SelectControl
-							label={ __( "Border Style",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Border Style","ultimate-addons-for-gutenberg" ) }
 							value={ borderStyle }
 							onChange={ ( value ) => setAttributes( { borderStyle: value } ) }
 							options={ [
-								{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-								{ value: "solid", label: __( "Solid",'ultimate-addons-for-gutenberg' ) },
-								{ value: "dotted", label: __( "Dotted",'ultimate-addons-for-gutenberg' ) },
-								{ value: "dashed", label: __( "Dashed",'ultimate-addons-for-gutenberg' ) },
-								{ value: "double", label: __( "Double",'ultimate-addons-for-gutenberg' ) },
-								{ value: "groove", label: __( "Groove",'ultimate-addons-for-gutenberg' ) },
-								{ value: "inset", label: __( "Inset",'ultimate-addons-for-gutenberg' ) },
-								{ value: "outset", label: __( "Outset",'ultimate-addons-for-gutenberg' ) },
-								{ value: "ridge", label: __( "Ridge",'ultimate-addons-for-gutenberg' ) },
+								{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+								{ value: "solid", label: __( "Solid","ultimate-addons-for-gutenberg" ) },
+								{ value: "dotted", label: __( "Dotted","ultimate-addons-for-gutenberg" ) },
+								{ value: "dashed", label: __( "Dashed","ultimate-addons-for-gutenberg" ) },
+								{ value: "double", label: __( "Double","ultimate-addons-for-gutenberg" ) },
+								{ value: "groove", label: __( "Groove","ultimate-addons-for-gutenberg" ) },
+								{ value: "inset", label: __( "Inset","ultimate-addons-for-gutenberg" ) },
+								{ value: "outset", label: __( "Outset","ultimate-addons-for-gutenberg" ) },
+								{ value: "ridge", label: __( "Ridge","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 						{ "none" != borderStyle && (
 							<RangeControl
-								label={ __( "Border Width",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Border Width","ultimate-addons-for-gutenberg" ) }
 								value={ borderWidth }
 								onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
 								min={ 0 }
@@ -945,7 +945,7 @@ class UAGBTableOfContentsEdit extends Component {
 							/>
 						) }
 						<RangeControl
-							label={ __( "Border Radius",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Border Radius","ultimate-addons-for-gutenberg" ) }
 							value={ borderRadius }
 							onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
 							min={ 0 }
@@ -954,7 +954,7 @@ class UAGBTableOfContentsEdit extends Component {
 						/>
 						{ "none" != borderStyle && (
 							<Fragment>
-								<p className="uagb-setting-label">{ __( "Border Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
+								<p className="uagb-setting-label">{ __( "Border Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
 								<ColorPalette
 									value={ borderColor }
 									onChange={ ( colorValue ) => setAttributes( { borderColor: colorValue } ) }
@@ -968,7 +968,7 @@ class UAGBTableOfContentsEdit extends Component {
 					className,
 					`uagb-toc__align-${align}`,
 					`uagb-toc__columns-${tColumnsDesktop}`,
-					( initialCollapse ) ? `uagb-toc__collapse` : '',
+					( initialCollapse ) ? "uagb-toc__collapse" : "",
 					`uagb-block-${ this.props.clientId.substr( 0, 8 ) }`
 				) }
 				>
@@ -976,7 +976,7 @@ class UAGBTableOfContentsEdit extends Component {
 						<div className="uagb-toc__title-wrap">
 							<RichText
 								tagName= { "div" }
-								placeholder={ __( "Table Of Contents",'ultimate-addons-for-gutenberg' ) }
+								placeholder={ __( "Table Of Contents","ultimate-addons-for-gutenberg" ) }
 								value={ headingTitle }
 								className = 'uagb-toc__title'
 								onChange = { ( value ) => setAttributes( { headingTitle: value } ) }
@@ -1005,85 +1005,85 @@ export default compose(
 
 			// If not have the element then return false!
 			if( ! slug ) {
-				return slug;
+				return slug
 			}
 			
 			var parsedSlug = slug.toString().toLowerCase()                        
-				.replace(/\…+/g,'')                          // Remove multiple …
-				.replace(/&(amp;)/g, '')					 // Remove &
-				.replace(/&(mdash;)/g, '')					 // Remove long dash
-				.replace(/\u2013|\u2014/g, '')				 // Remove long dash
-				.replace(/[&]nbsp[;]/gi, '-')                // Replace inseccable spaces
-				.replace(/\s+/g, '-')                        // Replace spaces with -
-				.replace(/[&\/\\#,^!+()$~%.\[\]'":*?<>{}@‘’”“|]/g, '')  // Remove special chars
-				.replace(/\-\-+/g, '-')                      // Replace multiple - with single -
-				.replace(/^-+/, '')                          // Trim - from start of text
-				.replace(/-+$/, '');                         // Trim - from end of text
+				.replace(/\…+/g,"")                          // Remove multiple …
+				.replace(/&(amp;)/g, "")					 // Remove &
+				.replace(/&(mdash;)/g, "")					 // Remove long dash
+				.replace(/\u2013|\u2014/g, "")				 // Remove long dash
+				.replace(/[&]nbsp[;]/gi, "-")                // Replace inseccable spaces
+				.replace(/\s+/g, "-")                        // Replace spaces with -
+				.replace(/[&\/\\#,^!+()$~%.\[\]'":*?<>{}@‘’”“|]/g, "")  // Remove special chars
+				.replace(/\-\-+/g, "-")                      // Replace multiple - with single -
+				.replace(/^-+/, "")                          // Trim - from start of text
+				.replace(/-+$/, "")                         // Trim - from end of text
 
-			return decodeURI( encodeURIComponent( parsedSlug ) );
+			return decodeURI( encodeURIComponent( parsedSlug ) )
 		}
 
-		var level = 0;
+		var level = 0
 		
-		var headerArray = $( 'div.is-root-container' ).find('h1, h2, h3, h4, h5, h6' )
-		let headers = [];
-		if( headerArray != 'undefined' ) {
+		var headerArray = $( "div.is-root-container" ).find("h1, h2, h3, h4, h5, h6" )
+		let headers = []
+		if( headerArray != "undefined" ) {
 
 			headerArray.each( function (index, value){
-				let header = $( this );
-				let excludeHeading ;
+				let header = $( this )
+				let excludeHeading 
 				
-				if ( value.className.includes('uagb-toc-hide-heading') ) {
-					excludeHeading = true;
-				} else if ( 0 < header.parents('.uagb-toc-hide-heading').length ) {
-					excludeHeading = true;
+				if ( value.className.includes("uagb-toc-hide-heading") ) {
+					excludeHeading = true
+				} else if ( 0 < header.parents(".uagb-toc-hide-heading").length ) {
+					excludeHeading = true
 				} else {
-					excludeHeading = false;
+					excludeHeading = false
 				}
 				
-				let headerText = parseTocSlug(header.text());
-				var openLevel = header[0].nodeName.replace(/^H+/, '');
-				var titleText = header.text();
+				let headerText = parseTocSlug(header.text())
+				var openLevel = header[0].nodeName.replace(/^H+/, "")
+				var titleText = header.text()
 					
-					level = parseInt(openLevel);
+				level = parseInt(openLevel)
 					
-					if ( !excludeHeading ) {
-						headers.push(
-							{
-								tag: level,
-								text: titleText,
-								link: headerText,
-								content: header.text(),
-							}
-						);
-					}
+				if ( !excludeHeading ) {
+					headers.push(
+						{
+							tag: level,
+							text: titleText,
+							link: headerText,
+							content: header.text(),
+						}
+					)
+				}
 				
 									
-			});	
+			})	
 		}
 
 		if ( headers !== undefined ) {
 
 			headers.forEach( function ( heading, index ) {
-				heading.level = 0;
+				heading.level = 0
 
 				for ( var i = index - 1; i >= 0; i-- ) {
-					var currentOrderedItem = headers[i];
+					var currentOrderedItem = headers[i]
 
 					if ( currentOrderedItem.tag <= heading.tag ) {
-						heading.level = currentOrderedItem.level;
+						heading.level = currentOrderedItem.level
 
 						if ( currentOrderedItem.tag < heading.tag ) {
-							heading.level++;
+							heading.level++
 						}
-						break;
+						break
 					}
 				}
-			});
+			})
 		}
 
 		return {
 			headers: headers
-		};
+		}
 	} )
 ) ( UAGBTableOfContentsEdit )

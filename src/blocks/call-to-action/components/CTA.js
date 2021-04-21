@@ -32,15 +32,15 @@ class CTA extends React.Component {
 			<div className = "uagb-cta__link-wrapper uagb-cta__block-link-style">
 				
 				{  (attributes.ctaType === "button" || attributes.ctaType === "text") && ( 
-					<div className = {classnames("uagb-cta__button-wrapper", ( attributes.inheritFromTheme && attributes.ctaType === "button" ) ? 'wp-block-button' : null)}>
+					<div className = {classnames("uagb-cta__button-wrapper", ( attributes.inheritFromTheme && attributes.ctaType === "button" ) ? "wp-block-button" : null)}>
 						<a
 							href = {link}
 							className = {
 								classnames(
-									'uagb-cta__button-link-wrapper',
-									( !attributes.inheritFromTheme ) ? 'uagb-cta__block-link' : null,
+									"uagb-cta__button-link-wrapper",
+									( !attributes.inheritFromTheme ) ? "uagb-cta__block-link" : null,
 									( !attributes.inheritFromTheme ) ? `uagb-cta-typeof-${attributes.ctaType}` : null,
-									( attributes.inheritFromTheme && attributes.ctaType === "button" ) ? 'wp-block-button__link' : null,
+									( attributes.inheritFromTheme && attributes.ctaType === "button" ) ? "wp-block-button__link" : null,
 								)
 							}
 							target= {target}

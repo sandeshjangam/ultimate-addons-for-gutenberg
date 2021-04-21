@@ -18,7 +18,7 @@ export default function save( props ) {
 		placeholder
 	} = attributes
 	
-	const isRequired = (nameRequired) ? __("required" , 'ultimate-addons-for-gutenberg'): "";
+	const isRequired = (nameRequired) ? __("required" , "ultimate-addons-for-gutenberg"): ""
 	
 	return (
 		<div className={ classnames(
@@ -26,13 +26,13 @@ export default function save( props ) {
 			"uagb-forms-field-set",
 			`uagb-block-${ block_id }`,
 		) }>
-				<RichText.Content
+			<RichText.Content
 				tagName="div"
 				value={ name }
 				className={`uagb-forms-name-label ${isRequired} uagb-forms-input-label`}	
 				id={ block_id }		
-				/>
-				<input type="text" placeholder={placeholder} required={ nameRequired } className="uagb-forms-name-input uagb-forms-input" name= { block_id }  />
+			/>
+			<input type="text" placeholder={placeholder} required={ nameRequired } className="uagb-forms-name-input uagb-forms-input" name= { block_id }  />
 		</div>
 	)
 }

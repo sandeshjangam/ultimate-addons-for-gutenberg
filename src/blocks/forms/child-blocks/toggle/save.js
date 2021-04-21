@@ -21,7 +21,7 @@ export default function save( props ) {
 		falseValue
 	} = attributes
 	
-	const isRequired = (toggleRequired) ? __("required", 'ultimate-addons-for-gutenberg') : "";
+	const isRequired = (toggleRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
 	
 	return (
 		<div className={ classnames(
@@ -29,35 +29,35 @@ export default function save( props ) {
 			"uagb-forms-field-set",
 			`uagb-block-${ block_id }`,
 		) }>
-				<RichText.Content
+			<RichText.Content
 				tagName="div"
 				value={ name }
 				className={`uagb-forms-toggle-label ${isRequired} uagb-forms-input-label`}	
 				id={ block_id }	
+			/>
+			<label className="uagb-switch">
+				<input 
+					type="hidden"
+					className="uagb-forms-toggle-input"
+					checked={toggleStatus}
+					data-truestate  = {trueValue}
+					data-falsestate = {falseValue}
+					value={ toggleStatus ? trueValue : falseValue }
+					required={toggleRequired}	
+					name={ block_id }				
 				/>
-				<label class="uagb-switch">
-					<input 
-						type="hidden"
-						className="uagb-forms-toggle-input"
-						checked={toggleStatus}
-						data-truestate  = {trueValue}
-						data-falsestate = {falseValue}
-						value={ toggleStatus ? trueValue : falseValue }
-						required={toggleRequired}	
-						name={ block_id }				
-					/>
-					<input 
-						type="checkbox"
-						className="uagb-forms-toggle-input"
-						checked={toggleStatus}
-						data-truestate  = {trueValue}
-						data-falsestate = {falseValue}
-						value={ toggleStatus ? trueValue : falseValue }
-						required={toggleRequired}	
-						name={ block_id }			
-					/>
-					<span class={`uagb-slider ${layout}`}></span>
-				</label>
+				<input 
+					type="checkbox"
+					className="uagb-forms-toggle-input"
+					checked={toggleStatus}
+					data-truestate  = {trueValue}
+					data-falsestate = {falseValue}
+					value={ toggleStatus ? trueValue : falseValue }
+					required={toggleRequired}	
+					name={ block_id }			
+				/>
+				<span className={`uagb-slider ${layout}`}></span>
+			</label>
 		</div>
 	)
 }

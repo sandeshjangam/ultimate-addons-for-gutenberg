@@ -16,7 +16,7 @@ class Price extends React.Component {
 
 		let price = ""
 		if( typeof index_value !== "undefined" ){
-			const rest_arr = attributes.rest_menu_item_arr[index_value];
+			const rest_arr = attributes.rest_menu_item_arr[index_value]
 			if( rest_arr ){
 				if( typeof rest_arr !== "undefined" ){		
 					price = rest_arr["price"]	

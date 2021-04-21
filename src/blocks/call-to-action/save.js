@@ -101,20 +101,20 @@ export default function save( props ) {
 	}
 
 	return (
-			<div className={ classnames(
-				className,
-				"uagb-cta__outer-wrap",
-				`uagb-block-${block_id}`
-			) }>
+		<div className={ classnames(
+			className,
+			"uagb-cta__outer-wrap",
+			`uagb-block-${block_id}`
+		) }>
 
-				{ ( ctaType == "all") &&
+			{ ( ctaType == "all") &&
 					<Fragment>
 						<a href= {ctaLink} className = "uagb-cta__block-link-wrap uagb-cta__link-to-all" target={target} rel ="noopener noreferrer"></a>
 						{output}
 					</Fragment>
-				}
-				{ ( ctaType !== "all") && output }
+			}
+			{ ( ctaType !== "all") && output }
 
-			</div>
+		</div>
 	)
 }

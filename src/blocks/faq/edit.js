@@ -19,7 +19,7 @@ import WebfontLoader from "../../components/typography/fontloader"
 
 const { __ } = wp.i18n
 const { compose } = wp.compose
-const { select, withSelect } = wp.data;
+const { select, withSelect } = wp.data
 const {
 	Component,
 	Fragment,
@@ -88,8 +88,8 @@ class UAGBFaqEdit extends Component {
 		for ( var i = 1; i <= 2; i++ ) {		
 			faq.push(	
 				{	
-					"question": 'What is FAQ?',	
-					"answer": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',	
+					"question": "What is FAQ?",	
+					"answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",	
 				}	
 			)	
 		}
@@ -129,7 +129,7 @@ class UAGBFaqEdit extends Component {
 		) {
 			this.props.setAttributes({
 				schema: JSON.stringify(this.props.schemaJsonData)
-			});
+			})
 		}
 		var element = document.getElementById( "uagb-style-faq-" + this.props.clientId.substr( 0, 8 ) )
 
@@ -137,48 +137,48 @@ class UAGBFaqEdit extends Component {
 			element.innerHTML = styling( this.props )
 		}
 
-		const getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
+		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
 
 		getChildBlocks.forEach((faqChild, key) => {
-			faqChild.attributes.headingTag = this.props.attributes.headingTag;
-		});
+			faqChild.attributes.headingTag = this.props.attributes.headingTag
+		})
 	}
 	onchangeIcon ( value ) {
 		const { setAttributes } = this.props
-		let getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
+		let getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
 		getChildBlocks.forEach((faqChild, key) => {
 			faqChild.attributes.icon = value
-		});
+		})
 
 		setAttributes( { icon: value } )
 	}
 	onchangeActiveIcon ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
+		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
 
 		getChildBlocks.forEach((faqChild, key) => {
 			faqChild.attributes.iconActive = value
-		});
+		})
 
 		setAttributes( { iconActive: value } )
 	}
 	onchangeLayout ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
+		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
 
 		getChildBlocks.forEach((faqChild, key) => {
 			faqChild.attributes.layout = value
-		});
+		})
 
 		setAttributes( { layout: value } )
 	}
 	onchangeTag ( value ) {
 		const { setAttributes } = this.props
-		const getChildBlocks = select('core/block-editor').getBlocks( this.props.clientId );
+		const getChildBlocks = select("core/block-editor").getBlocks( this.props.clientId )
 
 		getChildBlocks.forEach((faqChild, key) => {
 			faqChild.attributes.headingTag = value
-		});
+		})
 
 		setAttributes( { headingTag: value } )
 	}
@@ -186,7 +186,7 @@ class UAGBFaqEdit extends Component {
 	render() {
 
 		const { attributes, setAttributes } = this.props
-        const {
+		const {
 			layout,
 			inactiveOtherItems,
 			expandFirstItem,
@@ -269,18 +269,18 @@ class UAGBFaqEdit extends Component {
 			return times( faq_count, n => [ "uagb/faq-child", faq[n] ] )
 		} )
 
-		const equalHeightClass = equalHeight ? "uagb-faq-equal-height" : "";
+		const equalHeightClass = equalHeight ? "uagb-faq-equal-height" : ""
 
-		let loadQuestionGoogleFonts;
-		let loadAnswerGoogleFonts;
+		let loadQuestionGoogleFonts
+		let loadAnswerGoogleFonts
 
 		if( questionloadGoogleFonts == true ) {
 			
 			const qconfig = {
 				google: {
-					families: [ questionFontFamily + ( questionFontWeight ? ':' + questionFontWeight : '' ) ],
+					families: [ questionFontFamily + ( questionFontWeight ? ":" + questionFontWeight : "" ) ],
 				},
-			};
+			}
 
 			loadQuestionGoogleFonts = (
 				<WebfontLoader config={ qconfig }>
@@ -292,9 +292,9 @@ class UAGBFaqEdit extends Component {
 
 			const aconfig = {
 				google: {
-					families: [ answerFontFamily + ( answerFontWeight ? ':' + answerFontWeight : '' ) ],
+					families: [ answerFontFamily + ( answerFontWeight ? ":" + answerFontWeight : "" ) ],
 				},
-			};
+			}
 
 			loadAnswerGoogleFonts = (
 				<WebfontLoader config={ aconfig }>
@@ -306,109 +306,109 @@ class UAGBFaqEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "General", 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "General", "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className="uagb__url-panel-body"
 				>
 					<SelectControl
-						label={ __( "Layout", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Layout", "ultimate-addons-for-gutenberg" ) }
 						value={ layout }
 						options={ [
-							{ value: "accordion", label: __( "Accordion", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "grid", label: __( "Grid", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "accordion", label: __( "Accordion", "ultimate-addons-for-gutenberg" ) },
+							{ value: "grid", label: __( "Grid", "ultimate-addons-for-gutenberg" ) },
 						] }
 						onChange={ (value) => this.onchangeLayout( value ) }
 					/>
-					{ 'accordion' === layout &&
+					{ "accordion" === layout &&
 						<Fragment>
 							<ToggleControl
-								label={ __( "Collapse other items", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Collapse other items", "ultimate-addons-for-gutenberg" ) }
 								checked={ inactiveOtherItems }
 								onChange={ ( value ) => setAttributes( { inactiveOtherItems: ! inactiveOtherItems } ) }
 							/>
 							{ true === inactiveOtherItems &&
 								<ToggleControl
-									label={ __( "Expand First Item", 'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Expand First Item", "ultimate-addons-for-gutenberg" ) }
 									checked={ expandFirstItem }
 									onChange={ ( value ) => setAttributes( { expandFirstItem: ! expandFirstItem } ) }
 								/>
 							}
 							<ToggleControl
-								label={ __( "Enable Toggle", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Enable Toggle", "ultimate-addons-for-gutenberg" ) }
 								checked={ enableToggle }
 								onChange={ ( value ) => setAttributes( { enableToggle: ! enableToggle } ) }
 							/>
 						</Fragment>
 					}
 					<ToggleControl
-						label={ __( "Enable Schema Support", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Enable Schema Support", "ultimate-addons-for-gutenberg" ) }
 						checked={ enableSchemaSupport }
 						onChange={ ( value ) => setAttributes( { enableSchemaSupport: ! enableSchemaSupport } ) }
 					/>
 					<hr className="uagb-editor__separator" />
-					{ 'grid' === layout &&						
+					{ "grid" === layout &&						
 						<TabPanel className="uagb-size-type-field-tabs uagb-without-size-type" activeClass="active-tab"
-						tabs={ [
+							tabs={ [
+								{
+									name: "desktop",
+									title: <Dashicon icon="desktop" />,
+									className: "uagb-desktop-tab uagb-responsive-tabs",
+								},
+								{
+									name: "tablet",
+									title: <Dashicon icon="tablet" />,
+									className: "uagb-tablet-tab uagb-responsive-tabs",
+								},
+								{
+									name: "mobile",
+									title: <Dashicon icon="smartphone" />,
+									className: "uagb-mobile-tab uagb-responsive-tabs",
+								},
+							] }>
 							{
-								name: "desktop",
-								title: <Dashicon icon="desktop" />,
-								className: "uagb-desktop-tab uagb-responsive-tabs",
-							},
-							{
-								name: "tablet",
-								title: <Dashicon icon="tablet" />,
-								className: "uagb-tablet-tab uagb-responsive-tabs",
-							},
-							{
-								name: "mobile",
-								title: <Dashicon icon="smartphone" />,
-								className: "uagb-mobile-tab uagb-responsive-tabs",
-							},
-						] }>
-						{
-							( tab ) => {
-								let tabout
+								( tab ) => {
+									let tabout
 
-								if ( "mobile" === tab.name ) {
-									tabout = (
-										<RangeControl
-											label={ __( "Mobile Columns", 'ultimate-addons-for-gutenberg' ) }
-											value={ mcolumns }
-											onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
-											min={ 1 }
-											max={ 2 }
-										/>
-									)
-								} else if ( "tablet" === tab.name ) {
-									tabout = (
-										<RangeControl
-											label={ __( "Tab Columns", 'ultimate-addons-for-gutenberg' ) }
-											value={ tcolumns }
-											onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
-											min={ 1 }
-											max={ 4 }
-										/>
-									)
-								} else {
-									tabout = (
-										<RangeControl
-											label={ __( "Desktop Columns", 'ultimate-addons-for-gutenberg' ) }
-											value={ columns }
-											onChange={ ( value ) => setAttributes( { columns: value } ) }
-											min={ 1 }
-											max={ 6 }
-										/>
-									)
+									if ( "mobile" === tab.name ) {
+										tabout = (
+											<RangeControl
+												label={ __( "Mobile Columns", "ultimate-addons-for-gutenberg" ) }
+												value={ mcolumns }
+												onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
+												min={ 1 }
+												max={ 2 }
+											/>
+										)
+									} else if ( "tablet" === tab.name ) {
+										tabout = (
+											<RangeControl
+												label={ __( "Tab Columns", "ultimate-addons-for-gutenberg" ) }
+												value={ tcolumns }
+												onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
+												min={ 1 }
+												max={ 4 }
+											/>
+										)
+									} else {
+										tabout = (
+											<RangeControl
+												label={ __( "Desktop Columns", "ultimate-addons-for-gutenberg" ) }
+												value={ columns }
+												onChange={ ( value ) => setAttributes( { columns: value } ) }
+												min={ 1 }
+												max={ 6 }
+											/>
+										)
+									}
+
+									return <div>{ tabout }</div>
 								}
-
-								return <div>{ tabout }</div>
 							}
-						}
-					</TabPanel>
+						</TabPanel>
 					}
-					{ 'grid' === layout &&
+					{ "grid" === layout &&
 						<Fragment>
-							<h2> { __( "Alignment", 'ultimate-addons-for-gutenberg' ) }</h2>
+							<h2> { __( "Alignment", "ultimate-addons-for-gutenberg" ) }</h2>
 							<Button
 								key={ "left" }
 								icon="editor-alignleft"
@@ -435,7 +435,7 @@ class UAGBFaqEdit extends Component {
 							/>
 						</Fragment>
 					}
-					{ 'accordion' === layout && faqIconSettings() }
+					{ "accordion" === layout && faqIconSettings() }
 				</PanelBody>
 			)
 		}
@@ -444,55 +444,55 @@ class UAGBFaqEdit extends Component {
 
 			return (
 				<PanelBody
-					title={ __( "Style", 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Style", "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ false }
 					className="uagb__url-panel-body"
 				>
-					<p className="uagb-setting-label">{ __( "Background Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: boxBgColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Background Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: boxBgColor }} ></span></span></p>
 					<ColorPalette
 						value={ boxBgColor }
 						onChange={ ( value ) => setAttributes( { boxBgColor: value } ) }
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Rows Gap (px)", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Rows Gap (px)", "ultimate-addons-for-gutenberg" ) }
 						value={ rowsGap }
 						onChange={ ( value ) => setAttributes( { rowsGap: value } ) }
 						min={ 0 }
 						max={ 50 }
 					/>
-					{ 'grid' === layout &&
+					{ "grid" === layout &&
 						<Fragment>
 							<RangeControl
-								label={ __( "Columns Gap (px)", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Columns Gap (px)", "ultimate-addons-for-gutenberg" ) }
 								value={ columnsGap }
 								onChange={ ( value ) => setAttributes( { columnsGap: value } ) }
 								min={ 0 }
 								max={ 50 }
 							/>
 							<ToggleControl
-							label={ __( "Equal Height", 'ultimate-addons-for-gutenberg' ) }
-							checked={ equalHeight }
-							onChange={ ( value ) => setAttributes( { equalHeight: ! equalHeight } ) }
+								label={ __( "Equal Height", "ultimate-addons-for-gutenberg" ) }
+								checked={ equalHeight }
+								onChange={ ( value ) => setAttributes( { equalHeight: ! equalHeight } ) }
 							/>
 						</Fragment>
 					}
 					<ToggleControl
-						label={ __( "Enable Separator", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Enable Separator", "ultimate-addons-for-gutenberg" ) }
 						checked={ enableSeparator }
 						onChange={ ( value ) => setAttributes( { enableSeparator: ! enableSeparator } ) }
 					/>
 					<hr className="uagb-editor__separator" />
-					<h2>{ __( "Border", 'ultimate-addons-for-gutenberg' ) }</h2>
+					<h2>{ __( "Border", "ultimate-addons-for-gutenberg" ) }</h2>
 					<SelectControl
-						label={ __( "Style", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Style", "ultimate-addons-for-gutenberg" ) }
 						value={ borderStyle }
 						options={ [
-							{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "solid", label: __( "Solid", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "dotted", label: __( "Dotted", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "dashed", label: __( "Dashed", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "double", label: __( "Double", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
+							{ value: "solid", label: __( "Solid", "ultimate-addons-for-gutenberg" ) },
+							{ value: "dotted", label: __( "Dotted", "ultimate-addons-for-gutenberg" ) },
+							{ value: "dashed", label: __( "Dashed", "ultimate-addons-for-gutenberg" ) },
+							{ value: "double", label: __( "Double", "ultimate-addons-for-gutenberg" ) },
 						] }
 						onChange={ value => {
 							setAttributes( { borderStyle: value } )
@@ -500,7 +500,7 @@ class UAGBFaqEdit extends Component {
 					/>
 					{ "none" !== borderStyle &&
 						<RangeControl
-							label={ __( "Thickness (px)", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Thickness (px)", "ultimate-addons-for-gutenberg" ) }
 							value={ borderWidth }
 							onChange={ value => {
 								setAttributes( { borderWidth: value } )
@@ -511,7 +511,7 @@ class UAGBFaqEdit extends Component {
 					}
 					{ "none" !== borderStyle &&
 						<RangeControl
-							label={ __( "Rounded Corners (px)", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Rounded Corners (px)", "ultimate-addons-for-gutenberg" ) }
 							value={ borderRadius }
 							onChange={ value => {
 								setAttributes( { borderRadius: value } )
@@ -520,110 +520,110 @@ class UAGBFaqEdit extends Component {
 							max={ 50 }
 						/>
 					}
-					<p className="uagb-setting-label">{ __( "Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
 					<ColorPalette
 						value={ borderColor }
 						onChange={ ( value ) => setAttributes( { borderColor: value } ) }
 						allowReset
 					/>
 	
-					{ 'accordion' === layout &&
+					{ "accordion" === layout &&
 						<Fragment>
 							<hr className="uagb-editor__separator" />
-							<h2>{ __( "Icon", 'ultimate-addons-for-gutenberg' ) }</h2>
+							<h2>{ __( "Icon", "ultimate-addons-for-gutenberg" ) }</h2>
 							<TabPanel className="uagb-size-type-field-tabs uagb-size-type-field__common-tabs uagb-inline-margin" activeClass="active-tab"
-							tabs={ [
+								tabs={ [
+									{
+										name: "desktop",
+										title: <Dashicon icon="desktop" />,
+										className: "uagb-desktop-tab uagb-responsive-tabs",
+									},
+									{
+										name: "tablet",
+										title: <Dashicon icon="tablet" />,
+										className: "uagb-tablet-tab uagb-responsive-tabs",
+									},
+									{
+										name: "mobile",
+										title: <Dashicon icon="smartphone" />,
+										className: "uagb-mobile-tab uagb-responsive-tabs",
+									},
+								] }>
 								{
-									name: "desktop",
-									title: <Dashicon icon="desktop" />,
-									className: "uagb-desktop-tab uagb-responsive-tabs",
-								},
-								{
-									name: "tablet",
-									title: <Dashicon icon="tablet" />,
-									className: "uagb-tablet-tab uagb-responsive-tabs",
-								},
-								{
-									name: "mobile",
-									title: <Dashicon icon="smartphone" />,
-									className: "uagb-mobile-tab uagb-responsive-tabs",
-								},
-							] }>
-							{
-								( tab ) => {
-									let tabout
+									( tab ) => {
+										let tabout
 
-									if ( "mobile" === tab.name ) {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Size" ) }</h2>
-												<RangeControl
-													value={ iconSizeMobile }
-													onChange={ ( value ) => setAttributes( { iconSizeMobile: value } ) }
-													min={ 0 }
-													max={ 100 }
-													allowReset
-												/>
-											</Fragment>
-										)
-									} else if ( "tablet" === tab.name ) {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Size" ) }</h2>
-												<RangeControl
-													value={ iconSizeTablet }
-													onChange={ ( value ) => setAttributes( { iconSizeTablet: value } ) }
-													min={ 0 }
-													max={ 100 }
-													allowReset
-												/>
-											</Fragment>
-										)
-									} else {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Size" ) }</h2>
-												<RangeControl
-													value={ iconSize }
-													onChange={ ( value ) => setAttributes( { iconSize: value } ) }
-													min={ 0 }
-													max={ 100 }
-													allowReset
-												/>
-											</Fragment>
-										)
+										if ( "mobile" === tab.name ) {
+											tabout = (
+												<Fragment>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
+														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
+													</ButtonGroup>
+													<h2>{ __( "Size" ) }</h2>
+													<RangeControl
+														value={ iconSizeMobile }
+														onChange={ ( value ) => setAttributes( { iconSizeMobile: value } ) }
+														min={ 0 }
+														max={ 100 }
+														allowReset
+													/>
+												</Fragment>
+											)
+										} else if ( "tablet" === tab.name ) {
+											tabout = (
+												<Fragment>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
+														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
+													</ButtonGroup>
+													<h2>{ __( "Size" ) }</h2>
+													<RangeControl
+														value={ iconSizeTablet }
+														onChange={ ( value ) => setAttributes( { iconSizeTablet: value } ) }
+														min={ 0 }
+														max={ 100 }
+														allowReset
+													/>
+												</Fragment>
+											)
+										} else {
+											tabout = (
+												<Fragment>
+													<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+														<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "px" } aria-pressed={ iconSizeType === "px" } onClick={ () => setAttributes( { iconSizeType: "px" } ) }>{ "px" }</Button>
+														<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ iconSizeType === "%" } aria-pressed={ iconSizeType === "%" } onClick={ () => setAttributes( { iconSizeType: "%" } ) }>{ "%" }</Button>
+													</ButtonGroup>
+													<h2>{ __( "Size" ) }</h2>
+													<RangeControl
+														value={ iconSize }
+														onChange={ ( value ) => setAttributes( { iconSize: value } ) }
+														min={ 0 }
+														max={ 100 }
+														allowReset
+													/>
+												</Fragment>
+											)
+										}
+
+										return <div>{ tabout }</div>
 									}
-
-									return <div>{ tabout }</div>
 								}
-							}
-						</TabPanel>
+							</TabPanel>
 							<RangeControl
-								label={ __( "Gap between Icon and Question", 'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Gap between Icon and Question", "ultimate-addons-for-gutenberg" ) }
 								value={ gapBtwIconQUestion }
 								onChange={ ( value ) => setAttributes( { gapBtwIconQUestion: value } ) }
 								min={ 0 }
 								max={ 100 }
 							/>
-							<p className="uagb-setting-label">{ __( "Expand Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconColor }} ></span></span></p>
+							<p className="uagb-setting-label">{ __( "Expand Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconColor }} ></span></span></p>
 							<ColorPalette
 								value={ iconColor }
 								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
 								allowReset
 							/>
-							<p className="uagb-setting-label">{ __( "Collapse Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconActiveColor }} ></span></span></p>
+							<p className="uagb-setting-label">{ __( "Collapse Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: iconActiveColor }} ></span></span></p>
 							<ColorPalette
 								value={ iconActiveColor }
 								onChange={ ( value ) => setAttributes( { iconActiveColor: value } ) }
@@ -638,8 +638,8 @@ class UAGBFaqEdit extends Component {
 
 			return (
 				<Fragment>
-					<h2> { __( "Icon", 'ultimate-addons-for-gutenberg' ) } </h2>
-					<p className="components-base-control__label">{__( "Expand", 'ultimate-addons-for-gutenberg' )}</p>
+					<h2> { __( "Icon", "ultimate-addons-for-gutenberg" ) } </h2>
+					<p className="components-base-control__label">{__( "Expand", "ultimate-addons-for-gutenberg" )}</p>
 					<FontIconPicker
 						icons={svg_icons}
 						renderFunc= {renderSVG}
@@ -647,9 +647,9 @@ class UAGBFaqEdit extends Component {
 						value={icon}
 						onChange={ (value) => this.onchangeIcon( value ) }
 						isMulti={false}
-						noSelectedPlaceholder= { __( "Select Icon", 'ultimate-addons-for-gutenberg' ) }
+						noSelectedPlaceholder= { __( "Select Icon", "ultimate-addons-for-gutenberg" ) }
 					/>
-					<p className="components-base-control__label">{__( "Collapse", 'ultimate-addons-for-gutenberg' )}</p>
+					<p className="components-base-control__label">{__( "Collapse", "ultimate-addons-for-gutenberg" )}</p>
 					<FontIconPicker
 						icons={svg_icons}
 						renderFunc= {renderSVG}
@@ -657,9 +657,9 @@ class UAGBFaqEdit extends Component {
 						value={iconActive}
 						onChange={ (value) => this.onchangeActiveIcon( value ) }
 						isMulti={false}
-						noSelectedPlaceholder= { __( "Select Icon", 'ultimate-addons-for-gutenberg' ) }
+						noSelectedPlaceholder= { __( "Select Icon", "ultimate-addons-for-gutenberg" ) }
 					/>
-					<h2> { __( "Icon Alignment", 'ultimate-addons-for-gutenberg' ) }</h2>
+					<h2> { __( "Icon Alignment", "ultimate-addons-for-gutenberg" ) }</h2>
 					<Button
 					 	key={ "row" }
 						icon="editor-alignleft"
@@ -677,226 +677,226 @@ class UAGBFaqEdit extends Component {
 						isPrimary = { "row-reverse" === iconAlign }
 					/>
 				</Fragment>	
-				)
+			)
 		}
 		const faqQuestionSettings = () => {
 
 			return (
 				<PanelBody
-					title={ __( "Question", 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Question", "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ false }
 					className="uagb__url-panel-body"
 				>
 					<SelectControl
-						label={ __( "Question Tag", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Question Tag", "ultimate-addons-for-gutenberg" ) }
 						value={ headingTag }
 						onChange={ (value) => this.onchangeTag( value ) }
 						options={ [
-							{ value: "span", label: __( "Span", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "p", label: __( "P", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h1", label: __( "H1", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h2", label: __( "H2", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h3", label: __( "H3", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h4", label: __( "H4", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h5", label: __( "H5", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "h6", label: __( "H6", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "span", label: __( "Span", "ultimate-addons-for-gutenberg" ) },
+							{ value: "p", label: __( "P", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h1", label: __( "H1", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h2", label: __( "H2", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h3", label: __( "H3", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h4", label: __( "H4", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h5", label: __( "H5", "ultimate-addons-for-gutenberg" ) },
+							{ value: "h6", label: __( "H6", "ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					<TypographyControl
-						label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
-						loadGoogleFonts = { { value: questionloadGoogleFonts, label: 'questionloadGoogleFonts'  } }
-						fontFamily = { { value: questionFontFamily, label: 'questionFontFamily'  } }
-						fontWeight = { { value: questionFontWeight, label: 'questionFontWeight'  } }
-						fontSubset = { { value: questionFontSubset, label: 'questionFontSubset'  } }
-						fontSizeType = { { value: questionFontSizeType, label: 'questionFontSizeType' } }
-						fontSize = { { value: questionFontSize, label: 'questionFontSize'  } }
-						fontSizeMobile = { { value: questionFontSizeMobile, label: 'questionFontSizeMobile'  } }
-						fontSizeTablet= { { value: questionFontSizeTablet, label: 'questionFontSizeTablet' } }
-						lineHeightType = { { value: questionLineHeightType, label: 'questionLineHeightType' } }
-						lineHeight = { { value: questionLineHeight, label: 'questionLineHeight'  } }
-						lineHeightMobile = { { value: questionLineHeightMobile, label: 'questionLineHeightMobile'  } }
-						lineHeightTablet= { { value: questionLineHeightTablet, label: 'questionLineHeightTablet'  } }
+						loadGoogleFonts = { { value: questionloadGoogleFonts, label: "questionloadGoogleFonts"  } }
+						fontFamily = { { value: questionFontFamily, label: "questionFontFamily"  } }
+						fontWeight = { { value: questionFontWeight, label: "questionFontWeight"  } }
+						fontSubset = { { value: questionFontSubset, label: "questionFontSubset"  } }
+						fontSizeType = { { value: questionFontSizeType, label: "questionFontSizeType" } }
+						fontSize = { { value: questionFontSize, label: "questionFontSize"  } }
+						fontSizeMobile = { { value: questionFontSizeMobile, label: "questionFontSizeMobile"  } }
+						fontSizeTablet= { { value: questionFontSizeTablet, label: "questionFontSizeTablet" } }
+						lineHeightType = { { value: questionLineHeightType, label: "questionLineHeightType" } }
+						lineHeight = { { value: questionLineHeight, label: "questionLineHeight"  } }
+						lineHeightMobile = { { value: questionLineHeightMobile, label: "questionLineHeightMobile"  } }
+						lineHeightTablet= { { value: questionLineHeightTablet, label: "questionLineHeightTablet"  } }
 					/>
-					<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: questionTextColor }} ></span></span></p>
-						<ColorPalette
-							value={ questionTextColor }
-							onChange={ ( value ) => setAttributes( { questionTextColor: value } ) }
-							allowReset
-						/>
-						<p className="uagb-setting-label">{ __( "Text Active/Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: questionTextActiveColor }} ></span></span></p>
-						<ColorPalette
-							value={ questionTextActiveColor }
-							onChange={ ( value ) => setAttributes( { questionTextActiveColor: value } ) }
-							allowReset
-						/>
-						<TabPanel className="uagb-size-type-field-tabs uagb-size-type-field__common-tabs uagb-inline-margin" activeClass="active-tab"
-							tabs={ [
-								{
-									name: "desktop",
-									title: <Dashicon icon="desktop" />,
-									className: "uagb-desktop-tab uagb-responsive-tabs",
-								},
-								{
-									name: "tablet",
-									title: <Dashicon icon="tablet" />,
-									className: "uagb-tablet-tab uagb-responsive-tabs",
-								},
-								{
-									name: "mobile",
-									title: <Dashicon icon="smartphone" />,
-									className: "uagb-mobile-tab uagb-responsive-tabs",
-								},
-							] }>
+					<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: questionTextColor }} ></span></span></p>
+					<ColorPalette
+						value={ questionTextColor }
+						onChange={ ( value ) => setAttributes( { questionTextColor: value } ) }
+						allowReset
+					/>
+					<p className="uagb-setting-label">{ __( "Text Active/Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: questionTextActiveColor }} ></span></span></p>
+					<ColorPalette
+						value={ questionTextActiveColor }
+						onChange={ ( value ) => setAttributes( { questionTextActiveColor: value } ) }
+						allowReset
+					/>
+					<TabPanel className="uagb-size-type-field-tabs uagb-size-type-field__common-tabs uagb-inline-margin" activeClass="active-tab"
+						tabs={ [
 							{
-								( tab ) => {
-									let tabout
+								name: "desktop",
+								title: <Dashicon icon="desktop" />,
+								className: "uagb-desktop-tab uagb-responsive-tabs",
+							},
+							{
+								name: "tablet",
+								title: <Dashicon icon="tablet" />,
+								className: "uagb-tablet-tab uagb-responsive-tabs",
+							},
+							{
+								name: "mobile",
+								title: <Dashicon icon="smartphone" />,
+								className: "uagb-mobile-tab uagb-responsive-tabs",
+							},
+						] }>
+						{
+							( tab ) => {
+								let tabout
 
-									if ( "mobile" === tab.name ) {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Padding" ) }</h2>
-												<RangeControl
-													label={ UAGB_Block_Icons.left_margin }
-													className={ "uagb-margin-control" }
-													value={ questionLeftPaddingMobile }
-													onChange={ ( value ) => setAttributes( { questionLeftPaddingMobile: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.right_margin }
-													className={ "uagb-margin-control" }
-													value={ hquestionPaddingMobile }
-													onChange={ ( value ) => setAttributes( { hquestionPaddingMobile: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.top_margin }
-													className={ "uagb-margin-control" }
-													value={ vquestionPaddingMobile }
-													onChange={ ( value ) => setAttributes( { vquestionPaddingMobile: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.bottom_margin }
-													className={ "uagb-margin-control" }
-													value={ questionBottomPaddingMobile }
-													onChange={ ( value ) => setAttributes( { questionBottomPaddingMobile: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-											</Fragment>
-										)
-									} else if ( "tablet" === tab.name ) {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Padding", 'ultimate-addons-for-gutenberg' ) }</h2>
-												<RangeControl
-													label={ UAGB_Block_Icons.left_margin }
-													className={ "uagb-margin-control" }
-													value={ questionLeftPaddingTablet }
-													onChange={ ( value ) => setAttributes( { questionLeftPaddingTablet: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.right_margin }
-													className={ "uagb-margin-control" }
-													value={ hquestionPaddingTablet }
-													onChange={ ( value ) => setAttributes( { hquestionPaddingTablet: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.top_margin }
-													className={ "uagb-margin-control" }
-													value={ vquestionPaddingTablet }
-													onChange={ ( value ) => setAttributes( { vquestionPaddingTablet: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.bottom_margin }
-													className={ "uagb-margin-control" }
-													value={ questionBottomPaddingTablet }
-													onChange={ ( value ) => setAttributes( { questionBottomPaddingTablet: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-											</Fragment>
-										)
-									} else {
-										tabout = (
-											<Fragment>
-												<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
-													<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
-													<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
-												</ButtonGroup>
-												<h2>{ __( "Padding", 'ultimate-addons-for-gutenberg' ) }</h2>
-												<RangeControl
-													label={ UAGB_Block_Icons.left_margin }
-													className={ "uagb-margin-control" }
-													value={ questionLeftPaddingDesktop }
-													onChange={ ( value ) => setAttributes( { questionLeftPaddingDesktop: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.right_margin }
-													className={ "uagb-margin-control" }
-													value={ hquestionPaddingDesktop }
-													onChange={ ( value ) => setAttributes( { hquestionPaddingDesktop: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.top_margin }
-													className={ "uagb-margin-control" }
-													value={ vquestionPaddingDesktop }
-													onChange={ ( value ) => setAttributes( { vquestionPaddingDesktop: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-												<RangeControl
-													label={ UAGB_Block_Icons.bottom_margin }
-													className={ "uagb-margin-control" }
-													value={ questionBottomPaddingDesktop }
-													onChange={ ( value ) => setAttributes( { questionBottomPaddingDesktop: value } ) }
-													min={ 0 }
-													max={ 50 }
-													allowReset
-												/>
-											</Fragment>
-										)
-									}
-
-									return <div>{ tabout }</div>
+								if ( "mobile" === tab.name ) {
+									tabout = (
+										<Fragment>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
+												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
+											</ButtonGroup>
+											<h2>{ __( "Padding" ) }</h2>
+											<RangeControl
+												label={ UAGB_Block_Icons.left_margin }
+												className={ "uagb-margin-control" }
+												value={ questionLeftPaddingMobile }
+												onChange={ ( value ) => setAttributes( { questionLeftPaddingMobile: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.right_margin }
+												className={ "uagb-margin-control" }
+												value={ hquestionPaddingMobile }
+												onChange={ ( value ) => setAttributes( { hquestionPaddingMobile: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.top_margin }
+												className={ "uagb-margin-control" }
+												value={ vquestionPaddingMobile }
+												onChange={ ( value ) => setAttributes( { vquestionPaddingMobile: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.bottom_margin }
+												className={ "uagb-margin-control" }
+												value={ questionBottomPaddingMobile }
+												onChange={ ( value ) => setAttributes( { questionBottomPaddingMobile: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+										</Fragment>
+									)
+								} else if ( "tablet" === tab.name ) {
+									tabout = (
+										<Fragment>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
+												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
+											</ButtonGroup>
+											<h2>{ __( "Padding", "ultimate-addons-for-gutenberg" ) }</h2>
+											<RangeControl
+												label={ UAGB_Block_Icons.left_margin }
+												className={ "uagb-margin-control" }
+												value={ questionLeftPaddingTablet }
+												onChange={ ( value ) => setAttributes( { questionLeftPaddingTablet: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.right_margin }
+												className={ "uagb-margin-control" }
+												value={ hquestionPaddingTablet }
+												onChange={ ( value ) => setAttributes( { hquestionPaddingTablet: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.top_margin }
+												className={ "uagb-margin-control" }
+												value={ vquestionPaddingTablet }
+												onChange={ ( value ) => setAttributes( { vquestionPaddingTablet: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.bottom_margin }
+												className={ "uagb-margin-control" }
+												value={ questionBottomPaddingTablet }
+												onChange={ ( value ) => setAttributes( { questionBottomPaddingTablet: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+										</Fragment>
+									)
+								} else {
+									tabout = (
+										<Fragment>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
+												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "px" } aria-pressed={ questionPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
+												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ questionPaddingTypeDesktop === "%" } aria-pressed={ questionPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { questionPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
+											</ButtonGroup>
+											<h2>{ __( "Padding", "ultimate-addons-for-gutenberg" ) }</h2>
+											<RangeControl
+												label={ UAGB_Block_Icons.left_margin }
+												className={ "uagb-margin-control" }
+												value={ questionLeftPaddingDesktop }
+												onChange={ ( value ) => setAttributes( { questionLeftPaddingDesktop: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.right_margin }
+												className={ "uagb-margin-control" }
+												value={ hquestionPaddingDesktop }
+												onChange={ ( value ) => setAttributes( { hquestionPaddingDesktop: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.top_margin }
+												className={ "uagb-margin-control" }
+												value={ vquestionPaddingDesktop }
+												onChange={ ( value ) => setAttributes( { vquestionPaddingDesktop: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+											<RangeControl
+												label={ UAGB_Block_Icons.bottom_margin }
+												className={ "uagb-margin-control" }
+												value={ questionBottomPaddingDesktop }
+												onChange={ ( value ) => setAttributes( { questionBottomPaddingDesktop: value } ) }
+												min={ 0 }
+												max={ 50 }
+												allowReset
+											/>
+										</Fragment>
+									)
 								}
+
+								return <div>{ tabout }</div>
 							}
-						</TabPanel>
+						}
+					</TabPanel>
 				</PanelBody>
 			)
 		}
@@ -905,28 +905,28 @@ class UAGBFaqEdit extends Component {
 			return (
 
 				<PanelBody
-					title={ __( "Answer", 'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Answer", "ultimate-addons-for-gutenberg" ) }
 					initialOpen={ false }
 					className="uagb__url-panel-body"
 				>
 					<TypographyControl
-						label={ __( "Typography", 'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography", "ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
-						loadGoogleFonts = { { value: answerloadGoogleFonts, label: 'answerloadGoogleFonts'  } }
-						fontFamily = { { value: answerFontFamily, label: 'answerFontFamily'  } }
-						fontWeight = { { value: answerFontWeight, label: 'answerFontWeight'  } }
-						fontSubset = { { value: answerFontSubset, label: 'answerFontSubset'  } }
-						fontSizeType = { { value: answerFontSizeType, label: 'answerFontSizeType' } }
-						fontSize = { { value: answerFontSize, label: 'answerFontSize'  } }
-						fontSizeMobile = { { value: answerFontSizeMobile, label: 'answerFontSizeMobile'  } }
-						fontSizeTablet= { { value: answerFontSizeTablet, label: 'answerFontSizeTablet' } }
-						lineHeightType = { { value: answerLineHeightType, label: 'answerLineHeightType' } }
-						lineHeight = { { value: answerLineHeight, label: 'answerLineHeight'  } }
-						lineHeightMobile = { { value: answerLineHeightMobile, label: 'answerLineHeightMobile'  } }
-						lineHeightTablet= { { value: answerLineHeightTablet, label: 'answerLineHeightTablet'  } }
+						loadGoogleFonts = { { value: answerloadGoogleFonts, label: "answerloadGoogleFonts"  } }
+						fontFamily = { { value: answerFontFamily, label: "answerFontFamily"  } }
+						fontWeight = { { value: answerFontWeight, label: "answerFontWeight"  } }
+						fontSubset = { { value: answerFontSubset, label: "answerFontSubset"  } }
+						fontSizeType = { { value: answerFontSizeType, label: "answerFontSizeType" } }
+						fontSize = { { value: answerFontSize, label: "answerFontSize"  } }
+						fontSizeMobile = { { value: answerFontSizeMobile, label: "answerFontSizeMobile"  } }
+						fontSizeTablet= { { value: answerFontSizeTablet, label: "answerFontSizeTablet" } }
+						lineHeightType = { { value: answerLineHeightType, label: "answerLineHeightType" } }
+						lineHeight = { { value: answerLineHeight, label: "answerLineHeight"  } }
+						lineHeightMobile = { { value: answerLineHeightMobile, label: "answerLineHeightMobile"  } }
+						lineHeightTablet= { { value: answerLineHeightTablet, label: "answerLineHeightTablet"  } }
 					/>
-					<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: answerTextColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: answerTextColor }} ></span></span></p>
 					<ColorPalette
 						value={ answerTextColor }
 						onChange={ ( value ) => setAttributes( { answerTextColor: value } ) }
@@ -957,11 +957,11 @@ class UAGBFaqEdit extends Component {
 								if ( "mobile" === tab.name ) {
 									tabout = (
 										<Fragment>
-											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
 												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "px" } aria-pressed={ answerPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
 												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "%" } aria-pressed={ answerPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
 											</ButtonGroup>
-											<h2>{ __( "Padding", 'ultimate-addons-for-gutenberg' ) }</h2>
+											<h2>{ __( "Padding", "ultimate-addons-for-gutenberg" ) }</h2>
 											<RangeControl
 												label={ UAGB_Block_Icons.vertical_spacing }
 												className={ "uagb-margin-control" }
@@ -985,11 +985,11 @@ class UAGBFaqEdit extends Component {
 								} else if ( "tablet" === tab.name ) {
 									tabout = (
 										<Fragment>
-											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
 												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "px" } aria-pressed={ answerPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
 												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "%" } aria-pressed={ answerPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
 											</ButtonGroup>
-											<h2>{ __( "Padding", 'ultimate-addons-for-gutenberg' ) }</h2>
+											<h2>{ __( "Padding", "ultimate-addons-for-gutenberg" ) }</h2>
 											<RangeControl
 												label={ UAGB_Block_Icons.vertical_spacing }
 												className={ "uagb-margin-control" }
@@ -1013,7 +1013,7 @@ class UAGBFaqEdit extends Component {
 								} else {
 									tabout = (
 										<Fragment>
-											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
+											<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
 												<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "px" } aria-pressed={ answerPaddingTypeDesktop === "px" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "px" } ) }>{ "px" }</Button>
 												<Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ answerPaddingTypeDesktop === "%" } aria-pressed={ answerPaddingTypeDesktop === "%" } onClick={ () => setAttributes( { answerPaddingTypeDesktop: "%" } ) }>{ "%" }</Button>
 											</ButtonGroup>
@@ -1068,15 +1068,15 @@ class UAGBFaqEdit extends Component {
 				data-faqtoggle = { this.props.attributes.enableToggle } 
 				role="tablist"
 				>
-                    <InnerBlocks
-                        template={ getFaqChildTemplate( 2, faq ) }
-                        templateLock={ false }
-                        allowedBlocks={ ALLOWED_BLOCKS }
-                        __experimentalMoverDirection={ 'vertical' }
-                    />
+					<InnerBlocks
+						template={ getFaqChildTemplate( 2, faq ) }
+						templateLock={ false }
+						allowedBlocks={ ALLOWED_BLOCKS }
+						__experimentalMoverDirection={ "vertical" }
+					/>
 				</div>
-					{ loadQuestionGoogleFonts }
-					{ loadAnswerGoogleFonts }
+				{ loadQuestionGoogleFonts }
+				{ loadAnswerGoogleFonts }
 			</Fragment>
 		)
 	}
@@ -1084,7 +1084,7 @@ class UAGBFaqEdit extends Component {
 
 export default compose(
 	withSelect( ( select, ownProps ) => {
-		const page_url = select("core/editor").getPermalink();
+		const page_url = select("core/editor").getPermalink()
 		var faq_data = {}
 		var json_data = {
 			"@context": "https://schema.org",
@@ -1092,7 +1092,7 @@ export default compose(
 			"@id": page_url,
 			"mainEntity": []
 		}
-		const faqChildBlocks = select('core/block-editor').getBlocks( ownProps.clientId );
+		const faqChildBlocks = select("core/block-editor").getBlocks( ownProps.clientId )
 
 		faqChildBlocks.forEach((faqChild, key) => {
 
@@ -1104,11 +1104,11 @@ export default compose(
 					"text" : faqChild.attributes.answer
 				}
 			}
-			json_data["mainEntity"][key] = faq_data;
-		});
+			json_data["mainEntity"][key] = faq_data
+		})
 
 		return {
 			schemaJsonData: json_data
-		};
+		}
 	} )
 ) ( UAGBFaqEdit )

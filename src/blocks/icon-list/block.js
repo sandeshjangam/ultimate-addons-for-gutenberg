@@ -21,9 +21,9 @@ registerBlockType( "uagb/icon-list", {
 	icon: UAGB_Block_Icons.icon_list,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "icon list", 'ultimate-addons-for-gutenberg' ),
-		__( "image list", 'ultimate-addons-for-gutenberg' ),
-		__( "uag", 'ultimate-addons-for-gutenberg' ),
+		__( "icon list", "ultimate-addons-for-gutenberg" ),
+		__( "image list", "ultimate-addons-for-gutenberg" ),
+		__( "uag", "ultimate-addons-for-gutenberg" ),
 	],
 	supports: {
 		anchor: true,
@@ -31,11 +31,11 @@ registerBlockType( "uagb/icon-list", {
 	example:{
 		innerBlocks: [
 			{
-				name: 'uagb/icon-list-child',
+				name: "uagb/icon-list-child",
 				innerBlocks: [
 					{
-						name: 'uagb/icon-list-child',
-						attributes: { label: '#Label' },
+						name: "uagb/icon-list-child",
+						attributes: { label: "#Label" },
 					},
 				],
 			},

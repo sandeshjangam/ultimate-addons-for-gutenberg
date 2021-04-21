@@ -121,19 +121,19 @@ class UAGBIconListChild extends Component {
 
 				color_control = (
 					<Fragment>
-						<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_color }} ></span></span></p>
 						<ColorPalette
 							value={ label_color }
 							onChange={ ( value ) => setAttributes( { label_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Image Background Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Image Background Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_bg_color }
 							onChange={ ( value ) => setAttributes( { icon_bg_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Image Border Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Image Border Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_border_color }
 							onChange={ ( value ) => setAttributes( { icon_border_color: value } ) }
@@ -143,19 +143,19 @@ class UAGBIconListChild extends Component {
 				)
 				color_control_hover = (
 					<Fragment>
-						<p className="uagb-setting-label">{ __( "Text Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Text Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ label_hover_color }
 							onChange={ ( value ) => setAttributes( { label_hover_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Image Background Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Image Background Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_bg_hover_color }
 							onChange={ ( value ) => setAttributes( { icon_bg_hover_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Image Border Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Image Border Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_border_hover_color }
 							onChange={ ( value ) => setAttributes( { icon_border_hover_color: value } ) }
@@ -167,25 +167,25 @@ class UAGBIconListChild extends Component {
 
 				color_control = (
 					<Fragment>
-						<p className="uagb-setting-label">{ __( "Text Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Text Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_color }} ></span></span></p>
 						<ColorPalette
 							value={ label_color }
 							onChange={ ( value ) => setAttributes( { label_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_color }
 							onChange={ ( value ) => setAttributes( { icon_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Background Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Background Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_bg_color }
 							onChange={ ( value ) => setAttributes( { icon_bg_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Border Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Border Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_border_color }
 							onChange={ ( value ) => setAttributes( { icon_border_color: value } ) }
@@ -195,25 +195,25 @@ class UAGBIconListChild extends Component {
 				)
 				color_control_hover = (
 					<Fragment>
-						<p className="uagb-setting-label">{ __( "Text Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Text Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: label_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ label_hover_color }
 							onChange={ ( value ) => setAttributes( { label_hover_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_hover_color }
 							onChange={ ( value ) => setAttributes( { icon_hover_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Background Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Background Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_bg_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_bg_hover_color }
 							onChange={ ( value ) => setAttributes( { icon_bg_hover_color: value } ) }
 							allowReset
 						/>
-						<p className="uagb-setting-label">{ __( "Icon Border Hover Color", 'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_hover_color }} ></span></span></p>
+						<p className="uagb-setting-label">{ __( "Icon Border Hover Color", "ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: icon_border_hover_color }} ></span></span></p>
 						<ColorPalette
 							value={ icon_border_hover_color }
 							onChange={ ( value ) => setAttributes( { icon_border_hover_color: value } ) }
@@ -229,12 +229,12 @@ class UAGBIconListChild extends Component {
 					tabs={ [
 						{
 							name: "normal",
-							title: __( "Normal", 'ultimate-addons-for-gutenberg' ),
+							title: __( "Normal", "ultimate-addons-for-gutenberg" ),
 							className: "uagb-normal-tab",
 						},
 						{
 							name: "hover",
-							title: __( "Hover", 'ultimate-addons-for-gutenberg' ),
+							title: __( "Hover", "ultimate-addons-for-gutenberg" ),
 							className: "uagb-hover-tab",
 						},
 					] }>
@@ -272,7 +272,7 @@ class UAGBIconListChild extends Component {
 			return (
 				<div
 					className={ classnames(
-						`uagb-icon-list-repeater`,
+						"uagb-icon-list-repeater",
 						"uagb-icon-list__wrapper",
 						className,
 						`uagb-block-${ this.props.clientId.substr( 0, 8 ) }`
@@ -287,13 +287,13 @@ class UAGBIconListChild extends Component {
 							<div className="uagb-icon-list__label-wrap">
 								<RichText
 									tagName="div"
-									placeholder={ __( "Label Name", 'ultimate-addons-for-gutenberg' ) }
+									placeholder={ __( "Label Name", "ultimate-addons-for-gutenberg" ) }
 									value={ label }
 									onChange={ ( value ) => setAttributes( { label: value } ) }
 									className='uagb-icon-list__label'
 									placeholder={ __( "Description" ) }
 									multiline={false}
-									allowedFormats={[ 'core/bold', 'core/italic', 'core/strikethrough' ]}
+									allowedFormats={[ "core/bold", "core/italic", "core/strikethrough" ]}
 								/>
 							</div>
 						}
@@ -305,19 +305,19 @@ class UAGBIconListChild extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( "Icon Settings", 'ultimate-addons-for-gutenberg' ) } initialOpen={ true } >
+					<PanelBody title={ __( "Icon Settings", "ultimate-addons-for-gutenberg" ) } initialOpen={ true } >
 						<SelectControl
-							label={ __( "Image / Icon", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Image / Icon", "ultimate-addons-for-gutenberg" ) }
 							value={ image_icon }
 							options={ [
-								{ value: "icon", label: __( "Icon", 'ultimate-addons-for-gutenberg' ) },
-								{ value: "image", label: __( "Image", 'ultimate-addons-for-gutenberg' ) },
+								{ value: "icon", label: __( "Icon", "ultimate-addons-for-gutenberg" ) },
+								{ value: "image", label: __( "Image", "ultimate-addons-for-gutenberg" ) },
 							] }
 							onChange={ ( value ) => setAttributes( { image_icon: value } ) }
 						/>
 						{ "icon" == image_icon &&
 							<Fragment>
-								<p className="components-base-control__label">{__( "Icon", 'ultimate-addons-for-gutenberg' )}</p>
+								<p className="components-base-control__label">{__( "Icon", "ultimate-addons-for-gutenberg" )}</p>
 								<FontIconPicker
 									icons={svg_icons}
 									renderFunc= {renderSVG}
@@ -325,14 +325,14 @@ class UAGBIconListChild extends Component {
 									value={icon}
 									onChange={ ( value ) => setAttributes( { icon: value } ) }
 									isMulti={false}
-									noSelectedPlaceholder= { __( "Select Icon", 'ultimate-addons-for-gutenberg' ) }
+									noSelectedPlaceholder= { __( "Select Icon", "ultimate-addons-for-gutenberg" ) }
 								/>
 							</Fragment>
 						}
 						{ "image" == image_icon &&
 							<Fragment>
 								<MediaUpload
-									title={ __( "Select Image", 'ultimate-addons-for-gutenberg' ) }
+									title={ __( "Select Image", "ultimate-addons-for-gutenberg" ) }
 									onSelect={ this.onSelectImage }
 									allowedTypes={ [ "image" ] }
 									value={ image }
@@ -344,35 +344,35 @@ class UAGBIconListChild extends Component {
 								/>
 								{ image &&
 									( <Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
-										{ __( "Remove Image", 'ultimate-addons-for-gutenberg' ) }
+										{ __( "Remove Image", "ultimate-addons-for-gutenberg" ) }
 									</Button> )
 								}
 							</Fragment>
 						}
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "List Item Link", 'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "List Item Link", "ultimate-addons-for-gutenberg" ) }</h2>
 						<ToggleControl
-							label={ __( "Disable Link", 'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Disable Link", "ultimate-addons-for-gutenberg" ) }
 							checked={ disableLink }
 							onChange={ ( value ) => setAttributes( { disableLink: ! disableLink } ) }
 						/>
 						{ ! disableLink &&
 							<Fragment>
-								<p className="components-base-control__label">{__( "URL", 'ultimate-addons-for-gutenberg' )}</p>
+								<p className="components-base-control__label">{__( "URL", "ultimate-addons-for-gutenberg" )}</p>
 								<TextControl
 									value={ link }
 									onChange={ ( value ) => setAttributes( { link: value } ) }
-									placeholder={__( "Enter URL", 'ultimate-addons-for-gutenberg' )}
+									placeholder={__( "Enter URL", "ultimate-addons-for-gutenberg" )}
 								/>
 								<ToggleControl
-									label={ __( "Open in New Tab", 'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Open in New Tab", "ultimate-addons-for-gutenberg" ) }
 									checked={ target }
 									onChange={ ( value ) => setAttributes( { target: !target } ) }
 								/>
 							</Fragment>
 						}
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Icon Color Settings", 'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Icon Color Settings", "ultimate-addons-for-gutenberg" ) }</h2>
 						{ iconColorControls() }
 					</PanelBody>
 				</InspectorControls>

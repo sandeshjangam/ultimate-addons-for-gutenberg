@@ -33,16 +33,16 @@ export default function save( props ) {
 
 	const renderButtonHtml = () => {
 		
-				return (
-					<button className="uagb-forms-main-submit-button" >
-								<RichText.Content
-									tagName='div'
-									value={ submitButtonText }
-									className='uagb-forms-main-submit-button-text'
-								/>
-					</button>
-				);
-			}
+		return (
+			<button className="uagb-forms-main-submit-button" >
+				<RichText.Content
+					tagName='div'
+					value={ submitButtonText }
+					className='uagb-forms-main-submit-button-text'
+				/>
+			</button>
+		)
+	}
 		
 
 
@@ -72,26 +72,26 @@ export default function save( props ) {
 					{renderButtonHtml()}						
 				</div>
 			</form>
-				{ 'message' === confirmationType && (
-					<Fragment>
-						<div className={ classnames(						
-							`uagb-forms-success-message-${ block_id }`,
-							'uagb-forms-submit-message-hide',
-						) }>
-							<span>
-								{ confirmationMessage }
-							</span>
-						</div>
-						<div className={ classnames(						
-							`uagb-forms-failed-message-${ block_id }`,
-							'uagb-forms-submit-message-hide',
-						) }>
-							<span>
-								{ failedMessage }
-							</span>
-						</div>
-					</Fragment>
-				)}
+			{ "message" === confirmationType && (
+				<Fragment>
+					<div className={ classnames(						
+						`uagb-forms-success-message-${ block_id }`,
+						"uagb-forms-submit-message-hide",
+					) }>
+						<span>
+							{ confirmationMessage }
+						</span>
+					</div>
+					<div className={ classnames(						
+						`uagb-forms-failed-message-${ block_id }`,
+						"uagb-forms-submit-message-hide",
+					) }>
+						<span>
+							{ failedMessage }
+						</span>
+					</div>
+				</Fragment>
+			)}
 				
 		</div>
 	)

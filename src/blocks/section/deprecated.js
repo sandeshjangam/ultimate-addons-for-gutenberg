@@ -103,7 +103,7 @@ const deprecated = [
 					{ "video" == backgroundType &&
 						<div className="uagb-section__video-wrap">
 							{  backgroundVideo &&
-							<video autoplay loop muted playsinline>
+							<video autoPlay loop muted playsinline>
 								<source src={ backgroundVideo.url } type='video/mp4' />
 							</video>
 							}
@@ -119,4 +119,4 @@ const deprecated = [
 	}
 ]
 
-export default deprecated;
+export default deprecated

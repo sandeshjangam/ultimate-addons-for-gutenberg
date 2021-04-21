@@ -43,9 +43,9 @@ const { Component, Fragment } = wp.element
 let svg_icons = Object.keys( UAGBIcon )
 
 let imageSizeOptions = [
-	{ value: "thumbnail", label: __( "Thumbnail",'ultimate-addons-for-gutenberg' ) },
-	{ value: "medium", label: __( "Medium",'ultimate-addons-for-gutenberg' ) },
-	{ value: "full", label: __( "Large",'ultimate-addons-for-gutenberg' ) }
+	{ value: "thumbnail", label: __( "Thumbnail","ultimate-addons-for-gutenberg" ) },
+	{ value: "medium", label: __( "Medium","ultimate-addons-for-gutenberg" ) },
+	{ value: "full", label: __( "Large","ultimate-addons-for-gutenberg" ) }
 ]
 
 class UAGBTeam extends Component {
@@ -269,11 +269,11 @@ class UAGBTeam extends Component {
 				<RichText
 					tagName='p'
 					value={ description_text }
-					placeholder={ __( "Write a Description",'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Write a Description","ultimate-addons-for-gutenberg" ) }
 					className='uagb-team__desc'
 					onChange={ ( value ) => setAttributes( { description_text: value } ) }
 					onMerge = { mergeBlocks }
-					placeholder={ __( "Write a Description",'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Write a Description","ultimate-addons-for-gutenberg" ) }
 					onSplit = {
 						insertBlocksAfter ?
 							( before, after, ...blocks ) => {
@@ -310,7 +310,7 @@ class UAGBTeam extends Component {
 					className = 'uagb-team__title'
 					onChange = { ( value ) => setAttributes( { title: value } ) }
 					multiline={ false }
-					placeholder={ __( "Write a Title",'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Write a Title","ultimate-addons-for-gutenberg" ) }
 					onMerge = { mergeBlocks }
 					onSplit = {
 						insertBlocksAfter ?
@@ -328,11 +328,11 @@ class UAGBTeam extends Component {
 				<RichText
 					tagName="div"
 					value={ prefix }
-					placeholder={ __( "Enter Prefix",'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Enter Prefix","ultimate-addons-for-gutenberg" ) }
 					className='uagb-team__prefix'
 					onChange={ ( value ) => setAttributes( { prefix: value } ) }
 					onMerge = { mergeBlocks }
-					placeholder={ __( "Write a Designation",'ultimate-addons-for-gutenberg' ) }
+					placeholder={ __( "Write a Designation","ultimate-addons-for-gutenberg" ) }
 					onSplit = {
 						insertBlocksAfter ?
 							( before, after, ...blocks ) => {
@@ -365,45 +365,45 @@ class UAGBTeam extends Component {
 					>
 						<BaseControl
 							className="editor-bg-image-control"
-							label={ __( "Team Member Image",'ultimate-addons-for-gutenberg' ) }>
+							label={ __( "Team Member Image","ultimate-addons-for-gutenberg" ) }>
 							<MediaUpload
-								title={ __( "Select Image",'ultimate-addons-for-gutenberg' ) }
+								title={ __( "Select Image","ultimate-addons-for-gutenberg" ) }
 								onSelect={ this.onSelectImage }
 								allowedTypes={ [ "image" ] }
 								value={ image }
 								render={ ( { open } ) => (
 									<Button isSecondary onClick={ open }>
-										{ ! image ? __( "Select Image",'ultimate-addons-for-gutenberg' ) : __( "Replace image",'ultimate-addons-for-gutenberg' ) }
+										{ ! image ? __( "Select Image","ultimate-addons-for-gutenberg" ) : __( "Replace image","ultimate-addons-for-gutenberg" ) }
 									</Button>
 								) }
 							/>
 							{ image &&
 								<Button className="uagb-rm-btn" onClick={ onRemoveImage } isLink isDestructive>
-									{ __( "Remove Image",'ultimate-addons-for-gutenberg' ) }
+									{ __( "Remove Image","ultimate-addons-for-gutenberg" ) }
 								</Button>
 							}
 						</BaseControl>
 						{ image &&
 							<SelectControl
-								label={ __( "Position",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Position","ultimate-addons-for-gutenberg" ) }
 								value={ imgPosition }
 								onChange={ ( value ) => setAttributes( { imgPosition: value } ) }
 								options={ [
-									{ value: "above", label: __( "Above",'ultimate-addons-for-gutenberg' ) },
-									{ value: "left", label: __( "Left",'ultimate-addons-for-gutenberg' ) },
-									{ value: "right", label: __( "Right",'ultimate-addons-for-gutenberg' ) },
+									{ value: "above", label: __( "Above","ultimate-addons-for-gutenberg" ) },
+									{ value: "left", label: __( "Left","ultimate-addons-for-gutenberg" ) },
+									{ value: "right", label: __( "Right","ultimate-addons-for-gutenberg" ) },
 
 								] }
 							/>
 						}
 						{ imgPosition != "above" && image &&
 							<SelectControl
-								label={ __( "Stack on",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Stack on","ultimate-addons-for-gutenberg" ) }
 								value={ stack }
 								options={ [
-									{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-									{ value: "tablet", label: __( "Tablet",'ultimate-addons-for-gutenberg' ) },
-									{ value: "mobile", label: __( "Mobile",'ultimate-addons-for-gutenberg' ) },
+									{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+									{ value: "tablet", label: __( "Tablet","ultimate-addons-for-gutenberg" ) },
+									{ value: "mobile", label: __( "Mobile","ultimate-addons-for-gutenberg" ) },
 								] }
 								help={ __( "Note: Choose on what breakpoint the Team will stack." ) }
 								onChange={ ( value ) => setAttributes( { stack: value } ) }
@@ -411,37 +411,37 @@ class UAGBTeam extends Component {
 						}
 						{ image &&
 							<SelectControl
-								label={ __( "Image Style",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Image Style","ultimate-addons-for-gutenberg" ) }
 								value={ imgStyle }
 								onChange={ ( value ) => setAttributes( { imgStyle: value } ) }
 								options={ [
-									{ value: "normal", label: __( "Normal",'ultimate-addons-for-gutenberg' ) },
-									{ value: "circle", label: __( "Circle",'ultimate-addons-for-gutenberg' ) },
-									{ value: "square", label: __( "Square",'ultimate-addons-for-gutenberg' ) },
+									{ value: "normal", label: __( "Normal","ultimate-addons-for-gutenberg" ) },
+									{ value: "circle", label: __( "Circle","ultimate-addons-for-gutenberg" ) },
+									{ value: "square", label: __( "Square","ultimate-addons-for-gutenberg" ) },
 								] }
 							/>
 						}
 
 						{ ( imgPosition && ( imgPosition !== "above" )  ) && image && <SelectControl
-							label={ __( "Vertical Alignment",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Vertical Alignment","ultimate-addons-for-gutenberg" ) }
 							value={ imgAlign }
 							onChange={ ( value ) => setAttributes( { imgAlign: value } ) }
 							options={ [
-								{ value: "top", label: __( "Top",'ultimate-addons-for-gutenberg' ) },
-								{ value: "middle", label: __( "Middle",'ultimate-addons-for-gutenberg' ) },
+								{ value: "top", label: __( "Top","ultimate-addons-for-gutenberg" ) },
+								{ value: "middle", label: __( "Middle","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 						}
 						{ image &&
 							<Fragment>
 								<SelectControl
-									label={ __( "Size",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Size","ultimate-addons-for-gutenberg" ) }
 									options={ imageSizeOptions }
 									value={ imgSize }
 									onChange={ ( value ) => setAttributes( { imgSize: value } ) }
 								/>
 								<RangeControl
-									label={ __( "Width",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Width","ultimate-addons-for-gutenberg" ) }
 									value={ imgWidth }
 									onChange={ ( value ) => setAttributes( { imgWidth: value } ) }
 									min={ 0 }
@@ -451,22 +451,22 @@ class UAGBTeam extends Component {
 							</Fragment>
 						}
 					</PanelBody>
-					<PanelBody title={ __( "Social Links",'ultimate-addons-for-gutenberg' ) }
+					<PanelBody title={ __( "Social Links","ultimate-addons-for-gutenberg" ) }
 						initialOpen={ false }>
 						<ToggleControl
-							label={ __( "Enable Social Links",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Enable Social Links","ultimate-addons-for-gutenberg" ) }
 							checked={ socialEnable }
 							onChange={ ( value ) => setAttributes( { socialEnable: ! socialEnable } ) }
 						/>
 						{ socialEnable &&
 							<Fragment>
 								<ToggleControl
-									label={ __( "Open Links in New Window",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Open Links in New Window","ultimate-addons-for-gutenberg" ) }
 									checked={ socialTarget }
 									onChange={ ( value ) => setAttributes( { socialTarget: ! socialTarget } ) }
 								/>
-								<PanelBody title={ __( "Twitter",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-									<p className="components-base-control__label">{__( "Icon",'ultimate-addons-for-gutenberg' )}</p>
+								<PanelBody title={ __( "Twitter","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+									<p className="components-base-control__label">{__( "Icon","ultimate-addons-for-gutenberg" )}</p>
 									<FontIconPicker
 										icons={svg_icons}
 										renderFunc={renderSVG}
@@ -474,17 +474,17 @@ class UAGBTeam extends Component {
 										value={twitterIcon}
 										onChange={ ( value ) => setAttributes( { twitterIcon: value } ) }
 										isMulti={false}
-										noSelectedPlaceholder={__( "Select Icon",'ultimate-addons-for-gutenberg' )}
+										noSelectedPlaceholder={__( "Select Icon","ultimate-addons-for-gutenberg" )}
 									/>
-									<p className="components-base-control__label">{__( "URL",'ultimate-addons-for-gutenberg' )}</p>
+									<p className="components-base-control__label">{__( "URL","ultimate-addons-for-gutenberg" )}</p>
 									<TextControl
 										value={ twitterLink }
 										onChange={ ( value ) => setAttributes( { twitterLink: value } ) }
-										placeholder={__( "Enter Twitter URL",'ultimate-addons-for-gutenberg' )}
+										placeholder={__( "Enter Twitter URL","ultimate-addons-for-gutenberg" )}
 									/>
 								</PanelBody>
-								<PanelBody title={ __( "Facebook",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-									<p className="components-base-control__label">{__( "Icon",'ultimate-addons-for-gutenberg' )}</p>
+								<PanelBody title={ __( "Facebook","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+									<p className="components-base-control__label">{__( "Icon","ultimate-addons-for-gutenberg" )}</p>
 									<FontIconPicker
 										icons={svg_icons}
 										renderFunc={renderSVG}
@@ -492,179 +492,179 @@ class UAGBTeam extends Component {
 										value={fbIcon}
 										onChange={ ( value ) => setAttributes( { fbIcon: value } ) }
 										isMulti={false}
-										noSelectedPlaceholder={__( "Select Icon",'ultimate-addons-for-gutenberg' )}
+										noSelectedPlaceholder={__( "Select Icon","ultimate-addons-for-gutenberg" )}
 									/>
-									<p className="components-base-control__label">{__( "URL",'ultimate-addons-for-gutenberg' )}</p>
+									<p className="components-base-control__label">{__( "URL","ultimate-addons-for-gutenberg" )}</p>
 									<TextControl
 										value={ fbLink }
 										onChange={ ( value ) => setAttributes( { fbLink: value } ) }
-										placeholder={__( "Enter Facebook URL",'ultimate-addons-for-gutenberg' )}
+										placeholder={__( "Enter Facebook URL","ultimate-addons-for-gutenberg" )}
 									/>
 								</PanelBody>
-								<PanelBody title={ __( "LinkedIn",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-									<p className="components-base-control__label">{__( "Icon",'ultimate-addons-for-gutenberg' )}</p>
+								<PanelBody title={ __( "LinkedIn","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+									<p className="components-base-control__label">{__( "Icon","ultimate-addons-for-gutenberg" )}</p>
 									<FontIconPicker
 										icons={svg_icons}
 										renderFunc={renderSVG}
-										noSelectedPlaceholder={__( "Select Icon",'ultimate-addons-for-gutenberg' )}
+										noSelectedPlaceholder={__( "Select Icon","ultimate-addons-for-gutenberg" )}
 										theme="default"
 										value={linkedinIcon}
 										onChange={ ( value ) => setAttributes( { linkedinIcon: value } ) }
 										isMulti={false}
 									/>
-									<p className="components-base-control__label">{__( "URL",'ultimate-addons-for-gutenberg' )}</p>
+									<p className="components-base-control__label">{__( "URL","ultimate-addons-for-gutenberg" )}</p>
 									<TextControl
 										value={ linkedinLink }
 										onChange={ ( value ) => setAttributes( { linkedinLink: value } ) }
-										placeholder={__( "Enter LinkedIn URL",'ultimate-addons-for-gutenberg' )}
+										placeholder={__( "Enter LinkedIn URL","ultimate-addons-for-gutenberg" )}
 									/>
 								</PanelBody>
-								<PanelBody title={ __( "Pinterest",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-									<p className="components-base-control__label">{__( "Icon",'ultimate-addons-for-gutenberg' )}</p>
+								<PanelBody title={ __( "Pinterest","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
+									<p className="components-base-control__label">{__( "Icon","ultimate-addons-for-gutenberg" )}</p>
 									<FontIconPicker
 										icons={svg_icons}
 										renderFunc={renderSVG}
-										noSelectedPlaceholder={__( "Select Icon",'ultimate-addons-for-gutenberg' )}
+										noSelectedPlaceholder={__( "Select Icon","ultimate-addons-for-gutenberg" )}
 										theme="default"
 										value={pinIcon}
 										onChange={ ( value ) => setAttributes( { pinIcon: value } ) }
 										isMulti={false}
 									/>
-									<p className="components-base-control__label">{__( "URL",'ultimate-addons-for-gutenberg' )}</p>
+									<p className="components-base-control__label">{__( "URL","ultimate-addons-for-gutenberg" )}</p>
 									<TextControl
 										value={ pinLink }
 										onChange={ ( value ) => setAttributes( { pinLink: value } ) }
-										placeholder={__( "Enter Pinterest URL",'ultimate-addons-for-gutenberg' )}
+										placeholder={__( "Enter Pinterest URL","ultimate-addons-for-gutenberg" )}
 									/>
 								</PanelBody>
 							</Fragment>
 						}
 					</PanelBody>
 					<PanelBody
-						title={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+						title={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 						initialOpen={ false }>
 						<SelectControl
-							label={ __( "Title Tag",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Title Tag","ultimate-addons-for-gutenberg" ) }
 							value={ tag }
 							onChange={ ( value ) => setAttributes( { tag: value } ) }
 							options={ [
-								{ value: "h1", label: __( "H1",'ultimate-addons-for-gutenberg' ) },
-								{ value: "h2", label: __( "H2",'ultimate-addons-for-gutenberg' ) },
-								{ value: "h3", label: __( "H3",'ultimate-addons-for-gutenberg' ) },
-								{ value: "h4", label: __( "H4",'ultimate-addons-for-gutenberg' ) },
-								{ value: "h5", label: __( "H5",'ultimate-addons-for-gutenberg' ) },
-								{ value: "h6", label: __( "H6",'ultimate-addons-for-gutenberg' ) },
+								{ value: "h1", label: __( "H1","ultimate-addons-for-gutenberg" ) },
+								{ value: "h2", label: __( "H2","ultimate-addons-for-gutenberg" ) },
+								{ value: "h3", label: __( "H3","ultimate-addons-for-gutenberg" ) },
+								{ value: "h4", label: __( "H4","ultimate-addons-for-gutenberg" ) },
+								{ value: "h5", label: __( "H5","ultimate-addons-for-gutenberg" ) },
+								{ value: "h6", label: __( "H6","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Title",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Title","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: titleLoadGoogleFonts, label: 'titleLoadGoogleFonts' } }
-							fontFamily = { { value: titleFontFamily, label: 'titleFontFamily' } }
-							fontWeight = { { value: titleFontWeight, label: 'titleFontWeight' } }
-							fontSubset = { { value: titleFontSubset, label: 'titleFontSubset' } }
-							fontSizeType = { { value: titleFontSizeType, label: 'titleFontSizeType' } }
-							fontSize = { { value: titleFontSize, label: 'titleFontSize' } }
-							fontSizeMobile = { { value: titleFontSizeMobile, label: 'titleFontSizeMobile' } }
-							fontSizeTablet= { { value: titleFontSizeTablet, label: 'titleFontSizeTablet' } }
-							lineHeightType = { { value: titleLineHeightType, label: 'titleLineHeightType' } }
-							lineHeight = { { value: titleLineHeight, label: 'titleLineHeight' } }
-							lineHeightMobile = { { value: titleLineHeightMobile, label: 'titleLineHeightMobile' } }
-							lineHeightTablet= { { value: titleLineHeightTablet, label: 'titleLineHeightTablet' } }
+							loadGoogleFonts = { { value: titleLoadGoogleFonts, label: "titleLoadGoogleFonts" } }
+							fontFamily = { { value: titleFontFamily, label: "titleFontFamily" } }
+							fontWeight = { { value: titleFontWeight, label: "titleFontWeight" } }
+							fontSubset = { { value: titleFontSubset, label: "titleFontSubset" } }
+							fontSizeType = { { value: titleFontSizeType, label: "titleFontSizeType" } }
+							fontSize = { { value: titleFontSize, label: "titleFontSize" } }
+							fontSizeMobile = { { value: titleFontSizeMobile, label: "titleFontSizeMobile" } }
+							fontSizeTablet= { { value: titleFontSizeTablet, label: "titleFontSizeTablet" } }
+							lineHeightType = { { value: titleLineHeightType, label: "titleLineHeightType" } }
+							lineHeight = { { value: titleLineHeight, label: "titleLineHeight" } }
+							lineHeightMobile = { { value: titleLineHeightMobile, label: "titleLineHeightMobile" } }
+							lineHeightTablet= { { value: titleLineHeightTablet, label: "titleLineHeightTablet" } }
 						/>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Prefix",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Prefix","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: prefixLoadGoogleFonts, label: 'prefixLoadGoogleFonts' } }
-							fontFamily = { { value: prefixFontFamily, label: 'prefixFontFamily' } }
-							fontWeight = { { value: prefixFontWeight, label: 'prefixFontWeight' } }
-							fontSubset = { { value: prefixFontSubset, label: 'prefixFontSubset' } }
-							fontSizeType = { { value: prefixFontSizeType, label: 'prefixFontSizeType' } }
-							fontSize = { { value: prefixFontSize, label: 'prefixFontSize' } }
-							fontSizeMobile = { { value: prefixFontSizeMobile, label: 'prefixFontSizeMobile' } }
-							fontSizeTablet= { { value: prefixFontSizeTablet, label: 'prefixFontSizeTablet' } }
-							lineHeightType = { { value: prefixLineHeightType, label: 'prefixLineHeightType' } }
-							lineHeight = { { value: prefixLineHeight, label: 'prefixLineHeight' } }
-							lineHeightMobile = { { value: prefixLineHeightMobile, label: 'prefixLineHeightMobile' } }
-							lineHeightTablet= { { value: prefixLineHeightTablet, label: 'prefixLineHeightTablet' } }
+							loadGoogleFonts = { { value: prefixLoadGoogleFonts, label: "prefixLoadGoogleFonts" } }
+							fontFamily = { { value: prefixFontFamily, label: "prefixFontFamily" } }
+							fontWeight = { { value: prefixFontWeight, label: "prefixFontWeight" } }
+							fontSubset = { { value: prefixFontSubset, label: "prefixFontSubset" } }
+							fontSizeType = { { value: prefixFontSizeType, label: "prefixFontSizeType" } }
+							fontSize = { { value: prefixFontSize, label: "prefixFontSize" } }
+							fontSizeMobile = { { value: prefixFontSizeMobile, label: "prefixFontSizeMobile" } }
+							fontSizeTablet= { { value: prefixFontSizeTablet, label: "prefixFontSizeTablet" } }
+							lineHeightType = { { value: prefixLineHeightType, label: "prefixLineHeightType" } }
+							lineHeight = { { value: prefixLineHeight, label: "prefixLineHeight" } }
+							lineHeightMobile = { { value: prefixLineHeightMobile, label: "prefixLineHeightMobile" } }
+							lineHeightTablet= { { value: prefixLineHeightTablet, label: "prefixLineHeightTablet" } }
 						/>						
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Description",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Description","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							loadGoogleFonts = { { value: descLoadGoogleFonts, label: 'descLoadGoogleFonts' } }
-							fontFamily = { { value: descFontFamily, label: 'descFontFamily' } }
-							fontWeight = { { value: descFontWeight, label: 'descFontWeight' } }
-							fontSubset = { { value: descFontSubset, label: 'descFontSubset' } }
-							fontSizeType = { { value: descFontSizeType, label: 'descFontSizeType' } }
-							fontSize = { { value: descFontSize, label: 'descFontSize' } }
-							fontSizeMobile = { { value: descFontSizeMobile, label: 'descFontSizeMobile' } }
-							fontSizeTablet= { { value: descFontSizeTablet, label: 'descFontSizeTablet' } }
-							lineHeightType = { { value: descLineHeightType, label: 'descLineHeightType' } }
-							lineHeight = { { value: descLineHeight, label: 'descLineHeight' } }
-							lineHeightMobile = { { value: descLineHeightMobile, label: 'descLineHeightMobile' } }
-							lineHeightTablet= { { value: descLineHeightTablet, label: 'descLineHeightTablet' } }
+							loadGoogleFonts = { { value: descLoadGoogleFonts, label: "descLoadGoogleFonts" } }
+							fontFamily = { { value: descFontFamily, label: "descFontFamily" } }
+							fontWeight = { { value: descFontWeight, label: "descFontWeight" } }
+							fontSubset = { { value: descFontSubset, label: "descFontSubset" } }
+							fontSizeType = { { value: descFontSizeType, label: "descFontSizeType" } }
+							fontSize = { { value: descFontSize, label: "descFontSize" } }
+							fontSizeMobile = { { value: descFontSizeMobile, label: "descFontSizeMobile" } }
+							fontSizeTablet= { { value: descFontSizeTablet, label: "descFontSizeTablet" } }
+							lineHeightType = { { value: descLineHeightType, label: "descLineHeightType" } }
+							lineHeight = { { value: descLineHeight, label: "descLineHeight" } }
+							lineHeightMobile = { { value: descLineHeightMobile, label: "descLineHeightMobile" } }
+							lineHeightTablet= { { value: descLineHeightTablet, label: "descLineHeightTablet" } }
 						/>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Social Icons",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Social Icons","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
-							fontSizeType = { { value: socialFontSizeType, label: 'socialFontSizeType' } }
-							fontSize = { { value: socialFontSize, label: 'socialFontSize' } }
-							fontSizeMobile = { { value: socialFontSizeMobile, label: 'socialFontSizeMobile' } }
-							fontSizeTablet= { { value: socialFontSizeTablet, label: 'socialFontSizeTablet' } }
+							fontSizeType = { { value: socialFontSizeType, label: "socialFontSizeType" } }
+							fontSize = { { value: socialFontSize, label: "socialFontSize" } }
+							fontSizeMobile = { { value: socialFontSizeMobile, label: "socialFontSizeMobile" } }
+							fontSizeTablet= { { value: socialFontSizeTablet, label: "socialFontSizeTablet" } }
 							disableFontFamily = { true }
 							disableLineHeight = { true }
 						/>
 					</PanelBody>
 					<PanelColorSettings
-						title={ __( "Color Settings",'ultimate-addons-for-gutenberg' ) }
+						title={ __( "Color Settings","ultimate-addons-for-gutenberg" ) }
 						initialOpen={ false }
 						colorSettings={ [
 							{
 								value: titleColor,
 								onChange: ( colorValue ) => setAttributes( { titleColor: colorValue } ),
-								label: __( "Title Color",'ultimate-addons-for-gutenberg' ),
+								label: __( "Title Color","ultimate-addons-for-gutenberg" ),
 							},
 							{
 								value: prefixColor,
 								onChange: ( colorValue ) => setAttributes( { prefixColor: colorValue } ),
-								label: __( "Designation Color",'ultimate-addons-for-gutenberg' ),
+								label: __( "Designation Color","ultimate-addons-for-gutenberg" ),
 							},
 							{
 								value: descColor,
 								onChange: ( colorValue ) => setAttributes( { descColor: colorValue } ),
-								label: __( "Description Color",'ultimate-addons-for-gutenberg' ),
+								label: __( "Description Color","ultimate-addons-for-gutenberg" ),
 							},
 							{
 								value: socialColor,
 								onChange: ( colorValue ) => setAttributes( { socialColor: colorValue } ),
-								label: __( "Social Icon Color",'ultimate-addons-for-gutenberg' ),
+								label: __( "Social Icon Color","ultimate-addons-for-gutenberg" ),
 							},
 							{
 								value: socialHoverColor,
 								onChange: ( colorValue ) => setAttributes( { socialHoverColor: colorValue } ),
-								label: __( "Social Icon Hover Color",'ultimate-addons-for-gutenberg' ),
+								label: __( "Social Icon Hover Color","ultimate-addons-for-gutenberg" ),
 							},
 						] }
 					>
 					</PanelColorSettings>
 
 					<PanelBody
-						title={ __( "Spacing",'ultimate-addons-for-gutenberg' ) }
+						title={ __( "Spacing","ultimate-addons-for-gutenberg" ) }
 						initialOpen={ false }>
 						<RangeControl
-							label={ __( "Title Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Title Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 							value={ titleSpace }
 							onChange={ ( value ) => setAttributes( { titleSpace: value } ) }
 							min={ 0 }
@@ -673,7 +673,7 @@ class UAGBTeam extends Component {
 							initialPosition={0}
 						/>
 						<RangeControl
-							label={ __( "Designation Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Designation Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 							value={ prefixSpace }
 							onChange={ ( value ) => setAttributes( { prefixSpace: value } ) }
 							min={ 0 }
@@ -682,7 +682,7 @@ class UAGBTeam extends Component {
 							initialPosition={0}
 						/>
 						<RangeControl
-							label={ __( "Description Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Description Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 							value={ descSpace }
 							onChange={ ( value ) => setAttributes( { descSpace: value } ) }
 							min={ 0 }
@@ -690,7 +690,7 @@ class UAGBTeam extends Component {
 							allowReset
 						/>
 						<RangeControl
-							label={ __( "Inter Social Icon Spacing",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Inter Social Icon Spacing","ultimate-addons-for-gutenberg" ) }
 							value={ socialSpace }
 							onChange={ ( value ) => setAttributes( { socialSpace: value } ) }
 							min={ 0 }
@@ -700,7 +700,7 @@ class UAGBTeam extends Component {
 						{ image &&
 							<Fragment>
 								<hr className="uagb-editor__separator" />
-								<h2>{ __( "Image Margin (px)",'ultimate-addons-for-gutenberg' ) }</h2>
+								<h2>{ __( "Image Margin (px)","ultimate-addons-for-gutenberg" ) }</h2>
 								{  imgPosition != "above" &&
 								<RangeControl
 									label={ UAGB_Block_Icons.left_margin }

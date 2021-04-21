@@ -29,10 +29,10 @@ export default function save( props ) {
 			)
 		}
 
-		return '';
+		return ""
 	}
 
-	const equalHeightClass = equalHeight ? "uagb-faq-equal-height" : "";
+	const equalHeightClass = equalHeight ? "uagb-faq-equal-height" : ""
 	
 	return (
 		<div className={ classnames(

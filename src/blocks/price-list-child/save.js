@@ -25,19 +25,19 @@ export default function save( props ) {
 			
 			<div className={ classnames(	
 				"uagb-rest_menu__wrap",				
-					"uagb-rest_menu_repeater",
-					...PositionClasses( props.attributes )
-				) }
-				>
-			<div className={ classnames(
+				"uagb-rest_menu_repeater",
+				...PositionClasses( props.attributes )
+			) }
+			>
+				<div className={ classnames(
 					className,
 					"uagb-rest_menu__outer-wrap",
 					`uagb-block-${block_id}`
 				) }
 				>
-						<div className = { classnames(
-							...PositionClasses( props.attributes ),
-						) } >
+					<div className = { classnames(
+						...PositionClasses( props.attributes ),
+					) } >
 						<div className = "uagb-rm__content">
 							{ (imagePosition == "top" || imagePosition == "left" ) && <RestMenuImage  attributes={props.attributes}  /> }
 							<div className ="uagb-rm__text-wrap">
@@ -61,7 +61,7 @@ export default function save( props ) {
 						</div>
 						<div className="uagb-rm__separator-parent"><div className="uagb-rm__separator"></div></div>
 					</div>
-					</div>
+				</div>
 				
 			</div>
 		</Fragment>

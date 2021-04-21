@@ -45,20 +45,20 @@ function styling( props ) {
 	} = props.attributes
 
 
-	let lPadding;
-	let rPadding;
+	let lPadding
+	let rPadding
 
 	if ( noticeDismiss ) {
-		if( 'left' === noticeAlignment || 'center' === noticeAlignment ){
-			rPadding = ( titleHrPadding + 13 ) ;
-			lPadding = titleHrPadding;
+		if( "left" === noticeAlignment || "center" === noticeAlignment ){
+			rPadding = ( titleHrPadding + 13 ) 
+			lPadding = titleHrPadding
 		}else{
-			lPadding = ( titleHrPadding + 13 ) ;
-			rPadding = titleHrPadding;
+			lPadding = ( titleHrPadding + 13 ) 
+			rPadding = titleHrPadding
 		}
 	} else {
-		lPadding = titleHrPadding;
-		rPadding = titleHrPadding;
+		lPadding = titleHrPadding
+		rPadding = titleHrPadding
 	}
 
 	var tablet_selectors = {}
@@ -134,15 +134,15 @@ function styling( props ) {
 	}
 
 	tablet_selectors = { 
-			" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus" : {
-				"font-size": generateCSSUnit( titleFontSizeTablet, titleFontSizeType ),
-				"line-height": generateCSSUnit( titleLineHeightTablet, titleLineHeightType ),
-			},
+		" .rich-text.block-editor-rich-text__editable.uagb-notice-title.keep-placeholder-on-focus" : {
+			"font-size": generateCSSUnit( titleFontSizeTablet, titleFontSizeType ),
+			"line-height": generateCSSUnit( titleLineHeightTablet, titleLineHeightType ),
+		},
 
-			" .rich-text.block-editor-rich-text__editable.uagb-notice-text p" : {
+		" .rich-text.block-editor-rich-text__editable.uagb-notice-text p" : {
 			    "font-size": generateCSSUnit( descFontSizeTablet, descFontSizeType ),
 			    "line-height": generateCSSUnit( descLineHeightTablet, descLineHeightType ),
-			},
+		},
 	}
 
 	var base_selector = `.block-editor-page #wpwrap .uagb-block-${ block_id }`

@@ -458,7 +458,7 @@ const deprecated = [
 											const Tag = headingTag
 											var icon_class = "uagb-timeline__icon-new out-view-uagb-timeline__icon "
 											var post_date = t_date[index].title
-											if ( 'custom' != dateFormat ) {
+											if ( "custom" != dateFormat ) {
 		
 												post_date = dateI18n( dateFormat, t_date[index].title )
 												if( post_date === "Invalid date" ){
@@ -539,4 +539,4 @@ const deprecated = [
 	}
 ]
 
-export default deprecated;
+export default deprecated

@@ -1,5 +1,5 @@
 function addAttributes( settings ) {
-	const excludeBlock = ['wpforms/form-selector'];
+	const excludeBlock = ["wpforms/form-selector"]
 	
 	if( ! excludeBlock.includes(settings.name) ){
 		
@@ -37,14 +37,14 @@ function addAttributes( settings ) {
 					type: "boolean",
 					default: false
 				},
-			} );		
+			} )		
 		}
 	}
-	return settings;
+	return settings
 }
 
 wp.hooks.addFilter(
-	'blocks.registerBlockType',
-	'uagb/advanced-control-block',
-    addAttributes
-);
+	"blocks.registerBlockType",
+	"uagb/advanced-control-block",
+	addAttributes
+)

@@ -53,15 +53,15 @@ export default function save( props ) {
 				<blockquote className="uagb-blockquote">					  
 					{ skinStyle === "quotation" && <div className="uagb-blockquote__icon-wrap"><span className="uagb-blockquote__icon">{ UAGB_Block_Icons.quote_inline_icon }</span></div> }
 					<div className="uagb-blockquote__content-wrap">
-					{ descriptionText !=="" && <Description attributes={props.attributes} setAttributes = "not_set" props = { props }  /> }
+						{ descriptionText !=="" && <Description attributes={props.attributes} setAttributes = "not_set" props = { props }  /> }
 						<footer>
 							<div className={ classnames(
 								"uagb-blockquote__author-wrap",
 								( authorImage !== "" ) ? `uagb-blockquote__author-at-${authorImgPosition}` : "",	
 							) }	>					   		
-							{ <AuthorImage attributes={props.attributes} /> }
-							{ author !== "" && <AuthorText attributes={props.attributes} setAttributes = "not_set" props = { props } /> }
-								</div>
+								{ <AuthorImage attributes={props.attributes} /> }
+								{ author !== "" && <AuthorText attributes={props.attributes} setAttributes = "not_set" props = { props } /> }
+							</div>
 							{ enableTweet &&  <TweetButtonCTA attributes={props.attributes} /> }
 						</footer>
 					</div>

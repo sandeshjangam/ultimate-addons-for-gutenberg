@@ -13,11 +13,11 @@ const attributes = {
 	},
 	time_heading:{
 		type: "string",
-		default:__( "Timeline Heading ",'ultimate-addons-for-gutenberg' )
+		default:__( "Timeline Heading ","ultimate-addons-for-gutenberg" )
 	},
 	time_desc:{
 		type: "string",
-		default:__( "This is Timeline description, you can change me anytime click here ",'ultimate-addons-for-gutenberg' )
+		default:__( "This is Timeline description, you can change me anytime click here ","ultimate-addons-for-gutenberg" )
 	},
 	dateFormat: {
 		type: "string",
@@ -61,7 +61,7 @@ const attributes = {
 	},
 	t_date : {
 		type: "string",
-		default: '1/1/2019',
+		default: "1/1/2019",
 	},
 	displayPostDate:{
 		type: "boolean",

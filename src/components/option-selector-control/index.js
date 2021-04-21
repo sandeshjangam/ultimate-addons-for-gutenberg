@@ -1,12 +1,12 @@
 /**
  * WordPress dependencies
  */
- const {
+const {
  	Component,
  	Fragment,
- } = wp.element
+} = wp.element
 
- const {
+const {
 	BaseControl,
 	Button,
 	ButtonGroup,
@@ -24,34 +24,34 @@ const DEFAULT_OPTIONS = [
 	{
 		value: "5",
 		/* translators: abbreviation for small size */
-		label: __( 'S','ultimate-addons-for-gutenberg' ),
-		tooltip: __( 'Small','ultimate-addons-for-gutenberg' ),
+		label: __( "S","ultimate-addons-for-gutenberg" ),
+		tooltip: __( "Small","ultimate-addons-for-gutenberg" ),
 	},
 	{
 		value: "15",
 		/* translators: abbreviation for medium size */
-		label: __( 'M','ultimate-addons-for-gutenberg' ),
-		tooltip: __( 'Medium','ultimate-addons-for-gutenberg' ),
+		label: __( "M","ultimate-addons-for-gutenberg" ),
+		tooltip: __( "Medium","ultimate-addons-for-gutenberg" ),
 	},
 	{
 		value: "20",
 		/* translators: abbreviation for large size */
-		label: __( 'L','ultimate-addons-for-gutenberg' ),
-		tooltip: __( 'Large','ultimate-addons-for-gutenberg' ),
+		label: __( "L","ultimate-addons-for-gutenberg" ),
+		tooltip: __( "Large","ultimate-addons-for-gutenberg" ),
 	},
 	{
 		value: "30",
 		/* translators: abbreviation for extra large size */
-		label: __( 'XL','ultimate-addons-for-gutenberg' ),
-		tooltip: __( 'Extra Large','ultimate-addons-for-gutenberg' ),
+		label: __( "XL","ultimate-addons-for-gutenberg" ),
+		tooltip: __( "Extra Large","ultimate-addons-for-gutenberg" ),
 	},
-];
+]
 
 const NONE_OPTION = {
 	value: "0",
-	label: __( 'None','ultimate-addons-for-gutenberg' ),
-	tooltip: __( 'None','ultimate-addons-for-gutenberg' ),
-};
+	label: __( "None","ultimate-addons-for-gutenberg" ),
+	tooltip: __( "None","ultimate-addons-for-gutenberg" ),
+}
 
 export default class OptionSelectorControl extends Component {
 	render() {
@@ -65,12 +65,12 @@ export default class OptionSelectorControl extends Component {
 			showAdvancedControls,
 			showIcons,
 			showNoneOption,
-		} = this.props;
+		} = this.props
 
-		let buttons = options || DEFAULT_OPTIONS;
+		let buttons = options || DEFAULT_OPTIONS
 
 		if ( showNoneOption ) {
-			buttons = [ NONE_OPTION, ...buttons ];
+			buttons = [ NONE_OPTION, ...buttons ]
 		}
 
 		return ( showAdvancedControls && ( advancedMinValue !== false && advancedMaxValue !== false ) ?
@@ -110,6 +110,6 @@ export default class OptionSelectorControl extends Component {
 					</ButtonGroup>
 				</PanelRow>
 			</BaseControl>
-		);
+		)
 	}
 }

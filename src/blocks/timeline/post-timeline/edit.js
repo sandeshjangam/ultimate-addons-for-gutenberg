@@ -63,7 +63,7 @@ const {
 
 let svg_icons = Object.keys( UAGBIcon )
 
-const $ = jQuery;
+const $ = jQuery
 
 class UAGBTimeline extends Component {
 
@@ -218,7 +218,7 @@ class UAGBTimeline extends Component {
 		let taxonomyListOptions = []
 
 		let categoryListOptions = [
-			{ value: "", label: __( "All",'ultimate-addons-for-gutenberg' ) }
+			{ value: "", label: __( "All","ultimate-addons-for-gutenberg" ) }
 		]
 
 		if ( "" != taxonomyList ) {
@@ -240,12 +240,12 @@ class UAGBTimeline extends Component {
 			onChange: this.getTimelineicon,
 			isMulti: false,
 			renderFunc: renderSVG,
-			noSelectedPlaceholder: __( "Select Icon",'ultimate-addons-for-gutenberg' )
+			noSelectedPlaceholder: __( "Select Icon","ultimate-addons-for-gutenberg" )
 		}
 
 		const sizeTypes = [
-			{ key: "px", name: __( "px",'ultimate-addons-for-gutenberg' ) },
-			{ key: "em", name: __( "em",'ultimate-addons-for-gutenberg' ) },
+			{ key: "px", name: __( "px","ultimate-addons-for-gutenberg" ) },
+			{ key: "em", name: __( "em","ultimate-addons-for-gutenberg" ) },
 		]
 
 		let loadHeadGoogleFonts
@@ -327,28 +327,28 @@ class UAGBTimeline extends Component {
 
 		const iconColorSettings = (
 			<PanelColorSettings
-				title={ __( "Color Settings",'ultimate-addons-for-gutenberg' ) }
+				title={ __( "Color Settings","ultimate-addons-for-gutenberg" ) }
 				initialOpen={ true }
 				colorSettings={ [
 					{
 						value: separatorColor,
 						onChange: ( colorValue ) => setAttributes( { separatorColor: colorValue } ),
-						label: __( "Line Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Line Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: iconColor,
 						onChange: ( colorValue ) => setAttributes( { iconColor: colorValue } ),
-						label: __( "Icon Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Icon Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: separatorBg,
 						onChange: ( colorValue ) => setAttributes( { separatorBg: colorValue } ),
-						label: __( "Background Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Background Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: separatorBorder,
 						onChange: ( colorValue ) => setAttributes( { separatorBorder: colorValue } ),
-						label: __( "Border Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Border Color","ultimate-addons-for-gutenberg" ),
 					},
 				] }
 			>
@@ -357,28 +357,28 @@ class UAGBTimeline extends Component {
 
 		const iconFocusSettings = (
 			<PanelColorSettings
-				title={ __( "Color Settings",'ultimate-addons-for-gutenberg' ) }
+				title={ __( "Color Settings","ultimate-addons-for-gutenberg" ) }
 				initialOpen={ true }
 				colorSettings={ [
 					{
 						value: separatorFillColor,
 						onChange: ( colorValue ) => setAttributes( { separatorFillColor: colorValue } ),
-						label: __( "Line Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Line Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: iconFocus,
 						onChange: ( colorValue ) => setAttributes( { iconFocus: colorValue } ),
-						label: __( "Icon Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Icon Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: iconBgFocus,
 						onChange: ( colorValue ) => setAttributes( { iconBgFocus: colorValue } ),
-						label: __( "Background Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Background Color","ultimate-addons-for-gutenberg" ),
 					},
 					{
 						value: borderFocus,
 						onChange: ( colorValue ) => setAttributes( { borderFocus: colorValue } ),
-						label: __( "Border Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Border Color","ultimate-addons-for-gutenberg" ),
 					},
 				] }
 			>
@@ -386,18 +386,18 @@ class UAGBTimeline extends Component {
 		)
 
 		const iconControls = (
-			<PanelBody title={ __( "Connector Color Settings",'ultimate-addons-for-gutenberg' ) } initialOpen={ true } >
+			<PanelBody title={ __( "Connector Color Settings","ultimate-addons-for-gutenberg" ) } initialOpen={ true } >
 				<TabPanel className="uagb-inspect-tabs uagb-inspect-tabs-col-2"
 					activeClass="active-tab"
 					tabs={ [
 						{
 							name: "normal",
-							title: __( "Normal",'ultimate-addons-for-gutenberg' ),
+							title: __( "Normal","ultimate-addons-for-gutenberg" ),
 							className: "uagb-normal-tab",
 						},
 						{
 							name: "focus",
-							title: __( "Focus",'ultimate-addons-for-gutenberg' ),
+							title: __( "Focus","ultimate-addons-for-gutenberg" ),
 							className: "uagb-focus-tab",
 						},
 					] }>
@@ -417,17 +417,17 @@ class UAGBTimeline extends Component {
 		)
 
 		const colorSetting = (
-			<PanelColorSettings title={ __( "Color Settings",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }
+			<PanelColorSettings title={ __( "Color Settings","ultimate-addons-for-gutenberg" ) } initialOpen={ false }
 				colorSettings={ [
 					{
 						value: backgroundColor,
 						onChange: ( colorValue ) => setAttributes( { backgroundColor: colorValue } ),
-						label: __( "Background Color",'ultimate-addons-for-gutenberg' ),
+						label: __( "Background Color","ultimate-addons-for-gutenberg" ),
 					},
 				] }	>
 
 				{ displayPostDate && <Fragment>
-					<p className="uagb-setting-label">{ __( "Date Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: dateColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Date Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: dateColor }} ></span></span></p>
 					<ColorPalette
 						value={ dateColor }
 						onChange={ ( colorValue ) => setAttributes( { dateColor: colorValue } ) }
@@ -436,7 +436,7 @@ class UAGBTimeline extends Component {
 				</Fragment>
 				}
 				<Fragment>
-					<p className="uagb-setting-label">{ __( "Heading Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Heading Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: headingColor }} ></span></span></p>
 					<ColorPalette
 						value={ headingColor }
 						onChange={ ( colorValue ) => setAttributes( { headingColor: colorValue } ) }
@@ -444,7 +444,7 @@ class UAGBTimeline extends Component {
 					/>
 				</Fragment>
 				{ displayPostAuthor && <Fragment>
-					<p className="uagb-setting-label">{ __( "Author Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: authorColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Author Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: authorColor }} ></span></span></p>
 					<ColorPalette
 						value={ authorColor }
 						onChange={ ( colorValue ) => setAttributes( { authorColor: colorValue } ) }
@@ -453,7 +453,7 @@ class UAGBTimeline extends Component {
 				</Fragment>
 				}
 				{ displayPostExcerpt && <Fragment>
-					<p className="uagb-setting-label">{ __( "Content Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: subHeadingColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "Content Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: subHeadingColor }} ></span></span></p>
 					<ColorPalette
 						value={ subHeadingColor }
 						onChange={ ( colorValue ) => setAttributes( { subHeadingColor: colorValue } ) }
@@ -463,13 +463,13 @@ class UAGBTimeline extends Component {
 				}
 
 				{ displayPostLink && <Fragment>
-					<p className="uagb-setting-label">{ __( "CTA Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaColor }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "CTA Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaColor }} ></span></span></p>
 					<ColorPalette
 						value={ ctaColor }
 						onChange={ ( colorValue ) => setAttributes( { ctaColor: colorValue } ) }
 						allowReset
 					/>
-					<p className="uagb-setting-label">{ __( "CTA Background Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBackground }} ></span></span></p>
+					<p className="uagb-setting-label">{ __( "CTA Background Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaBackground }} ></span></span></p>
 					<ColorPalette
 						value={ ctaBackground }
 						onChange={ ( colorValue ) => setAttributes( { ctaBackground: colorValue } ) }
@@ -484,9 +484,9 @@ class UAGBTimeline extends Component {
 
 		const content_control = (
 			<InspectorControls>
-				<PanelBody title={ __( "Query",'ultimate-addons-for-gutenberg' ) } initialOpen={ true } >
+				<PanelBody title={ __( "Query","ultimate-addons-for-gutenberg" ) } initialOpen={ true } >
 					<SelectControl
-						label={ __( "Post Type",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Post Type","ultimate-addons-for-gutenberg" ) }
 						value={ postType }
 						onChange={ ( value ) => this.onSelectPostType( value ) }
 						options={ uagb_blocks_info.post_types }
@@ -494,7 +494,7 @@ class UAGBTimeline extends Component {
 					<hr className="uagb-editor__separator" />
 					{ "" != taxonomyList &&
 						<SelectControl
-							label={ __( "Taxonomy",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Taxonomy","ultimate-addons-for-gutenberg" ) }
 							value={ taxonomyType }
 							onChange={ ( value ) => this.onSelectTaxonomyType( value ) }
 							options={ taxonomyListOptions }
@@ -512,7 +512,7 @@ class UAGBTimeline extends Component {
 						</Fragment>
 					}
 					<ToggleControl
-						label={ __( "Exclude Current Post",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Exclude Current Post","ultimate-addons-for-gutenberg" ) }
 						checked={ excludeCurrentPost }
 						onChange={ ( value ) => setAttributes( { excludeCurrentPost: ! excludeCurrentPost } ) }
 					/>
@@ -522,118 +522,118 @@ class UAGBTimeline extends Component {
 						onNumberOfItemsChange={ ( value ) => setAttributes( { postsToShow: value } ) }
 					/>
 					<SelectControl
-						label={ __( "Order By",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Order By","ultimate-addons-for-gutenberg" ) }
 						value={ orderBy }
 						onChange={ ( value ) => setAttributes( { orderBy: value } ) }
 						options={ [
-							{ value: "date", label: __( "Date",'ultimate-addons-for-gutenberg' ) },
-							{ value: "title", label: __( "Title",'ultimate-addons-for-gutenberg' ) },
-							{ value: "rand", label: __( "Random",'ultimate-addons-for-gutenberg' ) },
-							{ value: "menu_order", label: __( "Menu Order",'ultimate-addons-for-gutenberg' ) },
+							{ value: "date", label: __( "Date","ultimate-addons-for-gutenberg" ) },
+							{ value: "title", label: __( "Title","ultimate-addons-for-gutenberg" ) },
+							{ value: "rand", label: __( "Random","ultimate-addons-for-gutenberg" ) },
+							{ value: "menu_order", label: __( "Menu Order","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					<SelectControl
-						label={ __( "Order",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Order","ultimate-addons-for-gutenberg" ) }
 						value={ order }
 						onChange={ ( value ) => setAttributes( { order: value } ) }
 						options={ [
-							{ value: "desc", label: __( "Descending",'ultimate-addons-for-gutenberg' ) },
-							{ value: "asc", label: __( "Ascending",'ultimate-addons-for-gutenberg' ) },
+							{ value: "desc", label: __( "Descending","ultimate-addons-for-gutenberg" ) },
+							{ value: "asc", label: __( "Ascending","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 				</PanelBody>
-				<PanelBody  title={ __( "Layout",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody  title={ __( "Layout","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 					<SelectControl
-						label={ __( "Orientation",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Orientation","ultimate-addons-for-gutenberg" ) }
 						value={ timelinAlignment }
 						onChange={ ( value ) => setAttributes( { timelinAlignment: value } ) }
 						options={ [
-							{ value: "left", label: __( "Left",'ultimate-addons-for-gutenberg' ) },
-							{ value: "right", label: __( "Right",'ultimate-addons-for-gutenberg' ) },
-							{ value: "center", label: __( "Center",'ultimate-addons-for-gutenberg' ) },
+							{ value: "left", label: __( "Left","ultimate-addons-for-gutenberg" ) },
+							{ value: "right", label: __( "Right","ultimate-addons-for-gutenberg" ) },
+							{ value: "center", label: __( "Center","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					<SelectControl
-						label={ __( "Arrow Alignment",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Arrow Alignment","ultimate-addons-for-gutenberg" ) }
 						value={ arrowlinAlignment }
 						onChange={ ( value ) => setAttributes( { arrowlinAlignment: value } ) }
 						options={ [
-							{ value: "top", label: __( "Top",'ultimate-addons-for-gutenberg' ) },
-							{ value: "bottom", label: __( "Bottom",'ultimate-addons-for-gutenberg' ) },
-							{ value: "center", label: __( "Center",'ultimate-addons-for-gutenberg' ) },
+							{ value: "top", label: __( "Top","ultimate-addons-for-gutenberg" ) },
+							{ value: "bottom", label: __( "Bottom","ultimate-addons-for-gutenberg" ) },
+							{ value: "center", label: __( "Center","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					<SelectControl
-						label={ __( "Stack on",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Stack on","ultimate-addons-for-gutenberg" ) }
 						value={ stack }
 						options={ [
-							{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-							{ value: "tablet", label: __( "Tablet",'ultimate-addons-for-gutenberg' ) },
-							{ value: "mobile", label: __( "Mobile",'ultimate-addons-for-gutenberg' ) },
+							{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+							{ value: "tablet", label: __( "Tablet","ultimate-addons-for-gutenberg" ) },
+							{ value: "mobile", label: __( "Mobile","ultimate-addons-for-gutenberg" ) },
 						] }
-						help={ __( "Note: Choose on what breakpoint the Post Timeline will stack.",'ultimate-addons-for-gutenberg' ) }
+						help={ __( "Note: Choose on what breakpoint the Post Timeline will stack.","ultimate-addons-for-gutenberg" ) }
 						onChange={ ( value ) => setAttributes( { stack: value } ) }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( "Image",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody title={ __( "Image","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 					<ToggleControl
-						label={ __( "Display Featured Image",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Display Featured Image","ultimate-addons-for-gutenberg" ) }
 						checked={ displayPostImage }
 						onChange={ ( value ) => setAttributes( { displayPostImage: ! displayPostImage } ) }
 					/>
 					{ displayPostImage &&
                         <SelectControl
-                        	label={ __( "Featured Image Style",'ultimate-addons-for-gutenberg' ) }
+                        	label={ __( "Featured Image Style","ultimate-addons-for-gutenberg" ) }
                         	options={ uagb_blocks_info.image_sizes }
                         	value={ imageSize }
                         	onChange={ ( value ) => this.props.setAttributes( { imageSize: value } ) }
                         />
 					}
 				</PanelBody>
-				<PanelBody title={ __( "Content",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody title={ __( "Content","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 					<ToggleControl
-						label={ __( "Display Post Author",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Display Post Author","ultimate-addons-for-gutenberg" ) }
 						checked={ displayPostAuthor }
 						onChange={ ( value ) => setAttributes( { displayPostAuthor: ! displayPostAuthor } ) }
 					/>
 					<ToggleControl
-						label={ __( "Display Post Date",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Display Post Date","ultimate-addons-for-gutenberg" ) }
 						checked={ displayPostDate }
 						onChange={ ( value ) => setAttributes( { displayPostDate: ! displayPostDate } ) }
 					/>
 					{displayPostDate && 
 					<SelectControl
-						label={ __( "Date Format",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Date Format","ultimate-addons-for-gutenberg" ) }
 						value={ dateFormat }
 						onChange={ ( value ) => setAttributes( { dateFormat: value } ) }
 						options={ [
-							{ value: 'M j, Y' , label: dateI18n( 'M j, Y', today ) },
-							{ value: 'F j, Y' , label: dateI18n( 'F j, Y', today ) },
-							{ value: 'm/d/Y'  , label: dateI18n( 'm/d/Y', today ) },
-							{ value: 'm-d-Y'  , label: dateI18n( 'm-d-Y', today ) },
-							{ value: 'm.d.Y'  , label: dateI18n( 'm.d.Y', today ) },
-							{ value: 'd M Y'  , label: dateI18n( 'd M Y', today ) },
-							{ value: 'd F Y'  , label: dateI18n( 'd F Y', today ) },
-							{ value: 'd-m-Y'  , label: dateI18n( 'd-m-Y', today ) },
-							{ value: 'd.m.Y'  , label: dateI18n( 'd.m.Y', today ) },
-							{ value: 'd/m/Y'  , label: dateI18n( 'd/m/Y', today ) },
-							{ value: 'Y-m-d'  , label: dateI18n( 'Y-m-d', today ) },
-							{ value: 'Y.m.d'  , label: dateI18n( 'Y.m.d', today ) },
-							{ value: 'Y/m/d'  , label: dateI18n( 'Y/m/d', today ) },
-							{ value: 'M, Y'   , label: dateI18n( 'M, Y', today ) },
-							{ value: 'M Y'    , label: dateI18n( 'M Y', today ) },
-							{ value: 'F, Y'   , label: dateI18n( 'F, Y', today ) },
-							{ value: 'F Y'    , label: dateI18n( 'F Y', today ) },
+							{ value: "M j, Y" , label: dateI18n( "M j, Y", today ) },
+							{ value: "F j, Y" , label: dateI18n( "F j, Y", today ) },
+							{ value: "m/d/Y"  , label: dateI18n( "m/d/Y", today ) },
+							{ value: "m-d-Y"  , label: dateI18n( "m-d-Y", today ) },
+							{ value: "m.d.Y"  , label: dateI18n( "m.d.Y", today ) },
+							{ value: "d M Y"  , label: dateI18n( "d M Y", today ) },
+							{ value: "d F Y"  , label: dateI18n( "d F Y", today ) },
+							{ value: "d-m-Y"  , label: dateI18n( "d-m-Y", today ) },
+							{ value: "d.m.Y"  , label: dateI18n( "d.m.Y", today ) },
+							{ value: "d/m/Y"  , label: dateI18n( "d/m/Y", today ) },
+							{ value: "Y-m-d"  , label: dateI18n( "Y-m-d", today ) },
+							{ value: "Y.m.d"  , label: dateI18n( "Y.m.d", today ) },
+							{ value: "Y/m/d"  , label: dateI18n( "Y/m/d", today ) },
+							{ value: "M, Y"   , label: dateI18n( "M, Y", today ) },
+							{ value: "M Y"    , label: dateI18n( "M Y", today ) },
+							{ value: "F, Y"   , label: dateI18n( "F, Y", today ) },
+							{ value: "F Y"    , label: dateI18n( "F Y", today ) },
 						] }
 					/>}
 					<ToggleControl
-						label={ __( "Display Post Excerpt",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Display Post Excerpt","ultimate-addons-for-gutenberg" ) }
 						checked={ displayPostExcerpt }
 						onChange={ ( value ) => setAttributes( { displayPostExcerpt: ! displayPostExcerpt } ) }
 					/>
 					{ displayPostExcerpt &&
                        <RangeControl
-                       	label={ __( "Excerpt Length",'ultimate-addons-for-gutenberg' ) }
+                       	label={ __( "Excerpt Length","ultimate-addons-for-gutenberg" ) }
                        	value={ exerptLength }
                        	onChange={ ( value ) => setAttributes( { exerptLength: value } ) }
                        	min={ 1 }
@@ -643,45 +643,45 @@ class UAGBTimeline extends Component {
 					}
 
 					<ToggleControl
-						label={ __( "Display Continue Reading Link",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Display Continue Reading Link","ultimate-addons-for-gutenberg" ) }
 						checked={ displayPostLink }
 						onChange={ ( value ) => setAttributes( { displayPostLink: ! displayPostLink } ) }
 					/>
 					{ displayPostLink && <Fragment>
 						<TextControl
-							label= { __( "CTA Text",'ultimate-addons-for-gutenberg' ) }
+							label= { __( "CTA Text","ultimate-addons-for-gutenberg" ) }
 							value= { readMoreText }
 							onChange={ value => setAttributes( { readMoreText: value } ) }
 						/>
 					</Fragment>
 					}
 					<ToggleControl
-						label={ __( "Open links in New Tab",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Open links in New Tab","ultimate-addons-for-gutenberg" ) }
 						checked={ linkTarget }
 						onChange={ ( value ) => setAttributes( { linkTarget: ! linkTarget } ) }
 					/>
 				</PanelBody>
-				<PanelBody  title={ __( "Timeline Item",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody  title={ __( "Timeline Item","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 
-					<h2>{ __( "Heading",'ultimate-addons-for-gutenberg' ) }</h2>
+					<h2>{ __( "Heading","ultimate-addons-for-gutenberg" ) }</h2>
 					<SelectControl
-						label={ __( "Heading Tag",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Heading Tag","ultimate-addons-for-gutenberg" ) }
 						value={ headingTag }
 						onChange={ ( value ) => setAttributes( { headingTag: value } ) }
 						options={ [
-							{ value: "h1", label: __( "H1",'ultimate-addons-for-gutenberg' ) },
-							{ value: "h2", label: __( "H2",'ultimate-addons-for-gutenberg' ) },
-							{ value: "h3", label: __( "H3",'ultimate-addons-for-gutenberg' ) },
-							{ value: "h4", label: __( "H4",'ultimate-addons-for-gutenberg' ) },
-							{ value: "h5", label: __( "H5",'ultimate-addons-for-gutenberg' ) },
-							{ value: "h6", label: __( "H6",'ultimate-addons-for-gutenberg' ) },
-							{ value: "p", label: __( "P",'ultimate-addons-for-gutenberg' ) },
-							{ value: "span", label: __( "SPAN",'ultimate-addons-for-gutenberg' ) },
+							{ value: "h1", label: __( "H1","ultimate-addons-for-gutenberg" ) },
+							{ value: "h2", label: __( "H2","ultimate-addons-for-gutenberg" ) },
+							{ value: "h3", label: __( "H3","ultimate-addons-for-gutenberg" ) },
+							{ value: "h4", label: __( "H4","ultimate-addons-for-gutenberg" ) },
+							{ value: "h5", label: __( "H5","ultimate-addons-for-gutenberg" ) },
+							{ value: "h6", label: __( "H6","ultimate-addons-for-gutenberg" ) },
+							{ value: "p", label: __( "P","ultimate-addons-for-gutenberg" ) },
+							{ value: "span", label: __( "SPAN","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 
 					<TypographyControl
-						label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 						attributes = { this.props.attributes }
 						setAttributes = { setAttributes }
 						loadGoogleFonts = { { value: headLoadGoogleFonts, label: "headLoadGoogleFonts" } }
@@ -699,9 +699,9 @@ class UAGBTimeline extends Component {
 					/>
 					{ displayPostExcerpt && <Fragment>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Content",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Content","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { this.props.attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: subHeadLoadGoogleFonts, label: "subHeadLoadGoogleFonts" } }
@@ -722,9 +722,9 @@ class UAGBTimeline extends Component {
 
 					{ displayPostDate && <Fragment>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Date",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Date","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { this.props.attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: dateLoadGoogleFonts, label: "dateLoadGoogleFonts" } }
@@ -745,9 +745,9 @@ class UAGBTimeline extends Component {
 
 					{ displayPostAuthor && <Fragment>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "Author",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "Author","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: authorLoadGoogleFonts, label: "authorLoadGoogleFonts" } }
@@ -768,9 +768,9 @@ class UAGBTimeline extends Component {
 
 					{ displayPostLink && <Fragment>
 						<hr className="uagb-editor__separator" />
-						<h2>{ __( "CTA",'ultimate-addons-for-gutenberg' ) }</h2>
+						<h2>{ __( "CTA","ultimate-addons-for-gutenberg" ) }</h2>
 						<TypographyControl
-							label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 							attributes = { attributes }
 							setAttributes = { setAttributes }
 							loadGoogleFonts = { { value: ctaLoadGoogleFonts, label: "ctaLoadGoogleFonts" } }
@@ -790,7 +790,7 @@ class UAGBTimeline extends Component {
 					}
 					<hr className="uagb-editor__separator" />
 					<RangeControl
-						label={ __( "Rounded Corners",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Rounded Corners","ultimate-addons-for-gutenberg" ) }
 						value={ borderRadius }
 						onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
 						min={ 0 }
@@ -799,10 +799,10 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 				</PanelBody>
-				<PanelBody title={ __( "Connector",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody title={ __( "Connector","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 					<FontIconPicker {...icon_props} />
 					<RangeControl
-						label={ __( "Icon Size",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Icon Size","ultimate-addons-for-gutenberg" ) }
 						value={ iconSize }
 						onChange={ ( value ) => setAttributes( { iconSize: value } ) }
 						min={ 0 }
@@ -810,7 +810,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Icon Background Size",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Icon Background Size","ultimate-addons-for-gutenberg" ) }
 						value={ connectorBgsize }
 						onChange={ ( value ) => setAttributes( { connectorBgsize: value } ) }
 						min={ 25 }
@@ -818,7 +818,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Border Width",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Border Width","ultimate-addons-for-gutenberg" ) }
 						value={ borderwidth }
 						onChange={ ( value ) => setAttributes( { borderwidth: value } ) }
 						min={ 1 }
@@ -826,7 +826,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Connector Width",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Connector Width","ultimate-addons-for-gutenberg" ) }
 						value={ separatorwidth }
 						onChange={ ( value ) => setAttributes( { separatorwidth: value } ) }
 						min={ 1 }
@@ -836,9 +836,9 @@ class UAGBTimeline extends Component {
 					{ iconControls }
 				</PanelBody>
 				{ colorSetting }
-				<PanelBody  title={ __( "Spacing",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+				<PanelBody  title={ __( "Spacing","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 					<RangeControl
-						label={ __( "Block Padding",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Block Padding","ultimate-addons-for-gutenberg" ) }
 						value={ bgPadding }
 						onChange={ ( value ) => setAttributes( { bgPadding: value } ) }
 						min={ 0 }
@@ -847,7 +847,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Content Padding",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Content Padding","ultimate-addons-for-gutenberg" ) }
 						value={ contentPadding }
 						onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
 						min={ 0 }
@@ -856,7 +856,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Horizontal Space",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Horizontal Space","ultimate-addons-for-gutenberg" ) }
 						value={ horizontalSpace }
 						onChange={ ( value ) => setAttributes( { horizontalSpace: value } ) }
 						min={ 0 }
@@ -865,7 +865,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Vertical Space",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Vertical Space","ultimate-addons-for-gutenberg" ) }
 						value={ verticalSpace }
 						onChange={ ( value ) => setAttributes( { verticalSpace: value } ) }
 						min={ 0 }
@@ -874,7 +874,7 @@ class UAGBTimeline extends Component {
 						allowReset
 					/>
 					<RangeControl
-						label={ __( "Heading Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Heading Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 						value={ headSpace }
 						onChange={ ( value ) => setAttributes( { headSpace: value } ) }
 						min={ 0 }
@@ -884,7 +884,7 @@ class UAGBTimeline extends Component {
 					/>
 
 					{ displayPostAuthor && <RangeControl
-						label={ __( "Author Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Author Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 						value={ authorSpace }
 						onChange={ ( value ) => setAttributes( { authorSpace: value } ) }
 						min={ 0 }
@@ -894,7 +894,7 @@ class UAGBTimeline extends Component {
 					/>
 					}
 					{ displayPostExcerpt && displayPostLink && <RangeControl
-						label={ __( "Content Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Content Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 						value={ contentSpace }
 						onChange={ ( value ) => setAttributes( { contentSpace: value } ) }
 						min={ 0 }
@@ -905,7 +905,7 @@ class UAGBTimeline extends Component {
 					}
 
 					{ displayPostDate && ( timelinAlignment !=="center" ) && <RangeControl
-						label={ __( "Date Bottom Spacing",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Date Bottom Spacing","ultimate-addons-for-gutenberg" ) }
 						value={ dateBottomspace }
 						onChange={ ( value ) => setAttributes( { dateBottomspace: value } ) }
 						min={ 0 }
@@ -972,7 +972,7 @@ class UAGBTimeline extends Component {
 		var id = this.props.clientId
 		window.addEventListener("load", this.timelineContent_back(id))
 		window.addEventListener("resize", this.timelineContent_back(id))
-		var time = this;
+		var time = this
 		$(".edit-post-layout__content").scroll( function(event) {
 			time.timelineContent_back(id)
 		})
@@ -987,7 +987,7 @@ class UAGBTimeline extends Component {
 		var id = this.props.clientId
 		window.addEventListener("load", this.timelineContent_back(id))
 		window.addEventListener("resize", this.timelineContent_back(id))
-		var time = this;
+		var time = this
 		$(".edit-post-layout__content").scroll( function(event) {
 			time.timelineContent_back(id)
 		})
@@ -1250,23 +1250,23 @@ export default withSelect( ( select, props ) => {
 	}
 
 	if ( excludeCurrentPost ) {		
-		latestPostsQuery['exclude'] = select("core/editor").getCurrentPostId()
+		latestPostsQuery["exclude"] = select("core/editor").getCurrentPostId()
 	}
-	var category = [];	
-	var temp = parseInt(categories);
-	category.push(temp);
-	var catlenght = categoriesList.length;
+	var category = []	
+	var temp = parseInt(categories)
+	category.push(temp)
+	var catlenght = categoriesList.length
 	for(var i=0;i<catlenght;i++){
 		if(categoriesList[i].id == temp){
 			if(categoriesList[i].child.length !== 0){
 				categoriesList[i].child.forEach(element => {
-					category.push(element);
-				});
+					category.push(element)
+				})
 			}		
 		}
 	}
-	if ( undefined !== categories && '' !== categories ) {
-		latestPostsQuery[rest_base] = (undefined === categories || '' === categories ) ? categories :category;
+	if ( undefined !== categories && "" !== categories ) {
+		latestPostsQuery[rest_base] = (undefined === categories || "" === categories ) ? categories :category
 	}
 	return {
 		latestPosts: getEntityRecords( "postType", postType, latestPostsQuery ),

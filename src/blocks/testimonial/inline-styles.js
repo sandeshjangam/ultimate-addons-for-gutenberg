@@ -156,7 +156,7 @@ function TestimonialStyle( props ) {
 
 	if( test_item_count == columns ) {
 		selectors[".uagb-slick-carousel"] = {
-			"padding": '0',
+			"padding": "0",
 		}
 	}
 

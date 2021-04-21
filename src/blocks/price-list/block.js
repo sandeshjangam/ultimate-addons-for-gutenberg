@@ -17,10 +17,10 @@ const {
 	registerBlockType
 } = wp.blocks
 
-const { addFilter } = wp.hooks;
-const { Fragment } = wp.element;
-const { withSelect } = wp.data;
-const { compose, createHigherOrderComponent } = wp.compose;
+const { addFilter } = wp.hooks
+const { Fragment } = wp.element
+const { withSelect } = wp.data
+const { compose, createHigherOrderComponent } = wp.compose
 
 /**
  * Override the default block element to add	wrapper props.
@@ -33,10 +33,10 @@ const enhance = compose(
 	
 	withSelect( ( select ) => {
 		return {
-			selected: select( 'core/block-editor' ).getSelectedBlock(),
-		};
+			selected: select( "core/block-editor" ).getSelectedBlock(),
+		}
 	} )
-);
+)
 /**
  * Add custom UAG attributes to selected blocks
  *
@@ -49,9 +49,9 @@ const withPriceList = createHigherOrderComponent( ( BlockEdit ) => {
 			<Fragment>
 				<BlockEdit { ...props } />
 			</Fragment>
-		);
-	} );
-}, 'withPriceList' );
+		)
+	} )
+}, "withPriceList" )
 
 
 registerBlockType( "uagb/restaurant-menu", {
@@ -77,7 +77,7 @@ registerBlockType( "uagb/restaurant-menu", {
 	deprecated,
 } )
 addFilter(
-	'editor.BlockEdit',
-	'uagb/restaurant-menu',
+	"editor.BlockEdit",
+	"uagb/restaurant-menu",
 	withPriceList
-);
+)

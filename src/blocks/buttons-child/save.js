@@ -28,9 +28,9 @@ export default function save( props ) {
 	} = attributes
 
 	const icon_html = ( curr_position ) => {
-		if ( '' !== icon && curr_position === iconPosition ) {
+		if ( "" !== icon && curr_position === iconPosition ) {
 			return (
-				<span className= { classnames(`uagb-button__icon`, `uagb-button__icon-position-${ iconPosition }`) }>
+				<span className= { classnames("uagb-button__icon", `uagb-button__icon-position-${ iconPosition }`) }>
 					{ renderSVG(icon) }
 				</span>
 			)
@@ -44,7 +44,7 @@ export default function save( props ) {
 			"uagb-buttons__outer-wrap",
 			`uagb-block-${ block_id }`,
 			( inheritFromTheme ) ? "wp-block-button" : null
-			) }>
+		) }>
 			<div className="uagb-button__wrapper">
 				<a
 					className={classnames( "uagb-buttons-repeater", ( inheritFromTheme ) ? "wp-block-button__link" : null )}

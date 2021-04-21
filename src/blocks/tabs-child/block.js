@@ -21,8 +21,8 @@ registerBlockType( "uagb/tabs-child", {
 	icon: UAGB_Block_Icons.tabs,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "tabs"  , 'ultimate-addons-for-gutenberg'),
-		__( "uag"  , 'ultimate-addons-for-gutenberg'),
+		__( "tabs"  , "ultimate-addons-for-gutenberg"),
+		__( "uag"  , "ultimate-addons-for-gutenberg"),
 	],
 	supports: {
 		anchor: true,

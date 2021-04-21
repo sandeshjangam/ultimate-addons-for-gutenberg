@@ -24,8 +24,8 @@ export default function save( props ) {
 		maxDay
 	} = attributes
 	
-	var validation_min_value = "";
-	var validation_max_value = "";
+	var validation_min_value = ""
+	var validation_max_value = ""
 	
 	if( minYear && minMonth && minDay ){
 		validation_min_value = minYear+"-"+minMonth+"-"+minDay			
@@ -35,7 +35,7 @@ export default function save( props ) {
 		validation_max_value = maxYear+"-"+maxMonth+"-"+maxDay		
 	}
 
-	var date_html = "";
+	var date_html = ""
 	if( additonalVal ){
 		date_html = <input type="date" className="uagb-forms-date-input uagb-forms-input"  required={ dateRequired } min={validation_min_value} max={validation_max_value} name={ block_id }/>
 		
@@ -43,7 +43,7 @@ export default function save( props ) {
 		date_html = <input type="date" className="uagb-forms-date-input uagb-forms-input"  required={ dateRequired } name={ block_id }/>
 
 	}
-	const isRequired = (dateRequired) ? __("required", 'ultimate-addons-for-gutenberg') : "";
+	const isRequired = (dateRequired) ? __("required", "ultimate-addons-for-gutenberg") : ""
 
 	return (
 		<div className={ classnames(
@@ -52,10 +52,10 @@ export default function save( props ) {
 			`uagb-block-${ block_id }`,
 		) }>
 			<RichText.Content
-			tagName="div"
-			value={ name }
-			className={`uagb-forms-date-label ${isRequired} uagb-forms-input-label`}	
-			id={ block_id }
+				tagName="div"
+				value={ name }
+				className={`uagb-forms-date-label ${isRequired} uagb-forms-input-label`}	
+				id={ block_id }
 			/>
 			{date_html}
 		</div>

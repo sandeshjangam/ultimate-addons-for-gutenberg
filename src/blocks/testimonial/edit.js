@@ -116,12 +116,12 @@ class UAGBtestimonial extends Component {
 	getImageName( image ){
 		const { test_block } = this.props.attributes
 
-		let image_name = __( "Select Image",'ultimate-addons-for-gutenberg' )
+		let image_name = __( "Select Image","ultimate-addons-for-gutenberg" )
 		if(image){
 			if(image.url == null || image.url == "" ){
-				image_name = __( "Select Image",'ultimate-addons-for-gutenberg' )
+				image_name = __( "Select Image","ultimate-addons-for-gutenberg" )
 			}else{
-				image_name = __( "Replace Image",'ultimate-addons-for-gutenberg' )
+				image_name = __( "Replace Image","ultimate-addons-for-gutenberg" )
 			}
 		}
 		return image_name
@@ -317,10 +317,10 @@ class UAGBtestimonial extends Component {
 		// Typography settings.
 		const TypographySettings = (
 			<Fragment>
-				<PanelBody title={ __( "Typography",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
-					<h2>{ __( "Testimonial",'ultimate-addons-for-gutenberg' ) }</h2>
+				<PanelBody title={ __( "Typography","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
+					<h2>{ __( "Testimonial","ultimate-addons-for-gutenberg" ) }</h2>
 					<TypographyControl
-						label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
 						loadGoogleFonts = { { value: descLoadGoogleFonts, label: "descLoadGoogleFonts" } }
@@ -338,9 +338,9 @@ class UAGBtestimonial extends Component {
 					/>
 
 					<hr className="uagb-editor__separator" />
-					<h2>{ __( "Name",'ultimate-addons-for-gutenberg' ) }</h2>
+					<h2>{ __( "Name","ultimate-addons-for-gutenberg" ) }</h2>
 					<TypographyControl
-						label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
 						loadGoogleFonts = { { value: nameLoadGoogleFonts, label: "nameLoadGoogleFonts" } }
@@ -358,9 +358,9 @@ class UAGBtestimonial extends Component {
 					/>
 
 					<hr className="uagb-editor__separator" />
-					<h2>{ __( "Company",'ultimate-addons-for-gutenberg' ) }</h2>
+					<h2>{ __( "Company","ultimate-addons-for-gutenberg" ) }</h2>
 					<TypographyControl
-						label={ __( "Typography",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
 						attributes = { attributes }
 						setAttributes = { setAttributes }
 						loadGoogleFonts = { { value: companyLoadGoogleFonts, label:  "companyLoadGoogleFonts" } }
@@ -379,28 +379,28 @@ class UAGBtestimonial extends Component {
 				</PanelBody>
 
 				<PanelColorSettings
-					title={ __( "Color Settings",'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Color Settings","ultimate-addons-for-gutenberg" ) }
 					initialOpen={ false }
 					colorSettings={ [
 						{
 							value: descColor,
 							onChange: ( colorValue ) => setAttributes( { descColor: colorValue } ),
-							label: __( "Testimonial Color",'ultimate-addons-for-gutenberg' ),
+							label: __( "Testimonial Color","ultimate-addons-for-gutenberg" ),
 						},
 						{
 							value: authorColor,
 							onChange: ( colorValue ) => setAttributes( { authorColor: colorValue } ),
-							label: __( "Name Color",'ultimate-addons-for-gutenberg' ),
+							label: __( "Name Color","ultimate-addons-for-gutenberg" ),
 						},
 						{
 							value: companyColor,
 							onChange: ( colorValue ) => setAttributes( { companyColor: colorValue } ),
-							label: __( "Company Color",'ultimate-addons-for-gutenberg' ),
+							label: __( "Company Color","ultimate-addons-for-gutenberg" ),
 						},
 						{
 							value: arrowColor,
 							onChange: ( colorValue ) => setAttributes( { arrowColor: colorValue } ),
-							label: __( "Arrow & Dots Color",'ultimate-addons-for-gutenberg' ),
+							label: __( "Arrow & Dots Color","ultimate-addons-for-gutenberg" ),
 						},
 					] }
 				>
@@ -410,9 +410,9 @@ class UAGBtestimonial extends Component {
 
 		// Margin Settings.
 		const marginSettings = (
-			<PanelBody title={ __( "Spacing",'ultimate-addons-for-gutenberg' ) } initialOpen={ false } >
+			<PanelBody title={ __( "Spacing","ultimate-addons-for-gutenberg" ) } initialOpen={ false } >
 				<RangeControl
-					label={ __( "Gap Between Content & Dots",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Gap Between Content & Dots","ultimate-addons-for-gutenberg" ) }
 					value={ rowGap }
 					onChange={ ( value ) => setAttributes( { rowGap: value } ) }
 					min={ 0 }
@@ -420,7 +420,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Row Gap",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Row Gap","ultimate-addons-for-gutenberg" ) }
 					value={ columnGap }
 					onChange={ ( value ) => setAttributes( { columnGap: value } ) }
 					min={ 0 }
@@ -428,7 +428,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Content Padding",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Content Padding","ultimate-addons-for-gutenberg" ) }
 					value={ contentPadding }
 					onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
 					min={ 0 }
@@ -436,7 +436,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Testimonial Bottom Margin",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Testimonial Bottom Margin","ultimate-addons-for-gutenberg" ) }
 					value={ descSpace }
 					onChange={ ( value ) => setAttributes( { descSpace: value } ) }
 					min={ 0 }
@@ -444,7 +444,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Name Bottom Margin",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Name Bottom Margin","ultimate-addons-for-gutenberg" ) }
 					value={ nameSpace }
 					onChange={ ( value ) => setAttributes( { nameSpace: value } ) }
 					min={ 0 }
@@ -452,7 +452,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Image Horizontal Padding",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Image Horizontal Padding","ultimate-addons-for-gutenberg" ) }
 					value={ imgHrPadding }
 					onChange={ ( value ) => setAttributes( { imgHrPadding: value } ) }
 					min={ 0 }
@@ -460,7 +460,7 @@ class UAGBtestimonial extends Component {
 					allowReset
 				/>
 				<RangeControl
-					label={ __( "Image Vertical Padding",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Image Vertical Padding","ultimate-addons-for-gutenberg" ) }
 					value={ imgVrPadding }
 					onChange={ ( value ) => setAttributes( { imgVrPadding: value } ) }
 					min={ 0 }
@@ -472,20 +472,20 @@ class UAGBtestimonial extends Component {
 
 		const background_settings = (
 			<Fragment>
-				<PanelBody title={ __( "Background",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
+				<PanelBody title={ __( "Background","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 					<SelectControl
-						label={ __( "Background Type",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Background Type","ultimate-addons-for-gutenberg" ) }
 						value={ backgroundType }
 						onChange={ ( value ) => setAttributes( { backgroundType: value } ) }
 						options={ [
-							{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-							{ value: "color", label: __( "Color",'ultimate-addons-for-gutenberg' ) },
-							{ value: "image", label: __( "Image",'ultimate-addons-for-gutenberg' ) },
+							{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+							{ value: "color", label: __( "Color","ultimate-addons-for-gutenberg" ) },
+							{ value: "image", label: __( "Image","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					{ "color" == backgroundType &&
 							<Fragment>
-								<p className="uagb-setting-label">{ __( "Background Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundColor }} ></span></span></p>
+								<p className="uagb-setting-label">{ __( "Background Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundColor }} ></span></span></p>
 								<ColorPalette
 									value={ backgroundColor }
 									onChange={ ( colorValue ) => setAttributes( { backgroundColor: colorValue } ) }
@@ -497,51 +497,51 @@ class UAGBtestimonial extends Component {
 							<Fragment>
 								<BaseControl
 									className="editor-bg-image-control"
-									label={ __( "Background Image",'ultimate-addons-for-gutenberg' ) }>
+									label={ __( "Background Image","ultimate-addons-for-gutenberg" ) }>
 									<MediaUpload
-										title={ __( "Select Background Image",'ultimate-addons-for-gutenberg' ) }
+										title={ __( "Select Background Image","ultimate-addons-for-gutenberg" ) }
 										onSelect={ this.onSelectImage }
 										allowedTypes= { [ "image" ] }
 										value={ backgroundImage }
 										render={ ( { open } ) => (
 											<Button isSecondary onClick={ open }>
-												{ ! backgroundImage ? __( "Select Background Image",'ultimate-addons-for-gutenberg' ) : __( "Replace image",'ultimate-addons-for-gutenberg' ) }
+												{ ! backgroundImage ? __( "Select Background Image","ultimate-addons-for-gutenberg" ) : __( "Replace image","ultimate-addons-for-gutenberg" ) }
 											</Button>
 										) }
 									/>
 									{ backgroundImage &&
 										<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
-											{ __( "Remove Image",'ultimate-addons-for-gutenberg' ) }
+											{ __( "Remove Image","ultimate-addons-for-gutenberg" ) }
 										</Button>
 									}
 								</BaseControl>
 								{ backgroundImage &&
 									<Fragment>
 										<SelectControl
-											label={ __( "Image Position",'ultimate-addons-for-gutenberg' ) }
+											label={ __( "Image Position","ultimate-addons-for-gutenberg" ) }
 											value={ backgroundPosition }
 											onChange={ ( value ) => setAttributes( { backgroundPosition: value } ) }
 											options={ [
-												{ value: "top-left", label: __( "Top Left",'ultimate-addons-for-gutenberg' ) },
-												{ value: "top-center", label: __( "Top Center",'ultimate-addons-for-gutenberg' ) },
-												{ value: "top-right", label: __( "Top Right",'ultimate-addons-for-gutenberg' ) },
-												{ value: "center-left", label: __( "Center Left",'ultimate-addons-for-gutenberg' ) },
-												{ value: "center-center", label: __( "Center Center",'ultimate-addons-for-gutenberg' ) },
-												{ value: "center-right", label: __( "Center Right",'ultimate-addons-for-gutenberg' ) },
-												{ value: "bottom-left", label: __( "Bottom Left",'ultimate-addons-for-gutenberg' ) },
-												{ value: "bottom-center", label: __( "Bottom Center",'ultimate-addons-for-gutenberg' ) },
-												{ value: "bottom-right", label: __( "Bottom Right",'ultimate-addons-for-gutenberg' ) },
+												{ value: "top-left", label: __( "Top Left","ultimate-addons-for-gutenberg" ) },
+												{ value: "top-center", label: __( "Top Center","ultimate-addons-for-gutenberg" ) },
+												{ value: "top-right", label: __( "Top Right","ultimate-addons-for-gutenberg" ) },
+												{ value: "center-left", label: __( "Center Left","ultimate-addons-for-gutenberg" ) },
+												{ value: "center-center", label: __( "Center Center","ultimate-addons-for-gutenberg" ) },
+												{ value: "center-right", label: __( "Center Right","ultimate-addons-for-gutenberg" ) },
+												{ value: "bottom-left", label: __( "Bottom Left","ultimate-addons-for-gutenberg" ) },
+												{ value: "bottom-center", label: __( "Bottom Center","ultimate-addons-for-gutenberg" ) },
+												{ value: "bottom-right", label: __( "Bottom Right","ultimate-addons-for-gutenberg" ) },
 											] }
 										/>
 										<SelectControl
-											label={ __( "Repeat",'ultimate-addons-for-gutenberg' ) }
+											label={ __( "Repeat","ultimate-addons-for-gutenberg" ) }
 											value={ backgroundRepeat }
 											onChange={ ( value ) => setAttributes( { backgroundRepeat: value } ) }
 											options={ [
-												{ value: "no-repeat", label: __( "No Repeat",'ultimate-addons-for-gutenberg' ) },
-												{ value: "repeat", label: __( "Repeat",'ultimate-addons-for-gutenberg' ) },
-												{ value: "repeat-x", label: __( "Repeat-x",'ultimate-addons-for-gutenberg' ) },
-												{ value: "repeat-y", label: __( "Repeat-y",'ultimate-addons-for-gutenberg' ) }
+												{ value: "no-repeat", label: __( "No Repeat","ultimate-addons-for-gutenberg" ) },
+												{ value: "repeat", label: __( "Repeat","ultimate-addons-for-gutenberg" ) },
+												{ value: "repeat-x", label: __( "Repeat-x","ultimate-addons-for-gutenberg" ) },
+												{ value: "repeat-y", label: __( "Repeat-y","ultimate-addons-for-gutenberg" ) }
 											] }
 										/>
 										<SelectControl
@@ -549,13 +549,13 @@ class UAGBtestimonial extends Component {
 											value={ backgroundSize }
 											onChange={ ( value ) => setAttributes( { backgroundSize: value } ) }
 											options={ [
-												{ value: "auto", label: __( "Auto",'ultimate-addons-for-gutenberg' ) },
-												{ value: "cover", label: __( "Cover",'ultimate-addons-for-gutenberg' ) },
-												{ value: "contain", label: __( "Contain",'ultimate-addons-for-gutenberg' ) }
+												{ value: "auto", label: __( "Auto","ultimate-addons-for-gutenberg" ) },
+												{ value: "cover", label: __( "Cover","ultimate-addons-for-gutenberg" ) },
+												{ value: "contain", label: __( "Contain","ultimate-addons-for-gutenberg" ) }
 											] }
 										/>
 										<Fragment>
-											<p className="uagb-setting-label">{ __( "Image Overlay Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundImageColor }} ></span></span></p>
+											<p className="uagb-setting-label">{ __( "Image Overlay Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: backgroundImageColor }} ></span></span></p>
 											<ColorPalette
 												value={ backgroundImageColor }
 												onChange={ ( colorValue ) => setAttributes( { backgroundImageColor: colorValue } ) }
@@ -568,7 +568,7 @@ class UAGBtestimonial extends Component {
 					}
 					{ ( "image" == backgroundType && backgroundImage )  &&
 							<RangeControl
-								label={ __( "Opacity",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Opacity","ultimate-addons-for-gutenberg" ) }
 								value={ backgroundOpacity }
 								onChange={ ( value ) => setAttributes( { backgroundOpacity: value } ) }
 								min={ 0 }
@@ -578,27 +578,27 @@ class UAGBtestimonial extends Component {
 							/>
 					}
 				</PanelBody>
-				<PanelBody title={ __( "Border",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
+				<PanelBody title={ __( "Border","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 					<SelectControl
-						label={ __( "Border Style",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Border Style","ultimate-addons-for-gutenberg" ) }
 						value={ borderStyle }
 						onChange={ ( value ) => setAttributes( { borderStyle: value } ) }
 						options={ [
-							{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-							{ value: "solid", label: __( "Solid",'ultimate-addons-for-gutenberg' ) },
-							{ value: "dotted", label: __( "Dotted",'ultimate-addons-for-gutenberg' ) },
-							{ value: "dashed", label: __( "Dashed",'ultimate-addons-for-gutenberg' ) },
-							{ value: "double", label: __( "Double",'ultimate-addons-for-gutenberg' ) },
-							{ value: "groove", label: __( "Groove",'ultimate-addons-for-gutenberg' ) },
-							{ value: "inset", label: __( "Inset",'ultimate-addons-for-gutenberg' ) },
-							{ value: "outset", label: __( "Outset",'ultimate-addons-for-gutenberg' ) },
-							{ value: "ridge", label: __( "Ridge",'ultimate-addons-for-gutenberg' ) },
+							{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+							{ value: "solid", label: __( "Solid","ultimate-addons-for-gutenberg" ) },
+							{ value: "dotted", label: __( "Dotted","ultimate-addons-for-gutenberg" ) },
+							{ value: "dashed", label: __( "Dashed","ultimate-addons-for-gutenberg" ) },
+							{ value: "double", label: __( "Double","ultimate-addons-for-gutenberg" ) },
+							{ value: "groove", label: __( "Groove","ultimate-addons-for-gutenberg" ) },
+							{ value: "inset", label: __( "Inset","ultimate-addons-for-gutenberg" ) },
+							{ value: "outset", label: __( "Outset","ultimate-addons-for-gutenberg" ) },
+							{ value: "ridge", label: __( "Ridge","ultimate-addons-for-gutenberg" ) },
 						] }
 					/>
 					{ "none" != borderStyle &&
 							<Fragment>
 								<RangeControl
-									label={ __( "Border Width",'ultimate-addons-for-gutenberg' ) }
+									label={ __( "Border Width","ultimate-addons-for-gutenberg" ) }
 									value={ borderWidth }
 									onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
 									min={ 0 }
@@ -606,7 +606,7 @@ class UAGBtestimonial extends Component {
 									allowReset
 								/>
 								<Fragment>
-									<p className="uagb-setting-label">{ __( "Border Color",'ultimate-addons-for-gutenberg' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
+									<p className="uagb-setting-label">{ __( "Border Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: borderColor }} ></span></span></p>
 									<ColorPalette
 										value={ borderColor }
 										onChange={ ( colorValue ) => setAttributes( { borderColor: colorValue } ) }
@@ -616,7 +616,7 @@ class UAGBtestimonial extends Component {
 							</Fragment>
 					}
 					<RangeControl
-						label={ __( "Border Radius",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Border Radius","ultimate-addons-for-gutenberg" ) }
 						value={ borderRadius }
 						onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
 						min={ 0 }
@@ -629,9 +629,9 @@ class UAGBtestimonial extends Component {
 
 		// Image sizes.
 		const imageSizeOptions = [
-			{ value: "thumbnail", label: __( "Thumbnail",'ultimate-addons-for-gutenberg' ) },
-			{ value: "medium", label: __( "Medium",'ultimate-addons-for-gutenberg' ) },
-			{ value: "full", label: __( "Large",'ultimate-addons-for-gutenberg' ) }
+			{ value: "thumbnail", label: __( "Thumbnail","ultimate-addons-for-gutenberg" ) },
+			{ value: "medium", label: __( "Medium","ultimate-addons-for-gutenberg" ) },
+			{ value: "full", label: __( "Large","ultimate-addons-for-gutenberg" ) }
 		]
 
 		function NextArrow( props ) {
@@ -692,7 +692,7 @@ class UAGBtestimonial extends Component {
 			}
 			return (
 				<PanelBody key={index}
-					title={ __( "Image",'ultimate-addons-for-gutenberg' ) + " " + ( index + 1 ) + " " + __( "Settings",'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Image","ultimate-addons-for-gutenberg" ) + " " + ( index + 1 ) + " " + __( "Settings","ultimate-addons-for-gutenberg" ) }
 					initialOpen={ true }
 					className= {"uagb-repeater-panel"}
 				>
@@ -727,9 +727,9 @@ class UAGBtestimonial extends Component {
 		}
 
 		const carousal_settings = (
-			<PanelBody title={ __( "Carousel",'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
+			<PanelBody title={ __( "Carousel","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
 				<ToggleControl
-					label={ __( "Pause On Hover",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Pause On Hover","ultimate-addons-for-gutenberg" ) }
 					checked={ pauseOnHover }
 					onChange={ this.togglePauseOnHover }
 				/>
@@ -740,7 +740,7 @@ class UAGBtestimonial extends Component {
 				/>
 				{ autoplay == true &&
 					<RangeControl
-						label={ __( "Autoplay Speed (ms)",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Autoplay Speed (ms)","ultimate-addons-for-gutenberg" ) }
 						value={ autoplaySpeed }
 						onChange={ ( value ) => setAttributes( { autoplaySpeed: value } ) }
 						min={ 100 }
@@ -748,45 +748,45 @@ class UAGBtestimonial extends Component {
 					/>
 				}
 				<ToggleControl
-					label={ __( "Infinite Loop",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Infinite Loop","ultimate-addons-for-gutenberg" ) }
 					checked={ infiniteLoop }
 					onChange={ this.toggleInfiniteLoop }
 				/>
 				<RangeControl
-					label={ __( "Transition Speed (ms)",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Transition Speed (ms)","ultimate-addons-for-gutenberg" ) }
 					value={ transitionSpeed }
 					onChange={ ( value ) => setAttributes( { transitionSpeed: value } ) }
 					min={ 100 }
 					max={ 5000 }
 				/>
 				<SelectControl
-					label={ __( "Show Arrows & Dots",'ultimate-addons-for-gutenberg' ) }
+					label={ __( "Show Arrows & Dots","ultimate-addons-for-gutenberg" ) }
 					value={ arrowDots }
 					onChange={ ( value ) => setAttributes( { arrowDots: value } ) }
 					options={ [
-						{ value: "arrows", label: __( "Only Arrows",'ultimate-addons-for-gutenberg' ) },
-						{ value: "dots", label: __( "Only Dots",'ultimate-addons-for-gutenberg' ) },
-						{ value: "arrows_dots", label: __( "Both Arrows & Dots",'ultimate-addons-for-gutenberg' ) },
+						{ value: "arrows", label: __( "Only Arrows","ultimate-addons-for-gutenberg" ) },
+						{ value: "dots", label: __( "Only Dots","ultimate-addons-for-gutenberg" ) },
+						{ value: "arrows_dots", label: __( "Both Arrows & Dots","ultimate-addons-for-gutenberg" ) },
 					] }
 				/>
 				{ "dots" != arrowDots &&
 					<Fragment>
 						<RangeControl
-							label={ __( "Arrow Size",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Arrow Size","ultimate-addons-for-gutenberg" ) }
 							value={ arrowSize }
 							onChange={ ( value ) => setAttributes( { arrowSize: value } ) }
 							min={ 0 }
 							max={ 50 }
 						/>
 						<RangeControl
-							label={ __( "Arrow Border Size",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Arrow Border Size","ultimate-addons-for-gutenberg" ) }
 							value={ arrowBorderSize }
 							onChange={ ( value ) => setAttributes( { arrowBorderSize: value } ) }
 							min={ 0 }
 							max={ 50 }
 						/>
 						<RangeControl
-							label={ __( "Arrow Border Radius",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Arrow Border Radius","ultimate-addons-for-gutenberg" ) }
 							value={ arrowBorderRadius }
 							onChange={ ( value ) => setAttributes( { arrowBorderRadius: value } ) }
 							min={ 0 }
@@ -813,7 +813,7 @@ class UAGBtestimonial extends Component {
 			<InspectorControls>
 			 	<PanelBody title={ __( "General" ) } initialOpen={ true } >
 			 		<RangeControl
-						label={ __( "Number of Testimonials",'ultimate-addons-for-gutenberg' ) }
+						label={ __( "Number of Testimonials","ultimate-addons-for-gutenberg" ) }
 						value={ test_item_count }
 						onChange={ ( newCount ) => {
 							let cloneTest_block = [ ...test_block ]
@@ -870,7 +870,7 @@ class UAGBtestimonial extends Component {
 								if ( "mobile" === tab.name ) {
 									tabout = (
 										<RangeControl
-											label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+											label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 											value={ mcolumns }
 											onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
 											min={ 1 }
@@ -880,7 +880,7 @@ class UAGBtestimonial extends Component {
 								} else if ( "tablet" === tab.name ) {
 									tabout = (
 										<RangeControl
-											label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+											label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 											value={ tcolumns }
 											onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
 											min={ 1 }
@@ -890,7 +890,7 @@ class UAGBtestimonial extends Component {
 								} else {
 									tabout = (
 										<RangeControl
-											label={ __( "Columns",'ultimate-addons-for-gutenberg' ) }
+											label={ __( "Columns","ultimate-addons-for-gutenberg" ) }
 											value={ columns }
 											onChange={ ( value ) => setAttributes( { columns: value } ) }
 											min={ 1 }
@@ -907,7 +907,7 @@ class UAGBtestimonial extends Component {
 				{ carousal_settings }
 
 				<PanelBody
-					title={ __( "Image",'ultimate-addons-for-gutenberg' ) }
+					title={ __( "Image","ultimate-addons-for-gutenberg" ) }
 					initialOpen={ false }
 				>
 					{ times( test_item_count, n => tmControls( n ) ) }
@@ -919,54 +919,54 @@ class UAGBtestimonial extends Component {
 							value={ imagePosition }
 							onChange={ ( value ) => setAttributes( { imagePosition: value } ) }
 							options={ [
-								{ value: "top", label: __( "Top",'ultimate-addons-for-gutenberg' ) },
-								{ value: "bottom", label: __( "Bottom",'ultimate-addons-for-gutenberg' ) },
-								{ value: "left", label: __( "Left",'ultimate-addons-for-gutenberg' ) },
-								{ value: "right", label: __( "Right",'ultimate-addons-for-gutenberg' ) },
+								{ value: "top", label: __( "Top","ultimate-addons-for-gutenberg" ) },
+								{ value: "bottom", label: __( "Bottom","ultimate-addons-for-gutenberg" ) },
+								{ value: "left", label: __( "Left","ultimate-addons-for-gutenberg" ) },
+								{ value: "right", label: __( "Right","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 						{ (imagePosition == "left" || imagePosition == "right") &&
 						<Fragment>
 							<SelectControl
-								label={ __( "Vertical ALignment",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Vertical ALignment","ultimate-addons-for-gutenberg" ) }
 								value={ imageAlignment }
 								onChange={ ( value ) => setAttributes( { imageAlignment: value } ) }
 								options={ [
-									{ value: "top", label: __( "Top",'ultimate-addons-for-gutenberg' ) },
-									{ value: "middle", label: __( "Middle",'ultimate-addons-for-gutenberg' ) },
+									{ value: "top", label: __( "Top","ultimate-addons-for-gutenberg" ) },
+									{ value: "middle", label: __( "Middle","ultimate-addons-for-gutenberg" ) },
 								] }
 							/>
 							<SelectControl
-								label={ __( "Stack on",'ultimate-addons-for-gutenberg' ) }
+								label={ __( "Stack on","ultimate-addons-for-gutenberg" ) }
 								value={ stack }
 								options={ [
-									{ value: "none", label: __( "None",'ultimate-addons-for-gutenberg' ) },
-									{ value: "tablet", label: __( "Tablet",'ultimate-addons-for-gutenberg' ) },
-									{ value: "mobile", label: __( "Mobile",'ultimate-addons-for-gutenberg' ) },
+									{ value: "none", label: __( "None","ultimate-addons-for-gutenberg" ) },
+									{ value: "tablet", label: __( "Tablet","ultimate-addons-for-gutenberg" ) },
+									{ value: "mobile", label: __( "Mobile","ultimate-addons-for-gutenberg" ) },
 								] }
-								help={ __( "Note: Choose on what breakpoint the Info Box will stack.",'ultimate-addons-for-gutenberg' ) }
+								help={ __( "Note: Choose on what breakpoint the Info Box will stack.","ultimate-addons-for-gutenberg" ) }
 								onChange={ ( value ) => setAttributes( { stack: value } ) }
 							/>
 						</Fragment>
 						}
 						<SelectControl
-							label={ __( "Image Style",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Image Style","ultimate-addons-for-gutenberg" ) }
 							value={ iconimgStyle }
 							onChange={ ( value ) => setAttributes( { iconimgStyle: value } ) }
 							options={ [
-								{ value: "normal", label: __( "Normal",'ultimate-addons-for-gutenberg' ) },
-								{ value: "circle", label: __( "Circle",'ultimate-addons-for-gutenberg' ) },
-								{ value: "square", label: __( "Square",'ultimate-addons-for-gutenberg' ) },
+								{ value: "normal", label: __( "Normal","ultimate-addons-for-gutenberg" ) },
+								{ value: "circle", label: __( "Circle","ultimate-addons-for-gutenberg" ) },
+								{ value: "square", label: __( "Square","ultimate-addons-for-gutenberg" ) },
 							] }
 						/>
 						<SelectControl
-							label={ __( "Image Size",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Image Size","ultimate-addons-for-gutenberg" ) }
 							options={ imageSizeOptions }
 							value={ imageSize }
 							onChange={ ( value ) => setAttributes( { imageSize: value } ) }
 						/>
 					 <RangeControl
-							label={ __( "Width",'ultimate-addons-for-gutenberg' ) }
+							label={ __( "Width","ultimate-addons-for-gutenberg" ) }
 							value={ imageWidth }
 							onChange={ ( value ) => setAttributes( { imageWidth: value } ) }
 							min={ 0 }

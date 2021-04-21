@@ -10,12 +10,12 @@ import "./style.scss"
 import "./editor.scss"
 import deprecated from "./deprecated"
 
-const { addFilter } = wp.hooks;
+const { addFilter } = wp.hooks
 const { __ } = wp.i18n
 
-const { Fragment } = wp.element;
-const { withSelect } = wp.data;
-const { compose, createHigherOrderComponent } = wp.compose;
+const { Fragment } = wp.element
+const { withSelect } = wp.data
+const { compose, createHigherOrderComponent } = wp.compose
 
 const {
 	registerBlockType
@@ -32,10 +32,10 @@ const enhance = compose(
 	
 	withSelect( ( select ) => {
 		return {
-			selected: select( 'core/block-editor' ).getSelectedBlock(),
-		};
+			selected: select( "core/block-editor" ).getSelectedBlock(),
+		}
 	} )
-);
+)
 /**
  * Add custom UAG attributes to selected blocks
  *
@@ -48,9 +48,9 @@ const withFaq = createHigherOrderComponent( ( BlockEdit ) => {
 			<Fragment>
 				<BlockEdit { ...props } />
 			</Fragment>
-		);
-	} );
-}, 'withFaq' );
+		)
+	} )
+}, "withFaq" )
 
 registerBlockType( "uagb/faq", {
 	title: uagb_blocks_info.blocks["uagb/faq"]["title"],
@@ -58,10 +58,10 @@ registerBlockType( "uagb/faq", {
 	icon: UAGB_Block_Icons.faq,
 	category: uagb_blocks_info.category,
 	keywords: [
-		__( "faq", 'ultimate-addons-for-gutenberg' ),
-		__( "schema", 'ultimate-addons-for-gutenberg' ),
-		__( "uag", 'ultimate-addons-for-gutenberg' ),
-		__( "accordion", 'ultimate-addons-for-gutenberg' ),
+		__( "faq", "ultimate-addons-for-gutenberg" ),
+		__( "schema", "ultimate-addons-for-gutenberg" ),
+		__( "uag", "ultimate-addons-for-gutenberg" ),
+		__( "accordion", "ultimate-addons-for-gutenberg" ),
 	],
 	example:{
 		innerBlocks: [
@@ -95,7 +95,7 @@ registerBlockType( "uagb/faq", {
 } )
 
 addFilter(
-	'editor.BlockEdit',
-	'uagb/faq',
+	"editor.BlockEdit",
+	"uagb/faq",
 	withFaq
-);
+)

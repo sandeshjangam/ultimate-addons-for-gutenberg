@@ -24,21 +24,21 @@ const {
 	Button,
 } = wp.components
 
-const { select } = wp.data;
+const { select } = wp.data
 
 const { Component, Fragment } = wp.element
 
 class UAGBRestaurantMenuChild extends Component {
 
-    constructor() {
+	constructor() {
 
 		super( ...arguments )
 		this.onSelectRestImage  = this.onSelectRestImage.bind( this )
 		this.onRemoveRestImage  = this.onRemoveRestImage.bind(this)
 		this.getImageName       = this.getImageName.bind(this)
-    }
+	}
     
-    onSelectRestImage( media ) {
+	onSelectRestImage( media ) {
 		const { image } = this.props.attributes
 		const { setAttributes } = this.props
 
@@ -58,9 +58,9 @@ class UAGBRestaurantMenuChild extends Component {
 			image: image_url,
 		} )
 
-    }
+	}
 
-    /*
+	/*
 	 * Event to set Image selectot label.
 	 */
 	getImageName( image ){
@@ -74,8 +74,8 @@ class UAGBRestaurantMenuChild extends Component {
 			}
 		}
 		return image_title
-    }
-    /*
+	}
+	/*
 	 * Event to set Image as null while removing.
 	 */
 	onRemoveRestImage() {
@@ -97,11 +97,11 @@ class UAGBRestaurantMenuChild extends Component {
 			image,		
 		} = attributes	
 
-        const inspect_control = (
-            <InspectorControls>
+		const inspect_control = (
+			<InspectorControls>
 				<p className="uagb-settings-notice">{ __( "For the common styling options please select the Parent Block of this Price List Item." ) }</p>
-                <PanelBody title={ __( "Image" ) }initialOpen={ true } >
-                <BaseControl
+				<PanelBody title={ __( "Image" ) }initialOpen={ true } >
+					<BaseControl
 						className="editor-bg-image-control"
 						label={ __( "" ) }
 					>                        
@@ -127,13 +127,13 @@ class UAGBRestaurantMenuChild extends Component {
 						}
 					</BaseControl>
 				</PanelBody>
-            </InspectorControls>
+			</InspectorControls>
 		)
 
-		const parentClientId = select( 'core/block-editor' ).getBlockHierarchyRootClientId( this.props.clientId );	
-		const parentAttributes = select('core/block-editor').getBlockAttributes( parentClientId );
+		const parentClientId = select( "core/block-editor" ).getBlockHierarchyRootClientId( this.props.clientId )	
+		const parentAttributes = select("core/block-editor").getBlockAttributes( parentClientId )
 
-		let position = ( parentAttributes ) ? parentAttributes.imagePosition : imagePosition;
+		let position = ( parentAttributes ) ? parentAttributes.imagePosition : imagePosition
 						
 		return (
 			<Fragment>
@@ -144,7 +144,7 @@ class UAGBRestaurantMenuChild extends Component {
 					/>
 				</BlockControls>
 				}
-                {inspect_control}
+				{inspect_control}
 				<div className={ classnames(
 					className,
 					"uagb-rest_menu__outer-wrap",
@@ -152,38 +152,38 @@ class UAGBRestaurantMenuChild extends Component {
 				) }
 				>
 
-			<div className = { classnames(
-							...PositionClasses( attributes ),
-						) } >
-										<div className = "uagb-rm__content" >
+					<div className = { classnames(
+						...PositionClasses( attributes ),
+					) } >
+						<div className = "uagb-rm__content" >
 											
-											{ ( position == "top" || position == "left" ) && <RestMenuImage  attributes={attributes}   /> }
-											<div className ="uagb-rm__text-wrap">
-												{
-													<Fragment>
-														<div className = "uagb-rm-details">
-															<div className = "uagb-rm__title-wrap" >
-																	<Title attributes={attributes} setAttributes = { setAttributes } props = { this.props } />
-															<div className = "uagb-rest-menu-text-wrap">
-																	<Description attributes={attributes} setAttributes = { setAttributes } props = { this.props }  />
-																</div>
-															</div>
-															<div className = "uagb-rm__price-wrap" >
-																<Price attributes={attributes} setAttributes = { setAttributes } props = { this.props } />
-															</div>
-															
-														</div>
-													</Fragment>
-												}
+							{ ( position == "top" || position == "left" ) && <RestMenuImage  attributes={attributes}   /> }
+							<div className ="uagb-rm__text-wrap">
+								{
+									<Fragment>
+										<div className = "uagb-rm-details">
+											<div className = "uagb-rm__title-wrap" >
+												<Title attributes={attributes} setAttributes = { setAttributes } props = { this.props } />
+												<div className = "uagb-rest-menu-text-wrap">
+													<Description attributes={attributes} setAttributes = { setAttributes } props = { this.props }  />
+												</div>
 											</div>
-											
-											{ ( position == "right" ) && <RestMenuImage  attributes={attributes}  /> }
+											<div className = "uagb-rm__price-wrap" >
+												<Price attributes={attributes} setAttributes = { setAttributes } props = { this.props } />
+											</div>
+															
 										</div>
-										<div className="uagb-rm__separator-parent"><div className="uagb-rm__separator"></div></div>
-									</div>
+									</Fragment>
+								}
+							</div>
+											
+							{ ( position == "right" ) && <RestMenuImage  attributes={attributes}  /> }
+						</div>
+						<div className="uagb-rm__separator-parent"><div className="uagb-rm__separator"></div></div>
+					</div>
 							
 
-					</div>
+				</div>
 					
 			</Fragment>
 		)
