@@ -3,7 +3,7 @@
  *
  * CSS for both Frontend+Backend.
  */
-.uagb-columns__wrap,
+[class*='uagb-columns__columns-'],
 .uagb-columns__inner-wrap {
 	position: relative;
 	margin-left: auto;
@@ -15,9 +15,7 @@
 }
 
 .uagb-columns__wrap {
-	&[class^="uagb-columns__columns-"] {
-		display: block;
-	}
+	position: relative;
 	.uagb-columns__overlay,
 	.uagb-columns__video-wrap {
 		height: 100%;
