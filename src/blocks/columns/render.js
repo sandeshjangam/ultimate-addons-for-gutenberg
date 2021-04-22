@@ -90,7 +90,8 @@ export default function renderColumns( props ) {
 				`align${ align }`,
 				reverse_tablet,
 				reverse_mobile,
-				`uagb-block-${props.clientId.substr( 0, 8 )}`
+				`uagb-block-${props.clientId.substr( 0, 8 )}`,
+				`uagb-columns__columns-${columns}`
 			) }
 		>
 			<div className="uagb-columns__overlay"></div>
@@ -104,16 +105,11 @@ export default function renderColumns( props ) {
                 	}
                 </div>
 			}
-			<div className={ classnames(
-				"uagb-columns__inner-wrap",
-				`uagb-columns__columns-${columns}`
-			) }>
 				<InnerBlocks
 					template={ getColumnsTemplate( columns ) }
 					templateLock="all"
 					allowedBlocks={ ALLOWED_BLOCKS }
 				/>
-			</div>
 			{ bottom_divider_html }
 		</CustomTag>
 	)

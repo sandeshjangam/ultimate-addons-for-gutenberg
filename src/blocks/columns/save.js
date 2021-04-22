@@ -80,7 +80,8 @@
                 `align${ align }`,
                 reverse_tablet,
                 reverse_mobile,
-                `uagb-block-${block_id}`
+                `uagb-block-${block_id}`,
+                `uagb-columns__columns-${columns}`
             ) }
         >
             <div className="uagb-columns__overlay"></div>
@@ -95,12 +96,7 @@
 
                 </div>
             }
-            <div className={ classnames(
-                "uagb-columns__inner-wrap",
-                `uagb-columns__columns-${columns}`
-            ) }>
                 <InnerBlocks.Content />
-            </div>
             { bottom_divider_html }
         </CustomTag>
     )

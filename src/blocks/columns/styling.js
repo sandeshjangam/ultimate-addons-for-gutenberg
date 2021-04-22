@@ -81,14 +81,14 @@ function styling( props ) {
 	
 	var tablet_selectors = {}
 	var mobile_selectors = {}
+	var style = inlineStyles( props );
+
+	style['max-width'] = max_width;
 
 	var selectors = {
-		".uagb-columns__wrap" : inlineStyles( props ),
+		".uagb-columns__wrap" : style,
 		" .uagb-columns__video-wrap": {
 			"opacity" : ( typeof backgroundVideoOpacity != "undefined" ) ? ( 100 - backgroundVideoOpacity )/100 : 0.5
-		},
-		" > .uagb-columns__inner-wrap": {
-			"max-width" : max_width
 		},
 		" .uagb-column__inner-wrap" : {
 			"padding" : generateCSSUnit( columnGap, "px" )
