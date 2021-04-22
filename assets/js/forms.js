@@ -52,18 +52,26 @@
                 $('head').append(' <script src="https://www.google.com/recaptcha/api.js"></script>');
                
             }else if(attr['reCaptchaEnable'] == true && attr['reCaptchaType'] == "v3" && attr['reCaptchaSiteKeyV3'] ){
-                if(attr['hidereCaptchaBatch']){
-                    if(document.getElementsByClassName("grecaptcha-badge")[0] === undefined){
-                        return
-                    }
-                    var badge = document.getElementsByClassName("grecaptcha-badge")[0];
-                    badge.style.visibility = 'hidden';
-                }
+                
                 var api = document.createElement("script");
                 api.type = "text/javascript";
                 api.src = "https://www.google.com/recaptcha/api.js?render="+attr['reCaptchaSiteKeyV3'];
                 $('head').append(api);
+                
+                if(attr['hidereCaptchaBatch']){
+                    var css = document.createElement('style');
+                    css.type = 'text/css';
+                    styles = '.grecaptcha-badge { visibility: hidden }';
+                    if (css.styleSheet){
+                        css.styleSheet.cssText = styles;
+                    }
+                    else {
+                        css.appendChild(document.createTextNode(styles));
+                    }
+                    document.getElementsByTagName("head")[0].appendChild(css);
+                }
             }
+            
             
             
             //Ready Classes.            
@@ -108,6 +116,9 @@
 
             
             $form.on( 'submit', function( e ) {
+                if(document.getElementsByClassName('grecaptcha-badge') === undefined){
+                    alert('site key');
+                }
                 UAGBForms._formSubmit( e, $( this ), attr )
             } );
         },
@@ -129,20 +140,16 @@
             }
 
             if(attr['reCaptchaEnable'] == true && attr['reCaptchaType'] == "v3" && attr['reCaptchaSiteKeyV3'] ){
-                  grecaptcha.ready(function() {
+                if(document.getElementsByClassName("grecaptcha-badge")[0] === undefined){
+                    alert('Invalid Site Key');
+                    return false;
+                }   
+                grecaptcha.ready(function() {
                     grecaptcha.execute(attr['reCaptchaSiteKeyV3'], {action: 'submit'}).then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
                     });
                   });
-                  
-               captcha_response = $form[0].getElementsByClassName("uagb-forms-recaptcha")[0].value;
-               if (!captcha_response) {                  
-                   $('.uagb-form-reacaptcha-error-'+attr['block_id']).html('<p style="color:red !important" class="error-captcha">'+attr['captchaMessage']+'</p>');
-                   return false;
-               } else {
-                   $('.uagb-form-reacaptcha-error-'+attr['block_id']).html('');
-                   uagab_captcha_keys = { 'secret':attr['reCaptchaSecretKeyV3'],'sitekey':attr['reCaptchaSiteKeyV3'] }                   
-               }
+                 
             }
             var originalSerialized = $($form).serializeArray();
             var postData = {};
