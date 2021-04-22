@@ -3,8 +3,8 @@
  *
  * CSS for both Frontend+Backend.
  */
-
-.uagb-columns__wrap {
+.uagb-columns__wrap,
+.uagb-columns__inner-wrap {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -12,6 +12,12 @@
 	z-index: 2;
 	display: flex;
 	flex-wrap: nowrap;
+}
+
+.uagb-columns__wrap {
+	&[class^="uagb-columns__columns-"] {
+		display: block;
+	}
 	.uagb-columns__overlay,
 	.uagb-columns__video-wrap {
 		height: 100%;
