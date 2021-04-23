@@ -13,7 +13,9 @@ export default function renderColumn( props ) {
             alignMobile,
             alignTablet
         },
-        deviceType
+        deviceType,
+        isSelected,
+        className
     } = props
 
     let active = ( isSelected ) ? "active" : "not-active"
