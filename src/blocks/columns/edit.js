@@ -1,5 +1,5 @@
 /**
- * BLOCK: UAGB - Columns Edit Class
+ * BLOCK: UAGB - Columns Edit
  */
 
 

@@ -1,3 +1,7 @@
+/**
+ * BLOCK: Column - Settings.
+ */
+
 import UAGB_Block_Icons from "../../../dist/blocks/uagb-controls/block-icons"
 import GradientSettings from "../../components/gradient-settings"
 import Columnresponsive from "../../components/typography/column-responsive"

@@ -1,3 +1,7 @@
+/**
+ * BLOCK: Columns - Editor Render.
+ */
+
 import classnames from "classnames"
 import shapes from "./shapes"
 import memoize from "memize"

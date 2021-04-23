@@ -1,5 +1,5 @@
 /**
- * BLOCK: FAQ - Save Block
+ * BLOCK: Columns - Frontend Render.
  */
 
  import classnames from "classnames"

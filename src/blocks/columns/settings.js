@@ -1,3 +1,7 @@
+/**
+ * BLOCK: Columns - Settings.
+ */
+
 import OptionSelectorControl from "../../components/option-selector-control";
 import BoxShadowControl from "../../components/box-shadow"
 import GradientSettings from "../../components/gradient-settings"

@@ -1,3 +1,7 @@
+/**
+ * BLOCK: Column - Attributes
+ */
+
 import classnames from "classnames"
 
 const {
