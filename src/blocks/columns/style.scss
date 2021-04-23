@@ -156,38 +156,32 @@
 }
 
 .uagb-columns__gap-nogap
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 0;
 }
 
 .uagb-columns__gap-default
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 10px;
 }
 
 .uagb-columns__gap-narrow
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 5px;
 }
 
 .uagb-columns__gap-extended
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 15px;
 }
 
 .uagb-columns__gap-wide
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 20px;
 }
 
 .uagb-columns__gap-wider
-	> .wp-block[data-type="uagb/column"]
-	.uagb-column__inner-wrap {
+	> .wp-block[data-type="uagb/column"] {
 	padding: 30px;
 }
 

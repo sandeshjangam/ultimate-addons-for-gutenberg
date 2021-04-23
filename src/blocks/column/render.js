@@ -38,9 +38,7 @@ export default function renderColumn( props ) {
                 ) }
             >
                 <div className="uagb-column__overlay"></div>
-                <div className="uagb-column__inner-wrap">
-                    <InnerBlocks templateLock={ false } />
-                </div>
+                <InnerBlocks templateLock={ false } />
             </div>
         </>
     )

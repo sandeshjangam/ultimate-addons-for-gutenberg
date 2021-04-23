@@ -90,7 +90,7 @@ function styling( props ) {
 		" .uagb-columns__video-wrap": {
 			"opacity" : ( typeof backgroundVideoOpacity != "undefined" ) ? ( 100 - backgroundVideoOpacity )/100 : 0.5
 		},
-		" .uagb-column__inner-wrap" : {
+		" .uagb-column__wrap" : {
 			"padding" : generateCSSUnit( columnGap, "px" )
 		},
 		" .uagb-columns__shape-top svg" : {

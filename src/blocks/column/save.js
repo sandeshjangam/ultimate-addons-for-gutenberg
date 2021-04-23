@@ -29,9 +29,7 @@ export default function save( { attributes, className } ) {
 			) }
 		>
 			<div className="uagb-column__overlay"></div>
-			<div className="uagb-column__inner-wrap">
-				<InnerBlocks.Content />
-			</div>
+			<InnerBlocks.Content />
 		</div>
 	)
 }
