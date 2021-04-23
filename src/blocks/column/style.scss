@@ -31,7 +31,7 @@
 		margin-left: auto;
 		margin-right: 0;
 	}
-
+	.uagb-column__video-wrap,
 	.uagb-column__overlay {
 		height: 100%;
 		width: 100%;
@@ -41,11 +41,6 @@
 	}
 
 	.uagb-column__video-wrap {
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		position: absolute;
 		overflow: hidden;
 		z-index: 0;
 		-webkit-transition: opacity 1s;

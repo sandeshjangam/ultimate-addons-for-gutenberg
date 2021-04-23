@@ -32,7 +32,7 @@
         display: inline-block;
         float: right;
     }
-
+    .uagb-cta__content p:empty,
     .uagb-cta__link-wrapper.uagb-cta__block-link-style:empty {
         display: none;
     }
@@ -126,9 +126,7 @@
     }
 
     .uagb-cta__block,
-    .uagb-cta__content {
-        z-index: 1;
-    }
+    .uagb-cta__content,
     .uagb-cta__left-right-wrap {
         z-index: 1;
     }
@@ -142,9 +140,6 @@
     }
     a.uagb-cta__block-link-wrap {
         color: inherit;
-    }
-    .uagb-cta__content p:empty {
-       display: none;
     }
     .uagb-cta__button-type-none .uagb-cta__content {
         width: 100%;
