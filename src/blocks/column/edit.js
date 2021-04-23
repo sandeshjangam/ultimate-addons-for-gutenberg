@@ -4,6 +4,7 @@
 
 import styling from "./styling"
 import columnSettings from "./settings";
+import renderColumn from "./render";
 import React, { useEffect } from 'react';
 
 const { withSelect } = wp.data

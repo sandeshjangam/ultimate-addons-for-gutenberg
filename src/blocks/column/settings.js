@@ -18,6 +18,8 @@ const {
 	Button,
 	ButtonGroup,
 	BaseControl,
+    TabPanel,
+    Dashicon
 } = wp.components
 
 const {
@@ -63,6 +65,9 @@ export default function columnSettings( props ) {
             mobilePaddingType,
             tabletPaddingType,
             desktopPaddingType,
+            colWidthMobile,
+            colWidthTablet,
+            colWidth
         },
         setAttributes,
         deviceType
@@ -99,92 +104,77 @@ export default function columnSettings( props ) {
     const layoutSettings = () => {
     
         return (
-            <PanelBody title={ __( "Layout", "ultimate-addons-for-gutenberg" ) }>
-    
-                <RangeControl
-                    label={ __( "Columns", "ultimate-addons-for-gutenberg" ) }
-                    value={ columns }
-                    min={ 0 }
-                    max={ 6 }
-                    onChange={ ( value ) => setAttributes( { columns: value } ) }
-                />
-                <SelectControl
-                    label={ __( "Stack on", "ultimate-addons-for-gutenberg" ) }
-                    value={ stack }
-                    options={ [
-                        { value: "none", label: __( "None", "ultimate-addons-for-gutenberg" ) },
-                        { value: "tablet", label: __( "Tablet & Mobile", "ultimate-addons-for-gutenberg" ) },
-                        { value: "mobile", label: __( "Mobile", "ultimate-addons-for-gutenberg" ) },
-                    ] }
-                    onChange={ ( value ) => setAttributes( { stack: value } ) }
-                    help={ __( "Note: Choose on what breakpoint the columns will stack.", "ultimate-addons-for-gutenberg" ) }
-                />
-                <SelectControl
-                    label={ __( "Container Width", "ultimate-addons-for-gutenberg" ) }
-                    value={ contentWidth }
-                    onChange={ ( value ) => setAttributes( { contentWidth: value } ) }
-                    options={ [
-                        { value: "theme", label: __( "Theme Container Width", "ultimate-addons-for-gutenberg" ) },
-                        { value: "custom", label: __( "Custom", "ultimate-addons-for-gutenberg" ) },
-                    ] }
-                />
-                {
-                    contentWidth == "custom" &&
-                    (
-                        <Fragment>
-                            <ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", "ultimate-addons-for-gutenberg" ) }>
-                                <Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ widthType === "px" } aria-pressed={ widthType === "px" } min={0} max={2000} onClick={ () => setAttributes( { widthType: "px" } ) }>{ "px" }</Button>
-                                <Button key={ "%" } className="uagb-size-btn" isSmall isPrimary={ widthType === "%" } aria-pressed={ widthType === "%" } min={0} max={100} onClick={ () => setAttributes( { widthType: "%" } ) }>{ "%" }</Button>
-                            </ButtonGroup>
-                            <RangeControl
-                                label={ __( "Inner Width", "ultimate-addons-for-gutenberg" ) }
-                                value={ width }
-                                min={ 0 }
-                                max={ ( "%" == widthType ) ? 100 : 2000 }
-                                onChange={ ( value ) => setAttributes( { width: value } ) }
-                            />
-                        </Fragment>
-                    )
-                }
-                <OptionSelectorControl
-                    label={ __( "Column Gap", "ultimate-addons-for-gutenberg" ) }
-                    currentOption={ columnGap }
-                    options={ [
-                        { value: "10", label: __( "Default", "ultimate-addons-for-gutenberg" ), tooltip: __( "Default (10px)", "ultimate-addons-for-gutenberg" ), },
-                        { value: "0", label: __( "None", "ultimate-addons-for-gutenberg" ), tooltip: __( "No Gap (0px)", "ultimate-addons-for-gutenberg" ), },
-                        { value: "5", label: __( "S", "ultimate-addons-for-gutenberg" ), tooltip: __( "Narrow (5px)", "ultimate-addons-for-gutenberg" ), },
-                        { value: "15", label: __( "M", "ultimate-addons-for-gutenberg" ), tooltip: __( "Extended (15px)", "ultimate-addons-for-gutenberg" ), },
-                        { value: "20", label: __( "L", "ultimate-addons-for-gutenberg" ), tooltip: __( "Wide (20px)", "ultimate-addons-for-gutenberg" ), },
-                        { value: "30", label: __( "XL", "ultimate-addons-for-gutenberg" ), tooltip: __( "Wider (30px)", "ultimate-addons-for-gutenberg" ), }
-                    ] }
-                    onChange={ ( columnGap ) => setAttributes( { columnGap } ) }
-                    help={ __( "Note: The individual Column Gap can be managed from Column Settings.", "ultimate-addons-for-gutenberg" ) }
-                />
-                <SelectControl
-                    label={ __( "HTML Tag", "ultimate-addons-for-gutenberg" ) }
-                    value={ tag }
-                    onChange={ ( value ) => setAttributes( { tag: value } ) }
-                    options={ [
-                        { value: "div", label: __( "div", "ultimate-addons-for-gutenberg" ) },
-                        { value: "header", label: __( "header", "ultimate-addons-for-gutenberg" ) },
-                        { value: "footer", label: __( "footer", "ultimate-addons-for-gutenberg" ) },
-                        { value: "main", label: __( "main", "ultimate-addons-for-gutenberg" ) },
-                        { value: "article", label: __( "article", "ultimate-addons-for-gutenberg" ) },
-                        { value: "section", label: __( "section", "ultimate-addons-for-gutenberg" ) },
-                        { value: "aside", label: __( "aside", "ultimate-addons-for-gutenberg" ) },
-                        { value: "nav", label: __( "nav", "ultimate-addons-for-gutenberg" ) },
-                    ] }
-                />
-                <ToggleControl
-                    label={ __( "Reverse Columns (Tablet & Mobile)", "ultimate-addons-for-gutenberg" ) }
-                    checked={ reverseTablet }
-                    onChange={ ( value ) => setAttributes( { reverseTablet: ! reverseTablet } ) }
-                />
-                <ToggleControl
-                    label={ __( "Reverse Columns (Mobile)", "ultimate-addons-for-gutenberg" ) }
-                    checked={ reverseMobile }
-                    onChange={ ( value ) => setAttributes( { reverseMobile: ! reverseMobile } ) }
-                />
+            <PanelBody title={ __( "Layout", 'ultimate-addons-for-gutenberg' ) }>
+                <TabPanel className="uagb-size-type-field-tabs uagb-without-size-type" activeClass="active-tab"
+                    tabs={ [
+                        {
+                            name: "desktop",
+                            title: <Dashicon icon="desktop" />,
+                            className: "uagb-desktop-tab uagb-responsive-tabs",
+                        },
+                        {
+                            name: "tablet",
+                            title: <Dashicon icon="tablet" />,
+                            className: "uagb-tablet-tab uagb-responsive-tabs",
+                        },
+                        {
+                            name: "mobile",
+                            title: <Dashicon icon="smartphone" />,
+                            className: "uagb-mobile-tab uagb-responsive-tabs",
+                        },
+                    ] }>
+                    {
+                        ( tab ) => {
+                            let tabout
+
+                            if ( "mobile" === tab.name ) {
+                                tabout = (
+                                    <RangeControl
+                                        label={ __( "Content Width (%)", 'ultimate-addons-for-gutenberg' ) }
+                                        value={ colWidthMobile }
+                                        onChange={ ( value ) => {
+                                            setAttributes( {
+                                                colWidthMobile: value,
+                                            } )
+                                        } }
+                                        min={ 0 }
+                                        max={ 100 }
+                                    />
+                                )
+                            } else if ( "tablet" === tab.name ) {
+                                tabout = (
+                                    <RangeControl
+                                        label={ __( "Content Width (%)", 'ultimate-addons-for-gutenberg' ) }
+                                        value={ colWidthTablet }
+                                        onChange={ ( value ) => {
+                                            setAttributes( {
+                                                colWidthTablet: value,
+                                            } )
+                                        } }
+                                        min={ 0 }
+                                        max={ 100 }
+                                    />
+                                )
+                            } else {
+                                tabout = (
+                                    <RangeControl
+                                        label={ __( "Content Width (%)", 'ultimate-addons-for-gutenberg' ) }
+                                        value={ colWidth }
+                                        onChange={ ( value ) => {
+                                            setAttributes( {
+                                                colWidth: value,
+                                            } )
+                                        } }
+                                        min={ 0 }
+                                        max={ 100 }
+                                    />
+                                )
+                            }
+
+                            return <div>{ tabout }</div>
+                        }
+                    }
+                </TabPanel>
             </PanelBody>
         );
     }
