@@ -1,5 +1,5 @@
 /**
- * BLOCK: Column - Attributes
+ * BLOCK: Column - Editor Render.
  */
 
 import classnames from "classnames"
