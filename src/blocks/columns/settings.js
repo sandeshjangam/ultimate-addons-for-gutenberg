@@ -1009,7 +1009,7 @@ export default function columnsSettings( props ) {
             </PanelBody>
         );
     }
-    console.error(propsContext);
+    
     return (
         <>
             { blockControlSettings() }
