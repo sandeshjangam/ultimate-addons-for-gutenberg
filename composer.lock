@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "32772e3c684afd9b67190fcc8a9e2922",
-=======
-    "content-hash": "3b3ea384211d970f7424e1a5238ed8bf",
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
     "packages": [],
     "packages-dev": [
         {
@@ -66,15 +62,7 @@
                 "ssl",
                 "tls"
             ],
-<<<<<<< HEAD
             "time": "2021-01-12T12:10:35+00:00"
-=======
-            "support": {
-                "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
-                "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
-            },
-            "time": "2020-12-07T18:04:37+00:00"
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
         },
         {
             "name": "composer/composer",
@@ -154,7 +142,6 @@
                 "dependency",
                 "package"
             ],
-<<<<<<< HEAD
             "time": "2021-04-01T07:16:35+00:00"
         },
         {
@@ -169,33 +156,12 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/semver/zipball/647490bbcaf7fc4891c58f47b825eb99d19c377a",
                 "reference": "647490bbcaf7fc4891c58f47b825eb99d19c377a",
-=======
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibility"
-            },
-            "time": "2019-12-27T09:44:58+00:00"
-        },
-        {
-            "name": "phpcompatibility/phpcompatibility-paragonie",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie.git",
-                "reference": "ddabec839cc003651f2ce695c938686d1086cf43"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityParagonie/zipball/ddabec839cc003651f2ce695c938686d1086cf43",
-                "reference": "ddabec839cc003651f2ce695c938686d1086cf43",
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
-<<<<<<< HEAD
                 "phpunit/phpunit": "^4.5 || ^5.0.5"
             },
             "type": "library",
@@ -208,15 +174,6 @@
                 "psr-4": {
                     "Composer\\Semver\\": "src"
                 }
-=======
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-                "paragonie/random_compat": "dev-master",
-                "paragonie/sodium_compat": "dev-master"
-            },
-            "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
-                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -246,7 +203,6 @@
                 "validation",
                 "versioning"
             ],
-<<<<<<< HEAD
             "time": "2020-12-03T15:47:16+00:00"
         },
         {
@@ -261,33 +217,12 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/de30328a7af8680efdc03e396aad24befd513200",
                 "reference": "de30328a7af8680efdc03e396aad24befd513200",
-=======
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie"
-            },
-            "time": "2021-02-15T10:24:51+00:00"
-        },
-        {
-            "name": "phpcompatibility/phpcompatibility-wp",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPCompatibility/PHPCompatibilityWP.git",
-                "reference": "b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e",
-                "reference": "b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e",
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
-<<<<<<< HEAD
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 7"
             },
             "type": "library",
@@ -300,13 +235,6 @@
                 "psr-4": {
                     "Composer\\Spdx\\": "src"
                 }
-=======
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7"
-            },
-            "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
-                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -335,7 +263,6 @@
                 "spdx",
                 "validator"
             ],
-<<<<<<< HEAD
             "time": "2020-12-03T16:04:16+00:00"
         },
         {
@@ -350,26 +277,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/f27e06cd9675801df441b3656569b328e04aa37c",
                 "reference": "f27e06cd9675801df441b3656569b328e04aa37c",
-=======
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityWP/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibilityWP"
-            },
-            "time": "2021-02-15T12:58:46+00:00"
-        },
-        {
-            "name": "squizlabs/php_codesniffer",
-            "version": "3.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
                 "shasum": ""
             },
             "require": {
@@ -3967,17 +3874,8 @@
                     "email": "fjarrett@gmail.com"
                 }
             ],
-<<<<<<< HEAD
             "description": "Programmatically edit a wp-config.php file.",
             "time": "2020-11-12T08:08:10+00:00"
-=======
-            "support": {
-                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
-                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
-                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
-            },
-            "time": "2021-04-09T00:54:41+00:00"
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -4037,10 +3935,5 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-<<<<<<< HEAD
     "platform-dev": []
-=======
-    "platform-dev": [],
-    "plugin-api-version": "2.0.0"
->>>>>>> e8bef9e429d32d17313a34cd454239e0b0c7df92
 }
