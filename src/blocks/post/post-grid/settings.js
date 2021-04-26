@@ -260,7 +260,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     />
                 }
                 { "" != categoriesList &&
-                    <Fragment>
+                    <>
                         <SelectControl
                             label={ taxonomyList[taxonomyType]["label"] }
                             value={ categories }
@@ -268,7 +268,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                             options={ categoryListOptions }
                         />
                         <hr className="uagb-editor__separator" />
-                    </Fragment>
+                    </>
                 }
                 <ToggleControl
                     label={ __( "Exclude Current Post","ultimate-addons-for-gutenberg" ) }
@@ -375,7 +375,7 @@ export default function postGridSettings( props, state, setStateValue ) {
 
         return(
             <PanelBody title={ __( "Pagination","ultimate-addons-for-gutenberg" ) } initialOpen={ false }>
-                <Fragment>
+                <>
                     <SelectControl
                         label={ __( "Pagination Layout","ultimate-addons-for-gutenberg" ) }
                         value={ paginationLayout }
@@ -412,7 +412,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     />
                     <hr className="uagb-editor__separator" />
                     { paginationLayout == "filled" && 
-                        <Fragment>
+                        <>
                             <p className="uagb-setting-label">{ __( "Background Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: paginationBgColor }} ></span></span></p>
                             <ColorPalette
                                 value={ paginationBgColor }
@@ -423,10 +423,10 @@ export default function postGridSettings( props, state, setStateValue ) {
                                 value={ paginationBgActiveColor }
                                 onChange={ ( colorValue ) => setAttributes( { paginationBgActiveColor: colorValue } ) }
                             />
-                        </Fragment>
+                        </>
                     }
                     { paginationLayout == "border" && 
-                        <Fragment>
+                        <>
                             <RangeControl
                                 label={ __( "Border Size","ultimate-addons-for-gutenberg" ) }
                                 value={ paginationBorderSize }
@@ -451,7 +451,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                                 value={ paginationBorderActiveColor }
                                 onChange={ ( colorValue ) => setAttributes( { paginationBorderActiveColor: colorValue } ) }
                             />
-                        </Fragment>
+                        </>
                     }
                     <p className="uagb-setting-label">{ __( "Text Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: paginationColor }} ></span></span></p>
                     <ColorPalette
@@ -483,7 +483,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                         value= { paginationNextText }
                         onChange={ onChangeNextText }
                     />
-                </Fragment>
+                </>
             </PanelBody>
         );
     }
@@ -516,7 +516,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     />
                 }
                 { displayPostImage == true && imgPosition == "background" &&
-                    <Fragment>
+                    <>
                         <p className="uagb-setting-label">{ __( "Background Overlay Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: bgOverlayColor }} ></span></span></p>
                         <ColorPalette
                             value={ bgOverlayColor }
@@ -536,7 +536,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                             checked={ linkBox }
                             onChange={ ( value ) => setAttributes( { linkBox: ! linkBox } ) }
                         />
-                    </Fragment>
+                    </>
                 }
             </PanelBody>
         );
@@ -608,7 +608,7 @@ export default function postGridSettings( props, state, setStateValue ) {
     const readMoreLinkSettings = () => {
 
         const hoverSettings = (
-			<Fragment>
+			<>
 				<p className="uagb-setting-label">{ __( "Hover Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaHColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaHColor }
@@ -627,11 +627,11 @@ export default function postGridSettings( props, state, setStateValue ) {
 					onChange={ ( colorValue ) => setAttributes( { borderHColor: colorValue } ) }
 					allowReset
 				/>
-			</Fragment>
+			</>
 		)
 
 		const normalSettings = (
-			<Fragment>
+			<>
 				<p className="uagb-setting-label">{ __( "Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: ctaColor }} ></span></span></p>
 				<ColorPalette
 					value={ ctaColor }
@@ -650,7 +650,7 @@ export default function postGridSettings( props, state, setStateValue ) {
 					onChange={ ( colorValue ) => setAttributes( { borderColor: colorValue } ) }
 					allowReset
 				/>
-			</Fragment>
+			</>
 		)
 
         return(
@@ -661,7 +661,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     onChange={ ( value ) => setAttributes( { displayPostLink : ! displayPostLink } ) }
                 />
                 { displayPostLink &&
-                    <Fragment>
+                    <>
                         <ToggleControl
                             label={ __( "Open links in New Tab","ultimate-addons-for-gutenberg" ) }
                             checked={ newTab }
@@ -675,7 +675,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                             onChange={ value => setAttributes( { ctaText: value } ) }
                         />
                         { ! inheritFromTheme &&
-                        <Fragment>
+                        <>
                             <TypographyControl
                                 label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
                                 attributes = { attributes }
@@ -771,9 +771,9 @@ export default function postGridSettings( props, state, setStateValue ) {
                                     }
                                 }
                             </TabPanel>
-                        </Fragment>
+                        </>
                         }
-                    </Fragment>
+                    </>
                 }
             </PanelBody>
         );
@@ -798,7 +798,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     ] }
                 />
                 { ! inheritFromTheme &&
-                    <Fragment>
+                    <>
                         <TypographyControl
                             label={ __( "Typography","ultimate-addons-for-gutenberg" ) }
                             attributes = { attributes }
@@ -817,7 +817,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                             lineHeightTablet= { { value: titleLineHeightTablet, label: "titleLineHeightTablet" } }
                         />
 
-                        { ( displayPostAuthor || displayPostDate || displayPostComment || displayPostTaxonomy ) && <Fragment>
+                        { ( displayPostAuthor || displayPostDate || displayPostComment || displayPostTaxonomy ) && <>
                             <hr className="uagb-editor__separator" />
                             <h2>{ __( "Meta","ultimate-addons-for-gutenberg" ) }</h2>
                             <TypographyControl
@@ -837,10 +837,10 @@ export default function postGridSettings( props, state, setStateValue ) {
                                 lineHeightMobile = { { value: metaLineHeightMobile, label: "metaLineHeightMobile" } }
                                 lineHeightTablet= { { value: metaLineHeightTablet, label: "metaLineHeightTablet" } }
                             />
-                        </Fragment>
+                        </>
                         }
 
-                        { displayPostExcerpt &&	<Fragment>
+                        { displayPostExcerpt &&	<>
                             <hr className="uagb-editor__separator" />
                             <h2>{ __( "Excerpt","ultimate-addons-for-gutenberg" ) }</h2>
                             <TypographyControl
@@ -860,9 +860,9 @@ export default function postGridSettings( props, state, setStateValue ) {
                                 lineHeightMobile = { { value: excerptLineHeightMobile, label: "excerptLineHeightMobile" } }
                                 lineHeightTablet= { { value: excerptLineHeightTablet, label: "excerptLineHeightTablet" } }
                             />
-                        </Fragment>
+                        </>
                         }
-                    </Fragment>
+                    </>
                 }
             </PanelBody>
         );
@@ -877,7 +877,7 @@ export default function postGridSettings( props, state, setStateValue ) {
                     allowReset
                 />
                 { ! inheritFromTheme &&
-                    <Fragment>
+                    <>
                         <p className="uagb-setting-label">{ __( "Title Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: titleColor }} ></span></span></p>
                         <ColorPalette
                             value={ titleColor }
@@ -890,16 +890,16 @@ export default function postGridSettings( props, state, setStateValue ) {
                             onChange={ ( colorValue ) => setAttributes( { metaColor: colorValue } ) }
                         />
                         { displayPostExcerpt == true &&
-                            <Fragment>
+                            <>
                                 <p className="uagb-setting-label">{ __( "Excerpt Color","ultimate-addons-for-gutenberg" ) }<span className="components-base-control__label"><span className="component-color-indicator" style={{ backgroundColor: excerptColor }} ></span></span></p>
                                 <ColorPalette
                                     value={ excerptColor }
                                     onChange={ ( colorValue ) => setAttributes( { excerptColor: colorValue } ) }
                                     allowReset
                                 />
-                            </Fragment>
+                            </>
                         }
-                    </Fragment>
+                    </>
                 }
             </PanelBody>
         );
