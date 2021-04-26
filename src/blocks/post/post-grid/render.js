@@ -135,7 +135,7 @@ export default function renderPostGrid( props, state, setStateValue ) {
             <Disabled><Blog attributes={attributes} className={props.className} latestPosts={latestPosts} block_id={props.clientId.substr( 0, 8 )} categoriesList={categoriesList} deviceType={deviceType} /></Disabled>
         );
     }
-    
+
     return (
         <>
         { renderViewMode() }

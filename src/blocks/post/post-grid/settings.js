@@ -8,7 +8,6 @@
  import TypographyControl from "../../../components/typography"
  import Columnresponsive from "../../../components/typography/column-responsive"
  import WebfontLoader from "../../../components/typography/fontloader"
- import React, { useState } from 'react';
 
  const { __ } = wp.i18n
  const MAX_POSTS_COLUMNS = 8
