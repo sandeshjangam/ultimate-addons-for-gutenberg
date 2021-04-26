@@ -23,6 +23,7 @@
 	<arg value="s"/>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/dist/build/*</exclude-pattern>
 	<!-- Exclude Libraries -->
 	<exclude-pattern>*/inc/lib/batch-processing/*</exclude-pattern>
 </ruleset>
