@@ -39,6 +39,7 @@ const UAGBWpSearchEdit = ( props ) => {
 
 	// componentDidMount.
 	useEffect( () => {
+
 		// Assigning block_id in the attribute.
 		props.setAttributes( {
 			block_id: props.clientId.substr( 0, 8 ),
@@ -50,10 +51,11 @@ const UAGBWpSearchEdit = ( props ) => {
 			'uagb-style-wp-search-' + props.clientId.substr( 0, 8 )
 		);
 		document.head.appendChild( $style );
-	}, [ state ] );
+	}, [ props ] );
 
 	// componentDidUpdate.
 	useEffect( () => {
+
 		if ( ! props.isSelected && state.isFocused ) {
 			setState( {
 				isFocused: 'false',
@@ -72,7 +74,7 @@ const UAGBWpSearchEdit = ( props ) => {
 		if ( null != element && 'undefined' !== typeof element ) {
 			element.innerHTML = styling( props );
 		}
-	}, [ state ] );
+	}, [ props ] );
 
 	const formPreventDefault = useCallback( () => {
 		e.preventDefault();
