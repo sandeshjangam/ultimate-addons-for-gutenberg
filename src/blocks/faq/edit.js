@@ -12,11 +12,12 @@ const { select, withSelect } = wp.data;
 
 const faq = []	
 
+let prevState;
+
 const faqComponent = props => {
-
+ 
 	useEffect(() => { // Replacement for componentDidMount.
-		console.log('here2');
-
+		
 		const { attributes, setAttributes } = props
 
 		const {
@@ -78,10 +79,11 @@ const faqComponent = props => {
 
 			setAttributes( { questionLeftPaddingMobile: hquestionPaddingMobile } )
 		}
+		prevState = props.schemaJsonData
+		
 	}, [])
 
 	useEffect(() => { // Replacement for componentDidUpdate.
-		console.log('here1');
 		
 		var element = document.getElementById( "uagb-style-faq-" + props.clientId.substr( 0, 8 ) )
 
@@ -97,11 +99,17 @@ const faqComponent = props => {
 	}, [props] )
 
 	useEffect(() => { // Replacement for componentDidUpdate.
-		console.log('here2');
-		props.setAttributes({
-			schema: JSON.stringify(props.schemaJsonData)
-		});
+		if (
+			JSON.stringify( props.schemaJsonData ) !==
+			JSON.stringify( prevState )
+		) {
+			props.setAttributes({
+				schema: JSON.stringify(props.schemaJsonData)
+			});
 
+			prevState = props.schemaJsonData
+		}
+		
 	}, [props] )
 
 	
@@ -141,7 +149,7 @@ export default compose(
 			}
 			json_data["mainEntity"][key] = faq_data;
 		});
-console.log('withSelect');
+		
 		return {
 			deviceType: deviceType,
 			schemaJsonData: json_data
