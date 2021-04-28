@@ -3,14 +3,22 @@
  *
  * CSS for both Frontend+Backend.
  */
+ .uagb-social-share__outer-wrap,
+ .uagb-social-share__wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.uagb-social-share__layout-vertical {
+
+	&.uagb-social-share__outer-wrap,
+	.uagb-social-share__wrap {
+		flex-direction: column;
+	}
+
+}
 
 .uagb-social-share__outer-wrap {
-
-	.uagb-social-share__wrap {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
 
 	a.uagb-button__link:focus {
 		box-shadow: none;
@@ -53,10 +61,6 @@
 	.uagb-ss__wrapper:last-child {
 		margin-right: 0;
 	}
-}
-
-.uagb-social-share__layout-vertical .uagb-social-share__wrap {
-	flex-direction: column;
 }
 
 @media (max-width: 976px) {

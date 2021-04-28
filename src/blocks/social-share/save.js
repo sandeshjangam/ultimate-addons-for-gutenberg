@@ -25,9 +25,7 @@ export default function save( props ) {
 			`uagb-social-share__layout-${social_layout}`,
 			`uagb-block-${ block_id}`
 		) }>
-			<div className="uagb-social-share__wrap">
-				<InnerBlocks.Content />
-			</div>
+			<InnerBlocks.Content />
 		</div>
 	);
 }

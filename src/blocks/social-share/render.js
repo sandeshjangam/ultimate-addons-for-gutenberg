@@ -37,14 +37,12 @@ export default function rendersocialShare( props ) {
             `uagb-block-${ props.clientId.substr( 0, 8 ) }`
         ) }
         >
-            <div className="uagb-social-share__wrap">
-                <InnerBlocks
-                    template={ getSocialShareTemplate( social_count, socials ) }
-                    templateLock={ false }
-                    allowedBlocks={ ALLOWED_BLOCKS } 
-                    __experimentalMoverDirection={ social_layout }	
-                />
-            </div>
+            <InnerBlocks
+                template={ getSocialShareTemplate( social_count, socials ) }
+                templateLock={ false }
+                allowedBlocks={ ALLOWED_BLOCKS } 
+                __experimentalMoverDirection={ social_layout }	
+            />
         </div>
     );
 

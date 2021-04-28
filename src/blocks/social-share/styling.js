@@ -32,7 +32,7 @@ function styling( props ) {
 		"margin-bottom" : generateCSSUnit( gap, "px" )
 	};
 
-	selectors[".uagb-social-share__layout-vertical .uagb-social-share__wrap"] = {
+	selectors[".uagb-social-share__layout-vertical.uagb-social-share__outer-wrap"] = {
 		 "flex-direction": "column"
 	};
 
@@ -68,11 +68,11 @@ function styling( props ) {
 
 	const alignment = ( align == "left" ) ? "flex-start" : ( ( align == "right" ) ? "flex-end" : "center" );
 
-	selectors[" .uagb-social-share__wrap .block-editor-inner-blocks"] = {
+	selectors[".uagb-social-share__outer-wrap .block-editor-inner-blocks"] = {
 		"text-align": align
 	};
 
-	selectors[" .uagb-social-share__wrap"] = {
+	selectors[".uagb-social-share__outer-wrap"] = {
 		"justify-content" : alignment,
 		"-webkit-box-pack": alignment,
 		"-ms-flex-pack": alignment,
@@ -95,7 +95,7 @@ function styling( props ) {
 				"margin-bottom" : generateCSSUnit( gap, "px" )
 			};
 
-			selectors[" .uagb-social-share__wrap"] = {
+			selectors[".uagb-social-share__outer-wrap"] = {
 				"flex-direction": "column",
 				"justify-content" : alignment,
 				"-webkit-box-pack": alignment,
@@ -113,7 +113,7 @@ function styling( props ) {
 				"margin-bottom" : generateCSSUnit( gap, "px" )
 			};
 
-			tablet_selectors[" .uagb-social-share__wrap"] = {
+			tablet_selectors[".uagb-social-share__outer-wrap"] = {
 				"flex-direction": "column"
 			};
 
@@ -130,7 +130,7 @@ function styling( props ) {
 				"margin-bottom" : generateCSSUnit( gap, "px" )
 			};
 
-			mobile_selectors[" .uagb-social-share__wrap"] = {
+			mobile_selectors[".uagb-social-share__outer-wrap"] = {
 				"flex-direction": "column"
 			};
 
