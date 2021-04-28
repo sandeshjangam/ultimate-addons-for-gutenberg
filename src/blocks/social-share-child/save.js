@@ -7,13 +7,9 @@ import classnames from "classnames";
 import renderSVG from "../../../dist/blocks/uagb-controls/renderIcon";
 import links from "./links";
 
-const {
-	RichText
-} = wp.blockEditor;
-
 export default function save( props ) {
 	
-	const { attributes, className } = props;
+	const { className } = props;
 
 	const {
 		type,
@@ -21,7 +17,6 @@ export default function save( props ) {
 		icon,
 		image,
 		block_id,
-		link,
 	} = props.attributes;
 
 	const url = links[type];	
