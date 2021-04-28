@@ -10,7 +10,7 @@ import React, { useEffect } from 'react';
 const { compose } = wp.compose
 const { select, withSelect } = wp.data;
 
-const faq = []	
+const faq = [];	
 
 let prevState;
 
@@ -33,7 +33,7 @@ const faqComponent = props => {
 			vquestionPaddingMobile,
 			questionLeftPaddingMobile,
 			hquestionPaddingMobile,
-		} = attributes
+		} = attributes;
 
 		// Assigning block_id in the attribute.
 		setAttributes( { block_id: props.clientId.substr( 0, 8 ) } )
@@ -44,40 +44,40 @@ const faqComponent = props => {
 		$style.setAttribute( "id", "uagb-style-faq-" + props.clientId.substr( 0, 8 ) )
 		document.head.appendChild( $style )
 		
-		for ( var i = 1; i <= 2; i++ ) {		
+		for ( let i = 1; i <= 2; i++ ) {		
 			faq.push(	
 				{	
-					"question": 'What is FAQ?',	
-					"answer": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',	
+					"question": "What is FAQ?",	
+					"answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",	
 				}	
-			)	
+			);	
 		}
 		
 		if ( 10 === questionBottomPaddingDesktop && 10 !== vquestionPaddingDesktop ) {
 
-			setAttributes( { questionBottomPaddingDesktop: vquestionPaddingDesktop } )
+			setAttributes( { questionBottomPaddingDesktop: vquestionPaddingDesktop } );
 		}
 		if ( 10 === questionLeftPaddingDesktop && 10 !== hquestionPaddingDesktop ) {
 
-			setAttributes( { questionLeftPaddingDesktop: hquestionPaddingDesktop } )
+			setAttributes( { questionLeftPaddingDesktop: hquestionPaddingDesktop } );
 		}
 
 		if ( 10 === questionBottomPaddingTablet && 10 !== vquestionPaddingTablet ) {
 
-			setAttributes( { questionBottomPaddingTablet: vquestionPaddingTablet } )
+			setAttributes( { questionBottomPaddingTablet: vquestionPaddingTablet } );
 		}
 		if ( 10 === questionLeftPaddingTablet && 10 !== hquestionPaddingTablet ) {
 
-			setAttributes( { questionLeftPaddingTablet: hquestionPaddingTablet } )
+			setAttributes( { questionLeftPaddingTablet: hquestionPaddingTablet } );
 		}
 
 		if ( 10 === questionBottomPaddingMobile && 10 !== vquestionPaddingMobile ) {
 
-			setAttributes( { questionBottomPaddingMobile: vquestionPaddingMobile } )
+			setAttributes( { questionBottomPaddingMobile: vquestionPaddingMobile } );
 		}
 		if ( 10 === questionLeftPaddingMobile && 10 !== hquestionPaddingMobile ) {
 
-			setAttributes( { questionLeftPaddingMobile: hquestionPaddingMobile } )
+			setAttributes( { questionLeftPaddingMobile: hquestionPaddingMobile } );
 		}
 		prevState = props.schemaJsonData
 		
@@ -123,21 +123,21 @@ const faqComponent = props => {
 
 export default compose(
 	withSelect( ( select, ownProps ) => {
-		const page_url = select("core/editor").getPermalink();
-		const { __experimentalGetPreviewDeviceType = null } = select( 'core/edit-post' );
+		const page_url = select( "core/editor" ).getPermalink();
+		const { __experimentalGetPreviewDeviceType = null } = select( "core/edit-post" );
 
-    	let deviceType = __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : null;
+    	const deviceType = __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : null;
 
-		var faq_data = {}
-		var json_data = {
+		let faq_data = {};
+		const json_data = {
 			"@context": "https://schema.org",
 			"@type": "FAQPage",
 			"@id": page_url,
 			"mainEntity": []
-		}
-		const faqChildBlocks = select('core/block-editor').getBlocks( ownProps.clientId );
+		};
+		const faqChildBlocks = select( "core/block-editor" ).getBlocks( ownProps.clientId );
 
-		faqChildBlocks.forEach((faqChild, key) => {
+		faqChildBlocks.forEach( ( faqChild, key ) => {
 
 			faq_data = {
 				"@type" : "Question",
@@ -151,7 +151,7 @@ export default compose(
 		});
 		
 		return {
-			deviceType: deviceType,
+			deviceType,
 			schemaJsonData: json_data
 		};
 	} )

@@ -1,5 +1,5 @@
 .uagb-faq-layout-accordion .uagb-faq-child__outer-wrap .uagb-faq-questions-button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 [data-type="uagb/faq-child"] .uagb-faq-child__outer-wrap {
@@ -61,6 +61,6 @@
 }
 
 .uagb-faq-layout-grid [data-type="uagb/faq-child"] .uagb-faq-child__outer-wrap .uagb-faq-item .uagb-icon,
- .uagb-faq-layout-grid [data-type="uagb/faq-child"] .uagb-faq-child__outer-wrap .uagb-faq-item.uagb-faq-item-active .uagb-icon-active{
-     display:none
- }
+.uagb-faq-layout-grid [data-type="uagb/faq-child"] .uagb-faq-child__outer-wrap .uagb-faq-item.uagb-faq-item-active .uagb-icon-active {
+	display: none;
+}

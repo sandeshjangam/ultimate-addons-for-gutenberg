@@ -29,13 +29,13 @@ const faqChildComponent = props => {
 		if ( ! props.isSelected && prevState && state.isFocused ) {
 			setStateValue( {
 				isFocused: "false",
-			} )
+			} );
 		}
 		if ( props.isSelected && ! prevState ) {
 
 			setStateValue( {
 				isFocused: true,
-			} )
+			} );
 		}
 		prevState = props.isSelected;
 
