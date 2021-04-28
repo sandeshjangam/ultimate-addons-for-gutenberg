@@ -96,9 +96,7 @@ const faqComponent = props => {
 		getChildBlocks.forEach((faqChild, key) => {
 			faqChild.attributes.headingTag = props.attributes.headingTag;
 		});
-	}, [props] )
 
-	useEffect(() => { // Replacement for componentDidUpdate.
 		if (
 			JSON.stringify( props.schemaJsonData ) !==
 			JSON.stringify( prevState )
@@ -109,10 +107,9 @@ const faqComponent = props => {
 
 			prevState = props.schemaJsonData
 		}
-		
+
 	}, [props] )
 
-	
 	return (
 		<>
 			{ faqSettings( props ) }
