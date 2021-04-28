@@ -4,8 +4,6 @@
 
 // Import block dependencies and components.
 import classnames from "classnames";
-import renderSVG from "../../../dist/blocks/uagb-controls/renderIcon";
-import links from "./links";
 
 const {
 	InnerBlocks
@@ -13,14 +11,10 @@ const {
 
 export default function save( props ) {
 
-	const { attributes, className } = props;
+	const { className } = props;
 
 	const {
 		block_id,
-		align,
-		items,
-		socials,
-		social_count,
 		social_layout,
 	} = props.attributes;
 
