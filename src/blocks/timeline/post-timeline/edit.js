@@ -45,7 +45,6 @@ const postTimelineComponent = props => {
 	/*  Js for timeline line and inner line filler*/
 	const timelineContentBack = ( id ) => {
 		const timeline            = $( ".uagb-timeline" ).parents( "#block-"+id );
-		const tm_item             = timeline.find( ".uagb-timeline" );
 		const line_inner          = timeline.find( ".uagb-timeline__line__inner" );
 		const line_outer          = timeline.find( ".uagb-timeline__line" );
 		const $icon_class         = timeline.find( ".uagb-timeline__marker" );
@@ -56,25 +55,25 @@ const postTimelineComponent = props => {
 			line_outer.css( "top", timeline_start_icon.top );
 
 			const timeline_card_height = $card_last.height();
-			const last_item_top = $card_last.offset().top - tm_item.offset().top;
+			const last_item_top = $card_last.offset().top - timeline.offset().top;
 			let $last_item, parent_top;
 			const $document = $( document );
 
-			if ( tm_item.hasClass( "uagb-timeline__arrow-center" ) ) {
+			if ( timeline.hasClass( "uagb-timeline__arrow-center" ) ) {
 
 				line_outer.css( "bottom", timeline_end_icon.top );
 
 				parent_top = last_item_top - timeline_start_icon.top;
 				$last_item = parent_top + timeline_end_icon.top;
 
-			} else if ( tm_item.hasClass( "uagb-timeline__arrow-top" ) ) {
+			} else if ( timeline.hasClass( "uagb-timeline__arrow-top" ) ) {
 
 				const top_height = timeline_card_height - timeline_end_icon.top;
 				line_outer.css( "bottom", top_height );
 
 				$last_item = last_item_top;
 
-			} else if ( tm_item.hasClass( "uagb-timeline__arrow-bottom" ) ) {
+			} else if ( timeline.hasClass( "uagb-timeline__arrow-bottom" ) ) {
 
 				const bottom_height = timeline_card_height - timeline_end_icon.top;
 				line_outer.css( "bottom", bottom_height );
@@ -90,7 +89,7 @@ const postTimelineComponent = props => {
 			const viewportHeight = document.documentElement.clientHeight + connectorHeight;
 			const viewportHeightHalf = viewportHeight/2 + connectorHeight;
 
-			var elementPos = tm_item.offset().top;
+			var elementPos = timeline.offset().top;
 
 			const new_elementPos = elementPos + timeline_start_icon.top;
 

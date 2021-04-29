@@ -22,7 +22,7 @@ const {
 
 export default function renderPostTimeline ( props ) {
 
-    const { attributes, className, deviceType, } = this.props;
+    const { attributes, className, deviceType, } = props;
 
     const {
         displayPostLink
@@ -91,22 +91,18 @@ export default function renderPostTimeline ( props ) {
 									{ <Icon attributes={ attributes } /> }
 
 									<div className={ day_align_class } >
-										<div className="uagb-timeline__events-new">
-											<div className="uagb-timeline__events-inner-new">
-												<div className="uagb-timeline__date-hide uagb-timeline__date-inner">
-													{ <PostDate post={ post } attributes={ attributes } dateClass="uagb-timeline__inner-date-new" /> }
-												</div>
-												{ <FeaturedImage post={ post } attributes={ attributes } /> }
-												<div className="uagb-content" style={ { padding: contentPadding+"px" } }>
-													{ <Title post={ post } attributes={ attributes } /> }
-													{ <Author post={ post } attributes={ attributes } /> }
-													{ <Excerpt post={ post } attributes={ attributes } /> }
-													{ <CtaLink post={ post } attributes={ attributes } /> }
+										<div className="uagb-timeline__events-inner-new">
+											<div className="uagb-timeline__date-hide uagb-timeline__date-inner">
+												{ <PostDate post={ post } attributes={ attributes } dateClass="uagb-timeline__inner-date-new" /> }
+											</div>
+											{ <FeaturedImage post={ post } attributes={ attributes } /> }
+											<div className="uagb-content" style={ { padding: contentPadding+"px" } }>
+												{ <Title post={ post } attributes={ attributes } /> }
+												{ <Author post={ post } attributes={ attributes } /> }
+												{ <Excerpt post={ post } attributes={ attributes } /> }
+												{ <CtaLink post={ post } attributes={ attributes } /> }
 
-													<div className="uagb-timeline__arrow"></div>
-
-												</div>
-
+												<div className="uagb-timeline__arrow"></div>
 											</div>
 										</div>
 									</div>
@@ -134,23 +130,18 @@ export default function renderPostTimeline ( props ) {
         <div  className={ classnames(
             className,
             "uagb-timeline__outer-wrap",
+			"uagb-timeline__content-wrap",
             `uagb-editor-preview-mode-${ deviceType.toLowerCase() }`,
-            `uagb-block-${ props.clientId }`
+            `uagb-block-${ props.clientId }`,
+			cta_enable,
+			...ContentTmClasses( props.attributes ),
         ) }>
-            <div  className={ classnames(
-                "uagb-timeline__content-wrap",
-                cta_enable,
-                ...ContentTmClasses( props.attributes ),
-            ) }>
-                <div className="uagb-timeline-wrapper">
-                    <div className="uagb-timeline__main">
-                        { getContent() }
-                        <div className="uagb-timeline__line" >
-                            <div className="uagb-timeline__line__inner"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<div className="uagb-timeline__main">
+				{ getContent() }
+				<div className="uagb-timeline__line" >
+					<div className="uagb-timeline__line__inner"></div>
+				</div>
+			</div>
         </div>
     );
 }

@@ -117,7 +117,7 @@ function contentTimelineStyle( props ) {
 			"text-align": align,
 			"color": subHeadingColor,
 		},
-		" .uagb-timeline__events-new" : {
+		" .uagb-timeline__day-new" : {
 			"text-align": align,
 		},
 		" .uagb-timeline__date-inner" : {
@@ -313,7 +313,7 @@ function contentTimelineStyle( props ) {
 		" .uagb-timeline__center-block p.uagb-timeline-desc-content" : {
 			"text-align"  : resp_selectors,
 		},
-		" .uagb-timeline__center-block .uagb-timeline__events-new" : {
+		" .uagb-timeline__center-block .uagb-timeline__day-new" : {
 			"text-align" : resp_selectors
 		},
 		" .uagb-timeline__center-block .uagb-timeline__date-inner" : {
@@ -387,7 +387,7 @@ function contentTimelineStyle( props ) {
 		" .uagb-timeline__center-block p.uagb-timeline-desc-content" : {
 			"text-align"  : resp_selectors,
 		},
-		" .uagb-timeline__center-block .uagb-timeline__events-new" : {
+		" .uagb-timeline__center-block .uagb-timeline__day-new" : {
 			"text-align" : resp_selectors
 		},
 		" .uagb-timeline__center-block .uagb-timeline__date-inner" : {
