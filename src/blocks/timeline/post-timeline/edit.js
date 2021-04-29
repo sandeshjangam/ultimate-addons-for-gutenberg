@@ -21,9 +21,9 @@ const postTimelineComponent = props => {
 		const id = props.clientId;
 		window.addEventListener( "load", timelineContentBack( id ) );
 		window.addEventListener( "resize", timelineContentBack( id ) );
-		const time = this;
+		
 		$( ".edit-post-layout__content" ).scroll( function( event ) {
-			time.timelineContentBack( id );
+			timelineContentBack( id );
 		} );
 
 		// Pushing Style tag for this block css.
@@ -36,9 +36,9 @@ const postTimelineComponent = props => {
 		const id = props.clientId;
 		window.addEventListener( "load", timelineContentBack( id ) );
 		window.addEventListener( "resize", timelineContentBack( id ) );
-		const time = this;
+		
 		$( ".edit-post-layout__content" ).scroll( function( event ) {
-			time.timelineContentBack( id );
+			timelineContentBack( id );
 		} );
 	}, [props] )
 
