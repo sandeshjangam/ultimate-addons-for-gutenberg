@@ -54,7 +54,7 @@
     "lint:css": "wp-scripts lint-style",
     "lint:css:fix": "wp-scripts lint-style --fix",
     "lint:js:tmp": "wp-scripts lint-js ./src/blocks/wp-search",
-    "lint:js:fix:tmp": "wp-scripts lint-js ./src/blocks/wp-search --fix",
+    "lint:js:fix:tmp": "wp-scripts lint-js ./src/blocks/post/post-carousel/edit.js --fix",
     "lint:css:tmp": "wp-scripts lint-style ./src/blocks/wp-search",
     "lint:css:fix:tmp": "wp-scripts lint-style ./src/blocks/wp-search --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
