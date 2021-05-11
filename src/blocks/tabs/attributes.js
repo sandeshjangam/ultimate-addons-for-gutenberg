@@ -1,7 +1,7 @@
 /**
  * BLOCK: UAGB Tabs Block Attributes
  */
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n';
 const attributes = {
 	block_id :{
 		type : "string"
@@ -135,6 +135,10 @@ const attributes = {
 		type: "boolean",
 		default: false
 	},
+	tabAlign: {
+		type: "string",
+		default: "left"
+	},
 	titleAlign: {
 		type: "string",
 		default: "center"
@@ -163,7 +167,8 @@ const attributes = {
 	},
 	activeiconColor:{
 		type: "string",
-	}
+	},
+
 }
 
 export default attributes

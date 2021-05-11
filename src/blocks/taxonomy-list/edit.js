@@ -9,7 +9,7 @@ import WebfontLoader from "../../components/typography/fontloader"
 import Columnresponsive from "../../components/typography/column-responsive"
 
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n';
 const {
 	PanelBody,
 	RangeControl,
@@ -165,7 +165,8 @@ class UAGBTaxonomyList extends Component {
 			borderColor,
 			borderRadius,
 			listDisplayStyle,
-			showhierarchy
+			showhierarchy,
+			titleTag
         } = attributes
 		
 		const taxonomy_list_setting = (showEmptyTaxonomy) ? taxonomyList : termsList;
@@ -274,51 +275,65 @@ class UAGBTaxonomyList extends Component {
 		const inspectorControlsSettings = (
 			<InspectorControls>
 				<PanelBody title={ __( "General",'ultimate-addons-for-gutenberg' ) }>
-						<SelectControl
-							label={ __( "Layout",'ultimate-addons-for-gutenberg' ) }
-							value={ layout }
-							onChange={ ( value ) => setAttributes( { layout: value } ) }
-							options={ [
-								{ value: "grid", label: __( "Grid",'ultimate-addons-for-gutenberg' ) },
-								{ value: "list", label: __( "List",'ultimate-addons-for-gutenberg' ) },
-							] }
+					<SelectControl
+						label={ __( "Heading Tag", 'ultimate-addons-for-gutenberg' ) }
+						value={ titleTag }
+						onChange={ ( value ) => setAttributes( { titleTag: value } ) }
+						options={ [
+							{ value: "div", label: __( "Div", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h1", label: __( "H1", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h2", label: __( "H2", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h3", label: __( "H3", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h4", label: __( "H4", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h5", label: __( "H5", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h6", label: __( "H6", 'ultimate-addons-for-gutenberg' ) },
+						] }
+					/>
+					<SelectControl
+						label={ __( "Layout",'ultimate-addons-for-gutenberg' ) }
+						value={ layout }
+						onChange={ ( value ) => setAttributes( { layout: value } ) }
+						options={ [
+							{ value: "grid", label: __( "Grid",'ultimate-addons-for-gutenberg' ) },
+							{ value: "list", label: __( "List",'ultimate-addons-for-gutenberg' ) },
+						] }
+					/>
+					{ 'grid' === layout &&	
+						<Columnresponsive/>
+					}
+					{ "Desktop" === deviceType && 'grid' === layout && (
+						<Fragment>
+						<RangeControl
+							label={ __( "Desktop Columns",'ultimate-addons-for-gutenberg' ) }
+							value={ columns }
+							onChange={ ( value ) => setAttributes( { columns: value } ) }
+							min={ 1 }
+							max={ 4 }
 						/>
-						{ 'grid' === layout &&
-							<Columnresponsive/>
-						}
-                        { "Desktop" === deviceType && 'grid' === layout && (
-                            <Fragment>
-                            <RangeControl
-								label={ __( "Desktop Columns" ) }
-								value={ columns }
-								onChange={ ( value ) => setAttributes( { columns: value } ) }
-								min={ 1 }
-								max={ 4 }
-							/>
-                            </Fragment>
-                        )}
-                        { "Tablet" === deviceType && 'grid' === layout && (
-                            <Fragment>
-                            <RangeControl
-								label={ __( "Tab Columns" ) }
-								value={ tcolumns }
-								onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
-								min={ 1 }
-								max={ 3 }
-							/>
-                            </Fragment>
-                        )}
-                        { "Mobile" === deviceType && 'grid' === layout && (
-                            <Fragment>
-                               <RangeControl
-									label={ __( "Mobile Columns" ) }
-									value={ mcolumns }
-									onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
-									min={ 1 }
-									max={ 2 }
-								/>
-                            </Fragment>
-                        )}	
+						</Fragment>
+					)}
+					{ "Tablet" === deviceType && 'grid' === layout && (
+						<Fragment>
+						<RangeControl
+							label={ __( "Tab Columns",'ultimate-addons-for-gutenberg' ) }
+							value={ tcolumns }
+							onChange={ ( value ) => setAttributes( { tcolumns: value } ) }
+							min={ 1 }
+							max={ 3 }
+						/>
+						</Fragment>
+					)}
+					{ "Mobile" === deviceType && 'grid' === layout && (
+						<Fragment>
+						<RangeControl
+							label={ __( "Mobile Columns",'ultimate-addons-for-gutenberg' ) }
+							value={ mcolumns }
+							onChange={ ( value ) => setAttributes( { mcolumns: value } ) }
+							min={ 1 }
+							max={ 2 }
+						/>
+						</Fragment>
+					)}					
 					<hr className="uagb-editor__separator" />
 					<SelectControl
 						label={ __( "Post Type",'ultimate-addons-for-gutenberg' ) }
@@ -785,6 +800,11 @@ class UAGBTaxonomyList extends Component {
 			</InspectorControls>
 		)
 		
+		if ( "grid" == layout ) {
+			var Tag = titleTag ? titleTag : "H4";
+		} else if ( "list" == layout ) {
+			var Tag = titleTag ? titleTag : "div";
+		}
         return (
 				<Fragment>							
 					{ inspectorControlsSettings }
@@ -799,10 +819,11 @@ class UAGBTaxonomyList extends Component {
 						) }>
 
 							{"grid" == layout && ( 
+								
 								categoriesList.map((p,index)=>
 									<div className="uagb-taxomony-box" key={index}>
 										<a className="uagb-tax-link" href={p.link}>
-											<h4 className="uagb-tax-title">{p.name}</h4>
+											<Tag className="uagb-tax-title" dangerouslySetInnerHTML={ { __html: p.name}}></Tag>
 											{showCount && (
 												<div className="uagb-tax-count">{p.count} {p.count > "1" ? `${p.singular_name}s` :p.singular_name}</div>
 											)}
@@ -816,8 +837,8 @@ class UAGBTaxonomyList extends Component {
 								<ul className="uagb-list-wrap">
 									{categoriesList.map((p,index)=>										
 										<li className="uagb-tax-list" key={index}>
-											<div className="uagb-tax-link-wrap">
-												<a className="uagb-tax-link" href={p.link}>{p.name}</a>
+											<Tag className="uagb-tax-link-wrap">
+												<a className="uagb-tax-link" href={p.link} dangerouslySetInnerHTML={ { __html: p.name}}></a>
 												{ showCount && (
 												<span className="uagb-tax-list-count">{` (${p.count})`}</span>
 												)}
@@ -833,7 +854,7 @@ class UAGBTaxonomyList extends Component {
 														} ) }
 													</ul>
 												)}
-											</div>
+											</Tag>
 
 											{"none" != seperatorStyle && (
 												<div className="uagb-tax-separator-wrap">

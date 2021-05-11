@@ -6,7 +6,7 @@ import classnames from "classnames"
 import { Fragment } from "react"
 import styling from "./styling"
 import map from 'lodash/map'
-import UAGB_Block_Icons from "../../../dist/blocks/uagb-controls/block-icons"
+import UAGB_Block_Icons from "@Controls/block-icons"
 // Import all of our Text Options requirements.
 import TypographyControl from "../../components/typography"
 
@@ -54,7 +54,7 @@ const {
 	withNotices
 } = wp.components
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n';
 
 const ALLOWED_BLOCKS = [
 	"uagb/forms-name",
@@ -646,7 +646,7 @@ class UAGBFormsEdit extends Component {
 					/>
 					{ true === sendAfterSubmitEmail && (
 						<Fragment>								
-							<TabPanel className="uagb-size-type-field-tabs uagb-size-type-field__common-tabs uagb-inline-margin uagb-email-controls-tabs" activeClass="active-tab"
+							<TabPanel className="uagb-size-type-field-tabs components-base-control uagb-size-type-field__common-tabs uagb-inline-margin uagb-email-controls-tabs" activeClass="active-tab"
 							tabs={ [
 								{
 									name: "to",
