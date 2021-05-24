@@ -242,6 +242,7 @@ class UAGB_Frontend {
 		self::$uag_flag           = $page_assets['uag_flag'];
 		self::$stylesheet         = $page_assets['css'];
 		self::$script             = $page_assets['js'];
+		self::$gfonts             = $page_assets['gfonts'];
 
 		return false;
 	}
@@ -288,6 +289,7 @@ class UAGB_Frontend {
 			'current_block_list' => self::$current_block_list,
 			'uag_flag'           => self::$uag_flag,
 			'uag_version'        => UAGB_ASSET_VER,
+			'gfonts'             => UAGB_Helper::$gfonts,
 		);
 
 		update_post_meta( $post_id, '_uagb_page_assets', $meta_array );
@@ -408,13 +410,12 @@ class UAGB_Frontend {
 		echo '<style id="uagb-style-conditional-extension">' . $conditional_block_css . '</style>'; //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 
-
 	/**
 	 * Load the front end Google Fonts.
 	 */
 	public function print_google_fonts() {
 
-		if ( empty( UAGB_Helper::$gfonts ) ) {
+		if ( empty( self::$gfonts ) ) {
 			return;
 		}
 		$show_google_fonts = apply_filters( 'uagb_blocks_show_google_fonts', true );
@@ -423,7 +424,7 @@ class UAGB_Frontend {
 		}
 		$link    = '';
 		$subsets = array();
-		foreach ( UAGB_Helper::$gfonts as $key => $gfont_values ) {
+		foreach ( self::$gfonts as $key => $gfont_values ) {
 			if ( ! empty( $link ) ) {
 				$link .= '%7C'; // Append a new font to the string.
 			}

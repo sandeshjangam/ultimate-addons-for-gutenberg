@@ -77,6 +77,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			require UAGB_DIR . 'classes/class-uagb-config.php';
 			require UAGB_DIR . 'classes/class-uagb-block-helper.php';
 			require UAGB_DIR . 'classes/class-uagb-block-js.php';
+			
 
 			self::$block_list      = UAGB_Config::get_block_attributes();
 			self::$file_generation = self::allow_file_generation();
@@ -156,14 +157,14 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		}
 
 
-		/**
-		 * Adds Google fonts all blocks.
-		 *
-		 * @param array $load_google_font the blocks attr.
-		 * @param array $font_family the blocks attr.
-		 * @param array $font_weight the blocks attr.
-		 * @param array $font_subset the blocks attr.
-		 */
+	 /**
+	  * Adds Google fonts all blocks.
+	  *
+	  * @param array $load_google_font the blocks attr.
+	  * @param array $font_family the blocks attr.
+	  * @param array $font_weight the blocks attr.
+	  * @param array $font_subset the blocks attr.
+	  */
 		public static function blocks_google_font( $load_google_font, $font_family, $font_weight, $font_subset ) {
 
 			if ( true === $load_google_font ) {
