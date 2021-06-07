@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import UAGB_Block_Icons from '@Controls/block-icons';
+
 import { __ } from '@wordpress/i18n';
 import renderSVG from '@Controls/renderIcon';
 import lazyLoader from '@Controls/lazy-loader';
@@ -1011,7 +1011,7 @@ const Settings = ( props ) => {
 						</h2>
 						{ imgPosition != 'above' && (
 							<RangeControl
-								label={ UAGB_Block_Icons.left_margin }
+								label={ wp.UAGBBlockIcons.left_margin }
 								className={ 'uagb-margin-control' }
 								value={ imgLeftMargin }
 								onChange={ ( value ) =>
@@ -1026,7 +1026,7 @@ const Settings = ( props ) => {
 						) }
 						{ imgPosition != 'above' && (
 							<RangeControl
-								label={ UAGB_Block_Icons.right_margin }
+								label={ wp.UAGBBlockIcons.right_margin }
 								className={ 'uagb-margin-control' }
 								value={ imgRightMargin }
 								onChange={ ( value ) =>
@@ -1040,7 +1040,7 @@ const Settings = ( props ) => {
 							/>
 						) }
 						<RangeControl
-							label={ UAGB_Block_Icons.top_margin }
+							label={ wp.UAGBBlockIcons.top_margin }
 							className={ 'uagb-margin-control' }
 							value={ imgTopMargin }
 							onChange={ ( value ) =>
@@ -1051,7 +1051,7 @@ const Settings = ( props ) => {
 							allowReset
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.bottom_margin }
+							label={ wp.UAGBBlockIcons.bottom_margin }
 							className={ 'uagb-margin-control' }
 							value={ imgBottomMargin }
 							onChange={ ( value ) =>

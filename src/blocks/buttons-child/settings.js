@@ -3,7 +3,7 @@
  */
 
 // Import classes
-import UAGB_Block_Icons from '@Controls/block-icons';
+
 import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
 import renderSVG from '@Controls/renderIcon';
 import { __ } from '@wordpress/i18n';
@@ -362,7 +362,7 @@ const Settings = ( props ) => {
 							) }
 						</h2>
 						<RangeControl
-							label={ UAGB_Block_Icons.vertical_spacing }
+							label={ wp.UAGBBlockIcons.vertical_spacing }
 							className={ 'uagb-margin-control' }
 							value={ vPadding }
 							onChange={ ( value ) => {
@@ -372,7 +372,7 @@ const Settings = ( props ) => {
 							max={ 100 }
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.horizontal_spacing }
+							label={ wp.UAGBBlockIcons.horizontal_spacing }
 							className={ 'uagb-margin-control' }
 							value={ hPadding }
 							onChange={ ( value ) => {

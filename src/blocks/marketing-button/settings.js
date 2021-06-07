@@ -1,6 +1,6 @@
 // Import all of our Text Options requirements.
 import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
-import UAGB_Block_Icons from '@Controls/block-icons';
+
 import { __ } from '@wordpress/i18n';
 import renderSVG from '@Controls/renderIcon';
 import React, { Suspense, useState } from 'react';
@@ -740,7 +740,7 @@ const Settings = ( props ) => {
 						</ButtonGroup>
 						<h2>{ __( 'Button Padding' ) }</h2>
 						<RangeControl
-							label={ UAGB_Block_Icons.vertical_spacing }
+							label={ wp.UAGBBlockIcons.vertical_spacing }
 							className={ 'uagb-margin-control' }
 							value={ vPadding }
 							onChange={ ( value ) =>
@@ -750,7 +750,7 @@ const Settings = ( props ) => {
 							max={ '%' == paddingType ? 100 : 2000 }
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.horizontal_spacing }
+							label={ wp.UAGBBlockIcons.horizontal_spacing }
 							className={ 'uagb-margin-control' }
 							value={ hPadding }
 							onChange={ ( value ) =>
@@ -794,7 +794,7 @@ const Settings = ( props ) => {
 						</ButtonGroup>
 						<h2>{ __( 'Button Padding' ) }</h2>
 						<RangeControl
-							label={ UAGB_Block_Icons.vertical_spacing }
+							label={ wp.UAGBBlockIcons.vertical_spacing }
 							className={ 'uagb-margin-control' }
 							value={ vPaddingTablet }
 							onChange={ ( value ) =>
@@ -804,7 +804,7 @@ const Settings = ( props ) => {
 							max={ '%' == paddingType ? 100 : 2000 }
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.horizontal_spacing }
+							label={ wp.UAGBBlockIcons.horizontal_spacing }
 							className={ 'uagb-margin-control' }
 							value={ hPaddingTablet }
 							onChange={ ( value ) =>
@@ -848,7 +848,7 @@ const Settings = ( props ) => {
 						</ButtonGroup>
 						<h2>{ __( 'Button Padding' ) }</h2>
 						<RangeControl
-							label={ UAGB_Block_Icons.vertical_spacing }
+							label={ wp.UAGBBlockIcons.vertical_spacing }
 							className={ 'uagb-margin-control' }
 							value={ vPaddingMobile }
 							onChange={ ( value ) =>
@@ -858,7 +858,7 @@ const Settings = ( props ) => {
 							max={ '%' == paddingType ? 100 : 2000 }
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.horizontal_spacing }
+							label={ wp.UAGBBlockIcons.horizontal_spacing }
 							className={ 'uagb-margin-control' }
 							value={ hPaddingMobile }
 							onChange={ ( value ) =>

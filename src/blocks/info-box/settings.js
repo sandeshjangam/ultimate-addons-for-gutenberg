@@ -1,5 +1,5 @@
 import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
-import UAGB_Block_Icons from '@Controls/block-icons';
+
 import { __ } from '@wordpress/i18n';
 import renderSVG from '@Controls/renderIcon';
 import React, { lazy, Suspense } from 'react';
@@ -1226,7 +1226,7 @@ const Settings = ( props ) => {
 					) }
 				</h2>
 				<RangeControl
-					label={ UAGB_Block_Icons.left_margin }
+					label={ wp.UAGBBlockIcons.left_margin }
 					className={ 'uagb-margin-control' }
 					value={ iconLeftMargin }
 					onChange={ ( value ) =>
@@ -1237,7 +1237,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.right_margin }
+					label={ wp.UAGBBlockIcons.right_margin }
 					className={ 'uagb-margin-control' }
 					value={ iconRightMargin }
 					onChange={ ( value ) =>
@@ -1248,7 +1248,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.top_margin }
+					label={ wp.UAGBBlockIcons.top_margin }
 					className={ 'uagb-margin-control' }
 					value={ iconTopMargin }
 					onChange={ ( value ) =>
@@ -1259,7 +1259,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.bottom_margin }
+					label={ wp.UAGBBlockIcons.bottom_margin }
 					className={ 'uagb-margin-control' }
 					value={ iconBottomMargin }
 					onChange={ ( value ) =>
@@ -1534,7 +1534,7 @@ const Settings = ( props ) => {
 							) }
 						</h2>
 						<RangeControl
-							label={ UAGB_Block_Icons.vertical_spacing }
+							label={ wp.UAGBBlockIcons.vertical_spacing }
 							value={ ctaBtnVertPadding }
 							onChange={ ( value ) =>
 								setAttributes( { ctaBtnVertPadding: value } )
@@ -1545,7 +1545,7 @@ const Settings = ( props ) => {
 							allowReset
 						/>
 						<RangeControl
-							label={ UAGB_Block_Icons.horizontal_spacing }
+							label={ wp.UAGBBlockIcons.horizontal_spacing }
 							value={ ctaBtnHrPadding }
 							onChange={ ( value ) =>
 								setAttributes( { ctaBtnHrPadding: value } )

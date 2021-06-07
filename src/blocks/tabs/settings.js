@@ -1,6 +1,6 @@
 import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
 import renderSVG from '@Controls/renderIcon';
-import UAGB_Block_Icons from '@Controls/block-icons';
+
 import TypographyControl from '@Components/typography';
 import ColumnResponsive from '@Components/typography/column-responsive';
 
@@ -562,7 +562,7 @@ const Settings = ( props ) => {
 					) }
 				</h2>
 				<RangeControl
-					label={ UAGB_Block_Icons.left_margin }
+					label={ wp.UAGBBlockIcons.left_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabTitleLeftMargin }
 					onChange={ ( value ) =>
@@ -573,7 +573,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.right_margin }
+					label={ wp.UAGBBlockIcons.right_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabTitleRightMargin }
 					onChange={ ( value ) =>
@@ -584,7 +584,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.top_margin }
+					label={ wp.UAGBBlockIcons.top_margin }
 					value={ tabTitleTopMargin }
 					onChange={ ( value ) =>
 						setAttributes( { tabTitleTopMargin: value } )
@@ -594,7 +594,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.bottom_margin }
+					label={ wp.UAGBBlockIcons.bottom_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabTitleBottomMargin }
 					onChange={ ( value ) =>
@@ -608,7 +608,7 @@ const Settings = ( props ) => {
 					{ __( 'Title Padding', 'ultimate-addons-for-gutenberg' ) }
 				</h2>
 				<RangeControl
-					label={ UAGB_Block_Icons.vertical_spacing }
+					label={ wp.UAGBBlockIcons.vertical_spacing }
 					value={ tabTitleVertPadding }
 					onChange={ ( value ) =>
 						setAttributes( { tabTitleVertPadding: value } )
@@ -619,7 +619,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.horizontal_spacing }
+					label={ wp.UAGBBlockIcons.horizontal_spacing }
 					value={ tabTitleHrPadding }
 					onChange={ ( value ) =>
 						setAttributes( { tabTitleHrPadding: value } )
@@ -815,7 +815,7 @@ const Settings = ( props ) => {
 					) }
 				</h2>
 				<RangeControl
-					label={ UAGB_Block_Icons.left_margin }
+					label={ wp.UAGBBlockIcons.left_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabBodyLeftMargin }
 					onChange={ ( value ) =>
@@ -826,7 +826,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.right_margin }
+					label={ wp.UAGBBlockIcons.right_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabBodyRightMargin }
 					onChange={ ( value ) =>
@@ -837,7 +837,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.top_margin }
+					label={ wp.UAGBBlockIcons.top_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabBodyTopMargin }
 					onChange={ ( value ) =>
@@ -848,7 +848,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.bottom_margin }
+					label={ wp.UAGBBlockIcons.bottom_margin }
 					className={ 'uagb-margin-control' }
 					value={ tabBodyBottomMargin }
 					onChange={ ( value ) =>
@@ -862,7 +862,7 @@ const Settings = ( props ) => {
 					{ __( 'Body Padding', 'ultimate-addons-for-gutenberg' ) }
 				</h2>
 				<RangeControl
-					label={ UAGB_Block_Icons.vertical_spacing }
+					label={ wp.UAGBBlockIcons.vertical_spacing }
 					value={ tabBodyVertPadding }
 					onChange={ ( value ) =>
 						setAttributes( {
@@ -875,7 +875,7 @@ const Settings = ( props ) => {
 					allowReset
 				/>
 				<RangeControl
-					label={ UAGB_Block_Icons.horizontal_spacing }
+					label={ wp.UAGBBlockIcons.horizontal_spacing }
 					value={ tabBodyHrPadding }
 					onChange={ ( value ) =>
 						setAttributes( { tabBodyHrPadding: value } )
