@@ -21,7 +21,7 @@ import( /* webpackChunkName: "chunks/controls/block-icons" */  "@Controls/block-
 
 	wp.UAGBBlockIcons = icons.default;
 
-	import( /* webpackChunkName: "chunks/controls/blocks-init" */ './init');
+	import( './init');
 
 	updateCategory( 'uagb', {
 		icon: wp.UAGBBlockIcons.logo,
