@@ -12,18 +12,19 @@
 // Dynamic webpack public path.
 __webpack_public_path__ = uagb_blocks_info.uagb_url + 'dist/';
 
-// Prepare svg icon key list once before registering blocks.
-wp.UAGBSvgIcons = Object.keys( uagb_blocks_info.uagb_svg_icons );
 
 import { updateCategory } from '@wordpress/blocks';
+( async function () {
+	// Prepare svg icon key list once before registering blocks.
+	wp.UAGBSvgIcons = Object.keys( uagb_blocks_info.uagb_svg_icons );
+	import( /* webpackChunkName: "chunks/controls/block-icons" */  "@Controls/block-icons").then(icons => {
 
-import( /* webpackChunkName: "chunks/controls/block-icons" */  "@Controls/block-icons").then(icons => {
+		wp.UAGBBlockIcons = icons.default;
 
-	wp.UAGBBlockIcons = icons.default;
+		import( './init');
 
-	import( './init');
-
-	updateCategory( 'uagb', {
-		icon: wp.UAGBBlockIcons.logo,
-	} );
-});
+		updateCategory( 'uagb', {
+			icon: wp.UAGBBlockIcons.logo,
+		} );
+	});
+})();
