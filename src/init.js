@@ -51,3 +51,12 @@ import './blocks/extensions/block.js';
 import './blocks/tabs/block.js';
 import './blocks/tabs-child/block.js';
 import './blocks/lottie/block.js';
+
+
+// Sort the Blocks based on title.
+wp.blocks.getBlockTypes().sort((blockA,blockB)=> {
+	if( 'uagb' === blockA.category && 'uagb' === blockB.category ) {
+		return blockA.title > blockB.title ? 1 : -1;
+	}
+	return 0;
+} );
