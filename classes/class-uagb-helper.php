@@ -136,6 +136,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
+			/* Generated assets */
+			add_action( 'wp', array( $this, 'generate_assets' ), 99 );
 
 			require UAGB_DIR . 'classes/class-uagb-config.php';
 			require UAGB_DIR . 'classes/class-uagb-block-helper.php';
@@ -1601,6 +1603,14 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				foreach ( $cached_wp_query as $post ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 					$this->get_generated_stylesheet( $post );
 				}
+			}
+			/* Prepare assets and store in static variable */
+			global $content_width;
+
+			self::$stylesheet = str_replace( '#CONTENT_WIDTH#', $content_width . 'px', self::$stylesheet );
+
+			if ( '' !== self::$script ) {
+				self::$script = 'document.addEventListener("DOMContentLoaded", function(){ ' . self::$script . ' })';
 			}
 		}
 	}
