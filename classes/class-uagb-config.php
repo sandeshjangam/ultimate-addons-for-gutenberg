@@ -2886,7 +2886,7 @@ if ( ! class_exists( 'UAGB_Config' ) ) {
 							'playOn'           => 'none',
 						),
 					),
-					'uagb/conditional-blocks'     => array(
+					'uagb/display-conditions'     => array(
 						'slug'        => '',
 						'title'       => __( 'Display Conditions', 'ultimate-addons-for-gutenberg' ),
 						'description' => __( 'Display conditions extension are the options on which you would like to hide the block based on User Role, Browser, Operating System, Responsive Visibility, User State, etc.', 'ultimate-addons-for-gutenberg' ),
