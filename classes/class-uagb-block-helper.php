@@ -1278,7 +1278,6 @@ if ( ! class_exists( 'UAGB_Block_Helper' ) ) {
 				);
 			}
 
-
 			$m_selectors = array(
 				' .uagb-infobox-cta-link .uagb-ifb-button-icon' => array(
 					'font-size'   => $m_cta_icon_size,
