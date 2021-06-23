@@ -404,7 +404,9 @@ if ( ! class_exists( 'UAGB_Table_Of_Content' ) ) {
 				return '';
 			}
 
+			$block_id                 = $attributes['block_id'];
 			$uagb_toc_options         = get_post_meta( $post->ID, '_uagb_toc_options', true );
+			$uagb_toc_options         = isset( $uagb_toc_options[ $block_id ] ) ? $uagb_toc_options[ $block_id ] : false;
 			$uagb_toc_version         = ! empty( $uagb_toc_options['_uagb_toc_version'] ) ? $uagb_toc_options['_uagb_toc_version'] : '';
 			$uagb_toc_heading_content = ! empty( $uagb_toc_options['_uagb_toc_headings'] ) ? $uagb_toc_options['_uagb_toc_headings'] : '';
 
@@ -416,8 +418,11 @@ if ( ! class_exists( 'UAGB_Table_Of_Content' ) ) {
 				);
 
 				$meta_array = array(
-					'_uagb_toc_version'  => UAGB_ASSET_VER,
-					'_uagb_toc_headings' => $uagb_toc_heading_content,
+
+					$block_id => array(
+						'_uagb_toc_version'  => UAGB_ASSET_VER,
+						'_uagb_toc_headings' => $uagb_toc_heading_content,
+					),
 				);
 
 				update_post_meta( $post->ID, '_uagb_toc_options', $meta_array );
