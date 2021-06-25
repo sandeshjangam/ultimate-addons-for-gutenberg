@@ -139,6 +139,8 @@ const Settings = ( props ) => {
 		imageSize,
 		imageWidth,
 		imageWidthType,
+		imageWidthMobile,
+		imageWidthTablet,
 		stack,
 		showPrefix,
 		showTitle,
@@ -633,22 +635,42 @@ const Settings = ( props ) => {
 										) }
 									/>
 									{ imageWidthType && (
-										<RangeControl
-											label={ __(
-												'Width (px)',
-												'ultimate-addons-for-gutenberg'
-											) }
-											value={ imageWidth }
-											onChange={ ( value ) =>
-												setAttributes( {
-													imageWidth: value,
-												} )
-											}
-											min={ 0 }
-											max={ 500 }
-											beforeIcon=""
-											allowReset
-										/>
+										<>
+										<ColumnResponsive/>
+										{ "Desktop" === deviceType && (
+											<RangeControl
+												label={ __( "Width (px)", 'ultimate-addons-for-gutenberg' ) }
+												value={ imageWidth }
+												onChange={ ( value ) => setAttributes( { imageWidth: value } ) }
+												min={ 0 }
+												max={ 500 }
+												beforeIcon=""
+												allowReset
+											/>
+										)}
+										{ "Tablet" === deviceType && (
+											<RangeControl
+												label={ __( "Width (px)", 'ultimate-addons-for-gutenberg' ) }
+												value={ imageWidthTablet }
+												onChange={ ( value ) => setAttributes( { imageWidthTablet: value } ) }
+												min={ 0 }
+												max={ 500 }
+												beforeIcon=""
+												allowReset
+											/>
+										)}
+										{ "Mobile" === deviceType && (
+												<RangeControl
+													label={ __( "Width (px)", 'ultimate-addons-for-gutenberg' ) }
+													value={ imageWidthMobile }
+													onChange={ ( value ) => setAttributes( { imageWidthMobile: value } ) }
+													min={ 0 }
+													max={ 500 }
+													beforeIcon=""
+													allowReset
+												/>
+										)}
+									</>
 									) }
 									<RangeControl
 										label={ __(
