@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, gutenberg blocks, editor, block
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.7
-Stable tag: 1.23.3
+Stable tag: 1.23.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,6 +170,10 @@ The awesome React FontIconPicker is developed by [Alessandro Benoit](http://code
 
 = 1.23.4 =
 * Improvement: Info-Box - Added responsive option for bottom spacing and image width.
+* Fix: Advanced column - Shape Divider issue when using with the Astra Custom Layout.
+* Fix: Assets Generation on Archive Pages not working for all Posts on frontend.
+* Fix: Core button Block alignment is not working in advanced column block.
+* Fix: Twenty Seventeen Compatibility - Uncaught Error on pages.
 
 = 1.23.3 =
 * Fix: Table of Contents - UTF-8 encoding on frontend.
