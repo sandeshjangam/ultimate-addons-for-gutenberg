@@ -1193,6 +1193,8 @@ if ( ! class_exists( 'UAGB_Config' ) ) {
 							'imageWidthType'          => true,
 							'imageWidth'              => '120',
 							'seperatorSpace'          => '15',
+							'seperatorSpaceMobile'    => '',
+							'seperatorSpaceTablet'    => '',
 							'ctaLinkHoverColor'       => '',
 							'ctaBgHoverColor'         => '',
 							'ctaBorderhoverColor'     => '',
