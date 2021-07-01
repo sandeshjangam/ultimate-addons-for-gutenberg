@@ -76,8 +76,8 @@ export default function RangeTypographyControl ( props ) {
 				break;
 		}
 	
-		const buttons = document.getElementsByClassName( `uagb-spacing-control__mobile-controls-item--spacing` );
-	
+		const buttons = document.getElementsByClassName( `uagb-typography-responsive-size-control` );
+	console.log(buttons);
 		for( let i = 0; i < buttons.length; i++ ) {
 			buttons[ i ].style.display = 'none';
 		}
@@ -147,22 +147,22 @@ export default function RangeTypographyControl ( props ) {
 				{
 					name: 'default',
 					title: <Dashicon icon="desktop" />,
-					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--default uagb-spacing-control__mobile-controls-item-spacing--default`,
+					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing uagb-typography-responsive-size-control components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--default uagb-spacing-control__mobile-controls-item-spacing--default`,
 				},
 				{
 					name: "desktop",
 					title: <Dashicon icon="smartphone" />,
-					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--desktop uagb-spacing-control__mobile-controls-item-spacing--desktop`,
+					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing uagb-typography-responsive-size-control components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--desktop uagb-spacing-control__mobile-controls-item-spacing--desktop`,
 				},
 				{
 					name: "tablet",
 					title: <Dashicon icon="desktop" />,
-					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--tablet uagb-spacing-control__mobile-controls-item-spacing--tablet`,
+					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing uagb-typography-responsive-size-control components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--tablet uagb-spacing-control__mobile-controls-item-spacing--tablet`,
 				},
 				{
 					name: "mobile",
 					title: <Dashicon icon="tablet" />,
-					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--mobile uagb-spacing-control__mobile-controls-item-spacing--mobile`,
+					className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing uagb-typography-responsive-size-control components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--mobile uagb-spacing-control__mobile-controls-item-spacing--mobile`,
 				},
 			] }>
 			{ ( tab ) => {
