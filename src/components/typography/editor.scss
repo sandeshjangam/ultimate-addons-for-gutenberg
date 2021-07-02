@@ -83,3 +83,11 @@ label.uag-typography-font-family-subset-label {
 button.components-button.uagb-spacing-reset.is-secondary.is-small span{
      font-size:13px;
 }
+
+.components-panel__body .uagb-spacing-control__mobile-controls-item{
+    display:none;
+}
+
+.components-panel__body .uagb-typography-advanced .uagb-typography-responsive-size-control{
+    top:unset;
+}

@@ -77,10 +77,10 @@ export default function RangeTypographyControl ( props ) {
 		}
 	
 		const buttons = document.getElementsByClassName( `uagb-typography-responsive-size-control` );
-	console.log(buttons);
-		for( let i = 0; i < buttons.length; i++ ) {
-			buttons[ i ].style.display = 'none';
-		}
+
+		// for( let i = 0; i < buttons.length; i++ ) {
+		// 	buttons[ i ].style.display = 'none';
+		// }
 	
 		if ( tabName === 'default' ) {
 			const button = document.getElementsByClassName( `uagb-spacing-control__mobile-controls-item-spacing--tablet` );
