@@ -3,23 +3,51 @@
  */
  import { __ } from '@wordpress/i18n';
  import Range from '../../components/range/Range.js';
- import { ButtonGroup, Button, Dashicon, TabPanel } from '@wordpress/components';
- import { useDispatch } from '@wordpress/data';
+
+const {
+	ButtonGroup,
+	Button,
+	Dashicon,
+	TabPanel
+} = wp.components
+
+// Extend component
+const { Fragment } = wp.element
+const { useSelect, useDispatch } = wp.data;
+import map from 'lodash/map';
 
 /**
  * Build the Measure controls
  * @returns {object} Measure settings.
  */
 export default function RangeTypographyControl ( props ) {
-
+	const deviceType = useSelect( ( select ) => {
+		return select( 'core/edit-post' ).__experimentalGetPreviewDeviceType();
+	}, [] );
 	const {
 		__experimentalSetPreviewDeviceType: setPreviewDeviceType,
 	} = useDispatch( 'core/edit-post' );
-
 	const customSetPreviewDeviceType = ( device ) => {
 		setPreviewDeviceType( device );
 	};
-	
+	const devices = [
+		{
+			name: 'Desktop',
+			title: <Dashicon icon="desktop" />,
+			itemClass: 'uagb-desktop-tab uagb-responsive-tabs',
+		},
+		{
+			name: 'Tablet',
+			title: <Dashicon icon="tablet" />,
+			itemClass: 'uagb-tablet-tab uagb-responsive-tabs',
+		},
+		{
+			name: 'Mobile',
+			key: 'mobile',
+			title: <Dashicon icon="smartphone" />,
+			itemClass: 'uagb-mobile-tab uagb-responsive-tabs',
+		},
+	];
  	let sizeTypes
 
 	if( "sizeTypes" in props ) {
@@ -31,27 +59,20 @@ export default function RangeTypographyControl ( props ) {
 		]
 	}
 
-	const onUnitSizeClick = ( sizeTypes ) => {
-        const items = [];
-        sizeTypes.map( key => items.push(
-			<Button
-				key={ key.key }
-				className="uagb-size-btn"
-				isSmall
-				isPrimary={ props.type.value === key.key }
-				aria-pressed={ props.type.value === key.key }
-				onClick={ () => props.setAttributes( { [props.typeLabel]: key.key } ) }
-			>
-				{ key.name }
-			</Button>
-        ))
-
-        return( items );
-    }
-
 	const sizeTypesControls = (
 		<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type",'ultimate-addons-for-gutenberg' ) }>
-			{ onUnitSizeClick( sizeTypes ) }
+			{ map( sizeTypes, ( { name, key } ) => (
+				<Button
+					key={ key }
+					className="uagb-size-btn"
+					isSmall
+					isPrimary={ props.type.value === key }
+					aria-pressed={ props.type.value === key }
+					onClick={ () => props.setAttributes( { [props.typeLabel]: key } ) }
+				>
+					{ name }
+				</Button>
+			) ) }
 		</ButtonGroup>
 	)
 
@@ -92,40 +113,35 @@ export default function RangeTypographyControl ( props ) {
 	}
 
 	const output = {};
-
 	output.Desktop = (
-		<>
-			{ sizeTypesControls }
+		<Fragment>
+			{sizeTypesControls}
 			<Range 
 				label={ __( props.sizeText ) }
 				value={ props.size.value || "" }
 				onChange={ ( value ) => props.setAttributes( { [props.sizeLabel]: value } ) }
 				min={ 0 }
 				max={ 100 }
-				unit={ sizeTypes } 
 				displayUnit={ false }
 			/>
-		</>
+		</Fragment>
 	);
-
 	output.Tablet = (
-		<>
-			{ sizeTypesControls }
+		<Fragment>
+			{sizeTypesControls}
 			<Range 
 				label={ __( props.sizeTabletText ) }
 				value={ props.sizeTablet.value }
 				onChange={ ( value ) => props.setAttributes( { [props.sizeTabletLabel]: value } ) }
 				min={ 0 }
 				max={ 100 }
-				unit={ sizeTypes }
 				displayUnit={ false }
 			/>
-		</>
+		</Fragment>
 	);
-
 	output.Mobile = (
-		<>
-			{ sizeTypesControls }
+		<Fragment>
+			{sizeTypesControls}
 			<Range 
 				label={ __( props.sizeMobileText ) }
 				value={ props.sizeMobile.value }
@@ -134,9 +150,8 @@ export default function RangeTypographyControl ( props ) {
 				max={ 100 }
 				displayUnit={ false }
 			/>
-		</>
+		</Fragment>
 	);
-
 	return (
 		<TabPanel
 			className="uagb-spacing-control__mobile-controls"

@@ -1,4 +1,4 @@
- import {
+import {
     ButtonGroup, Button, Tooltip, Dashicon, RangeControl, __experimentalNumberControl as NumberControl,
  } from '@wordpress/components'
  import { useState, useEffect } from '@wordpress/element'
@@ -6,23 +6,46 @@
  import './range.scss';
 
  const isNumberControlSupported = !! NumberControl
- 
- let cachedValue = 'initial';
- let resetStateDisabled = true;
 
  const Range = props => {
+
     const {
         withInputField,
         isShiftStepEnabled,
     } = props
 
+    const [ value, setValue ] = useState( props.value );
+
+    let defaultCache = {
+        value : props.value,
+        resetDisabled : true
+    }
+
+    const [ cachedValue, setCacheValue ] = useState( defaultCache );
+
     useEffect(() => {
-        resetStateDisabled = true;
+
+        let cachedValueUpdate = { ...cachedValue }
+
+        if ( undefined !== value ) {
+
+            cachedValueUpdate['value'] = value
+            setCacheValue( cachedValueUpdate );
+        }
     }, []);
 
-    const [ value, setValue ] = useState( props.value );
-    
+    useEffect(() => {
 
+        let cachedValueUpdate = { ...cachedValue }
+
+        if ( JSON.stringify( value ) !== JSON.stringify( cachedValueUpdate.value ) ) {
+    
+            cachedValueUpdate['resetDisabled'] = false;
+            setCacheValue( cachedValueUpdate );
+        }
+    }, [ props.value ]);
+
+    
     const unitSizes = [
         {
             name: __( 'Pixel', 'ultimate-addons-for-gutenberg' ),
@@ -42,24 +65,20 @@
     }
 
     const resetValues = () => {
-        setValue( cachedValue);
-        props.onChange( cachedValue );
-        resetStateDisabled = true;
+
+        let cachedValueUpdate = { ...cachedValue }
+
+        setValue( cachedValueUpdate.value);
+        props.onChange( cachedValueUpdate.value );
+        
+        cachedValueUpdate['resetDisabled'] = true;
+        setCacheValue( cachedValueUpdate );
 	};
 
     const onChangeUnits = ( value ) => {
         props.setAttributes( { paddingUnit: value } );
     }
     
-    if ( 'initial' === cachedValue && undefined !== value ) {
-        cachedValue = value;
-    }
-    
-    if ( JSON.stringify( value ) !== JSON.stringify( cachedValue ) ) {
-
-        resetStateDisabled = false;
-    }
-
     const onUnitSizeClick = ( unitSizes ) => {
         const items = [];
         unitSizes.map( key => items.push(
@@ -93,14 +112,14 @@
             <div className='uagb-range-control__header'>
                 { props.label && <p className={ 'uagb-range-control__label' }>{ props.label }</p> }
                 <div className='uagb-range-control__actions'>
-                { props.displayUnit &&
+                    { props.displayUnit &&
                     <ButtonGroup className='uagb-range-control__units' aria-label={ __( 'Select Units', 'ultimate-addons-for-gutenberg' ) }>
                         { onUnitSizeClick( unitSizes ) }
                     </ButtonGroup>
-                }
+                    }
                     <Button
-                        className='uagb-spacing-reset'
-                        disabled={ resetStateDisabled } 
+                        className='uagb-reset'
+                        disabled={ cachedValue.resetDisabled } 
                         isSecondary
                         isSmall
                         onClick={ e => {

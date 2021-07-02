@@ -7,6 +7,7 @@ import UAGB_Block_Icons from "@Controls/block-icons"
 import styling from "./styling"
 import GradientSettings from "../../components/gradient-settings"
 import Columnresponsive from "../../components/typography/column-responsive"
+import Background from "../../components/background"
 
 import { __ } from '@wordpress/i18n';
 
@@ -294,26 +295,8 @@ class UAGBColumnEdit extends Component {
 					</TabPanel>
 				</PanelBody>
 				<PanelBody title={ __( "Spacing", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-				<Columnresponsive
-					topPadding = { topPadding }
-					bottomPadding = { bottomPadding }
-					leftPadding = { leftPadding }
-					rightPadding = {  rightPadding }
-					topPaddingTablet = { topPaddingTablet }
-					bottomPaddingTablet = { bottomPaddingTablet }
-					leftPaddingTablet = { leftPaddingTablet }
-					rightPaddingTablet = { rightPaddingTablet }
-					topPaddingMobile={ topPaddingMobile }
-					bottomPaddingMobile={ bottomPaddingMobile }
-					leftPaddingMobile={ leftPaddingMobile }
-					rightPaddingMobile={ rightPaddingMobile }
-					desktopPaddingType={ desktopPaddingType }
-					tabletPaddingType={ tabletPaddingType }
-					mobilePaddingType={ mobilePaddingType }
-					deviceType={ deviceType }
-					setAttributes={ setAttributes }
-				/>
-					{/* { "Desktop" === deviceType && (
+				<Columnresponsive/>
+					{ "Desktop" === deviceType && (
 						<Fragment>
 							<ButtonGroup className="uagb-size-type-field" aria-label={ __( "Size Type", 'ultimate-addons-for-gutenberg' ) }>
 								<Button key={ "px" } className="uagb-size-btn" isSmall isPrimary={ desktopPaddingType === "px" } aria-pressed={ desktopPaddingType === "px" } onClick={ () => setAttributes( { desktopPaddingType: "px" } ) }>{ "px" }</Button>
@@ -447,10 +430,10 @@ class UAGBColumnEdit extends Component {
 								allowReset
 							/>
 						</Fragment>
-					)} */}
+					)}
 				</PanelBody>
 				<PanelBody title={ __( "Background", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-					<SelectControl
+					{/* <SelectControl
 						label={ __( "Background Type", 'ultimate-addons-for-gutenberg' ) }
 						value={ backgroundType }
 						onChange={ ( value ) => setAttributes( { backgroundType: value } ) }
@@ -632,7 +615,21 @@ class UAGBColumnEdit extends Component {
 								allowReset
 								initialPosition={0}
 							/> )
-					}
+					} */}
+					<Background
+						setAttributes = { setAttributes }
+						backgroundImageColor = { { value: backgroundImageColor, label: __( "Background Image Color", 'ultimate-addons-for-gutenberg' ) } }
+						overlayType = { { value: overlayType, label: __( "Overlay Type", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundSize = { { value: backgroundSize, label: __( "Background Size", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundRepeat = { { value: backgroundRepeat, label: __( "Background Repeat", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundAttachment = { { value: backgroundAttachment, label: __( "Background Attachement", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundPosition = { { value: backgroundPosition, label: __( "Background Image", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundImage = { { value: backgroundImage, label: __( "Background Image", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundColor = { { value: backgroundColor, label: __( "Background Color", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundType = { { value: backgroundType, label: __( "Background Type", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundOpacity = { { value: backgroundOpacity, label: __( "Opacity", 'ultimate-addons-for-gutenberg' ) } }
+						{...this.props}
+					/>
 				</PanelBody>
 				{ border_setting }
 			</Fragment>

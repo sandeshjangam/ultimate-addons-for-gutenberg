@@ -9,7 +9,7 @@ import renderSVG from "@Controls/renderIcon"
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import UAGBIcon from "@Controls/UAGBIcon.json"
 import UAGB_Block_Icons from "@Controls/block-icons"
-import AdvancedPopColorControl from '../../advanced-pop-color-control'
+import AdvancedPopColorControl from '../../components/color-control/advanced-pop-color-control.js'
 import InspectorTabs from '../../components/inspector-tabs/InspectorTabs.js'
 import InspectorTab from '../../components/inspector-tabs/InspectorTab.js'
 import DimensionsControl from '../../components/dimention-control';
@@ -17,6 +17,8 @@ import Range from '../../components/range/Range.js';
 import GradientSettings from "../../components/gradient-settings"
 import MultiButtonsControl from '../../components/multi-buttons-control'
 import BoxShadowControl from "../../components/box-shadow"
+import Background from "../../components/background"
+import Border from "../../components/border"
 
 // Import all of our Text Options requirements.
 import TypographyControl from "../../components/typography"
@@ -27,8 +29,6 @@ import WebfontLoader from "../../components/typography/fontloader"
 // Setup the block
 
 import { __ } from '@wordpress/i18n';
-
-const { withSelect } = wp.data
 
 const {
 	AlignmentToolbar,
@@ -58,7 +58,7 @@ const {
 } = wp.element
 
 let svg_icons = Object.keys( UAGBIcon )
-
+const { withSelect } = wp.data
 class UAGBInlineNoticeEdit extends Component {
 
 	constructor() {
@@ -198,6 +198,7 @@ class UAGBInlineNoticeEdit extends Component {
 				borderWidth,
 				borderRadius,
 				borderColor,
+				borderHoverColor,
 				backgroundType,
 				backgroundImage,
 				backgroundColor,
@@ -211,6 +212,7 @@ class UAGBInlineNoticeEdit extends Component {
 				gradientLocation2,
 				gradientType,
 				gradientAngle,
+				gradientValue,
 				backgroundOpacity,
 				backgroundImageColor,
 				overlayType,
@@ -229,10 +231,10 @@ class UAGBInlineNoticeEdit extends Component {
 				boxShadowPosition,
 				widthType
 			},
-			deviceType,
 			setAttributes,
 			className,
 			attributes,
+			deviceType
 		} = this.props;
 
 	   	// Notice dismiss options
@@ -280,13 +282,13 @@ class UAGBInlineNoticeEdit extends Component {
 
 		if ( noticeDismiss ) {
 			image_icon_html = <span className="uagb-notice-dismiss">{ renderSVG(icon) }</span>
-		}	
+		}		
 
 		const inlineGeneralSettings = () => {
 			return (
 				<InspectorTabs>
 				<InspectorTab key={'general'}>
-				<PanelBody title="Alignment" initialOpen={true}>
+				<PanelBody title="Alignment" initialOpen={false}>
 					<MultiButtonsControl
 						label={ __( "Alignment", 'ultimate-addons-for-gutenberg' ) }
 						currentOption={ noticeAlignment }
@@ -315,9 +317,10 @@ class UAGBInlineNoticeEdit extends Component {
 						setAttributes={setAttributes}
 						value={contentVrPadding} 
 						onChange={value => setAttributes({ contentVrPadding: value })}
+						initialPosition={15}
 						min={0} 
-						max={100}
-						unit={ paddingUnit } 
+						max={100} 
+						unit = { paddingUnit }
 					/>
 					</PanelBody>
 					<PanelBody title="Typography" initialOpen={false}>
@@ -370,8 +373,89 @@ class UAGBInlineNoticeEdit extends Component {
 							help={ __( "Note: The individual Column Gap can be managed from Column Settings.", 'ultimate-addons-for-gutenberg' ) }
 						/>
 				</PanelBody>
+				<PanelBody title="Layout" initialOpen={false}>
+					<SelectControl
+						label={ __( "Types", 'ultimate-addons-for-gutenberg' ) }
+						value={ layout }
+						onChange={ ( value ) => setAttributes( { layout: value } ) }
+						options={ [
+							{ value: "modern", label: __( "Modern", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "simple", label: __( "Default", 'ultimate-addons-for-gutenberg' ) },							
+						] }
+					/>
+					{ "simple" == layout  &&
+						<RangeControl
+							label={ __( "Highlight width", 'ultimate-addons-for-gutenberg' ) }
+							value={ highlightWidth }
+							onChange={ ( value ) => setAttributes( { highlightWidth: value } ) }
+							min={ 0 }
+							max={ 50 }
+							allowReset
+						/>
+					}
+					<h2>{ __( "Primary Heading", 'ultimate-addons-for-gutenberg' ) }</h2>
+					<SelectControl
+						label={ __( "Tag" ) }
+						value={ headingTag }
+						onChange={ ( value ) => setAttributes( { headingTag: value } ) }
+						options={ [
+							{ value: "h1", label: __( "H1",'ultimate-addons-for-gutenberg' ) },
+							{ value: "h2", label: __( "H2", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h3", label: __( "H3", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h4", label: __( "H4", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h5", label: __( "H5", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "h6", label: __( "H6", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "span", label: __( "span", 'ultimate-addons-for-gutenberg' ) },
+							{ value: "p", label: __( "p", 'ultimate-addons-for-gutenberg' ) },
+						] }
+					/>
+					<SelectControl
+							label={ __( 'Notice Display', 'ultimate-addons-for-gutenberg' ) }
+							options={ noticeDismissOptions }
+							value={ noticeDismiss }
+							onChange={ ( value ) =>
+								this.props.setAttributes( {
+									noticeDismiss: value,
+								} )
+							}
+					/>
+					{ noticeDismiss &&
+						<Fragment>
+							<p className="components-base-control__label">{__( "Icon", 'ultimate-addons-for-gutenberg' )}</p>
+							<FontIconPicker
+								icons={svg_icons}
+								renderFunc= {renderSVG}
+								theme="default"
+								value={icon}
+								onChange={ ( value ) => setAttributes( { icon: value } ) }
+								isMulti={false}
+								noSelectedPlaceholder= { __( "Select Icon", 'ultimate-addons-for-gutenberg' ) }
+							/>
+						</Fragment>
+					}
+					{ noticeDismiss &&
+						<hr className="uagb-editor__separator" />
+					}
+					{ noticeDismiss &&
+						<ToggleControl
+							label={ __( "Enable Cookies", 'ultimate-addons-for-gutenberg' ) }
+							checked={ cookies }
+							onChange={ this.update_cookie_id }
+						/>
+					}
+					{ cookies &&
+						<RangeControl
+							label={ __( "Show Closed Notice After (Days)", 'ultimate-addons-for-gutenberg' ) }
+							value={ close_cookie_days }
+							onChange={ ( value ) => setAttributes( { close_cookie_days: value } ) }
+							min={ 0 }
+							max={ 50 }
+							allowReset
+						/>
+					}
+				</PanelBody>
 				<PanelBody title="Spacing" initialOpen={false}>
-					<DimensionsControl { ...this.props }
+				<DimensionsControl { ...this.props }
 						label={ __( 'Padding', 'ultimate-addons-for-gutenberg' ) }
 						valueTop={ { value: paddingTop, label: 'paddingTop' } }
 						valueRight={ { value: paddingRight, label: 'paddingRight' } }
@@ -394,56 +478,31 @@ class UAGBInlineNoticeEdit extends Component {
 					/>
 				</PanelBody>
 				<PanelBody title={ __( "Border", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-					<div className="uag-border-wrap">
-					<label className="uag-border-label">{ __( "Style",'ultimate-addons-for-gutenberg' ) }</label>
-					<SelectControl
-						value={ borderStyle }
-						onChange={ ( value ) => setAttributes( { borderStyle: value } ) }
-						options={ [
-							{ value: "none", label: __( "None", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "solid", label: __( "Solid", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "dotted", label: __( "Dotted", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "dashed", label: __( "Dashed", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "double", label: __( "Double", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "groove", label: __( "Groove", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "inset", label: __( "Inset", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "outset", label: __( "Outset", 'ultimate-addons-for-gutenberg' ) },
-							{ value: "ridge", label: __( "Ridge", 'ultimate-addons-for-gutenberg' ) },
-						] }
-					/>
-					</div>
-					{ "none" != borderStyle && (
-						<Range 
-							label={ __( "Width", 'ultimate-addons-for-gutenberg' ) }
-							value={borderWidth} 
-							onChange={val => setAttributes({ borderWidth: parseInt(val) })}
-							min={0} 
-							max={100} 
-						/>
-					) }
-					{ "none" != borderStyle && (
-					<Range 
-						label={ __( "Radius", 'ultimate-addons-for-gutenberg' ) }
-						value={borderRadius} 
-						onChange={val => setAttributes({ borderRadius: parseInt(val) })}
-						min={0} 
-						max={100} 
-					/>
-					) }
-					{ "none" != borderStyle && (
-						<Fragment>
-							<AdvancedPopColorControl
-								label={ __( 'Color', 'ultimate-addons-for-gutenberg' ) }
-								colorValue={ ( borderColor ? borderColor : '' ) }
-								colorDefault={ '' }
-								onColorChange={ value => setAttributes( { borderColor: value } ) }
-								onColorClassChange={ value => setAttributes( { colorClass: value } ) }
-							/>
-						</Fragment>
-					) }
+				<Border
+					setAttributes = { setAttributes }
+					borderStyle = { { value: borderStyle, label: __( "Style", 'ultimate-addons-for-gutenberg' ) } }
+					borderWidth = { { value: borderWidth, label: __( "Width", 'ultimate-addons-for-gutenberg' ) } }
+					borderRadius = { { value: borderRadius, label: __( "Radius", 'ultimate-addons-for-gutenberg' ) } }
+					borderColor = { { value: borderColor, label: __( "Color", 'ultimate-addons-for-gutenberg' ) } }
+					borderHoverColor= { { value: borderHoverColor, label: __( "Hover Color", 'ultimate-addons-for-gutenberg' ) } }
+				/>
 				</PanelBody>
 				<PanelBody title={ __( "Background", 'ultimate-addons-for-gutenberg' ) } initialOpen={ false }>
-					<div className="uag-background-wrap">
+					<Background
+						setAttributes = { setAttributes }
+						backgroundImageColor = { { value: backgroundImageColor, label: __( "Background Image Color", 'ultimate-addons-for-gutenberg' ) } }
+						overlayType = { { value: overlayType, label: __( "Overlay Type", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundSize = { { value: backgroundSize, label: __( "Background Size", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundRepeat = { { value: backgroundRepeat, label: __( "Background Repeat", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundAttachment = { { value: backgroundAttachment, label: __( "Background Attachement", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundPosition = { { value: backgroundPosition, label: __( "Background Image", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundImage = { { value: backgroundImage, label: __( "Background Image", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundColor = { { value: backgroundColor, label: __( "Background Color", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundType = { { value: backgroundType, label: __( "Background Type", 'ultimate-addons-for-gutenberg' ) } }
+						backgroundOpacity = { { value: backgroundOpacity, label: __( "Opacity", 'ultimate-addons-for-gutenberg' ) } }
+						{...this.props}
+					/>
+					{/* <div className="uag-background-wrap">
 						<label className="uag-background-label">{__( "Background Type", 'ultimate-addons-for-gutenberg' ) }</label>
 						<SelectControl
 							value={ backgroundType }
@@ -565,8 +624,8 @@ class UAGBInlineNoticeEdit extends Component {
 													onColorClassChange={ value => setAttributes( { colorClass: value } ) }
 												/>
 											</Fragment>
-										}
-
+										} */}
+{/* 
 										{ "gradient" == overlayType &&
 											( <Fragment>
 												<PanelColorSettings
@@ -639,7 +698,7 @@ class UAGBInlineNoticeEdit extends Component {
 								max={100} 
 							/>
 							)
-					}
+					} */}
 				</PanelBody>
 				</InspectorTab>
 				<InspectorTab key={'style'}>
@@ -684,15 +743,6 @@ class UAGBInlineNoticeEdit extends Component {
 				</PanelBody>
 				</InspectorTab>
 				<InspectorTab key={'advance'}>
-				<PanelBody title="UAG Advanced Option" initialOpen={true}>
-				<Range 
-					label={ __( "Opacity", 'ultimate-addons-for-gutenberg' ) }
-					value={backgroundOpacity} 
-					onChange={val => setAttributes({ backgroundOpacity: parseInt(val) })}
-					min={0} 
-					max={100} 
-				/>
-				</PanelBody>
 				</InspectorTab>
 				</InspectorTabs>
 				)
@@ -796,7 +846,6 @@ class UAGBInlineNoticeEdit extends Component {
 					"uagb-inline_notice__outer-wrap",
 					`${ noticeDismiss }`,
 					`uagb-inline_notice__align-${ noticeAlignment }`,
-					`uagb-editor-preview-mode-${deviceType.toLowerCase()}`,
 					`uagb-block-${ block_id }`
 					) }
 				>

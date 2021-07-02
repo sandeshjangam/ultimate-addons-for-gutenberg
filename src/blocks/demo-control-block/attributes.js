@@ -156,7 +156,6 @@
 	},
 	contentHrPadding: {
 		type: "number",
-		default: 15
 	},
 	padding: {
 		type: "number",
@@ -237,6 +236,9 @@
 		type: "number"
 	},
 	borderColor : {
+		type: "string"
+	},
+	borderHoverColor : {
 		type: "string"
 	},
 	backgroundType: {
@@ -346,6 +348,10 @@
 	widthType: {
 		type: "string",
 		default: "px"
+	},
+	gradientValue: {
+		type: "string",
+		default: "",
 	},
 }
 
