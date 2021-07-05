@@ -2,8 +2,8 @@
  * External dependencies
  */
  import './editor.scss';
- import { __, sprintf } from '@wordpress/i18n';
- import { ButtonGroup, Button, TabPanel, Tooltip, Dashicon } from '@wordpress/components';
+ import { __ } from '@wordpress/i18n';
+ import { TabPanel, Dashicon } from '@wordpress/components';
  import { useDispatch } from '@wordpress/data';
  import Range from '../../components/range/Range.js';
  
@@ -51,7 +51,7 @@
 			button[ 0 ].style.display = 'block';
 		}
 	};
-
+	
 	return (
 			<div className='components-base-control uagb-spacing-control'>
 			<TabPanel

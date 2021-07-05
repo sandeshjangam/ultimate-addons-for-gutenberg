@@ -2,20 +2,9 @@
  * WordPress dependencies
  */
  import { __ } from '@wordpress/i18n';
-
-const {
-	SelectControl
-} = wp.components
-
-// Extend component
-const { Component, Fragment } = wp.element
-
-/**
- * Internal dependencies
- */
-import map from "lodash/map"
-import googleFonts from "./fonts"
-import Select from "react-select"
+ import { SelectControl } from '@wordpress/components';
+ import googleFonts from "./fonts"
+ import Select from "react-select"
 
 function FontFamilyControl( props ) {
 

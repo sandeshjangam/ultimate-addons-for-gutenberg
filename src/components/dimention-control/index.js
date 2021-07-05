@@ -205,7 +205,7 @@
 				{ label && <p className={ 'uagb-spacing-control__label' }>{ label }</p> }
 				<div className="uagb-spacing-control__actions">
 					<ButtonGroup className="uagb-spacing-control__units" aria-label={ __( 'Select Units', 'ultimate-addons-for-gutenberg' ) }>
-					{ deviceType == 'Desktop' && onUnitSizeClick( props.sizeTypes ) }
+					{ deviceType == 'Desktop' && onUnitSizeClick( unitSizes ) }
 					{ deviceType == 'Mobile' && onUnitSizeClick( mobileUnitSizes ) }
 					{ deviceType == 'Tablet' && onUnitSizeClick( tabletUnitSizes ) }
 					</ButtonGroup>
