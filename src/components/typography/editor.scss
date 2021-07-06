@@ -42,7 +42,8 @@ label.uag-typography-font-family-label {
 
 label.uag-typography-font-family-weight-label {
     margin-right:84px
-}
+}7
+
 
 .uag-typography-font-family-options .components-base-control__field {
     width: 100px;
@@ -91,3 +92,22 @@ label.uag-typography-font-family-subset-label {
 button.components-button.uagb-spacing-reset.is-secondary.is-small span{
      font-size:13px;
 }
+.uagb-spacing-control__mobile-controls-item--default,
+.uagb-spacing-control__mobile-controls-item--desktop,
+.uagb-spacing-control__mobile-controls-item--tablet,
+.uagb-spacing-control__mobile-controls-item--mobile {
+    display: none;
+}
+
+.uagb-spacing-control__mobile-controls-item--default.device-default {
+    display: block; 
+ }
+.uagb-spacing-control__mobile-controls-item--desktop.device-desktop {
+   display: block; 
+}
+.uagb-spacing-control__mobile-controls-item--tablet.device-tablet {
+    display: block; 
+ }
+ .uagb-spacing-control__mobile-controls-item--mobile.device-mobile {
+    display: block; 
+ }
