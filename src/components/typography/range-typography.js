@@ -9,8 +9,8 @@
  import Range from '../../components/range/Range.js';
  
  const RangeTypographyControl = props =>  {
-console.log(props);
-	const [ device, setDevice ] = useState( 'default' );
+
+	const [ device, setDevice ] = useState( 'desktop' );
 
 	let deviceClass = 'device-' + device;
 
@@ -23,26 +23,28 @@ console.log(props);
     };
     
 	const onSelectDevice = ( tabName ) => {
-
+		
 		let selected = 'desktop';
 		switch ( tabName ) {
 			case 'desktop':
+				selected = 'tablet';
+				customSetPreviewDeviceType( 'Tablet' )
+				break;
 			case 'default':
 				selected = 'tablet';
-				customSetPreviewDeviceType( 'Desktop' )
+				customSetPreviewDeviceType( 'Tablet' )
 				break;
 			case 'tablet':
 				selected = 'mobile';
-				customSetPreviewDeviceType( 'Tablet' )
+				customSetPreviewDeviceType( 'Mobile' )
 				break;
 			case 'mobile':
 				selected = 'desktop';
-				customSetPreviewDeviceType( 'Mobile' )
+				customSetPreviewDeviceType( 'Desktop' )
 				break;
 			default:
-				break;
+				break;	
 		}
-		
 		setDevice( selected );
 	};
 	
@@ -55,30 +57,32 @@ console.log(props);
 				onSelect={ onSelectDevice }
 				tabs={ [
 					{
-						name: 'default',
+						name: "default",
 						title: <Dashicon icon="desktop" />,
-						className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--default uagb-spacing-control__mobile-controls-item-spacing--default ${deviceClass}`,
+						className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--desktop uagb-spacing-control__mobile-controls-item-spacing--desktop ${deviceClass}`,
 					},
 					{
 						name: "desktop",
-						title: <Dashicon icon="smartphone" />,
+						title: <Dashicon icon="desktop" />,
 						className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--desktop uagb-spacing-control__mobile-controls-item-spacing--desktop ${deviceClass}`,
 					},
 					{
 						name: "tablet",
-						title: <Dashicon icon="desktop" />,
+						title: <Dashicon icon="tablet" />,
 						className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--tablet uagb-spacing-control__mobile-controls-item-spacing--tablet ${deviceClass}`,
 					},
 					{
 						name: "mobile",
-						title: <Dashicon icon="tablet" />,
+						title: <Dashicon icon="smartphone" />,
 						className: `uagb-spacing-control__mobile-controls-item uagb-spacing-control__mobile-controls-item--spacing components-button is-button is-default is-secondary uagb-spacing-control__mobile-controls-item--mobile uagb-spacing-control__mobile-controls-item-spacing--mobile ${deviceClass}`,
 					},
 				] }
 			>
 			{ ( tab ) => {
+				
 				let tabout
-				if ( "mobile" === tab.name ) {
+				if ( "tablet" === tab.name ) {
+
 					tabout = (
 						<div className="uagb-spacing-control__inputs">
 							<Range 
@@ -92,7 +96,8 @@ console.log(props);
 							/>
 						</div>
 					)
-				} else if ( "tablet" === tab.name ) {
+				} else if ( "desktop" === tab.name ) {
+
 					tabout = (
 						<div className="uagb-spacing-control__inputs">
 							<Range 
@@ -106,13 +111,28 @@ console.log(props);
 							/>
 						</div>
 					)
+				} else if ( "mobile" === tab.name ) {
+					
+					tabout = (
+						<div className="uagb-spacing-control__inputs">
+							<Range 
+								setAttributes = { props.setAttributes }
+								label={ __( props.sizeText ) }
+								value={ props.size.value }
+								onChange={ ( value ) => props.setAttributes( { [props.sizeLabel]: value } ) }
+								min={ 0 }
+								max={ 100 }
+								unit = { props.fontSizeType }
+							/>
+						</div>
+					)
 				} else {
 					tabout = (
 						<div className="uagb-spacing-control__inputs">
 							<Range 
 								setAttributes = { props.setAttributes }
 								label={ __( props.sizeText ) }
-								value={ props.size.value || "" }
+								value={ props.size.value }
 								onChange={ ( value ) => props.setAttributes( { [props.sizeLabel]: value } ) }
 								min={ 0 }
 								max={ 100 }
