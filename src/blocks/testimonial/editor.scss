@@ -7,6 +7,7 @@
 
 .gutenberg-editor-page #wpwrap .uagb-testomonial__outer-wrap ul.slick-dots{
     margin: 0 auto;
+    padding:0px;
 }
 #wpwrap .edit-post-visual-editor button.slick-arrow{
     line-height:1em;
@@ -23,4 +24,11 @@
 }
 #wpwrap .edit-post-visual-editor ul.slick-dots {
     margin: 0;
+}
+
+/* carousel slick height in editor */
+.editor-styles-wrapper {
+	.uagb-slick-carousel .slick-slide{
+		height:unset;
+	}
 }
