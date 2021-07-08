@@ -123,6 +123,9 @@ function contentTimelineStyle( props ) {
            " .uagb-timeline__date-inner" : {
                "text-align": align,
            },
+        ' .uagb-timeline__left-block .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
+            'border-right-color' : backgroundColor,
+        },
         ' .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
             'border-left-color' : backgroundColor,
         },
