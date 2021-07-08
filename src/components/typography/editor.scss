@@ -40,9 +40,13 @@ label.uag-typography-font-family-label {
     margin-right:20px
 }
 
+.components-base-control__field .components-input-control__container.css-bmkl3j-Container {
+    width: 93%;
+}
+
 label.uag-typography-font-family-weight-label {
     margin-right:84px
-}7
+}
 
 
 .uag-typography-font-family-options .components-base-control__field {
@@ -75,6 +79,9 @@ label.uag-typography-font-family-subset-label {
             width: 15px;
             height: 15px;
             font-size: 15px;
+        }
+        .components-base-control {
+            margin-bottom:0px;
         }
     }
     .uag-typography-options .uagb-spacing-control__inputs{
