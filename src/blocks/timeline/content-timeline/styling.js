@@ -126,18 +126,6 @@ function contentTimelineStyle( props ) {
         ' .uagb-timeline__left-block .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
             'border-right-color' : backgroundColor,
         },
-        ' .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
-            'border-left-color' : backgroundColor,
-        },
-        ' .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
-            'border-right-color' : backgroundColor,
-        },
-        ' .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
-            'border-left-color' : backgroundColor,
-        },
-        ' .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
-            'border-right-color' : backgroundColor,
-        },
         ' .uagb-timeline__center-block .uagb-timeline__day-right .uagb-timeline__arrow:after'  : {
             'border-left-color' : backgroundColor,
         },
